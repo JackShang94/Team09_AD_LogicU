@@ -10,6 +10,6 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class SS_ViewAdjustmentDetail {
+    public partial class SS_ViewAdjustment {
     }
 }

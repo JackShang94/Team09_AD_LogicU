@@ -161,6 +161,7 @@
     <Content Include="Pages\SM_SearchItem.aspx" />
     <Content Include="Pages\SM_SearchSupplier.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
+    <Content Include="Pages\SS_ViewAdjustment.aspx" />
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
     <Content Include="Pages\welcome.Master" />
@@ -538,6 +539,13 @@
     </Compile>
     <Compile Include="Pages\SS_AssignClerk.aspx.designer.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SS_ViewAdjustment.aspx.cs">
+      <DependentUpon>SS_ViewAdjustment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_ViewAdjustment.aspx.designer.cs">
+      <DependentUpon>SS_ViewAdjustment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SS_ViewAdjustmentDetail.aspx.cs">
       <DependentUpon>SS_ViewAdjustmentDetail.aspx</DependentUpon>
