@@ -18,20 +18,25 @@ namespace Team09LogicU.App_Code.DAO
         //    disbCartList = new List<DisbursementCart>();
         //}
         
-        public void createDisbursement(string reqID,string departmentID, string storeStaffID)
+        public void createDisbursement(string departmentID, string storeStaffID)
         {
             DateTime today = DateTime.Today;
             Disbursement dl = new Disbursement();
             dl.deptID = departmentID;
             dl.storeStaffID = storeStaffID;
             dl.disburseDate = (today.DayOfWeek == DayOfWeek.Sunday ? today.AddDays(1) : today.AddDays(7 - (int)today.DayOfWeek + 1));
+            //??????
             dl.status = "Pending";
             model.Disbursements.Add(dl);
-            //Use requisition to get the ID then foreach itms
+            //1.Firstly need to get the current requisitionID, then update status to "Process"
             //.
             //.
             //.
             //
+            //2.If GetrequisitionStatus==process&&Date==This week then generate disbursement items&&DeptID
+            //.
+            //.
+            //.
         }
         public Disbursement findHistoryDisbursementByDeptId(string deptId, DateTime historyDate)
         {
@@ -80,134 +85,7 @@ namespace Team09LogicU.App_Code.DAO
             return result;
         }*/
 
-        //public void CreateDisbursement(string itemID, int qn, int ac)
-        //{
-        //    int QoH = new Model1().Items.Where(x => x.itemId == itemID).Select(x => x.quantityOnHand).First();
-        //    if (Math.Abs(ac) <= QoH)
-        //    {
-        //        //List<DisbursementListCart> disbCartList = new List<DisbursementListCart>();
-        //        RequisitionDAO req = new RequisitionDAO();
-        //        List<string> reqIds = req.GetRequisitionsIDs();
-        //        List<string> deptIds = context.RequisitionItems.Where(x => reqIds.Contains(x.Requisition.requisitionId) && x.itemId == itemID).Select(x => x.Requisition.departmentId).ToList();
-        //        foreach (string dep in deptIds)
-        //        {
-        //            DisbursementListCart disb = new DisbursementListCart();
-        //            disb.ItemID = itemID;
-        //            disb.DeptId = dep;
-        //            List<int> SumQN = context.RequisitionItems.Where(x => reqIds.Contains(x.Requisition.requisitionId) && x.Requisition.departmentId == dep && x.itemId == itemID).Select(x => (x.quantity)).ToList();
-        //            disb.QuantityNeeded = 0;
-        //            foreach (int i in SumQN)
-        //            {
-        //                disb.QuantityNeeded = disb.QuantityNeeded + i;
-        //            }
-        //            if (qn == ac)
-        //            {
-        //                disb.QuantityRetrieved = disb.QuantityNeeded;
-        //            }
-        //            else if (disb.QuantityNeeded <= ac)
-        //            {
-        //                disb.QuantityRetrieved = disb.QuantityNeeded;
-        //                ac = ac - disb.QuantityNeeded;
-        //            }
-        //            else if (disb.QuantityNeeded > ac)
-        //            {
-        //                disb.QuantityRetrieved = ac;
-        //                ac = 0;
-        //            }
-        //            else
-        //            {
-        //                disb.QuantityRetrieved = 0;
-        //            }
-        //            disbCartList.Add(disb);
-        //        }
-        //        UpdateDisbursementCart(disbCartList);
-        //    }
-        //    else
-        //    {
-        //        throw new QuantityExceeded_thanOnHandException("Retrieved quantity is greater then on hand quantity (" + QoH + ") for the Item " + itemID);
-        //    }
-
-        //}
-
-        //public void UpdateDisbursementCart(List<DisbursementListCart> disbCartList)
-        //{
-        //    foreach (DisbursementListCart d in disbCart)
-        //    {
-        //        foreach (DisbursementListCart disb in disbCartList)
-        //        {
-        //            if ((d.DeptId == disb.DeptId) && (d.ItemID == disb.ItemID))
-        //            {
-        //                disb.QuantityRetrieved = d.QuantityRetrieved;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //public void GenerateDisbursement()
-        //{
-        //    HashSet<string> depID = new HashSet<string>();
-        //    foreach (DisbursementListCart d in disbCartList)
-        //    {
-        //        if (!depID.Contains(d.DeptId))
-        //        {
-        //            depID.Add(d.DeptId);
-        //        }
-        //    }
-        //    foreach (string dep in depID)
-        //    {
-        //        DateTime today = DateTime.Today;
-        //        DateTime disburseDt = today.DayOfWeek == DayOfWeek.Sunday ? today.AddDays(1) : today.AddDays(7 - (int)today.DayOfWeek + 1);
-        //        try
-        //        {
-        //            DisbursementList oldDisb = context.DisbursementLists.Where(x => x.departmentId == dep && (x.disburseDate.Year) == disburseDt.Year && (x.disburseDate.Month) == disburseDt.Month && (x.disburseDate.Day) == disburseDt.Day && x.status == "Ready for Delivery").First();
-        //            List<DisbursementItem> oldDisbItems = oldDisb.DisbursementItems.ToList();
-        //            foreach (DisbursementListCart d in disbCartList)
-        //            {
-        //                int flagCount = 0;
-        //                foreach (DisbursementItem dItem in oldDisbItems)
-        //                {
-        //                    if (d.ItemID == dItem.itemId && d.DeptId == dItem.DisbursementList.departmentId)
-        //                    {
-        //                        dItem.requestQuantity = dItem.actualQuantity + d.QuantityNeeded;
-        //                        dItem.actualQuantity = dItem.actualQuantity + d.QuantityRetrieved;
-        //                        flagCount = 1;
-        //                    }
-        //                }
-        //                if (flagCount == 0)
-        //                {
-        //                    DisbursementItem dItem = new DisbursementItem();
-        //                    dItem.itemId = d.ItemID;
-        //                    dItem.requestQuantity = d.QuantityNeeded;
-        //                    dItem.actualQuantity = d.QuantityRetrieved;
-        //                    oldDisbItems.Add(dItem);
-        //                }
-        //            }
-        //            oldDisb.DisbursementItems = oldDisbItems;
-        //            context.SaveChanges();
-        //        }
-        //        catch (Exception exep)
-        //        {
-        //            DisbursementList disb = new DisbursementList();
-
-        //            disb.departmentId = dep;
-        //            disb.disburseDate = disburseDt;
-        //            disb.status = "Ready for Delivery";
-        //            foreach (DisbursementListCart d in disbCartList)
-        //            {
-        //                if (d.DeptId == dep)
-        //                {
-        //                    DisbursementItem dItem = new DisbursementItem();
-        //                    dItem.itemId = d.ItemID;
-        //                    dItem.requestQuantity = d.QuantityNeeded;
-        //                    dItem.actualQuantity = d.QuantityRetrieved;
-        //                    disb.DisbursementItems.Add(dItem);
-        //                }
-        //            }
-        //            context.DisbursementLists.Add(disb);
-        //            context.SaveChanges();
-        //        }
-        //    }
-        //}
+        
 
     }
 }
