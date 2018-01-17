@@ -148,6 +148,12 @@
     </Content>
     <Content Include="Pages\DepartmentHead.Master" />
     <Content Include="Pages\Employee.Master" />
+    <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
+    <Content Include="Pages\SC_Inv_Reorder.aspx" />
+    <Content Include="Pages\SC_Inv_StockManagement.aspx" />
+    <Content Include="Pages\SC_Notification.aspx" />
+    <Content Include="Pages\SC_O_SupplierList.aspx" />
+    <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
     <Content Include="Pages\welcome.Master" />
     <Content Include="fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
@@ -410,6 +416,48 @@
     </Compile>
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_AdjustmentVoucher.aspx.cs">
+      <DependentUpon>SC_Inv_AdjustmentVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_AdjustmentVoucher.aspx.designer.cs">
+      <DependentUpon>SC_Inv_AdjustmentVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_Reorder.aspx.cs">
+      <DependentUpon>SC_Inv_Reorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_Reorder.aspx.designer.cs">
+      <DependentUpon>SC_Inv_Reorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_StockManagement.aspx.cs">
+      <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_StockManagement.aspx.designer.cs">
+      <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_Notification.aspx.cs">
+      <DependentUpon>SC_Notification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_Notification.aspx.designer.cs">
+      <DependentUpon>SC_Notification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_O_SupplierList.aspx.cs">
+      <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_O_SupplierList.aspx.designer.cs">
+      <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.cs">
+      <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.designer.cs">
+      <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
