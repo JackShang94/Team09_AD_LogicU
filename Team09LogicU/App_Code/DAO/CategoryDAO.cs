@@ -15,5 +15,15 @@ namespace Team09LogicU.App_Code.DAO
             return context.Categories.ToList();
         }
 
+        public void addCategory(string categoryId, string description)
+        {
+            Category category = new Category();
+
+            category.categoryID = categoryId;
+            category.description = description;
+
+            context.Categories.Add(category);
+            context.SaveChanges();
+        }
     }
 }
