@@ -84,6 +84,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -132,7 +133,9 @@
     <Content Include="js\light-bootstrap-dashboard.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\sweetalert2.js" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -210,13 +213,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\DAO\CollectionPointDAO.cs" />
-    <Content Include="App_Code\DAO\DelegateDAO.cs" />
-    <Content Include="App_Code\DAO\ItemDAO.cs" />
-    <Content Include="App_Code\DAO\RequisitionDAO.cs" />
-    <Content Include="App_Code\DAO\RequisitionItemDAO.cs" />
-    <Content Include="App_Code\UtilClass\DBEntities.cs" />
-    <Content Include="App_Code\UtilClass\Encrypt.cs" />
+    <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
+    <Compile Include="App_Code\DAO\DelegateDAO.cs" />
+    <Compile Include="App_Code\DAO\ItemDAO.cs" />
+    <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
+    <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
+    <Compile Include="App_Code\UtilClass\DBEntities.cs" />
+    <Compile Include="App_Code\UtilClass\Encrypt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
