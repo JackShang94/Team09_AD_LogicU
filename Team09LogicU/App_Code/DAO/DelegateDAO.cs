@@ -3,42 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Team09LogicU.Models;
+
 namespace Team09LogicU.App_Code.DAO
 {
     public class DelegateDAO
     {
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
 
-        //add new delegate entry to DB
+        //disable the authority of the absent head 
+        public void disableHead(string headId)
+        {
+            DeptStaff head = context.DeptStaffs.Where(x => x.staffID == headId).First();
+            head.role = "out_of_office_head";
+            context.SaveChanges();
+        }
+        //new delegate
         public void delegateToStaff(string newHeadId, DateTime startDate, DateTime endDate)
         {
-            
-            //Delegate d = new Delegate();
-
-            ////create delegate first
-            //d.staffID = newHeadId;
-            //d.startDate = startDate;
-            //d.endDate = endDate;
-            //context.Delegates.Add(d);
-            //context.SaveChanges();
+            Models.Delegate d = new Models.Delegate();
+            DeptStaff staff = context.DeptStaffs.Where(x => x.staffID == newHeadId).First();
+            //create delegate first
+            d.staffID = newHeadId;
+            d.startDate = startDate;
+            d.endDate = endDate;
+            context.Delegates.Add(d);
+            //change the role of the employee to head
+            staff.role = "head";
+            context.SaveChanges();
 
         }
-
-        //set the most near active delegate to the employee
-        public void terminateDelegate(string name)
+        //search for all delegates for this department(for viewing delegate history)
+        public List<Models.Delegate> findDelegatesByDepartment(string departmentID)
         {
-            //DeptStaff delegateStaff = context.DeptStaffs.Where(x => x.name == name).First();
-            //try
-            //{
-            //    List<Delegate> delegates = getActiveDelegatesForEmp(staff.staffId);
-            //    staff.delegateId = delegates.First().delegateId;
-            //    context.SaveChanges();
-            //}
-            //catch (InvalidOperationException)
-            //{
-            //    staff.delegateId = null;
-            //    context.SaveChanges();
-            //}
+            string staffID = context.DeptStaffs.Where(x => x.deptID == departmentID).First().staffID;
+            List<Models.Delegate> delegateList = context.Delegates.ToList<Models.Delegate>();
+            return delegateList;
+        }
+
+
+        public bool isActiveDelegate(int delegateID)
+        {
+            Models.Delegate d = context.Delegates.Where(x => x.delegateID == delegateID).First();
+            DateTime now = DateTime.Today;
+            if (d.endDate >= now)
+            { return true; }
+            else
+                return false;
+        }
+        //terminate delegate
+        public void terminateDelegate(int delegateID)
+        {
+            Models.Delegate d = context.Delegates.Where(x => x.delegateID == delegateID).First();
+            try
+            {
+                d.endDate = DateTime.Today;
+                context.SaveChanges();
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
+
+
 
         }
 
@@ -49,27 +75,27 @@ namespace Team09LogicU.App_Code.DAO
 
         //public List<DelegateCart> getActiveDelegateCarts(string deptId)
         //{
-            //DateTime now = DateTime.Today;
-            //List<LogicUTrial.Delegate> delegates = new List<LogicUTrial.Delegate>();
-            //delegates= context.Delegates.Where(x => x.endDate >= now).ToList();
-            //List<DelegateCart> dcs = new List<DelegateCart>();
-            //for(int i=delegates.Count-1;i>=0;i--)
-            //{
-            //    Staff s = context.Staffs.Find(delegates[i].staffId);
-            //    if (s.departmentId != deptId)
-            //    {
-            //        delegates.RemoveAt(i);
-            //    }
-            //    else
-            //    {
-            //        DelegateCart dc = new DelegateCart();
-            //        dc.delegateId = (Int32)s.delegateId;
-            //        dc.staffName = s.name;
-            //        dc.startDate = delegates[i].startDate;
-            //        dc.endDate = delegates[i].endDate;
-            //        dcs.Add(dc);
-            //    }
-            //}
+        //DateTime now = DateTime.Today;
+        //List<LogicUTrial.Delegate> delegates = new List<LogicUTrial.Delegate>();
+        //delegates= context.Delegates.Where(x => x.endDate >= now).ToList();
+        //List<DelegateCart> dcs = new List<DelegateCart>();
+        //for(int i=delegates.Count-1;i>=0;i--)
+        //{
+        //    Staff s = context.Staffs.Find(delegates[i].staffId);
+        //    if (s.departmentId != deptId)
+        //    {
+        //        delegates.RemoveAt(i);
+        //    }
+        //    else
+        //    {
+        //        DelegateCart dc = new DelegateCart();
+        //        dc.delegateId = (Int32)s.delegateId;
+        //        dc.staffName = s.name;
+        //        dc.startDate = delegates[i].startDate;
+        //        dc.endDate = delegates[i].endDate;
+        //        dcs.Add(dc);
+        //    }
+        //}
         //    List<DelegateCart> dcs = new List<DelegateCart>();
         //    List<LogicUTrial.Delegate> ds = new List<LogicUTrial.Delegate>();
         //    ds = getActiveDelegates(deptId);
