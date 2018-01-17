@@ -210,13 +210,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\DAO\CollectionPointDAO.cs" />
-    <Content Include="App_Code\DAO\DelegateDAO.cs" />
-    <Content Include="App_Code\DAO\ItemDAO.cs" />
-    <Content Include="App_Code\DAO\RequisitionDAO.cs" />
-    <Content Include="App_Code\DAO\RequisitionItemDAO.cs" />
-    <Content Include="App_Code\UtilClass\DBEntities.cs" />
-    <Content Include="App_Code\UtilClass\Encrypt.cs" />
+    <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
+    <Compile Include="App_Code\DAO\DelegateDAO.cs" />
+    <Compile Include="App_Code\DAO\ItemDAO.cs" />
+    <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
+    <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
+    <Compile Include="App_Code\UtilClass\DBEntities.cs" />
+    <Compile Include="App_Code\UtilClass\Encrypt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
