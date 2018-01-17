@@ -36,7 +36,7 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
-        public  void updateSupplier(string supplierCode, string supplierName, string gstRegistrationNo, string address, string fax, string phone, string contactName)
+        public  void editSupplier(string supplierCode, string supplierName, string gstRegistrationNo, string address, string fax, string phone, string contactName)
         {
             Supplier sl = context.Suppliers.Where(x => x.supplierID == supplierCode).First();
             sl.supplierID = supplierCode;
