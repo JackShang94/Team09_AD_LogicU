@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using Team09LogicU;
+using Team09LogicU.Models;
 namespace Team09LogicU.App_Code.UtilClass
 {
     public class DBEntities
