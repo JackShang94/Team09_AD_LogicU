@@ -17,7 +17,7 @@ namespace Team09LogicU.App_Code.DAO
         //    disbCart = new List<DisbursementCart>();
         //    disbCartList = new List<DisbursementCart>();
         //}
-        //Create disbursement by 
+        
         public void createDisbursement(string reqID,string departmentID, string storeStaffID)
         {
             DateTime today = DateTime.Today;
@@ -27,6 +27,11 @@ namespace Team09LogicU.App_Code.DAO
             dl.disburseDate = (today.DayOfWeek == DayOfWeek.Sunday ? today.AddDays(1) : today.AddDays(7 - (int)today.DayOfWeek + 1));
             dl.status = "Pending";
             model.Disbursements.Add(dl);
+            //Use requisition to get the ID then foreach itms
+            //.
+            //.
+            //.
+            //
         }
         public Disbursement findHistoryDisbursementByDeptId(string deptId, DateTime historyDate)
         {
