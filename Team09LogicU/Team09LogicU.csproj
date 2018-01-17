@@ -229,6 +229,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\DAO\CategoryDAO.cs" />
     <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
     <Compile Include="App_Code\DAO\DelegateDAO.cs" />
     <Compile Include="App_Code\DAO\DisbursementItemDAO.cs" />
@@ -238,6 +239,8 @@
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
+    <Content Include="App_Code\DAO\SupplierDAO.cs" />
+    <Content Include="App_Code\DAO\StoreStaffDAO.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\Encrypt.cs" />
     <Compile Include="Global.asax.cs">
