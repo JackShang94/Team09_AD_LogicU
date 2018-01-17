@@ -146,16 +146,16 @@
     <Content Include="Models\SA45_Team09_LogicUEntities.edmx.diagram">
       <DependentUpon>SA45_Team09_LogicUEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Pages\DepartmentHead.Master" />
-    <Content Include="Pages\Employee.Master" />
-    <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
-    <Content Include="Pages\SC_Inv_Reorder.aspx" />
-    <Content Include="Pages\SC_Inv_StockManagement.aspx" />
-    <Content Include="Pages\SC_Notification.aspx" />
-    <Content Include="Pages\SC_O_SupplierList.aspx" />
-    <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
-    <Content Include="Pages\StoreClerk.Master" />
-    <Content Include="Pages\welcome.Master" />
+    <Content Include="pages\DepartmentHead.Master" />
+    <Content Include="pages\Employee.Master" />
+    <Content Include="pages\SC_Inv_AdjustmentVoucher.aspx" />
+    <Content Include="pages\SC_Inv_Reorder.aspx" />
+    <Content Include="pages\SC_Inv_StockManagement.aspx" />
+    <Content Include="pages\SC_Notification.aspx" />
+    <Content Include="pages\SC_O_SupplierList.aspx" />
+    <Content Include="pages\SC_O_TrendAnalysisReport.aspx" />
+    <Content Include="pages\StoreClerk.Master" />
+    <Content Include="pages\welcome.Master" />
     <Content Include="fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -184,21 +184,21 @@
       <DependentUpon>SA45_Team09_LogicUEntities.edmx</DependentUpon>
       <LastGenOutput>SA45_Team09_LogicUEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="Pages\DH_ChangeDepartmentRepresentative.aspx" />
-    <Content Include="Pages\DH_DelegateHeadRole.aspx" />
-    <Content Include="Pages\DH_History.aspx" />
-    <Content Include="Pages\DH_Notification.aspx" />
-    <Content Include="Pages\DH_ViewPendingRequisition.aspx" />
-    <Content Include="Pages\Emp_MyRequisition.aspx" />
-    <Content Include="Pages\Emp_Notification.aspx" />
-    <Content Include="Pages\Emp_Representative.aspx" />
-    <Content Include="Pages\Emp_Rep_RequisitionHistory.aspx" />
-    <Content Include="Pages\Emp_Rep_SelectCollection.aspx" />
-    <Content Include="Pages\Emp_SubmitRequisition.aspx" />
-    <Content Include="Pages\login.aspx" />
-    <Content Include="Pages\SC_RO_DisbursementList.aspx" />
-    <Content Include="Pages\SC_RO_OutstandingRequisition.aspx" />
-    <Content Include="Pages\SC_RO_RetrievalForms.aspx" />
+    <Content Include="pages\DH_ChangeDepartmentRepresentative.aspx" />
+    <Content Include="pages\DH_DelegateHeadRole.aspx" />
+    <Content Include="pages\DH_History.aspx" />
+    <Content Include="pages\DH_Notification.aspx" />
+    <Content Include="pages\DH_ViewPendingRequisition.aspx" />
+    <Content Include="pages\Emp_MyRequisition.aspx" />
+    <Content Include="pages\Emp_Notification.aspx" />
+    <Content Include="pages\Emp_Representative.aspx" />
+    <Content Include="pages\Emp_Rep_RequisitionHistory.aspx" />
+    <Content Include="pages\Emp_Rep_SelectCollection.aspx" />
+    <Content Include="pages\Emp_SubmitRequisition.aspx" />
+    <Content Include="pages\login.aspx" />
+    <Content Include="pages\SC_RO_DisbursementList.aspx" />
+    <Content Include="pages\SC_RO_OutstandingRequisition.aspx" />
+    <Content Include="pages\SC_RO_RetrievalForms.aspx" />
     <Content Include="picture\au.png" />
     <Content Include="picture\blog-1.jpg" />
     <Content Include="picture\blog-2.jpg" />
@@ -316,179 +316,179 @@
     <Compile Include="Models\SupplierItem.cs">
       <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DepartmentHead.Master.cs">
+    <Compile Include="pages\DepartmentHead.Master.cs">
       <DependentUpon>DepartmentHead.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DepartmentHead.Master.designer.cs">
+    <Compile Include="pages\DepartmentHead.Master.designer.cs">
       <DependentUpon>DepartmentHead.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_ChangeDepartmentRepresentative.aspx.cs">
+    <Compile Include="pages\DH_ChangeDepartmentRepresentative.aspx.cs">
       <DependentUpon>DH_ChangeDepartmentRepresentative.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_ChangeDepartmentRepresentative.aspx.designer.cs">
+    <Compile Include="pages\DH_ChangeDepartmentRepresentative.aspx.designer.cs">
       <DependentUpon>DH_ChangeDepartmentRepresentative.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_DelegateHeadRole.aspx.cs">
+    <Compile Include="pages\DH_DelegateHeadRole.aspx.cs">
       <DependentUpon>DH_DelegateHeadRole.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_DelegateHeadRole.aspx.designer.cs">
+    <Compile Include="pages\DH_DelegateHeadRole.aspx.designer.cs">
       <DependentUpon>DH_DelegateHeadRole.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_History.aspx.cs">
+    <Compile Include="pages\DH_History.aspx.cs">
       <DependentUpon>DH_History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_History.aspx.designer.cs">
+    <Compile Include="pages\DH_History.aspx.designer.cs">
       <DependentUpon>DH_History.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_Notification.aspx.cs">
+    <Compile Include="pages\DH_Notification.aspx.cs">
       <DependentUpon>DH_Notification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_Notification.aspx.designer.cs">
+    <Compile Include="pages\DH_Notification.aspx.designer.cs">
       <DependentUpon>DH_Notification.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_ViewPendingRequisition.aspx.cs">
+    <Compile Include="pages\DH_ViewPendingRequisition.aspx.cs">
       <DependentUpon>DH_ViewPendingRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_ViewPendingRequisition.aspx.designer.cs">
+    <Compile Include="pages\DH_ViewPendingRequisition.aspx.designer.cs">
       <DependentUpon>DH_ViewPendingRequisition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Employee.Master.cs">
+    <Compile Include="pages\Employee.Master.cs">
       <DependentUpon>Employee.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Employee.Master.designer.cs">
+    <Compile Include="pages\Employee.Master.designer.cs">
       <DependentUpon>Employee.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_MyRequisition.aspx.cs">
+    <Compile Include="pages\Emp_MyRequisition.aspx.cs">
       <DependentUpon>Emp_MyRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_MyRequisition.aspx.designer.cs">
+    <Compile Include="pages\Emp_MyRequisition.aspx.designer.cs">
       <DependentUpon>Emp_MyRequisition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Notification.aspx.cs">
+    <Compile Include="pages\Emp_Notification.aspx.cs">
       <DependentUpon>Emp_Notification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Notification.aspx.designer.cs">
+    <Compile Include="pages\Emp_Notification.aspx.designer.cs">
       <DependentUpon>Emp_Notification.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Representative.aspx.cs">
+    <Compile Include="pages\Emp_Representative.aspx.cs">
       <DependentUpon>Emp_Representative.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Representative.aspx.designer.cs">
+    <Compile Include="pages\Emp_Representative.aspx.designer.cs">
       <DependentUpon>Emp_Representative.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.cs">
+    <Compile Include="pages\Emp_Rep_RequisitionHistory.aspx.cs">
       <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.designer.cs">
+    <Compile Include="pages\Emp_Rep_RequisitionHistory.aspx.designer.cs">
       <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.cs">
+    <Compile Include="pages\Emp_Rep_SelectCollection.aspx.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.designer.cs">
+    <Compile Include="pages\Emp_Rep_SelectCollection.aspx.designer.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_SubmitRequisition.aspx.cs">
+    <Compile Include="pages\Emp_SubmitRequisition.aspx.cs">
       <DependentUpon>Emp_SubmitRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_SubmitRequisition.aspx.designer.cs">
+    <Compile Include="pages\Emp_SubmitRequisition.aspx.designer.cs">
       <DependentUpon>Emp_SubmitRequisition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\login.aspx.cs">
+    <Compile Include="pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\login.aspx.designer.cs">
+    <Compile Include="pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_Inv_AdjustmentVoucher.aspx.cs">
+    <Compile Include="pages\SC_Inv_AdjustmentVoucher.aspx.cs">
       <DependentUpon>SC_Inv_AdjustmentVoucher.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_Inv_AdjustmentVoucher.aspx.designer.cs">
+    <Compile Include="pages\SC_Inv_AdjustmentVoucher.aspx.designer.cs">
       <DependentUpon>SC_Inv_AdjustmentVoucher.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_Inv_Reorder.aspx.cs">
+    <Compile Include="pages\SC_Inv_Reorder.aspx.cs">
       <DependentUpon>SC_Inv_Reorder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_Inv_Reorder.aspx.designer.cs">
+    <Compile Include="pages\SC_Inv_Reorder.aspx.designer.cs">
       <DependentUpon>SC_Inv_Reorder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_Inv_StockManagement.aspx.cs">
+    <Compile Include="pages\SC_Inv_StockManagement.aspx.cs">
       <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_Inv_StockManagement.aspx.designer.cs">
+    <Compile Include="pages\SC_Inv_StockManagement.aspx.designer.cs">
       <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_Notification.aspx.cs">
+    <Compile Include="pages\SC_Notification.aspx.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_Notification.aspx.designer.cs">
+    <Compile Include="pages\SC_Notification.aspx.designer.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_O_SupplierList.aspx.cs">
+    <Compile Include="pages\SC_O_SupplierList.aspx.cs">
       <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_O_SupplierList.aspx.designer.cs">
+    <Compile Include="pages\SC_O_SupplierList.aspx.designer.cs">
       <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.cs">
+    <Compile Include="pages\SC_O_TrendAnalysisReport.aspx.cs">
       <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.designer.cs">
+    <Compile Include="pages\SC_O_TrendAnalysisReport.aspx.designer.cs">
       <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_RO_DisbursementList.aspx.cs">
+    <Compile Include="pages\SC_RO_DisbursementList.aspx.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_RO_DisbursementList.aspx.designer.cs">
+    <Compile Include="pages\SC_RO_DisbursementList.aspx.designer.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_RO_OutstandingRequisition.aspx.cs">
+    <Compile Include="pages\SC_RO_OutstandingRequisition.aspx.cs">
       <DependentUpon>SC_RO_OutstandingRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_RO_OutstandingRequisition.aspx.designer.cs">
+    <Compile Include="pages\SC_RO_OutstandingRequisition.aspx.designer.cs">
       <DependentUpon>SC_RO_OutstandingRequisition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_RO_RetrievalForms.aspx.cs">
+    <Compile Include="pages\SC_RO_RetrievalForms.aspx.cs">
       <DependentUpon>SC_RO_RetrievalForms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_RO_RetrievalForms.aspx.designer.cs">
+    <Compile Include="pages\SC_RO_RetrievalForms.aspx.designer.cs">
       <DependentUpon>SC_RO_RetrievalForms.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StoreClerk.Master.cs">
+    <Compile Include="pages\StoreClerk.Master.cs">
       <DependentUpon>StoreClerk.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\StoreClerk.Master.designer.cs">
+    <Compile Include="pages\StoreClerk.Master.designer.cs">
       <DependentUpon>StoreClerk.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\welcome.Master.cs">
+    <Compile Include="pages\welcome.Master.cs">
       <DependentUpon>welcome.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\welcome.Master.designer.cs">
+    <Compile Include="pages\welcome.Master.designer.cs">
       <DependentUpon>welcome.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
