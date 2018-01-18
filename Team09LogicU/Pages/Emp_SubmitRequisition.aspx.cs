@@ -12,8 +12,8 @@ namespace Team09LogicU.pages
 {
     public partial class Emp_SubmitRequisition : System.Web.UI.Page
     {
-        private List<cart> lcart;
-        private List<Item> lcatalogue;
+        public List<cart> lcart;
+        public List<Item> lcatalogue;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!Page.IsPostBack)
@@ -31,17 +31,18 @@ namespace Team09LogicU.pages
                     }
                 }
             this.lcart = lc;
-
+            ItemDAO idao = new ItemDAO();
+            this.lcatalogue = idao.getItemList();
                 //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
                 //cartRepeater.DataSource = lc;
                 //cartRepeater.DataBind();
             
             //}
         /******************************Loading Catalogue List********************************/
-         ItemDAO idao = new ItemDAO();
-            //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
-            catalogueRepeater.DataSource = idao.getItemList();
-            catalogueRepeater.DataBind();
+         
+         //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
+         //   catalogueRepeater.DataSource = idao.getItemList();
+         //   catalogueRepeater.DataBind();
 
             
             
@@ -63,7 +64,7 @@ namespace Team09LogicU.pages
 
 
         /****************************Search Button****************************/
-        protected void item_searchBtn_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             ItemDAO id = new ItemDAO();
             string sText = item_searchText.Text.ToString();
