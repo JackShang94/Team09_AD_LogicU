@@ -13,6 +13,24 @@ namespace Team09LogicU.pages {
     public partial class DH_DelegateHeadRole {
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// delegateStf_label control.
         /// </summary>
         /// <remarks>
@@ -31,22 +49,22 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.DropDownList employee_dropList;
         
         /// <summary>
-        /// startDate_textBox control.
+        /// textBox_startDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox startDate_textBox;
+        protected global::System.Web.UI.WebControls.TextBox textBox_startDate;
         
         /// <summary>
-        /// endDate_textBox control.
+        /// textBox_endDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox endDate_textBox;
+        protected global::System.Web.UI.WebControls.TextBox textBox_endDate;
         
         /// <summary>
         /// submit_button control.
@@ -67,13 +85,13 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label delegateStatus_Label;
         
         /// <summary>
-        /// delegateHistory_ListBox control.
+        /// ListBox_delegateHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox delegateHistory_ListBox;
+        protected global::System.Web.UI.WebControls.ListBox ListBox_delegateHistory;
         
         /// <summary>
         /// terminate_button control.
@@ -83,5 +101,14 @@ namespace Team09LogicU.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button terminate_button;
+        
+        /// <summary>
+        /// label_terminateDlgt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_terminateDlgt;
     }
 }

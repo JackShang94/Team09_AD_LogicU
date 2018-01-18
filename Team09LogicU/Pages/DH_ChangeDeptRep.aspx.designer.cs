@@ -10,7 +10,7 @@
 namespace Team09LogicU.pages {
     
     
-    public partial class Emp_Rep_SelectCollection {
+    public partial class DH_ChangeDepartmentRepresentative {
         
         /// <summary>
         /// Label1 control.
@@ -22,13 +22,13 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lblCurrentCP control.
+        /// lblCurrentRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentCP;
+        protected global::System.Web.UI.WebControls.Label lblCurrentRep;
         
         /// <summary>
         /// Label3 control.
@@ -40,21 +40,21 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// ddlCP control.
+        /// ddlEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCP;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmp;
         
         /// <summary>
-        /// btnUpdateCP control.
+        /// btnUpdateRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateCP;
+        protected global::System.Web.UI.WebControls.Button btnUpdateRep;
     }
 }
