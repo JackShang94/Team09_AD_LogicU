@@ -148,6 +148,7 @@
     </Content>
     <Content Include="Pages\DepartmentHead.Master" />
     <Content Include="Pages\Employee.Master" />
+    <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_Reorder.aspx" />
     <Content Include="Pages\SC_Inv_StockManagement.aspx" />
@@ -421,6 +422,13 @@
     </Compile>
     <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.designer.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Emp_SR_CheckOut.aspx.cs">
+      <DependentUpon>Emp_SR_CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Emp_SR_CheckOut.aspx.designer.cs">
+      <DependentUpon>Emp_SR_CheckOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_SubmitRequisition.aspx.cs">
       <DependentUpon>Emp_SubmitRequisition.aspx</DependentUpon>
