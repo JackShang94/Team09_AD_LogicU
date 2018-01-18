@@ -13,7 +13,13 @@ namespace Team09LogicU.App_Code.DAO
         //find a staff by ID
         public DeptStaff findStaffByID(string staffId)
         {
-            return context.DeptStaffs.Where(x => x.staffID == staffId).First();
+            List<DeptStaff> staffList = context.DeptStaffs.Where(x => x.staffID == staffId).ToList();
+            DeptStaff staff = new DeptStaff();
+            if(staffList.Count()>0)
+            {
+                staff = staffList.First();
+            }
+            return staff;
         }
 
 

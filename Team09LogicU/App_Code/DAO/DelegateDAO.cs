@@ -24,21 +24,22 @@ namespace Team09LogicU.App_Code.DAO
         {
             Models.Delegate d = new Models.Delegate();
             DeptStaff staff = context.DeptStaffs.Where(x => x.staffID == newHeadId).First();
-            //create delegate first
+            //1.create delegate 
             d.staffID = newHeadId;
             d.startDate = startDate;
             d.endDate = endDate;
             context.Delegates.Add(d);
-            //change the role of the employee to head
+
+            //2.change the role of the employee to head
             staff.role = "delegateHead";
             context.SaveChanges();
+
 
         }
         //search for all delegates for this department(for viewing delegate history)
         public List<Models.Delegate> findDelegatesByDepartment(string departmentID)
         {
-            string staffID = context.DeptStaffs.Where(x => x.deptID == departmentID).First().staffID;
-            List<Models.Delegate> delegateList = context.Delegates.ToList<Models.Delegate>();
+            List<Models.Delegate> delegateList = context.Delegates.Where(x => x.DeptStaff.deptID == departmentID).ToList();
             return delegateList;
         }
 
@@ -55,18 +56,17 @@ namespace Team09LogicU.App_Code.DAO
         //terminate delegate
         public void terminateDelegate(int delegateID)
         {
+            //1.change the endDate
             Models.Delegate d = context.Delegates.Where(x => x.delegateID == delegateID).First();
-            try
-            {
-                d.endDate = DateTime.Today;
-                context.SaveChanges();
-            }
-            catch (InvalidOperationException)
-            {
+            d.endDate = DateTime.Today;
 
-            }
-
+            //2.change the role back("delegateHead" back to"emp","outOfOfficeHead" back to "head")
+            d.DeptStaff.role = "emp";
+            string hId = d.DeptStaff.Department.headStaffID;
+            DeptStaff head = context.DeptStaffs.Where(x => x.staffID == hId).First();
+            head.role = "head";
+            context.SaveChanges();
         }
-        
+
     }
 }
