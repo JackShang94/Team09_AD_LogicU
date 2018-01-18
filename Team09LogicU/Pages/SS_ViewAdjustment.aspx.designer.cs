@@ -11,5 +11,14 @@ namespace Team09LogicU.Pages {
     
     
     public partial class SS_ViewAdjustment {
+        
+        /// <summary>
+        /// Linkbutton_View control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Linkbutton_View;
     }
 }

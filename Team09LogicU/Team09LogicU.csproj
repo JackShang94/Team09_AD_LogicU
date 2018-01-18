@@ -158,6 +158,7 @@
     <Content Include="Pages\SM_AddItem.aspx" />
     <Content Include="Pages\SM_AddSupplier.aspx" />
     <Content Include="Pages\SM_ApproveAdjustment.aspx" />
+    <Content Include="Pages\SM_ApproveAdjustmentDetail.aspx" />
     <Content Include="Pages\SM_SearchItem.aspx" />
     <Content Include="Pages\SM_SearchSupplier.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
@@ -518,6 +519,13 @@
     </Compile>
     <Compile Include="Pages\SM_ApproveAdjustment.aspx.designer.cs">
       <DependentUpon>SM_ApproveAdjustment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SM_ApproveAdjustmentDetail.aspx.cs">
+      <DependentUpon>SM_ApproveAdjustmentDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_ApproveAdjustmentDetail.aspx.designer.cs">
+      <DependentUpon>SM_ApproveAdjustmentDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SM_SearchItem.aspx.cs">
       <DependentUpon>SM_SearchItem.aspx</DependentUpon>
