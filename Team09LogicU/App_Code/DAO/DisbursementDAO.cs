@@ -10,16 +10,6 @@ namespace Team09LogicU.App_Code.DAO
     public class DisbursementListDAO
     {
         SA45_Team09_LogicUEntities model = new DBEntities().getDBInstance();
-
-        //To clear the cart without deleting them.
-        //public static void CleanDispursementCart()
-        //{
-        //    disbCart = new List<DisbursementCart>();
-        //    disbCartList = new List<DisbursementCart>();
-        //}
-        // thisMonday = dayofweek == (int)DayOfWeek.Sunday ? today.AddDays(-6) : today.AddDays(-6 - dayofweek);
-        //return context.Requisitions.Where(x => x.requisitionDate >= lastThursday && x.requisitionDate < thisThursday && x.status == "Processed").OrderByDescending(x => x.requisitionDate).Select(x => x.requisitionId).ToList<string>();    }
-        
         public void createDisbursement(string departmentID, string storeStaffID)
         {
             DateTime today = DateTime.Today;
@@ -30,12 +20,13 @@ namespace Team09LogicU.App_Code.DAO
             //??????
             dl.status = "Pending";
             model.Disbursements.Add(dl);
+
+
             //1.Firstly need to get the current requisitionID, then update status to "Process"
             //.
             //.
             //.
-            //
-            //2.If GetrequisitionStatus==process&&Date==This week then generate disbursement items&&DeptID
+            //2.Get Item information from retrieveal form, a list containing itemID DepartmentID, then recorded in the disbursementItem Database.
             //.
             //.
             //.
