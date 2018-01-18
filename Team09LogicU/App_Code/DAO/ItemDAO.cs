@@ -10,14 +10,57 @@ namespace Team09LogicU.App_Code.DAO
     {
 
         SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-        public  List<object> getItemList()
+        public  List<Item> getItemList()
         {
+            return m.Items.ToList<Item>();
+           // return m.Items.Select(x => new { x.itemID, x.categoryID, x.location, x.description, x.reorderLevel, x.reorderQty, x.unitOfMeasure, x.qtyOnHand }).ToList<object>();
+        }
+        
+        public void addItem(string itemID,string desc,string location,string category,decimal price,int reorderLevel,int reorderQty,string uom,List<string> sup)
+        {
+            Item i = new Item();
+          
+            i.itemID = itemID;
+            i.description = desc;
+            i.location = location;
+            i.categoryID = category;
+            i.reorderLevel = reorderLevel;
+            i.reorderQty = reorderQty;
+            i.unitOfMeasure = uom;
+            m.Items.Add(i);
+            
+            
+            for(var j=0;j<sup.Count; j++)
+            {
+                SupplierItem si = new SupplierItem();
+                si.supplierID = j.ToString();
+                si.itemID = itemID;
+                si.price = price;
+                si.preferenceRank =( j + 1).ToString();
+                m.SupplierItems.Add(si);
+            }
+            m.SaveChanges();
 
-            return m.Items.Select(x => new { x.itemID, x.categoryID, x.location, x.description, x.reorderLevel, x.reorderQty, x.unitOfMeasure, x.qtyOnHand }).ToList<object>();
+       
+        }
+
+        public List<Item> getItemByitemID(string itemID)
+        {
+            return m.Items.Where(x=>x.itemID==itemID).ToList<Item>();
         }
         
 
+        //public List<Item> getRecentItemList(string staffID) //used by requisition think u may need
+        //{
+        //    //Requisition r = new Requisition();
+        //    //RequisitionDAO rdao = new RequisitionDAO();
+        //    //List<Requisition> lr = new List<Requisition>();
+        //    //lr =rdao.getRequisitionByStaffID(staffID);
+        //    //m.RequisitionItems
+        //    //string itemID = m.RequisitionItems.Where(y=>y.).Select(x => new { x.itemID }).Take(5);
+            
+        //    //return m.Items.OrderBy(x=>x.).Select(x=>x.).ToList<Item>();
+        //}
         
-
     }
 }
