@@ -10,9 +10,10 @@ namespace Team09LogicU.App_Code.DAO
     public class CollectionPointDAO
     {
 
-        SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
+        SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
 
         //show all collectionpoints
+        //
         public List<CollectionPoint> getAllCollectionPoint()
         {
             return context.CollectionPoints.ToList();

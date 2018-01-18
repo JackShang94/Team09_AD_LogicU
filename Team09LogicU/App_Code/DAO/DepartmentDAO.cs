@@ -34,5 +34,11 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
+        public void UpdateDeptRep(Department dept, DeptStaff newRep)
+        {
+            dept.repStaffID = newRep.staffID;
+            context.SaveChanges();
+        }
+
     }
 }

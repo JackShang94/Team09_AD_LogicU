@@ -195,7 +195,7 @@
       <DependentUpon>SA45_Team09_LogicUEntities.edmx</DependentUpon>
       <LastGenOutput>SA45_Team09_LogicUEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="Pages\DH_ChangeDeptRep.aspx" />
+    <Content Include="Pages\DH_ChangeDepartmentRepresentative.aspx" />
     <Content Include="Pages\DH_DelegateHeadRole.aspx" />
     <Content Include="Pages\DH_History.aspx" />
     <Content Include="Pages\DH_Notification.aspx" />
@@ -346,12 +346,12 @@
     <Compile Include="Pages\DepartmentHead.Master.designer.cs">
       <DependentUpon>DepartmentHead.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_ChangeDeptRep.aspx.cs">
-      <DependentUpon>DH_ChangeDeptRep.aspx</DependentUpon>
+    <Compile Include="Pages\DH_ChangeDepartmentRepresentative.aspx.cs">
+      <DependentUpon>DH_ChangeDepartmentRepresentative.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_ChangeDeptRep.aspx.designer.cs">
-      <DependentUpon>DH_ChangeDeptRep.aspx</DependentUpon>
+    <Compile Include="Pages\DH_ChangeDepartmentRepresentative.aspx.designer.cs">
+      <DependentUpon>DH_ChangeDepartmentRepresentative.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DH_DelegateHeadRole.aspx.cs">
       <DependentUpon>DH_DelegateHeadRole.aspx</DependentUpon>

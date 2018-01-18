@@ -22,7 +22,7 @@ namespace Team09LogicU.pages
         {
             if (!IsPostBack)
             {
-                logInStaffId = "emp002";//assume it is rep now
+                logInStaffId = (string)Session["loginID"];
 
                 /*Set the role and dept from login info*/
 
@@ -69,7 +69,7 @@ namespace Team09LogicU.pages
             string newCPName = ddlCP.SelectedValue;
             CollectionPoint newCP = cDAO.getCollectionPointByDescription(newCPName);
 
-            logInStaffId = "emp002";//assume it is rep now
+            logInStaffId = (string)Session["loginID"];
             logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
             Department dept = deptDAO.findByDeptId(logInDept);
 
