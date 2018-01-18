@@ -97,7 +97,7 @@ namespace Team09LogicU.pages
 
             //add requisition items
             Dictionary<string, int> dict = new Dictionary<string, int>();
-            for(int i = 0; i < lc.Count; i++)//not foreach enumeration
+            for (int i = lc.Count - 1; i >= 0; i--)//not foreach enumeration
             {
                 if (lc[i].Name == name)
                 {
@@ -158,7 +158,7 @@ namespace Team09LogicU.pages
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];
 
-            for (int i = 0; i < lc.Count; i++)//why cannot use foreach??enumeration
+            for (int i = lc.Count-1; i >=0; i++)//why cannot use foreach??enumeration
             {
                 if (lc[i].ItemID == info[0])
                 {
