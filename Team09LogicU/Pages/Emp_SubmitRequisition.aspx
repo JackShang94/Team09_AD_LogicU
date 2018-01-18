@@ -40,7 +40,7 @@
          
                 </asp:Repeater>
                 <script>
-                    <%=this.%>
+  
                 </script>
             <%--</ContentTemplate>
             
