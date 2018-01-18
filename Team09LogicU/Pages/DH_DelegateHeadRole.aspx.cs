@@ -43,14 +43,15 @@ namespace Team09LogicU.pages
                     startDate_textBox.Visible = false;
                     endDate_textBox.Visible = false;
                     delegateStf_label.Text = "You are not allowed to delegate now.";
-                    submit_button.Enabled = false;
+                    submit_button.Visible = false;
 
                 }
                 //delegate history
                 string deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
                 List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
                 delegateHistory_ListBox.DataSource = dList;
-                
+                delegateHistory_ListBox.DataTextField = "staffID";
+                delegateHistory_ListBox.DataValueField = "delegateID";
                 delegateHistory_ListBox.DataBind();
 
 
@@ -65,8 +66,8 @@ namespace Team09LogicU.pages
             DateTime eDate = Convert.ToDateTime(endDate_textBox.Text);
             delegateDAO.delegateToStaff(staffId, sDate, eDate);
 
-            string currentHeadID =deptStaffDAO.findStaffByID(staffId).Department.headStaffID;
-            delegateDAO.disableHead(currentHeadID);
+            currentHeadId =deptStaffDAO.findStaffByID(staffId).Department.headStaffID;
+            delegateDAO.disableHead(currentHeadId);
             delegateStatus_Label.Text = "Delegated successfully!";
         }
 
