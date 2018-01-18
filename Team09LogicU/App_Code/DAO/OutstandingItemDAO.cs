@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.Models;
 
 namespace Team09LogicU.App_Code.DAO
 {
     public class OutstandingItemDAO
     {
-        SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+        SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
 
         // add new outstanding item 
         public void createNewOutstandingItem(string itemID, int osID, int needed, int actual)
@@ -18,6 +19,7 @@ namespace Team09LogicU.App_Code.DAO
             outstandingItem.itemID = itemID;
             outstandingItem.expectedQty = needed - actual;
             outstandingItem.actualQty = outstandingItem.expectedQty;
+
             context.OutstandingItems.Add(outstandingItem);
             context.SaveChanges();
         }
@@ -48,26 +50,7 @@ namespace Team09LogicU.App_Code.DAO
             {
                 osItem.actualQty = osItem.expectedQty;
             }
+            context.SaveChanges();
         }
-        //***********for outstanding*************
-        //    //when the outstanding items for the department
-        //    //are fulfilled, update them accordingly
-        //    public void updateOsDisItemsByItemIdAndDeptId(string itemId, string deptId)
-        //    {
-        //        //find history outstanding disbursement items for the department
-        //        DateTime today = DateTime.Today;
-        //        DateTime thisMonday = (today.DayOfWeek == DayOfWeek.Sunday ? today.AddDays(1 - 7) : today.AddDays(-(int)today.DayOfWeek + 1));
-        //        List<DisbursementItem> osItems;
-        //        osItems = context.DisbursementItems.Where(x => x.itemId == itemId && x.DisbursementList.departmentId == deptId && x.DisbursementList.disburseDate != thisMonday).ToList();
-
-        //        //update actual retrieved quantity
-        //        foreach (DisbursementItem disI in osItems)
-        //        {
-        //            disI.actualQuantity = disI.requestQuantity;
-        //        }
-        //        context.SaveChanges();
-        //    }
-        //}
-    
-}
+    }
 }
