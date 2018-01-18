@@ -222,6 +222,8 @@
     <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
     <Compile Include="App_Code\DAO\DelegateDAO.cs" />
     <Content Include="App_Code\DAO\DisbursementItemDAO.cs" />
+    <Compile Include="App_Code\DAO\DepartmentDAO.cs" />
+    <Compile Include="App_Code\DAO\DeptStaffDAO.cs" />
     <Compile Include="App_Code\DAO\ItemDAO.cs" />
     <Content Include="App_Code\DAO\OutstandingDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
