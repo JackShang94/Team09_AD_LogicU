@@ -127,15 +127,16 @@ namespace Team09LogicU.pages
             lc = (List<cart>)Session["cart"];
             string name = Session["loginID"].ToString();
             Button b = (Button)sender;
-            string[] info = b.CommandArgument.ToString().Split('&');
-            
+            string info = b.CommandArgument.ToString();
 
+            ItemDAO idao = new ItemDAO();
+            
 
             cart c = new cart
             {
                 Name = name,
-                ItemID = info[0],
-                Description = info[1],//stupid
+                ItemID = info,
+                Description =idao.getDescByItemID(info),//stupid
                 Qty = 1//default
             };
 
