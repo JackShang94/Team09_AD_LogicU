@@ -149,6 +149,7 @@
     <Content Include="Pages\DepartmentHead.Master" />
     <Content Include="Pages\Employee.Master" />
     <Content Include="Pages\StoreClerk.Master" />
+    <Content Include="Pages\test1.aspx" />
     <Content Include="Pages\welcome.Master" />
     <Content Include="fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -218,6 +219,7 @@
     <Compile Include="App_Code\DAO\ItemDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
+    <Compile Include="App_Code\UtilClass\cart.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\Encrypt.cs" />
     <Compile Include="Global.asax.cs">
@@ -435,6 +437,13 @@
     </Compile>
     <Compile Include="Pages\StoreClerk.Master.designer.cs">
       <DependentUpon>StoreClerk.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\welcome.Master.cs">
       <DependentUpon>welcome.Master</DependentUpon>
