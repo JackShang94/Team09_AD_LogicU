@@ -113,7 +113,7 @@
                         
                             <h4 class="title text-center"><a class="btn btn-danger btn-xs btn-simple"><i class="fa fa-heart"></i></a>You May Need<a class="btn btn-danger btn-xs btn-simple"><i class="fa fa-heart"></i></a></h4>
                         
-                        <div class="col-md-4">
+                       <div class="col-md-4">
                         <div class="card card-user">
                             <div class="image" style="height:150px">
                                 <img src="../picture/full-screen-image-3.jpg" />
@@ -201,23 +201,23 @@
                  <div class="card">
                    <div class="text-center">
                        <div class ="content">
-                       <asp:Button ID="Button8" runat="server" Text="Check Out" CssClass="btn btn-warning btn-wd" />
+                       <asp:Button ID="Button8" runat="server" Text="Check Out" PostBackUrl="~/Pages/Emp_SR_CheckOut.aspx" CssClass="btn btn-warning btn-wd" />
                    </div>
                            <div class="content">
                        <table class="table">
                            <tbody>
                                      <tr class="category">
                                         <td></td>
-                                    	<td>Requisition ID</td>
+                                    	<td>Description</td>
                                     	<td>Amount</td>
                                     <td class="text-right">Action
                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                    	<td>1</td>
+                                    	<td>Clips Double2</td>
                                     	<td class="text-center" style="width:30%">
-                                            <asp:TextBox ID="TextBox2" Width="100%" runat="server" CssClass=" form-control"></asp:TextBox></td>
+                                     <asp:TextBox ID="TextBox2" Width="100%" runat="server" CssClass=" form-control"></asp:TextBox></td>
                                     <td class="td-actions text-right" style="">
                                         <a rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" href="javascript:void(0)">
                                         <i class="fa fa-times"></i></a>

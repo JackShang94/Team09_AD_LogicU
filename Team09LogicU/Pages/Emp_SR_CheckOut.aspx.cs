@@ -5,15 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Team09LogicU.pages
+namespace Team09LogicU.Pages
 {
-    public partial class Emp_MyRequisition : System.Web.UI.Page
+    public partial class Emp_SR_CheckOut : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-       
     }
 }
