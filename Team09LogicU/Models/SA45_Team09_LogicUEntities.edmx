@@ -158,7 +158,7 @@
           <Key>
             <PropertyRef Name="requisitionID" />
           </Key>
-          <Property Name="requisitionID" Type="int" Nullable="false" />
+          <Property Name="requisitionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="staffID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="deptID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="requisitionDate" Type="datetime" Nullable="false" />

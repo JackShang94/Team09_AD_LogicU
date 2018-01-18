@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Team09LogicU.Models;
 
 namespace Team09LogicU.App_Code.DAO
 {
     public class OutstandingItemDAO
-    {
+    {       
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
-
         // add new outstanding item 
         public void createNewOutstandingItem(string itemID, int osID, int needed, int actual)
         {
