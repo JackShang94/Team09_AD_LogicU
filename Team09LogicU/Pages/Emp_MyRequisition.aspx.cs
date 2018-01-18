@@ -21,5 +21,7 @@ namespace Team09LogicU.pages
 
             lr = rdao.getRequisitionList();
         }
+
+       
     }
 }

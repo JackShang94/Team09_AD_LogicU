@@ -13,7 +13,12 @@ namespace Team09LogicU.App_Code.DAO
         //find department by Id
         public Department findByDeptId(string deptId)
         {
-            Department dept = context.Departments.Where(x => x.deptID == deptId).First();
+            List<Department> deptList = context.Departments.Where(x => x.deptID == deptId).ToList();
+            Department dept = new Department();
+            if(deptList.Count()>0)
+            {
+                dept = deptList.First();
+            }
             return dept;
         }
         //
@@ -22,5 +27,12 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.Departments.ToList<Department>();
         }
+
+        public void UpdateCollectionPoint(Department dept, CollectionPoint CP)
+        {
+            dept.collectionPointID = CP.collectionPointID;
+            context.SaveChanges();
+        }
+
     }
 }
