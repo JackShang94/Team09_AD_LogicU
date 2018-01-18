@@ -13,69 +13,81 @@ namespace Team09LogicU.pages
     {
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-        DepartmentDAO deptDAO = new DepartmentDAO();
-        string logInStaffId;
+        
+        string logInStaffId="head003";              //assumption
         string logInRole;
         string currentHeadId;
-        string selectedEmpName;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+            logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
+            Label1.Text = logInRole;
             if (!IsPostBack)
             {
-                logInStaffId = "emp001";//this is assumption
-                logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
                 if (logInRole == "head")
                 {
-                    List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee("ZOOL");//assume it is zool department
+                    List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee(deptId);//assume it is zool department
                     employee_dropList.DataSource = staffList;
                     employee_dropList.DataTextField = "staffName";
                     employee_dropList.DataValueField = "staffID";
                     employee_dropList.DataBind();
                     delegateStf_label.Text = employee_dropList.Text;
 
-                    startDate_textBox.Text = DateTime.Today.ToString();
-                    endDate_textBox.Text = DateTime.Today.AddDays(2).ToString();
+                    textBox_startDate.Text = DateTime.Today.ToString();
+                    textBox_endDate.Text = DateTime.Today.AddDays(2).ToString();
                 }
                 else
                 {
                     employee_dropList.Visible = false;
-                    startDate_textBox.Visible = false;
-                    endDate_textBox.Visible = false;
+                    textBox_startDate.Visible = false;
+                    textBox_endDate.Visible = false;
                     delegateStf_label.Text = "You are not allowed to delegate now.";
                     submit_button.Visible = false;
-
                 }
-                //delegate history
-                string deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
-                List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
-                delegateHistory_ListBox.DataSource = dList;
-                delegateHistory_ListBox.DataTextField = "staffID";
-                delegateHistory_ListBox.DataValueField = "delegateID";
-                delegateHistory_ListBox.DataBind();
-
-
             }
-            
+            //delegate history
+            List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
+            ListBox_delegateHistory.DataSource = dList;
+            ListBox_delegateHistory.DataMember = "Delegate";
+            ListBox_delegateHistory.DataTextField = "staffID";
+            ListBox_delegateHistory.DataValueField = "delegateID";
+            ListBox_delegateHistory.DataBind();
+
+
         }
         protected void submit_button_Click(object sender, EventArgs e)
         {
-            
-            string staffId = employee_dropList.SelectedValue;
-            DateTime sDate = Convert.ToDateTime(startDate_textBox.Text);
-            DateTime eDate = Convert.ToDateTime(endDate_textBox.Text);
+            //add new delegate record
+            string staffId = employee_dropList.SelectedValue.ToString();
+            DateTime sDate = Convert.ToDateTime(textBox_startDate.Text);
+            DateTime eDate = Convert.ToDateTime(textBox_endDate.Text);
             delegateDAO.delegateToStaff(staffId, sDate, eDate);
 
+            //change the role of relevant staff
             currentHeadId =deptStaffDAO.findStaffByID(staffId).Department.headStaffID;
             delegateDAO.disableHead(currentHeadId);
+
             delegateStatus_Label.Text = "Delegated successfully!";
         }
 
         protected void terminate_button_Click(object sender, EventArgs e)
         {
-            if (logInRole == "outOfOfficeHead")
+            int dID = Convert.ToInt16(ListBox_delegateHistory.SelectedValue);
+            bool IsActiveDelegate = delegateDAO.isActiveDelegate(dID);
+            if (logInRole == "outOfOfficeHead"&&IsActiveDelegate)
             {
-
+                 delegateDAO.terminateDelegate(dID);
+                 label_terminateDlgt.Text = "Terminated succussfully";
+            }
+            else if(!IsActiveDelegate)
+            {
+                label_terminateDlgt.Text = "This delegate has already been terminated";
+            }
+            else if (logInRole!= "outOfOfficeHead")
+            {
+                label_terminateDlgt.Text = "You have no access to this";
             }
         }
     }

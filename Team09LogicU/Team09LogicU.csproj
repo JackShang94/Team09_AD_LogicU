@@ -148,6 +148,7 @@
     </Content>
     <Content Include="Pages\DepartmentHead.Master" />
     <Content Include="Pages\Employee.Master" />
+    <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_Reorder.aspx" />
     <Content Include="Pages\SC_Inv_StockManagement.aspx" />
@@ -194,7 +195,7 @@
       <DependentUpon>SA45_Team09_LogicUEntities.edmx</DependentUpon>
       <LastGenOutput>SA45_Team09_LogicUEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="Pages\DH_ChangeDepartmentRepresentative.aspx" />
+    <Content Include="Pages\DH_ChangeDeptRep.aspx" />
     <Content Include="Pages\DH_DelegateHeadRole.aspx" />
     <Content Include="Pages\DH_History.aspx" />
     <Content Include="Pages\DH_Notification.aspx" />
@@ -345,12 +346,12 @@
     <Compile Include="Pages\DepartmentHead.Master.designer.cs">
       <DependentUpon>DepartmentHead.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DH_ChangeDepartmentRepresentative.aspx.cs">
-      <DependentUpon>DH_ChangeDepartmentRepresentative.aspx</DependentUpon>
+    <Compile Include="Pages\DH_ChangeDeptRep.aspx.cs">
+      <DependentUpon>DH_ChangeDeptRep.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\DH_ChangeDepartmentRepresentative.aspx.designer.cs">
-      <DependentUpon>DH_ChangeDepartmentRepresentative.aspx</DependentUpon>
+    <Compile Include="Pages\DH_ChangeDeptRep.aspx.designer.cs">
+      <DependentUpon>DH_ChangeDeptRep.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DH_DelegateHeadRole.aspx.cs">
       <DependentUpon>DH_DelegateHeadRole.aspx</DependentUpon>
@@ -421,6 +422,13 @@
     </Compile>
     <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.designer.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Emp_SR_CheckOut.aspx.cs">
+      <DependentUpon>Emp_SR_CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Emp_SR_CheckOut.aspx.designer.cs">
+      <DependentUpon>Emp_SR_CheckOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_SubmitRequisition.aspx.cs">
       <DependentUpon>Emp_SubmitRequisition.aspx</DependentUpon>
