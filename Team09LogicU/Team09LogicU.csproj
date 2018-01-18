@@ -232,6 +232,8 @@
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
     <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
     <Compile Include="App_Code\DAO\DelegateDAO.cs" />
+    <Compile Include="App_Code\DAO\DepartmentDAO.cs" />
+    <Compile Include="App_Code\DAO\DeptStaffDAO.cs" />
     <Compile Include="App_Code\DAO\DisbursementItemDAO.cs" />
     <Compile Include="App_Code\DAO\DisbursementDAO.cs" />
     <Compile Include="App_Code\DAO\ItemDAO.cs" />
@@ -244,6 +246,7 @@
     <Compile Include="App_Code\DAO\StoreStaffDAO.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\Encrypt.cs" />
+    <Compile Include="App_Code\UtilClass\Logout.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
