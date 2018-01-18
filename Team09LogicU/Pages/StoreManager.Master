@@ -1,14 +1,16 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StoreClerk.master.cs" Inherits="Team09LogicU.pages.StoreClerk" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StoreManager.master.cs" Inherits="Team09LogicU.Pages.StoreManager" %>
 
-<!doctype html>
+<!DOCTYPE html>
+
+
+
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <!--TITLE-->
-	<title>StoreClerk_LOGIC UNIVERSITY</title>
+	<title>Light Bootstrap Dashboard PRO by Creative Tim</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -30,7 +32,9 @@
 
     <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="StoreClerk">
+
+    <!--TITLE-->
+    <meta name="twitter:title" content="LOGIC UNIVERSITY">
 
     <meta name="twitter:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
     <meta name="twitter:creator" content="@creativetim">
@@ -68,7 +72,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="../picture/full-screen-image-3.jpg">
+    <div class="sidebar" data-color="orange" data-image="../picture/full-screen-image-3.jpg">
         <!--
 
             Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
@@ -78,12 +82,12 @@
 
         <div class="logo">
             <a href="#" class="logo-text">
-                StoreClerk
+                Store Manager
             </a>
         </div>
 		<div class="logo logo-mini">
 			<a href="#" class="logo-text">
-				SC
+				SM
 			</a>
 		</div>
 
@@ -111,62 +115,47 @@
             <ul class="nav">
                
                 <li>
-                    <a data-toggle="collapse" href="#roExamples">
-                        <i class="pe-7s-display2"></i>
-                        <p>Requisition Order
-                       <b class="caret"></b>
+                    <a href="SM_ApproveAdjustment.aspx">
+                        <i class="pe-7s-home"></i>
+                        <p>Approve Adjustment
                         </p>
-                    </a>
-                    <div class="collapse" id="roExamples">
-                        <ul class="nav">
-                            <li><a href="SC_RO_RetrievalForms.aspx">Retrieval Forms</a></li>
-                            <li><a href="SC_RO_DisbursementList.aspx">Disbursement List</a></li>
-                            <li><a href="SC_RO_OutstandingRequisition.aspx">Outstanding Requisition</a></li>
-                            
-                        </ul>
-                    </div>    
+                    </a>        
                 </li>
 
-                <li>
-                    <a data-toggle="collapse" href="#InvExamples">
-                        <i class="pe-7s-bookmarks"></i>
-                        <p>Inventory
-                       <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse" id="InvExamples">
-                        <ul class="nav">
-                            <li><a href="SC_Inv_StockManagement.aspx">Stock Management</a></li>
-                            <li><a href="SC_Inv_Reorder.aspx">Reorder</a></li>
-                            <li><a href="SC_Inv_AdjustmentVoucher.aspx">Adjustment Voucher</a></li>
-                           
-                            
-                        </ul>
-                    </div>    
-                </li>
-                <li>
-                    <a  href="SC_Notification.aspx">
-                        <i class="pe-7s-volume"></i>
-                        <p>Notification
-                        </p>
-                    </a>         
-                </li>
-                
-                <li>
-                    <a data-toggle="collapse" href="#otherExamples">
-                        <i class="pe-7s-box2"></i>
-                        <p>Others
+                <li class="active">
+                    <a data-toggle="collapse" href="#ManageCatalog" aria-expanded="true">
+                        <i class="pe-7s-plugin"></i>
+                        <p>Manage Catalog
                            <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse" id="otherExamples">
+                    <div class="collapse " id="ManageCatalog">
                         <ul class="nav">
-                            <li><a href="SC_O_SupplierList.aspx">Supplier List</a></li>
-                            <li><a href="SC_O_TrendAnalysisReport.aspx">Trend Analysis Report</a></li>
-                            
+                            <li><a href="SM_SearchItem.aspx">Search Item</a></li>
+                            <li><a href="SM_AddItem.aspx">Add Item</a></li>
+                            <li><a href="SM_AddCatalog.aspx">Add Catalog</a></li>
+                      
                         </ul>
                     </div>
                 </li>
+
+               
+               <li>
+                    <a data-toggle="collapse" href="#ManageSupplier">
+                        <i class="pe-7s-plugin"></i>
+                        <p>Manage Supplier
+                           <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="ManageSupplier">
+                        <ul class="nav">
+                            <li><a href="SM_SearchSupplier.aspx">Search Supplier</a></li>
+                            <li><a href="SM_AddSupplier.aspx">Add Supplier</a></li>
+               
+                        </ul>
+                    </div>
+                </li>
+         
             </ul>
     	</div>
     </div>
@@ -188,22 +177,18 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+                      
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         
-                        <li class="dropdown">
-                            <a href="SC_Notification.aspx" class="dropdown-toggle" >
-                                <i class="fa fa-bell-o"></i>
-                                <p class="hidden-md hidden-lg">
-    								Notifications
-    							</p>
-                            </a>
-                        </li>
+                      
+
+
 
                         <li class="dropdown dropdown-with-icons">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -215,17 +200,33 @@
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a href="SC_RO_RetrievalForms.aspx">
-                                        <i class="pe-7s-display2"></i>Retrieval Forms
+                                    <a href="SM_ApproveAdjustment.aspx">
+                                        <i class="pe-7s-home"></i>Approve Adjustment
+                                    </a>
+                                </li>
+                            <li>
+                                    <a href="SM_SearchItem.aspx">
+                                        <i class="pe-7s-users"></i>Search Item
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="SC_Inv_StockManagement.aspx">
-                                        <i class="pe-7s-bookmarks"></i> Inventory</a>
+                                    <a href="SM_AddItem.aspx">
+                                        <i class="pe-7s-helm"></i>Add Item
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="SC_O_SupplierList.aspx">
-                                        <i class="pe-7s-box2"></i> Others
+                                    <a href="SM_AddCatalog.aspx">
+                                        <i class="pe-7s-note2"></i>Add Catalog
+                                    </a>
+                                </li>
+                                     <li>
+                                    <a href="SM_SearchSupplier.aspx">
+                                        <i class="pe-7s-note2"></i>Search Supplier
+                                    </a>
+                                </li>
+                                     <li>
+                                    <a href="SM_AddSupplier.aspx">
+                                        <i class="pe-7s-note2"></i>Add Supplier
                                     </a>
                                 </li>
                                 <li class="divider"></li>
@@ -248,10 +249,10 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-        
+      
 
-        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+
 
                 </div>
             </div>
