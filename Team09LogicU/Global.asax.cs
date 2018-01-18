@@ -28,7 +28,8 @@ namespace Team09LogicU
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Session["loginID"] = "";
+            Session["loginRole"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

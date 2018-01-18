@@ -20,6 +20,10 @@ namespace Team09LogicU.App_Code.DAO
             disbItem.actualQty = actualQty;
             context.DisbursementItems.Add(disbItem);
             context.SaveChanges();
+            //After finished requisition, use foreach to add items.
+            //.
+            //.
+            //.
         }
 
         //2.Retrieving a list of items from the selectedDisbursment by ID

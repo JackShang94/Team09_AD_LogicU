@@ -14,14 +14,14 @@
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.DeptNotification" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.DeptStaff" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.Disbursement" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SA45_Team09_LogicUModel.DisbursementItem" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SA45_Team09_LogicUModel.DisbursementItem" Width="1.75" PointX="5.25" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.Item" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.Outstanding" Width="1.5" PointX="3" PointY="26.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.OutstandingItem" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.PurchaseOrder" Width="1.5" PointX="6" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.PurchaseOrderItem" Width="1.5" PointX="8.25" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.Requisition" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SA45_Team09_LogicUModel.RequisitionItem" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SA45_Team09_LogicUModel.RequisitionItem" Width="2" PointX="8.25" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.Retrieval" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.RetrievalItem" Width="1.5" PointX="8.25" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SA45_Team09_LogicUModel.StockCard" Width="1.5" PointX="5.25" PointY="31.75" IsExpanded="true" />
