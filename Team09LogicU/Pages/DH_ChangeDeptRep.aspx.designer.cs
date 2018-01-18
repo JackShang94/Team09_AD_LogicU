@@ -22,30 +22,39 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtCurrentRep control.
+        /// lblCurrentRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrentRep;
+        protected global::System.Web.UI.WebControls.Label lblCurrentRep;
         
         /// <summary>
-        /// Label2 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// DropDownList_Emp control.
+        /// ddlEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList_Emp;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmp;
+        
+        /// <summary>
+        /// btnUpdateRep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateRep;
     }
 }

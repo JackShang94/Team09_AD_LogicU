@@ -17,17 +17,19 @@ namespace Team09LogicU.pages
         string logInStaffId;
         string logInRole;
         string currentHeadId;
-        string selectedEmpName;
+        string logInDept;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                logInStaffId = "emp001";//this is assumption
+                logInStaffId = "head001";//this is assumption
                 logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
+                logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+
                 if (logInRole == "head")
                 {
-                    List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee("ZOOL");//assume it is zool department
+                    List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee(logInDept);
                     employee_dropList.DataSource = staffList;
                     employee_dropList.DataTextField = "staffName";
                     employee_dropList.DataValueField = "staffID";

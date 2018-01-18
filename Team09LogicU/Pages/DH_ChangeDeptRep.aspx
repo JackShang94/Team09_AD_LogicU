@@ -5,8 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <form runat="server">
     <asp:Label ID="Label1" runat="server" Text="Current Representative:"></asp:Label><br>
-    <asp:TextBox ID="txtCurrentRep" runat="server"></asp:TextBox><br>
-    <asp:Label ID="Label2" runat="server" Text="Select New Representative:"></asp:Label><br>
-    <asp:DropDownList ID="DropDownList_Emp" runat="server"></asp:DropDownList> <br>       
+    <asp:Label ID="lblCurrentRep" runat="server" Text=""></asp:Label><br>
+    <asp:Label ID="Label3" runat="server" Text="Select New Representative:"></asp:Label><br>
+    <asp:DropDownList ID="ddlEmp" runat="server"></asp:DropDownList> <br>  
+    <asp:Button ID="btnUpdateRep" runat="server" Text="Update Rep" OnClick="btnUpdateRep_Click" />      
     </form>
 </asp:Content>

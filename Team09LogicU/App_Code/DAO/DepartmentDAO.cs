@@ -22,5 +22,12 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.Departments.ToList<Department>();
         }
+
+        public void UpdateCollectionPoint(Department dept, CollectionPoint CP)
+        {
+            dept.collectionPointID = CP.collectionPointID;
+            context.SaveChanges();
+        }
+
     }
 }
