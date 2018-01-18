@@ -12,16 +12,19 @@ namespace Team09LogicU.pages
 {
     public partial class Emp_SubmitRequisition : System.Web.UI.Page
     {
-        private List<cart> lcart;
-        private List<Item> lcatalogue;
+       
+        
+        public List<cart> lcart;
+        public List<Item> lcatalogue;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //if (!Page.IsPostBack)
             //{
             /**********************Loading Cart List************************************/
             string name = Session["loginID"].ToString();
                 List<cart> lc = new List<cart>();
-
+                
                 foreach (var i in (List<cart>)Session["cart"])
                 {
                     if (i.Name == name)
@@ -31,18 +34,17 @@ namespace Team09LogicU.pages
                     }
                 }
             this.lcart = lc;
+            //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
+            //cartRepeater.DataSource = lc;
+            //cartRepeater.DataBind();
 
-                //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
-                //cartRepeater.DataSource = lc;
-                //cartRepeater.DataBind();
-            
             //}
-        /******************************Loading Catalogue List********************************/
-         ItemDAO idao = new ItemDAO();
-            //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
+            /******************************Loading Catalogue List********************************/
+            ItemDAO idao = new ItemDAO();
+            //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
             catalogueRepeater.DataSource = idao.getItemList();
             catalogueRepeater.DataBind();
-
+            this.lcatalogue = idao.getItemList();
             
             
         }
@@ -96,7 +98,13 @@ namespace Team09LogicU.pages
 
             //add requisition items
             Dictionary<string, int> dict = new Dictionary<string, int>();
-            for(int i = 0; i < lc.Count; i++)//not foreach enumeration
+            int count = lc.Count;
+            //foreach(var j in lc)
+            //{
+
+            //    dict.Add(j.ItemID, j.Qty);
+            //}
+            for(int i =lc.Count-1 ; i >=0; i--)//not foreach enumeration
             {
                 if (lc[i].Name == name)
                 {
@@ -108,7 +116,8 @@ namespace Team09LogicU.pages
             RequisitionDAO rdao = new RequisitionDAO();
             rdao.addRequisition(name, deptID, dict);
 
-            Session["cart"] = lc;
+            List<cart> lcblank = new List<cart>();
+            Session["cart"] = lcblank;
 
 
             HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
@@ -145,6 +154,7 @@ namespace Team09LogicU.pages
 
 
             this.lcart = lc;
+
             //cartRepeater.DataSource = lc;
             //cartRepeater.DataBind();
         }
@@ -156,8 +166,9 @@ namespace Team09LogicU.pages
 
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];
-
-            for (int i = 0; i < lc.Count; i++)//why cannot use foreach??enumeration
+            int count = lc.Count;
+            //Need to reverse
+            for (int i = lc.Count-1; i >=0; i--)//why cannot use foreach??enumeration
             {
                 if (lc[i].ItemID == info[0])
                 {

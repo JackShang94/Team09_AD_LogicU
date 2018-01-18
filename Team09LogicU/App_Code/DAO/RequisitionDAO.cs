@@ -10,9 +10,9 @@ namespace Team09LogicU.App_Code.DAO
     {
         SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
         
-        public List<object> getRequisitionList()//by dept emp
+        public List<Requisition> getRequisitionList()//by dept emp
         {
-            return m.Requisitions.Select(x => new { x.requisitionID, x.requisitionDate,x.approvedDate, x.status }).ToList<object>();
+            return m.Requisitions.ToList<Requisition>();
         }
 
         public void addRequisition(string staffID, string deptID, Dictionary<string, int> dict)//by dept emp //

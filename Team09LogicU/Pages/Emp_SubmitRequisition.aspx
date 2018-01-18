@@ -39,9 +39,9 @@
                     </FooterTemplate>
          
                 </asp:Repeater>
-                <script>
+                <%--<script>
                     <%=this.%>
-                </script>
+                </script>--%>
             <%--</ContentTemplate>
             
 
