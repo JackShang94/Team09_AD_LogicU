@@ -244,6 +244,7 @@
     <Compile Include="App_Code\DAO\StoreStaffDAO.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\Encrypt.cs" />
+    <Compile Include="App_Code\UtilClass\Logout.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
