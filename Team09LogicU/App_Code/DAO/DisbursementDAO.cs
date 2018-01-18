@@ -17,6 +17,8 @@ namespace Team09LogicU.App_Code.DAO
         //    disbCart = new List<DisbursementCart>();
         //    disbCartList = new List<DisbursementCart>();
         //}
+        // thisMonday = dayofweek == (int)DayOfWeek.Sunday ? today.AddDays(-6) : today.AddDays(-6 - dayofweek);
+        //return context.Requisitions.Where(x => x.requisitionDate >= lastThursday && x.requisitionDate < thisThursday && x.status == "Processed").OrderByDescending(x => x.requisitionDate).Select(x => x.requisitionId).ToList<string>();    }
         
         public void createDisbursement(string departmentID, string storeStaffID)
         {
