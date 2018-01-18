@@ -12,8 +12,8 @@ namespace Team09LogicU.pages
 {
     public partial class Emp_SubmitRequisition : System.Web.UI.Page
     {
-        private List<cart> lcart;
-        private List<Item> lcatalogue;
+        public List<cart> lcart;
+        public List<Item> lcatalogue;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!Page.IsPostBack)
@@ -31,17 +31,18 @@ namespace Team09LogicU.pages
                     }
                 }
             this.lcart = lc;
-
+            ItemDAO idao = new ItemDAO();
+            this.lcatalogue = idao.getItemList();
                 //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
                 //cartRepeater.DataSource = lc;
                 //cartRepeater.DataBind();
             
             //}
         /******************************Loading Catalogue List********************************/
-         ItemDAO idao = new ItemDAO();
-            //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
-            catalogueRepeater.DataSource = idao.getItemList();
-            catalogueRepeater.DataBind();
+         
+         //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
+         //   catalogueRepeater.DataSource = idao.getItemList();
+         //   catalogueRepeater.DataBind();
 
             
             
@@ -63,7 +64,7 @@ namespace Team09LogicU.pages
 
 
         /****************************Search Button****************************/
-        protected void item_searchBtn_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             ItemDAO id = new ItemDAO();
             string sText = item_searchText.Text.ToString();
@@ -96,7 +97,7 @@ namespace Team09LogicU.pages
 
             //add requisition items
             Dictionary<string, int> dict = new Dictionary<string, int>();
-            for(int i = 0; i < lc.Count; i++)//not foreach enumeration
+            for (int i = lc.Count - 1; i >= 0; i--)//not foreach enumeration
             {
                 if (lc[i].Name == name)
                 {
@@ -126,15 +127,16 @@ namespace Team09LogicU.pages
             lc = (List<cart>)Session["cart"];
             string name = Session["loginID"].ToString();
             Button b = (Button)sender;
-            string[] info = b.CommandArgument.ToString().Split('&');
-            
+            string info = b.CommandArgument.ToString();
 
+            ItemDAO idao = new ItemDAO();
+            
 
             cart c = new cart
             {
                 Name = name,
-                ItemID = info[0],
-                Description = info[1],//stupid
+                ItemID = info,
+                Description =idao.getDescByItemID(info),//stupid
                 Qty = 1//default
             };
 
@@ -157,7 +159,7 @@ namespace Team09LogicU.pages
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];
 
-            for (int i = 0; i < lc.Count; i++)//why cannot use foreach??enumeration
+            for (int i = lc.Count-1; i >=0; i++)//why cannot use foreach??enumeration
             {
                 if (lc[i].ItemID == info[0])
                 {

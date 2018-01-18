@@ -11,7 +11,7 @@
                         <div class="content" >
                         <div class=" form-group" style="height:25px; width:100%">
                         <div class="pull-left search" style="width:75%">
-                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
+                        <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
                         </div>
                         <div class="pull-right" style="width:20%">
                          <asp:Button ID="Button1" runat="server" Width="100%" Text="Search"  CssClass="btn btn-default" />
@@ -19,6 +19,7 @@
                         </div>
                         </div>
                         </div>
+                        <%for(int i=0; i< lcatalogue.Count;i++){%>
                         <div class="col-sm-8 col-lg-4">
                         <div class="card card-user">
                             <div class="image" style="height:150px">
@@ -27,16 +28,14 @@
                             <div style="margin-top:20px">
                                 
                                 <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                    Your chick she so thirsty 
-                                                    I'm in that two seat Lambo"
-                                </p>
-                                    
+                                                    <%=lcatalogue[i].description %>
+                                </p>  
                                 <hr>
                             <div class="text-center" style="margin-bottom:20px">
-                                <p>
+                                <p >
                                
                            </p>
-                                <asp:Button ID="Button5" CssClass="btn btn-primary btn-fill" runat="server" Text="ADD" />
+                                <asp:Button ID="Button5"  CssClass="btn btn-primary btn-fill" runat="server" Text="ADD" CommandArgument="<%=lcatalogue[i].itemID %>" OnClick="addBtn_Click" />
                            <p>
                                <br />
                            </p>
@@ -46,60 +45,7 @@
                             </div>
                             
                         </div>
-                       <div class="col-lg-4 col-sm-8">
-                        <div class="card card-user">
-                            <div class="image" style="height:150px">
-                                <img src="../picture/full-screen-image-1.jpg" />
-                            </div>
-                            <div style="margin-top:20px">
-                                
-                                <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                    Your chick she so thirsty 
-                                                    I'm in that two seat Lambo"
-                                </p>
-                                    
-                                <hr>
-                            <div class="text-center" style="margin-bottom:20px">
-                                <p>
-                               
-                           </p>
-                                <asp:Button ID="Button6" CssClass="btn btn-primary btn-fill" runat="server" Text="ADD" />
-                           <p>
-                               <br />
-                           </p>
-                                 </div>
-                                
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-sm-8 col-lg-4">
-                        <div class="card card-user">
-                            <div class="image" style="height:150px">
-                                <img src="../picture/full-screen-image-4.jpg" />
-                            </div>
-                            <div style="margin-top:20px">
-                                
-                                <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                    Your chick she so thirsty 
-                                                    I'm in that two seat Lambo"
-                                </p>
-                                    
-                                <hr>
-                            <div class="text-center" style="margin-bottom:20px">
-                                <p>
-                               
-                           </p>
-                                <asp:Button ID="Button7" CssClass="btn btn-primary btn-fill" runat="server" Text="ADD" />
-                           <p>
-                               <br />
-                           </p>
-                                 </div>
-                                
-                                </div>
-                            </div>
-                            
-                        </div>
+                    <%} %>
                         <div class="row">
                         <div class="text-center">
                             <div class="btn-group">
@@ -213,16 +159,19 @@
                                     <td class="text-right">Action
                                        </td>
                                     </tr>
+                                <%for (int i = 0; i < lcart.Count; i++)
+                                    {%>
                                     <tr>
                                         <td></td>
-                                    	<td>Clips Double2</td>
+                                    	<td><%=lcart[i].Description%></td>
                                     	<td class="text-center" style="width:30%">
-                                     <asp:TextBox ID="TextBox2" Width="100%" runat="server" CssClass=" form-control"></asp:TextBox></td>
+                                     <asp:TextBox ID="TextBox2" Width="100%" runat="server" CssClass=" form-control" Text="<%=lcart[i].Qty%>"></asp:TextBox></td>
                                     <td class="td-actions text-right" style="">
-                                        <a rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" href="javascript:void(0)">
+                                        <a rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" href="<%=lcart[i].ItemID%>">
                                         <i class="fa fa-times"></i></a>
                                        </td>
                                     </tr>
+                               <%} %>
                   </tbody>
              </table>
                    </div>
