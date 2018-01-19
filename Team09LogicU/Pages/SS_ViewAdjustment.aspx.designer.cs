@@ -10,7 +10,7 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class SM_SearchItem {
+    public partial class SS_ViewAdjustment {
         
         /// <summary>
         /// form1 control.
@@ -31,22 +31,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox textbox_Search;
         
         /// <summary>
-        /// Button1 control.
+        /// btn_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Btn_Add control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Add;
+        protected global::System.Web.UI.WebControls.Button btn_Search;
         
         /// <summary>
         /// GridView1 control.

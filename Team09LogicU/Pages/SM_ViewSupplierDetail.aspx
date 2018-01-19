@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreManager.Master" AutoEventWireup="true" CodeBehind="SM_AddSupplier.aspx.cs" Inherits="Team09LogicU.Pages.SM_AddSupplier" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreManager.Master" AutoEventWireup="true" CodeBehind="SM_ViewSupplierDetail.aspx.cs" Inherits="Team09LogicU.Pages.SM_ViewSupplierDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Add Supplier
+    View Supplier Detail
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-  
+
+    
      <form id ="form1" runat="server">
         <div class="content">
             <div class="container-fluid">
@@ -16,9 +17,9 @@
 
                               <div class="col-md-12">
                                          <div class="form-group">
-                            <label>SupplierCode</label>
-                                
-                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                            <label>SupplierCode (disabled)</label>
+                                             <asp:Label ID="Label_SupplierCode" runat="server" Text="Label"></asp:Label>
+                             
                              </div>
                               </div>
 
@@ -26,39 +27,39 @@
                                          <div class="form-group">
                             <label>SupplierName </label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                               <asp:Label ID="Label_SupplierName" runat="server" Text="SupplierName"></asp:Label>
                              </div>
                               </div>
 
                               <div class="col-md-12">
                                          <div class="form-group">
-                            <label>GSTRegistrationNo</label>
+                            <label>GSTRegistrationNo </label>
                                 
-                                  <asp:TextBox ID="TextBox_GSTRegistrationNo" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                          
+                                     <asp:Label ID="Label_GSTRegistrationNo" runat="server" Text="GSTRegistrationNo"></asp:Label>
                              </div>
                               </div>
 
                         <div class="col-md-12">
                                          <div class="form-group">
                             <label>ContactName</label>
-                                
-                                  <asp:TextBox ID="TextBox_ContactName" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                 <asp:Label ID="Label_ContactName" runat="server" Text="ContactName"></asp:Label>
+                              
                              </div>
                               </div>
 
                                <div class="col-md-12">
                                          <div class="form-group">
-                               <label>Phone</label>
-                                
-                                  <asp:TextBox ID="TextBox_Phone" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                               <label>Phone (disabled)</label>
+                                <asp:Label ID="Label_Phone" runat="server" Text="Phone"></asp:Label>
+                                  
                              </div>
                               </div>
                               
                                         <div class="col-md-12">
                                          <div class="form-group">
                                <label>Fax</label>
-                                
-                                  <asp:TextBox ID="TextBox_Fax" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                 <asp:Label ID="Label_Fax" runat="server" Text="Fax"></asp:Label>
                              </div>
                               </div>
 
@@ -66,8 +67,8 @@
                                                       <div class="col-md-12">
                                          <div class="form-group">
                                <label>Address</label>
-                                
-                                  <asp:TextBox ID="TextBox_Address" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:Label ID="Label_Address" runat="server" Text="_Address"></asp:Label>
+                               
                              </div>
                               </div>
 

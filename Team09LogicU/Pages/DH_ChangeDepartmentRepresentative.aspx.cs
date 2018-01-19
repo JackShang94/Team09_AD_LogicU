@@ -12,7 +12,8 @@ namespace Team09LogicU.pages
     public partial class DH_ChangeDepartmentRepresentative : System.Web.UI.Page
     {
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
-        
+        DepartmentDAO deptDAO = new DepartmentDAO();
+
         string logInStaffId;
         string logInRole;
         string logInDept;
@@ -20,7 +21,7 @@ namespace Team09LogicU.pages
         {
             if (!IsPostBack)
             {
-                logInStaffId = "head002";//assume it is head now
+                logInStaffId = (string)Session["loginID"];//assume it is head now
 
                 /*Set the role and dept from login info*/
 
@@ -72,8 +73,10 @@ namespace Team09LogicU.pages
             string newRepName = ddlEmp.SelectedValue;
             DeptStaff newRep = deptStaffDAO.findStaffByName(newRepName);
             logInDept = newRep.deptID;
+            Department dept = deptDAO.findByDeptId(logInDept);
             DeptStaff oldRep = deptStaffDAO.findDeptRep(logInDept);
             deptStaffDAO.updateRepName(newRep,oldRep);
+            deptDAO.UpdateDeptRep(dept,newRep);
 
             //Refesh display
             DisplayCurrentRep(logInDept);

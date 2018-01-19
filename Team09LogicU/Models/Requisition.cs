@@ -24,7 +24,7 @@ namespace Team09LogicU.Models
         public string staffID { get; set; }
         public string deptID { get; set; }
         public System.DateTime requisitionDate { get; set; }
-        public System.DateTime approvedDate { get; set; }
+        public Nullable<System.DateTime> approvedDate { get; set; }
         public string status { get; set; }
         public string remarks { get; set; }
     

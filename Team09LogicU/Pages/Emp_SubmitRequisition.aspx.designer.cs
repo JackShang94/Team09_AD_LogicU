@@ -13,13 +13,13 @@ namespace Team09LogicU.pages {
     public partial class Emp_SubmitRequisition {
         
         /// <summary>
-        /// form1 control.
+        /// catalogueForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm catalogueForm;
         
         /// <summary>
         /// item_searchText control.
@@ -31,66 +31,66 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.TextBox item_searchText;
         
         /// <summary>
-        /// Button1 control.
+        /// item_searchBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button item_searchBtn;
         
         /// <summary>
-        /// Repeater1 control.
+        /// viewCatalogueScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.ScriptManager viewCatalogueScriptManager;
         
         /// <summary>
-        /// Button2 control.
+        /// catalogueUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.UpdatePanel catalogueUpdatePanel;
         
         /// <summary>
-        /// Button3 control.
+        /// catalogueRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Repeater catalogueRepeater;
         
         /// <summary>
-        /// Button4 control.
+        /// Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button Submit;
         
         /// <summary>
-        /// Button8 control.
+        /// cartUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button8;
+        protected global::System.Web.UI.UpdatePanel cartUpdatePanel;
         
         /// <summary>
-        /// TextBox2 control.
+        /// cartRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.Repeater cartRepeater;
     }
 }

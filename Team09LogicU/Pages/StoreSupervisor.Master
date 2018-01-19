@@ -113,9 +113,9 @@
             <ul class="nav">
                
                 <li>
-                    <a href="SS_ViewAdjustmentDetail.aspx">
+                    <a href="SS_ViewAdjustment.aspx">
                         <i class="pe-7s-home"></i>
-                        <p>View Adjustment Detail
+                        <p>View Adjustment
                         </p>
                     </a>        
                 </li>
@@ -174,8 +174,8 @@
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a href="SS_ViewAdjustmentDetail.aspx">
-                                        <i class="pe-7s-home"></i>View Adjustment Detail
+                                    <a href="SS_ViewAdjustment.aspx">
+                                        <i class="pe-7s-home"></i>View Adjustment 
                                     </a>
                                 </li>
                             <li>

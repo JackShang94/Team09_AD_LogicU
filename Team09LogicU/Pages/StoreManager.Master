@@ -122,8 +122,8 @@
                     </a>        
                 </li>
 
-                <li class="active">
-                    <a data-toggle="collapse" href="#ManageCatalog" aria-expanded="true">
+                <li >
+                    <a data-toggle="collapse" href="#ManageCatalog" >
                         <i class="pe-7s-plugin"></i>
                         <p>Manage Catalog
                            <b class="caret"></b>

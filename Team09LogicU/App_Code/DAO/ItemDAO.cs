@@ -49,7 +49,10 @@ namespace Team09LogicU.App_Code.DAO
             return m.Items.Where(x=>x.itemID==itemID).ToList<Item>();
         }
         
-
+        public string getDescByItemID(string itemID)
+        {
+            return m.Items.Where(x => x.itemID == itemID).Select(x=>x.description).First().ToString();
+        }
         //public List<Item> getRecentItemList(string staffID) //used by requisition think u may need
         //{
         //    //Requisition r = new Requisition();
