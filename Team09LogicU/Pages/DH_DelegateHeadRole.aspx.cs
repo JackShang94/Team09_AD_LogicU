@@ -4,29 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 
 namespace Team09LogicU.pages
 {
+
     public partial class DH_DelegateHeadRole : System.Web.UI.Page
     {
-        
+
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-
-        string logInStaffId;          
+        DataTable dHistory = new DataTable();
+        string logInStaffId;
         string logInRole;
         string currentHeadId;
-        
-
+        List<Models.Delegate> dList;
+        string deptId;
         protected void Page_Load(object sender, EventArgs e)
         {
             logInStaffId = Session["loginID"].ToString();
-            string deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+            deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
             logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
             Label_logInRole.Text = logInRole;
-            
+            dHistory = new DataTable();
+            dHistory.Columns.Add(new DataColumn("DelegateID", typeof(int)));
+            dHistory.Columns.Add(new DataColumn("StaffID", typeof(string)));
+            dHistory.Columns.Add(new DataColumn("Start Date", typeof(DateTime)));
+            dHistory.Columns.Add(new DataColumn("End Date", typeof(DateTime)));
+            dHistory.Columns.Add(new DataColumn("Status", typeof(string)));
+
             if (!IsPostBack)
             {
                 if (logInRole == "head")
@@ -43,19 +51,43 @@ namespace Team09LogicU.pages
                 }
                 else
                 {
+                    Panel_submitDelegate.Visible = false;
                     employee_dropList.Visible = false;
                     textBox_startDate.Visible = false;
                     textBox_endDate.Visible = false;
-                    delegateStf_label.Text = "You are not allowed to delegate now.";
                     submit_button.Visible = false;
-                }
+                    delegateStf_label.Text = "You are not allowed to delegate now.";
+                }            
+                UpdateTable();
             }
-            //delegate history
-            List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
-            GridView_dHistory.DataSource = dList;
+        }
+       public void UpdateTable()
+        {
+            dList = delegateDAO.findDelegatesByDepartment(deptId);
+            foreach (Models.Delegate item in dList)
+            {
+                DataRow dr = dHistory.NewRow();
+                dr["DelegateID"] = item.delegateID;
+                dr["StaffID"] = item.staffID;
+                dr["Start Date"] = item.startDate;
+                dr["End Date"] = item.endDate;
+                dr["Status"] = this.delegateStatus(item);
+                dHistory.Rows.Add(dr);
+            }
+            GridView_dHistory.DataSource = dHistory;
             GridView_dHistory.DataBind();
-
-
+        }
+        public string delegateStatus(Models.Delegate d)
+        {
+            DateTime now = DateTime.Today;
+            if (d.endDate >= now)
+            {
+                return "Active";
+            }
+            else
+            {
+                return "Expired";
+            }
         }
         protected void submit_button_Click(object sender, EventArgs e)
         {
@@ -66,29 +98,29 @@ namespace Team09LogicU.pages
             delegateDAO.delegateToStaff(staffId, sDate, eDate);
 
             //change the role of relevant staff
-            currentHeadId =deptStaffDAO.findStaffByID(staffId).Department.headStaffID;
+            currentHeadId = deptStaffDAO.findStaffByID(staffId).Department.headStaffID;
             delegateDAO.disableHead(currentHeadId);
 
+            UpdateTable();
             delegateStatus_Label.Text = "Delegated successfully!";
         }
 
         protected void terminate_button_Click(object sender, EventArgs e)
         {
-            Models.Delegate d = (Models.Delegate)GridView_dHistory.SelectedRow.DataItem;
 
             int dID = Convert.ToInt32(GridView_dHistory.SelectedRow.Cells[1].Text.ToString());
             bool IsActiveDelegate = delegateDAO.isActiveDelegate(dID);
 
-            if (logInRole == "outOfOfficeHead"&&IsActiveDelegate)
+            if (logInRole == "outOfOfficeHead" && IsActiveDelegate)
             {
-                 delegateDAO.terminateDelegate(dID);
-                 label_terminateDlgt.Text = "Terminated succussfully";
+                delegateDAO.terminateDelegate(dID);
+                label_terminateDlgt.Text = "Terminated succussfully";
             }
-            else if(!IsActiveDelegate)
+            else if (!IsActiveDelegate)
             {
                 label_terminateDlgt.Text = "This delegate has already been terminated";
             }
-            else if (logInRole!= "outOfOfficeHead")
+            else if (logInRole != "outOfOfficeHead")
             {
                 label_terminateDlgt.Text = "You have no access to this";
             }
@@ -96,7 +128,7 @@ namespace Team09LogicU.pages
 
         protected void GridView_dHistory_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

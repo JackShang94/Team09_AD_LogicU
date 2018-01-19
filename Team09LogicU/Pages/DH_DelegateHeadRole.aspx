@@ -5,9 +5,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <form runat="server">
-        <asp:Label ID="Label_logInRole" runat="server" Text="Label1"></asp:Label>
+        Current Role: <asp:Label ID="Label_logInRole" runat="server" Text="Label1"></asp:Label>
         
-         <h3>Delegate to: <asp:Label ID="delegateStf_label" runat="server" Text="Label"></asp:Label></h3> 
+        <asp:Panel ID="Panel_submitDelegate" runat="server">
+             <h3>Delegate to: <asp:Label ID="delegateStf_label" runat="server" Text=""></asp:Label></h3> 
   Employee:  <asp:DropDownList ID="employee_dropList" runat="server"></asp:DropDownList>
   From:      
          <asp:TextBox ID="textBox_startDate" runat="server" TextMode="Date"></asp:TextBox>
@@ -16,9 +17,11 @@
             
             <br /> <asp:Button ID="submit_button" runat="server" Text="SUBMIT" OnClick="submit_button_Click" />
          
-         <asp:Label ID="delegateStatus_Label" runat="server" Text="Label"></asp:Label>
-         
+         <asp:Label ID="delegateStatus_Label" runat="server" Text=""></asp:Label>
+        </asp:Panel>
+        
     <br />
+       
     <h3>Delegate History</h3> 
         <asp:GridView ID="GridView_dHistory" runat="server" OnSelectedIndexChanged="GridView_dHistory_SelectedIndexChanged">
            
@@ -30,7 +33,7 @@
         </asp:GridView>
         <br />
          <asp:Button ID="terminate_button" runat="server" Text="TERMINATE" OnClick="terminate_button_Click" />
-        <asp:Label ID="label_terminateDlgt" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="label_terminateDlgt" runat="server" Text=""></asp:Label>
     </form>
     
 </asp:Content>
