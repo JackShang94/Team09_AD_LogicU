@@ -1,100 +1,331 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreSupervisor.Master" AutoEventWireup="true" CodeBehind="SS_ViewAdjustment.aspx.cs" Inherits="Team09LogicU.Pages.SS_ViewAdjustment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    View Adjustment
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-        <form runat="server">
-     <div> 
-    <p class="Content1">
-                <span>Search：</span><input class="txtwenben" type="number"  id="VoucherId" name="txtanme" placeholder="VoucherId" />
-                <button class="btncxan" id="btnchaxun" name="btnchaxun">查询</button>
-            </p>
-    </div>
-     
-
-
-    <div class="card">
-                            <div class="header">SEARCH</div>
-                                    <div>
-                                        <label class="col-md-3 control-label">Voucher#</label>
-                                        <div class="col-md-9">
-                                            <input type="number" placeholder="VoucherId" >
-                                        </div>
-                                            <button type="submit" class="btn btn-fill btn-info">Search</button>
-                                       
-                                    
-                               
-                            </div>
-       </div> <!-- end card -->
-
-
+        <form id ="form1" runat="server">
+<div class="row">
+                    <div class="col-md-8 container-fluid">
+                        <div class="card">
+                        <div class="content" >
+                        <div class=" form-group" style="height:25px; width:100%">
+                        <div class="pull-left search" style="width:75%">
+                        <asp:TextBox ID="textbox_Search" runat="server" CssClass="form-control" ></asp:TextBox>
+                        </div>
+                        <div class="pull-right" style="width:20%">
+                         <asp:Button ID="btn_Search" runat="server" Width="100%" Text="Search"  CssClass="btn btn-default" />
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                         </div>
+     </div>
      <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Table with Links</h4>
                                 <p class="category">Here is a subtitle for this table</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">#</th>
-                                            <th>Voucher</th>
-                                            <th>Submitted Employee</th>
-                                            <th class="text-right">Date Issued</th>
-                                            <th>status</th>
-                                            <th class="text-right">Actions</th>
-                                        </tr>
-                                    </thead>
+                            </div>                      
 
-                                    <tbody>
-                                        <tr>
-                                           
-                                            <td class="text-center">1</td>
-                                            <td>Andrew Mike</td>
-                                            <td>Develop</td>
-                                            <td class="text-right">&euro; 99,225</td>
-                                            <td class="text-right">Pending</td>
-                                            <td class="td-actions text-right">
-                <%-- ??  这里引用aspx有问题 --%>                          <%--  <a href="#SS_ViewAdjustmentDetail.aspx" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">--%>
-                                                  <%--  <i class="fa fa-user"></i>
-                                                </a>--%>
-                                                <asp:LinkButton ID="Linkbutton_View" runat="server" NavigateUrl="SS_ViewAdjustmentDetail.aspx" Text="View"></asp:LinkButton>
-                                            </td>
-                                        </tr>
-                                     </tbody>
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="container-fluid">
+                <div class="content">
+        <asp:GridView ID="GridView1" runat="server"  CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "  AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" >
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+       
+           <%--<asp:CommandField HeaderText="选择" ShowSelectButton="True" />--%>
+                            <%--<asp:CommandField HeaderText="编辑" ShowEditButton="True" />--%>
+                           <%-- <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />--%>
+        </Columns>
 
 
 
-                                </table>
-                            </div>
-             <%--  <div class="content table-responsive table-full-width">
-                             <ul style="overflow:hidden;width:100%">--%>
-         <%--   <%foreach(  Voucher in Voucherlist) { %>
-            <li style="width:33.3333%;float:left;">
-                <div >
-                     <img src="images/<%=Voucher.VoucherId %>.jpg" class="img-responsive" alt=""/>
-                        <div >
-						 <p>
-                             <a href="SS_ViewAdjustmentDetail.aspx?VoucherId=<%=Voucher.VoucherId%>&Title=<%=Voucher.Title %>&Price=<%=Voucher.Price %>&Stock=<%=Voucher.Stock %>"  class="acount-btn" >View Details</a>
-						 </p>
-                          
-                        
-                        </div>
-                        </div>
-                      </li>
-                      <%  } %>
-             
-        </ul>
-                            </div>--%>
+                <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
+        
+                 </asp:GridView>
+
+
+
+
+
+
+
+
+
+                    </div>
+                    </div>
+                    </div>
+            </div>
                         </div>
                     </div>
                 </div>
            </div>
      </div>
+       </div>
+     
+
+
+
+
+            <div class="fixed-plugin">
+    <div class="dropdown">
+        <a href="#" data-toggle="dropdown">
+        <i class="fa fa-cog fa-2x"> </i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="header-title">Configuration</li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Sidebar Image</p>
+                    <div class="switch switch-sidebar-image"
+                        data-on-label="ON"
+                        data-off-label="OFF">
+                        <input type="checkbox" checked/>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+			<li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Sidebar Mini</p>
+                    <div class="switch  switch-sidebar-mini"
+                        data-on-label="ON"
+                        data-off-label="OFF">
+                        <input type="checkbox"/>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+			<li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Fixed Navbar</p>
+                    <div class="switch  switch-navbar-fixed"
+                        data-on-label="ON"
+                        data-off-label="OFF">
+                        <input type="checkbox"/>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Filters</p>
+                    <div class="pull-right">
+                        <span class="badge filter" data-color="black"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-orange active" data-color="orange"></span>
+                        <span class="badge filter badge-red" data-color="red"></span>
+                        <span class="badge filter badge-purple" data-color="purple"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="header-title">Sidebar Images</li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../picture/full-screen-image-1.jpg">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../picture/full-screen-image-2.jpg">
+                </a>
+            </li>
+            <li class="active">
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../picture/full-screen-image-3.jpg">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../picture/full-screen-image-4.jpg">
+                </a>
+            </li>
+
+            <li class="button-container">
+                <div class="">
+                    <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard" target="_blank" class="btn btn-info btn-block">Get Free Demo</a>
+                </div>
+                <div class="">
+                    <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro" target="_blank" class="btn btn-info btn-block btn-fill">Buy Now!</a>
+                </div>
+            </li>
+
+            <li class="header-title">Thank you for 452 shares!</li>
+
+            <li class="button-container">
+                <button id="twitter" class="btn btn-social btn-twitter btn-round"><i class="fa fa-twitter"></i> &middot; 182</button>
+                <button id="facebook" class="btn btn-social btn-facebook btn-round"><i class="fa fa-facebook-square"> &middot; 270</i></button>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+
+    <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+
+
+	<!--  Forms Validations Plugin -->
+	<script src="../js/jquery.validate.min.js"></script>
+
+	<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+	<script src="../js/moment.min.js"></script>
+
+    <!--  Date Time Picker Plugin is included in this js file -->
+    <script src="../js/bootstrap-datetimepicker.js"></script>
+
+    <!--  Select Picker Plugin -->
+    <script src="../js/bootstrap-selectpicker.js"></script>
+
+	<!--  Checkbox, Radio, Switch and Tags Input Plugins -->
+	<script src="../js/bootstrap-checkbox-radio-switch-tags.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../js/bootstrap-notify.js"></script>
+
+    <!-- Sweet Alert 2 plugin -->
+	<script src="../js/sweetalert2.js"></script>
+
+    <!-- Vector Map plugin -->
+	<script src="../js/jquery-jvectormap.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script src="../js/aa743e8f448a4792bad10d201a7080f6.js"></script>
+
+	<!-- Wizard Plugin    -->
+    <script src="../js/jquery.bootstrap.wizard.min.js"></script>
+
+	<!--  Bootstrap Table Plugin    -->
+	<script src="../js/bootstrap-table.js"></script>
+
+	<!--  Plugin for DataTables.net  -->
+	<script src="../js/jquery.datatables.js"></script>
+
+    <!--  Full Calendar Plugin    -->
+    <script src="../js/fullcalendar.min.js"></script>
+
+    <!-- Light Bootstrap Dashboard Core javascript and methods -->
+	<script src="../js/light-bootstrap-dashboard.js"></script>
+
+	<!--   Sharrre Library    -->
+    <script src="../js/jquery.sharrre.js"></script>
+
+	<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+	<script src="../js/demo.js"></script>
+
+
+    <script type="text/javascript">
+        var $table = $('#bootstrap-table');
+
+        function operateFormatter(value, row, index) {
+            return [
+                '<a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)">',
+                    '<i class="fa fa-image"></i>',
+                '</a>',
+                '<a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)">',
+                    '<i class="fa fa-edit"></i>',
+                '</a>',
+                '<a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)">',
+                    '<i class="fa fa-remove"></i>',
+                '</a>'
+            ].join('');
+        }
+
+        $().ready(function(){
+            window.operateEvents = {
+                'click .view': function (e, value, row, index) {
+                    info = JSON.stringify(row);
+
+                    swal('You click view icon, row: ', info);
+                    console.log(info);
+                },
+                'click .edit': function (e, value, row, index) {
+                    info = JSON.stringify(row);
+
+                    swal('You click edit icon, row: ', info);
+                    console.log(info);
+                },
+                'click .remove': function (e, value, row, index) {
+                    console.log(row);
+                    $table.bootstrapTable('remove', {
+                        field: 'id',
+                        values: [row.id]
+                    });
+                }
+            };
+
+            $table.bootstrapTable({
+                toolbar: ".toolbar",
+                clickToSelect: true,
+                showRefresh: true,
+                search: true,
+                showToggle: true,
+                showColumns: true,
+                pagination: true,
+                searchAlign: 'left',
+                pageSize: 8,
+                clickToSelect: false,
+                pageList: [8,10,25,50,100],
+
+                formatShowingRows: function(pageFrom, pageTo, totalRows){
+                    //do nothing here, we don't want to show the text "showing x of y from..."
+                },
+                formatRecordsPerPage: function(pageNumber){
+                    return pageNumber + " rows visible";
+                },
+                icons: {
+                    refresh: 'fa fa-refresh',
+                    toggle: 'fa fa-th-list',
+                    columns: 'fa fa-columns',
+                    detailOpen: 'fa fa-plus-circle',
+                    detailClose: 'fa fa-minus-circle'
+                }
+            });
+
+            //activate the tooltips after the data table is initialized
+            $('[rel="tooltip"]').tooltip();
+
+            $(window).resize(function () {
+                $table.bootstrapTable('resetView');
+            });
+
+
+        });
+
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46172202-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
              </form>
+
+
+
+    
+
+
 
 </asp:Content>

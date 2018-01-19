@@ -58,8 +58,8 @@
                                             </select>
                                         </div>
                                         </div>
-         <button type="submit" class="btn btn-fill btn-info">Submit</button>
-                <button type="submit" class="btn btn-fill btn-info">Back</button>
+          <asp:Button ID="Btn_Approve"  runat="server" Text="Approve" CssClass="btn btn-primary btn-fill btn-wd " /> 
+        <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   />
         </div>
  
           </form>

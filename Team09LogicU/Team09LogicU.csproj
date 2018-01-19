@@ -159,9 +159,13 @@
     <Content Include="Pages\SM_AddSupplier.aspx" />
     <Content Include="Pages\SM_ApproveAdjustment.aspx" />
     <Content Include="Pages\SM_ApproveAdjustmentDetail.aspx" />
+    <Content Include="Pages\SM_EditItem.aspx" />
+    <Content Include="Pages\SM_EditSupplier.aspx" />
     <Content Include="Pages\SM_SearchItem.aspx" />
     <Content Include="Pages\SM_SearchSupplier.aspx" />
+    <Content Include="Pages\SM_ViewSupplierDetail.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
+    <Content Include="Pages\SS_SendAdjustmenttoManager.aspx" />
     <Content Include="Pages\SS_ViewAdjustment.aspx" />
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
@@ -532,6 +536,20 @@
     <Compile Include="Pages\SM_ApproveAdjustmentDetail.aspx.designer.cs">
       <DependentUpon>SM_ApproveAdjustmentDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SM_EditItem.aspx.cs">
+      <DependentUpon>SM_EditItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_EditItem.aspx.designer.cs">
+      <DependentUpon>SM_EditItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SM_EditSupplier.aspx.cs">
+      <DependentUpon>SM_EditSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_EditSupplier.aspx.designer.cs">
+      <DependentUpon>SM_EditSupplier.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SM_SearchItem.aspx.cs">
       <DependentUpon>SM_SearchItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -546,12 +564,26 @@
     <Compile Include="Pages\SM_SearchSupplier.aspx.designer.cs">
       <DependentUpon>SM_SearchSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SM_ViewSupplierDetail.aspx.cs">
+      <DependentUpon>SM_ViewSupplierDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_ViewSupplierDetail.aspx.designer.cs">
+      <DependentUpon>SM_ViewSupplierDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SS_AssignClerk.aspx.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\SS_AssignClerk.aspx.designer.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SS_SendAdjustmenttoManager.aspx.cs">
+      <DependentUpon>SS_SendAdjustmenttoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_SendAdjustmenttoManager.aspx.designer.cs">
+      <DependentUpon>SS_SendAdjustmenttoManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SS_ViewAdjustment.aspx.cs">
       <DependentUpon>SS_ViewAdjustment.aspx</DependentUpon>

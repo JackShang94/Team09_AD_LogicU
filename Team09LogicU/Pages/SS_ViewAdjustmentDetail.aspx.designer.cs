@@ -13,49 +13,67 @@ namespace Team09LogicU.Pages {
     public partial class SS_ViewAdjustmentDetail {
         
         /// <summary>
-        /// HyperLink1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label_VoucherId control.
+        /// label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_VoucherId;
+        protected global::System.Web.UI.WebControls.Label label1;
         
         /// <summary>
-        /// Label_DateIssued control.
+        /// label_VoucherId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DateIssued;
+        protected global::System.Web.UI.WebControls.Label label_VoucherId;
         
         /// <summary>
-        /// Label1_SubmittedEmployee control.
+        /// label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1_SubmittedEmployee;
+        protected global::System.Web.UI.WebControls.Label label2;
         
         /// <summary>
-        /// GridView_AdjustmentDetail control.
+        /// label_DateIssued control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_AdjustmentDetail;
+        protected global::System.Web.UI.WebControls.Label label_DateIssued;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// label_SubmittedEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_SubmittedEmployee;
         
         /// <summary>
         /// Btn_Approve control.
