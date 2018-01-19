@@ -162,7 +162,7 @@
           <Property Name="staffID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="deptID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="requisitionDate" Type="datetime" Nullable="false" />
-          <Property Name="approvedDate" Type="datetime" Nullable="false" />
+          <Property Name="approvedDate" Type="datetime" />
           <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="remarks" Type="varchar" MaxLength="200" />
         </EntityType>
@@ -868,7 +868,7 @@
           <Property Name="staffID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="deptID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="requisitionDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="approvedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="approvedDate" Type="DateTime" Precision="3" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DeptStaff" Relationship="Self.FK_Requisition_DeptStaff" FromRole="Requisition" ToRole="DeptStaff" />

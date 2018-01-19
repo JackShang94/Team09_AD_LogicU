@@ -72,13 +72,13 @@
                                         <ContentTemplate>
                                               <asp:Repeater ID="cartRepeater" runat="server" OnItemCommand="cartRepeater_ItemCommand" ViewStateMode="Disabled" >
                                                 <HeaderTemplate>
-                                                   <table class="table">
-                                                                         <tr class="category">
-                                                                            <td></td>
-                                    	                                    <td>Description</td>
-                                    	                                    <td>Amount</td>
-                                                                            <td class="text-right">Action</td>
-                                                                        </tr>
+													   <table class="table">
+																				<tr class="category">
+																				<td></td>
+                                    											<td>Description</td>
+                                    											<td>Amount</td>
+																				<td class="text-right">Action</td>
+																			</tr>
                                                    </HeaderTemplate>
                                                    <ItemTemplate>
                                                                         <tr>
