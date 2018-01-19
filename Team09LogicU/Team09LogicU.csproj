@@ -147,6 +147,8 @@
       <DependentUpon>SA45_Team09_LogicUEntities.edmx</DependentUpon>
     </Content>
     <Content Include="Pages\DepartmentHead.Master" />
+    <Content Include="Pages\DH_PendingRequisitionDetail.aspx" />
+    <Content Include="Pages\DH_RequisitionHistoryDetail.aspx" />
     <Content Include="Pages\Employee.Master" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
@@ -379,6 +381,20 @@
     </Compile>
     <Compile Include="Pages\DH_Notification.aspx.designer.cs">
       <DependentUpon>DH_Notification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DH_PendingRequisitionDetail.aspx.cs">
+      <DependentUpon>DH_PendingRequisitionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DH_PendingRequisitionDetail.aspx.designer.cs">
+      <DependentUpon>DH_PendingRequisitionDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DH_RequisitionHistoryDetail.aspx.cs">
+      <DependentUpon>DH_RequisitionHistoryDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DH_RequisitionHistoryDetail.aspx.designer.cs">
+      <DependentUpon>DH_RequisitionHistoryDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DH_ViewPendingRequisition.aspx.cs">
       <DependentUpon>DH_ViewPendingRequisition.aspx</DependentUpon>
