@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team09LogicU.pages {
+namespace Team09LogicU.Pages {
     
     
-    public partial class DH_ChangeDepartmentRepresentative {
+    public partial class SS_ViewAdjustment {
         
         /// <summary>
-        /// Label1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblCurrentRep control.
+        /// textbox_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentRep;
+        protected global::System.Web.UI.WebControls.TextBox textbox_Search;
         
         /// <summary>
-        /// Label3 control.
+        /// btn_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Button btn_Search;
         
         /// <summary>
-        /// ddlEmp control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmp;
-        
-        /// <summary>
-        /// btnUpdateRep control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateRep;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

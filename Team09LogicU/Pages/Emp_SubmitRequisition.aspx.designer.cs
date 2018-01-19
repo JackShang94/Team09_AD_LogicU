@@ -40,6 +40,24 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Button item_searchBtn;
         
         /// <summary>
+        /// viewCatalogueScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager viewCatalogueScriptManager;
+        
+        /// <summary>
+        /// catalogueUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel catalogueUpdatePanel;
+        
+        /// <summary>
         /// catalogueRepeater control.
         /// </summary>
         /// <remarks>
@@ -56,15 +74,6 @@ namespace Team09LogicU.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Submit;
-        
-        /// <summary>
-        /// viewCatalogueScriptManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager viewCatalogueScriptManager;
         
         /// <summary>
         /// cartUpdatePanel control.

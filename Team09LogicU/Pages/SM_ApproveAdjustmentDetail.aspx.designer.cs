@@ -7,108 +7,108 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team09LogicU.pages {
+namespace Team09LogicU.Pages {
     
     
-    public partial class DH_DelegateHeadRole {
+    public partial class SM_ApproveAdjustmentDetail {
         
         /// <summary>
-        /// Label1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label2 control.
+        /// label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label label1;
         
         /// <summary>
-        /// delegateStf_label control.
+        /// label_VoucherId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delegateStf_label;
+        protected global::System.Web.UI.WebControls.Label label_VoucherId;
         
         /// <summary>
-        /// employee_dropList control.
+        /// label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList employee_dropList;
+        protected global::System.Web.UI.WebControls.Label label2;
         
         /// <summary>
-        /// textBox_startDate control.
+        /// label_DateIssued control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox_startDate;
+        protected global::System.Web.UI.WebControls.Label label_DateIssued;
         
         /// <summary>
-        /// textBox_endDate control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox_endDate;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// submit_button control.
+        /// label_SubmittedEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit_button;
+        protected global::System.Web.UI.WebControls.Label label_SubmittedEmployee;
         
         /// <summary>
-        /// delegateStatus_Label control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delegateStatus_Label;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// ListBox_delegateHistory control.
+        /// Btn_Approve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox_delegateHistory;
+        protected global::System.Web.UI.WebControls.Button Btn_Approve;
         
         /// <summary>
-        /// terminate_button control.
+        /// Btn_Reject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button terminate_button;
+        protected global::System.Web.UI.WebControls.Button Btn_Reject;
         
         /// <summary>
-        /// label_terminateDlgt control.
+        /// Btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_terminateDlgt;
+        protected global::System.Web.UI.WebControls.Button Btn_Back;
     }
 }

@@ -7,108 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team09LogicU.pages {
+namespace Team09LogicU.Pages {
     
     
-    public partial class DH_DelegateHeadRole {
+    public partial class SM_ViewSupplierDetail {
         
         /// <summary>
-        /// Label1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label2 control.
+        /// Label_SupplierCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label_SupplierCode;
         
         /// <summary>
-        /// delegateStf_label control.
+        /// Label_SupplierName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delegateStf_label;
+        protected global::System.Web.UI.WebControls.Label Label_SupplierName;
         
         /// <summary>
-        /// employee_dropList control.
+        /// Label_GSTRegistrationNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList employee_dropList;
+        protected global::System.Web.UI.WebControls.Label Label_GSTRegistrationNo;
         
         /// <summary>
-        /// textBox_startDate control.
+        /// Label_ContactName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox_startDate;
+        protected global::System.Web.UI.WebControls.Label Label_ContactName;
         
         /// <summary>
-        /// textBox_endDate control.
+        /// Label_Phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox_endDate;
+        protected global::System.Web.UI.WebControls.Label Label_Phone;
         
         /// <summary>
-        /// submit_button control.
+        /// Label_Fax control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit_button;
+        protected global::System.Web.UI.WebControls.Label Label_Fax;
         
         /// <summary>
-        /// delegateStatus_Label control.
+        /// Label_Address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delegateStatus_Label;
+        protected global::System.Web.UI.WebControls.Label Label_Address;
         
         /// <summary>
-        /// ListBox_delegateHistory control.
+        /// Btn_Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox_delegateHistory;
+        protected global::System.Web.UI.WebControls.Button Btn_Submit;
         
         /// <summary>
-        /// terminate_button control.
+        /// Btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button terminate_button;
-        
-        /// <summary>
-        /// label_terminateDlgt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_terminateDlgt;
+        protected global::System.Web.UI.WebControls.Button Btn_Back;
     }
 }
