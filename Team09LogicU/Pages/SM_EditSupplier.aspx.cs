@@ -13,5 +13,10 @@ namespace Team09LogicU.Pages
         {
 
         }
+
+        protected void Btn_Submit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
