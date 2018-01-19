@@ -85,7 +85,7 @@
                                                                             <td></td>
                                     	                                    <td>   <%#Eval("description") %></td>
                                     	                                    <td class="text-center" style="width:30%">
-                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Bind("Qty") %>' >
+                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
                                                                                     
                                                                                 </asp:TextBox>
                                     	                                    </td>

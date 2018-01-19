@@ -30,6 +30,7 @@ namespace Team09LogicU.pages
             if (!IsPostBack)
             {
                 /**********************Loading Cart List************************************/
+
                 string name = Session["loginID"].ToString();
                 List<cart> lc = new List<cart>();
 
@@ -144,21 +145,31 @@ namespace Team09LogicU.pages
 
             //add requisition items
             Dictionary<string, int> dict = new Dictionary<string, int>();
-            
+
+            List<string> ls = new List<string>();
+
+            string j;
+            foreach(Control  i in cartRepeater.Items)//get Quantity
+            {
+                Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
+                dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
+                
+            }
+
 
             
-            for (int i =lc.Count- 1; i >= 0; i--)//not foreach enumeration
-            {
-                if (lc[i].Name == name)
-                {
-                    dict.Add(lc[i].ItemID, lc[i].Qty);
-                    lc.RemoveAt(i);
-                }
-            }
+            //for (int i =lc.Count- 1; i >= 0; i--)//not foreach enumeration
+            //{
+            //    if (lc[i].Name == name)
+            //    {
+            //        lc.RemoveAt(i);
+            //    }
+            //}
 
             RequisitionDAO rdao = new RequisitionDAO();
             rdao.addRequisition(name, deptID, dict);
-
+            lc = new List<cart>();//clear the cart session
             Session["cart"] = lc;
 
 
@@ -177,18 +188,23 @@ namespace Team09LogicU.pages
 
             string[] info = b.CommandArgument.ToString().Split('&');
 
-            foreach (var i in lc)
+            foreach (Control i in cartRepeater.Items)//get Quantity
             {
-                if (i.ItemID == info[0])
+                Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
+                if (deletebtn.CommandArgument.ToString() == info[0])
                 {
-                    //this.ClientScript.RegisterClientScriptBlock(this.GetType())
-                    //b.Enabled = false;
-                    return;
+                    foreach (var j in lc)
+                    {
+                        if (j.ItemID == info[0])
+                        {
+                            j.Qty = Int32.Parse(cartqty.Text.ToString());//store quantity into session
+                        }
+                    }
                 }
             }
-            //wocao
-           
 
+            //wocao
             cart c = new cart
             {
                 Name = name,
