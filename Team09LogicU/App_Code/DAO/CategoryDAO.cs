@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.Models;
-
 namespace Team09LogicU.App_Code.DAO
 {
     public class CategoryDAO

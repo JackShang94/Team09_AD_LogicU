@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
-
+using Team09LogicU.App_Code.UtilClass;
 namespace Team09LogicU
 {
     public class Global : System.Web.HttpApplication
@@ -28,8 +28,16 @@ namespace Team09LogicU
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["loginID"] = "";
-            Session["loginRole"] = "";
+            if (Session["loginID"]==null)
+            {
+                Session["loginID"] = "emp007";
+            }
+            if (Session["cart"]==null)
+            {
+                Session["cart"] = new List<cart>();
+            }
+
+            
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

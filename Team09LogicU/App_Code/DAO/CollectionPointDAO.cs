@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.Models;
+
 namespace Team09LogicU.App_Code.DAO
 {
     public class CollectionPointDAO
@@ -10,24 +12,17 @@ namespace Team09LogicU.App_Code.DAO
 
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
 
-        //search collection point for specific department
-        public CollectionPoint getLocationandTime(string deptcode)
-        {
-            Department getDepartment = context.Departments.First(z => z.deptID == deptcode);
-            CollectionPoint selectedpoint = context.CollectionPoints.First(a => a.collectionPointID == getDepartment.collectionPointID);
-            return selectedpoint;
-        }
-
         //show all collectionpoints
-        public CollectionPoint getCollectionPointList(string cPId)
+        //
+        public List<CollectionPoint> getAllCollectionPoint()
         {
-            return context.CollectionPoints.Where(x => x.collectionPointID == cPId).First();
+            return context.CollectionPoints.ToList();
         }
 
-        //get collection point description
-        public CollectionPoint getCollectionPointDescription(string description)
+        public CollectionPoint getCollectionPointByDescription(string description)
         {
             return context.CollectionPoints.Where(x => x.description == description).First();
         }
+
     }
 }
