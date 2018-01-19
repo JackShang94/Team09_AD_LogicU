@@ -16,17 +16,24 @@ namespace Team09LogicU.pages
 
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-        DataTable dHistory;
+        DataTable dHistory = new DataTable();
         string logInStaffId;
         string logInRole;
         string currentHeadId;
-
+        List<Models.Delegate> dList;
+        string deptId;
         protected void Page_Load(object sender, EventArgs e)
         {
             logInStaffId = Session["loginID"].ToString();
-            string deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+            deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
             logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
             Label_logInRole.Text = logInRole;
+            dHistory = new DataTable();
+            dHistory.Columns.Add(new DataColumn("DelegateID", typeof(int)));
+            dHistory.Columns.Add(new DataColumn("StaffID", typeof(string)));
+            dHistory.Columns.Add(new DataColumn("Start Date", typeof(DateTime)));
+            dHistory.Columns.Add(new DataColumn("End Date", typeof(DateTime)));
+            dHistory.Columns.Add(new DataColumn("Status", typeof(string)));
 
             if (!IsPostBack)
             {
@@ -50,18 +57,13 @@ namespace Team09LogicU.pages
                     textBox_endDate.Visible = false;
                     submit_button.Visible = false;
                     delegateStf_label.Text = "You are not allowed to delegate now.";
-                }
+                }            
+                UpdateTable();
             }
-
-            //delegate history
-            dHistory = new DataTable();
-            dHistory.Columns.Add(new DataColumn("DelegateID", typeof(int)));
-            dHistory.Columns.Add(new DataColumn("StaffID", typeof(string)));
-            dHistory.Columns.Add(new DataColumn("Start Date", typeof(DateTime)));
-            dHistory.Columns.Add(new DataColumn("End Date", typeof(DateTime)));
-            dHistory.Columns.Add(new DataColumn("Status", typeof(string)));
-
-            List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
+        }
+       public void UpdateTable()
+        {
+            dList = delegateDAO.findDelegatesByDepartment(deptId);
             foreach (Models.Delegate item in dList)
             {
                 DataRow dr = dHistory.NewRow();
@@ -70,15 +72,11 @@ namespace Team09LogicU.pages
                 dr["Start Date"] = item.startDate;
                 dr["End Date"] = item.endDate;
                 dr["Status"] = this.delegateStatus(item);
-                
                 dHistory.Rows.Add(dr);
             }
             GridView_dHistory.DataSource = dHistory;
             GridView_dHistory.DataBind();
-
-
         }
-       
         public string delegateStatus(Models.Delegate d)
         {
             DateTime now = DateTime.Today;
@@ -103,6 +101,7 @@ namespace Team09LogicU.pages
             currentHeadId = deptStaffDAO.findStaffByID(staffId).Department.headStaffID;
             delegateDAO.disableHead(currentHeadId);
 
+            UpdateTable();
             delegateStatus_Label.Text = "Delegated successfully!";
         }
 
