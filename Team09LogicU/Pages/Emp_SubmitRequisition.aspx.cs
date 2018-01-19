@@ -40,8 +40,9 @@ namespace Team09LogicU.pages
         /******************************Loading Catalogue List********************************/
          ItemDAO idao = new ItemDAO();
             //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
-            catalogueRepeater.DataSource = idao.getItemList();
+            catalogueRepeater.DataSource = idao.getItemList(); 
             catalogueRepeater.DataBind();
+            
 
             
             
