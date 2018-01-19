@@ -17,7 +17,7 @@ namespace Team09LogicU.pages
         string logInStaffId="head003";              //assumption
         string logInRole;
         string currentHeadId;
-        
+        public List<Models.Delegate> dList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,12 +48,12 @@ namespace Team09LogicU.pages
                 }
             }
             //delegate history
-            List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
-            ListBox_delegateHistory.DataSource = dList;
-            ListBox_delegateHistory.DataMember = "Delegate";
-            ListBox_delegateHistory.DataTextField = "staffID";
-            ListBox_delegateHistory.DataValueField = "delegateID";
-            ListBox_delegateHistory.DataBind();
+             dList = delegateDAO.findDelegatesByDepartment(deptId);
+            //ListBox_delegateHistory.DataSource = dList;
+            //ListBox_delegateHistory.DataMember = "Delegate";
+            //ListBox_delegateHistory.DataTextField = "staffID";
+            //ListBox_delegateHistory.DataValueField = "delegateID";
+            //ListBox_delegateHistory.DataBind();
 
 
         }
@@ -74,21 +74,21 @@ namespace Team09LogicU.pages
 
         protected void terminate_button_Click(object sender, EventArgs e)
         {
-            int dID = Convert.ToInt16(ListBox_delegateHistory.SelectedValue);
-            bool IsActiveDelegate = delegateDAO.isActiveDelegate(dID);
-            if (logInRole == "outOfOfficeHead"&&IsActiveDelegate)
-            {
-                 delegateDAO.terminateDelegate(dID);
-                 label_terminateDlgt.Text = "Terminated succussfully";
-            }
-            else if(!IsActiveDelegate)
-            {
-                label_terminateDlgt.Text = "This delegate has already been terminated";
-            }
-            else if (logInRole!= "outOfOfficeHead")
-            {
-                label_terminateDlgt.Text = "You have no access to this";
-            }
+            //int dID = Convert.ToInt16(ListBox_delegateHistory.SelectedValue);
+            //bool IsActiveDelegate = delegateDAO.isActiveDelegate(dID);
+            //if (logInRole == "outOfOfficeHead"&&IsActiveDelegate)
+            //{
+            //     delegateDAO.terminateDelegate(dID);
+            //     label_terminateDlgt.Text = "Terminated succussfully";
+            //}
+            //else if(!IsActiveDelegate)
+            //{
+            //    label_terminateDlgt.Text = "This delegate has already been terminated";
+            //}
+            //else if (logInRole!= "outOfOfficeHead")
+            //{
+            //    label_terminateDlgt.Text = "You have no access to this";
+            //}
         }
     }
 }

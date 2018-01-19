@@ -19,7 +19,8 @@
                         </div>
                         </div>
                         </div>
-                        <%for(int i=0; i< lcatalogue.Count;i++){%>
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
                         <div class="col-sm-8 col-lg-4">
                         <div class="card card-user">
                             <div class="image" style="height:150px">
@@ -28,7 +29,7 @@
                             <div style="margin-top:20px">
                                 
                                 <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                    <%=lcatalogue[i].description %>
+                                                  
                                 </p>  
                                 <hr>
                             <div class="text-center" style="margin-bottom:20px">
@@ -45,7 +46,8 @@
                             </div>
                             
                         </div>
-                    <%} %>
+                                </ItemTemplate>
+                   </asp:Repeater>
                         <div class="row">
                         <div class="text-center">
                             <div class="btn-group">
