@@ -72,20 +72,20 @@
                                         <ContentTemplate>
                                               <asp:Repeater ID="cartRepeater" runat="server" OnItemCommand="cartRepeater_ItemCommand" ViewStateMode="Disabled" >
                                                 <HeaderTemplate>
-                                                   <table class="table">
-                                                                         <tr class="category">
-                                                                            <td></td>
-                                    	                                    <td>Description</td>
-                                    	                                    <td>Amount</td>
-                                                                            <td class="text-right">Action</td>
-                                                                        </tr>
+													   <table class="table">
+																				<tr class="category">
+																				<td></td>
+                                    											<td>Description</td>
+                                    											<td>Amount</td>
+																				<td class="text-right">Action</td>
+																			</tr>
                                                    </HeaderTemplate>
                                                    <ItemTemplate>
                                                                         <tr>
                                                                             <td></td>
                                     	                                    <td>   <%#Eval("description") %></td>
                                     	                                    <td class="text-center" style="width:30%">
-                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Bind("Qty") %>' >
+                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
                                                                                     
                                                                                 </asp:TextBox>
                                     	                                    </td>

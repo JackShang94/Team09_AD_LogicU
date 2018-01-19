@@ -71,5 +71,9 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
+        public string getRoleByStaffID(string staffID)
+        {
+            return context.DeptStaffs.Where(x => x.staffID == staffID).Select(y => y.role).ToList().First().ToString();
+        }
     }
 }

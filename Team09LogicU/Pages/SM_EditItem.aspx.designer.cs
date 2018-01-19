@@ -10,7 +10,7 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class SM_AddItem {
+    public partial class SM_EditItem {
         
         /// <summary>
         /// form1 control.
@@ -76,13 +76,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_UnitofMeasure;
         
         /// <summary>
-        /// Btn_Submit control.
+        /// Btn_Update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Submit;
+        protected global::System.Web.UI.WebControls.Button Btn_Update;
         
         /// <summary>
         /// Btn_Back control.

@@ -24,7 +24,8 @@ namespace Team09LogicU.App_Code.DAO
             r.deptID = deptID;
             r.status = "pending";//can use a configuration class
             r.requisitionDate = DateTime.Now;
-            r.approvedDate = DateTime.Today.AddDays(1);//set as minvalue
+            r.approvedDate =null ;//set as minvalue
+            
 
            
             m.Requisitions.Add(r);
