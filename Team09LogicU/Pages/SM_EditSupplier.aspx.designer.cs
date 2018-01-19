@@ -10,7 +10,7 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class SM_AddItem {
+    public partial class SM_EditSupplier {
         
         /// <summary>
         /// form1 control.
@@ -22,58 +22,67 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TextBox_ItemNumber control.
+        /// TextBox_SupplierCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_ItemNumber;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_SupplierCode;
         
         /// <summary>
-        /// TextBox_Category control.
+        /// TextBox_SupplierName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Category;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_SupplierName;
         
         /// <summary>
-        /// TextBox_Description control.
+        /// TextBox_GSTRegistrationNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Description;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_GSTRegistrationNo;
         
         /// <summary>
-        /// TextBox_ReorderLevel control.
+        /// TextBox_ContactName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_ReorderLevel;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_ContactName;
         
         /// <summary>
-        /// TextBox_ReorderQty control.
+        /// TextBox_Phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_ReorderQty;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Phone;
         
         /// <summary>
-        /// TextBox_UnitofMeasure control.
+        /// TextBox_Fax control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_UnitofMeasure;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Fax;
+        
+        /// <summary>
+        /// TextBox_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Address;
         
         /// <summary>
         /// Btn_Submit control.
