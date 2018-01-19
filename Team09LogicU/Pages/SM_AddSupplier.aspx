@@ -18,7 +18,7 @@
                                          <div class="form-group">
                             <label>SupplierCode</label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -26,7 +26,7 @@
                                          <div class="form-group">
                             <label>SupplierName </label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -34,7 +34,7 @@
                                          <div class="form-group">
                             <label>GSTRegistrationNo</label>
                                 
-                                  <asp:TextBox ID="TextBox_GSTRegistrationNo" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_GSTRegistrationNo" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -42,7 +42,7 @@
                                          <div class="form-group">
                             <label>ContactName</label>
                                 
-                                  <asp:TextBox ID="TextBox_ContactName" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_ContactName" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -50,7 +50,7 @@
                                          <div class="form-group">
                                <label>Phone</label>
                                 
-                                  <asp:TextBox ID="TextBox_Phone" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Phone" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
                               
@@ -58,7 +58,7 @@
                                          <div class="form-group">
                                <label>Fax</label>
                                 
-                                  <asp:TextBox ID="TextBox_Fax" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Fax" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -67,7 +67,7 @@
                                          <div class="form-group">
                                <label>Address</label>
                                 
-                                  <asp:TextBox ID="TextBox_Address" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Address" runat="server"  TextMode="MultiLine"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
