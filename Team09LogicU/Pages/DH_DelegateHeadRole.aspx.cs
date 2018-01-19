@@ -11,19 +11,22 @@ namespace Team09LogicU.pages
 {
     public partial class DH_DelegateHeadRole : System.Web.UI.Page
     {
+        
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-        
-        string logInStaffId="head003";              //assumption
+
+        string logInStaffId;          
         string logInRole;
         string currentHeadId;
         
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            logInStaffId = Session["loginID"].ToString();
             string deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
             logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-            Label1.Text = logInRole;
+            Label_logInRole.Text = logInRole;
+            
             if (!IsPostBack)
             {
                 if (logInRole == "head")
@@ -49,11 +52,8 @@ namespace Team09LogicU.pages
             }
             //delegate history
             List<Models.Delegate> dList = delegateDAO.findDelegatesByDepartment(deptId);
-            ListBox_delegateHistory.DataSource = dList;
-            ListBox_delegateHistory.DataMember = "Delegate";
-            ListBox_delegateHistory.DataTextField = "staffID";
-            ListBox_delegateHistory.DataValueField = "delegateID";
-            ListBox_delegateHistory.DataBind();
+            GridView_dHistory.DataSource = dList;
+            GridView_dHistory.DataBind();
 
 
         }
@@ -74,8 +74,11 @@ namespace Team09LogicU.pages
 
         protected void terminate_button_Click(object sender, EventArgs e)
         {
-            int dID = Convert.ToInt16(ListBox_delegateHistory.SelectedValue);
+            Models.Delegate d = (Models.Delegate)GridView_dHistory.SelectedRow.DataItem;
+
+            int dID = Convert.ToInt32(GridView_dHistory.SelectedRow.Cells[1].Text.ToString());
             bool IsActiveDelegate = delegateDAO.isActiveDelegate(dID);
+
             if (logInRole == "outOfOfficeHead"&&IsActiveDelegate)
             {
                  delegateDAO.terminateDelegate(dID);
@@ -89,6 +92,11 @@ namespace Team09LogicU.pages
             {
                 label_terminateDlgt.Text = "You have no access to this";
             }
+        }
+
+        protected void GridView_dHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

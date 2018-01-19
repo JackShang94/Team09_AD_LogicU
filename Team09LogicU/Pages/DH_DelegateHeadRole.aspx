@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <form runat="server">
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label_logInRole" runat="server" Text="Label1"></asp:Label>
+        
          <h3>Delegate to: <asp:Label ID="delegateStf_label" runat="server" Text="Label"></asp:Label></h3> 
   Employee:  <asp:DropDownList ID="employee_dropList" runat="server"></asp:DropDownList>
   From:      
@@ -20,7 +20,14 @@
          
     <br />
     <h3>Delegate History</h3> 
-        <asp:ListBox ID="ListBox_delegateHistory" runat="server"></asp:ListBox>
+        <asp:GridView ID="GridView_dHistory" runat="server" OnSelectedIndexChanged="GridView_dHistory_SelectedIndexChanged">
+           
+            <Columns>
+                <asp:ButtonField CommandName="Select" Text="select" />
+            </Columns>
+           
+            <SelectedRowStyle BackColor="#FF9933" />
+        </asp:GridView>
         <br />
          <asp:Button ID="terminate_button" runat="server" Text="TERMINATE" OnClick="terminate_button_Click" />
         <asp:Label ID="label_terminateDlgt" runat="server" Text="Label"></asp:Label>
