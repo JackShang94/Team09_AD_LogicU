@@ -30,8 +30,15 @@ namespace Team09LogicU.pages
             if (!IsPostBack)
             {
                 /**********************Loading Cart List************************************/
-
+               
                 string name = Session["loginID"].ToString();
+                DeptStaffDAO deptstaff = new DeptStaffDAO();
+                string role = deptstaff.getRoleByStaffID(name);
+                if (role !="emp" )
+                {
+                    HttpContext.Current.Response.Redirect("login.aspx");
+                    return;
+                }
                 List<cart> lc = new List<cart>();
 
                 foreach (var i in (List<cart>)Session["cart"])
@@ -80,28 +87,10 @@ namespace Team09LogicU.pages
                 {
                     updateCatalogue(idao.getItemByitemID(sText));
                 }
-                    
-
             }
 
-
-
-
         }
-        //void addItemDataBound(object sender, RepeaterItemEventArgs e)
-        //{
-        //    var btn = e.Item.FindControl("addBtn");
-        //    btn.ClientIDMode = ClientIDMode.Static;
-        //    btn.ID = "addBtn" + (e.Item.ItemIndex );
 
-        //}
-
-        //void cartItemDataBound(object sender,RepeaterItemEventArgs e)
-        //{
-        //    var btn = e.Item.FindControl("cart_deleteBtn");
-        //    btn.ClientIDMode = ClientIDMode.Static;
-        //    btn.ID = "cart_deleteBtn" + (e.Item.ItemIndex + 1);
-        //}
 
 
         /****************************Search Button****************************/
@@ -156,8 +145,6 @@ namespace Team09LogicU.pages
                 dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
                 
             }
-
-
             
             //for (int i =lc.Count- 1; i >= 0; i--)//not foreach enumeration
             //{
@@ -187,24 +174,31 @@ namespace Team09LogicU.pages
             Button b = (Button)sender;//get this Button
 
             string[] info = b.CommandArgument.ToString().Split('&');
-
-            foreach (Control i in cartRepeater.Items)//get Quantity
+            int alert = 0;
+            foreach (Control i in cartRepeater.Items)//get Quantity from the cart
             {
+
                 Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
                 TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
-                if (deletebtn.CommandArgument.ToString() == info[0])
+                if (deletebtn.CommandArgument.ToString() == info[0])//find the corresponding itemID
                 {
-                    foreach (var j in lc)
+                    foreach (var j in lc)//find in cart
                     {
                         if (j.ItemID == info[0])
                         {
                             j.Qty = Int32.Parse(cartqty.Text.ToString());//store quantity into session
+                            alert = 1;
                         }
                     }
                 }
             }
-
-            //wocao
+            //If this item was in the cart ,then alert!!!!
+            if (alert == 1)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Already in your cart')", true);
+                return;
+            }
+            //If this item not in the cart ,then add it to the cart
             cart c = new cart
             {
                 Name = name,
@@ -215,9 +209,6 @@ namespace Team09LogicU.pages
 
             lc.Add(c);
             Session["cart"] = lc;
-            
-
-
             //this.lcart = lc;
             cartUpdatePanel.Update();
             updateCart(lc);
