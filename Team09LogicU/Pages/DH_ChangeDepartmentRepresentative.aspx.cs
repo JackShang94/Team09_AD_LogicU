@@ -21,7 +21,7 @@ namespace Team09LogicU.pages
         {
             if (!IsPostBack)
             {
-                logInStaffId = (string)Session["loginID"];//assume it is head now
+                logInStaffId = (string)Session["loginID"];
                 logInRole = (string)Session["loginRole"];
                 if (logInRole == "head" || logInRole == "delegateHead")
                 {

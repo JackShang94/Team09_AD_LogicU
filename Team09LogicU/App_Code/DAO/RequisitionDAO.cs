@@ -81,9 +81,42 @@ namespace Team09LogicU.App_Code.DAO
             
         }
 
+        public List<RequisitionByStaffCart> findRequisitionByDeptID(string DeptID)//used by dept head to view history
+        {
+            List<RequisitionByStaffCart> list = m.Requisitions.
+               Where(x => x.deptID == DeptID).OrderByDescending(x => x.requisitionDate).Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+            return list;
+        }
+
         public Requisition findRequisitionByrequisitionId(int reqID)
         {
             return m.Requisitions.Find(reqID);
+        }
+
+        public List<RequisitionByStaffCart> findRequisitionByStaffID(string staffID)//
+        {
+            List<RequisitionByStaffCart> list = m.Requisitions.  
+                Where(x => x.staffID == staffID).OrderByDescending(x => x.requisitionDate).Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+            return list;          
+        }
+
+        public List<RequisitionByStaffCart> findRequisitionByDate(DateTime from, DateTime to)//used by dept head for searching
+        {
+            List<RequisitionByStaffCart> list = m.Requisitions.    
+                Where(x => (x.requisitionDate.Year >= from.Year && x.requisitionDate.Month >= from.Month && x.requisitionDate.Day >= from.Day) 
+                && (x.requisitionDate.Year <= to.Year && x.requisitionDate.Month <= to.Month && x.requisitionDate.Day <= to.Day)).
+                Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+            return list;        
+        }
+
+        public List<RequisitionByStaffCart> findRequisitionByDateAndStaffID(DateTime from, DateTime to, string staffID)//used by dept head for searching
+        {
+            List<RequisitionByStaffCart> list = m.Requisitions.
+                Where(x => (x.requisitionDate.Year >= from.Year && x.requisitionDate.Month >= from.Month && x.requisitionDate.Day >= from.Day)
+                && (x.requisitionDate.Year <= to.Year && x.requisitionDate.Month <= to.Month && x.requisitionDate.Day <= to.Day)
+                && x.staffID == staffID).
+                Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+            return list;
         }
 
         //public List<Requisition> getThisWeek(DateTime time)
