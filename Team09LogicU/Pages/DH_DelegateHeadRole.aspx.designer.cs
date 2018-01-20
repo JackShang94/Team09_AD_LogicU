@@ -22,6 +22,15 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label Label_logInRole;
         
         /// <summary>
+        /// Panel_submitDelegate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_submitDelegate;
+        
+        /// <summary>
         /// delegateStf_label control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace Team09LogicU.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submit_button;
-        
-        /// <summary>
-        /// delegateStatus_Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delegateStatus_Label;
         
         /// <summary>
         /// GridView_dHistory control.

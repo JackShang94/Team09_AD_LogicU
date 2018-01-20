@@ -15,15 +15,32 @@
 
                               <div class="col-md-12">
                                          <div class="form-group">
-                            <label>ItemNumber </label>
+                            <label>Catagory Id </label>
                                 
-                                  <asp:TextBox ID="TextBox_ItemNumber" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_CatagoryId" runat="server" class="form-control "  Width="200px"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
+                                <div class="col-md-12">
+                                         <div class="form-group">
+                            <label>Category Name </label>
+                                
+                                  <asp:TextBox ID="TextBox_CategoryName" runat="server" class="form-control "  Width="500px"></asp:TextBox> <%-- value=""--%>
+                             </div>
+                              </div>
 
-                                          </div> 
-                              </div> 
+                                        <div class="col-md-12">
+                                         <div class="form-group">
+                            <label>Description </label>
+                                
+                                  <asp:TextBox ID="TextBox_Description" runat="server" class="form-control "  Width="383px" Height="158px" TextMode="MultiLine"></asp:TextBox> <%-- value=""--%>
+                             </div>
+                              </div>
+
+                           
+
+
+
                         </div> 
                     </div> 
                 </div> 

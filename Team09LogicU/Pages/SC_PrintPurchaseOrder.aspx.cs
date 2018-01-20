@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Team09LogicU.Pages
 {
-    public partial class SM_EditSupplier : System.Web.UI.Page
+    public partial class SC_PrintPurchaseOrder : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Btn_Submit_Click(object sender, EventArgs e)
         {
 
         }

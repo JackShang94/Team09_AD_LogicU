@@ -154,9 +154,13 @@
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_Reorder.aspx" />
     <Content Include="Pages\SC_Inv_StockManagement.aspx" />
+    <Content Include="Pages\SC_ManagePurchaseOrder.aspx" />
+    <Content Include="Pages\SC_ManageReorder.aspx" />
     <Content Include="Pages\SC_Notification.aspx" />
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
+    <Content Include="Pages\SC_PrintPurchaseOrder.aspx" />
+    <Content Include="Pages\SC_ViewReorderReport.aspx" />
     <Content Include="Pages\SM_AddCatalog.aspx" />
     <Content Include="Pages\SM_AddItem.aspx" />
     <Content Include="Pages\SM_AddSupplier.aspx" />
@@ -489,6 +493,20 @@
     <Compile Include="Pages\SC_Inv_StockManagement.aspx.designer.cs">
       <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SC_ManagePurchaseOrder.aspx.cs">
+      <DependentUpon>SC_ManagePurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_ManagePurchaseOrder.aspx.designer.cs">
+      <DependentUpon>SC_ManagePurchaseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_ManageReorder.aspx.cs">
+      <DependentUpon>SC_ManageReorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_ManageReorder.aspx.designer.cs">
+      <DependentUpon>SC_ManageReorder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SC_Notification.aspx.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -510,6 +528,13 @@
     <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.designer.cs">
       <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SC_PrintPurchaseOrder.aspx.cs">
+      <DependentUpon>SC_PrintPurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_PrintPurchaseOrder.aspx.designer.cs">
+      <DependentUpon>SC_PrintPurchaseOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -530,6 +555,13 @@
     </Compile>
     <Compile Include="Pages\SC_RO_RetrievalForms.aspx.designer.cs">
       <DependentUpon>SC_RO_RetrievalForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_ViewReorderReport.aspx.cs">
+      <DependentUpon>SC_ViewReorderReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_ViewReorderReport.aspx.designer.cs">
+      <DependentUpon>SC_ViewReorderReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SM_AddCatalog.aspx.cs">
       <DependentUpon>SM_AddCatalog.aspx</DependentUpon>

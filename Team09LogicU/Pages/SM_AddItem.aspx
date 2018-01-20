@@ -17,23 +17,22 @@
                                          <div class="form-group">
                             <label>ItemNumber </label>
                                 
-                                  <asp:TextBox ID="TextBox_ItemNumber" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_ItemNumber" runat="server" class="form-control "  Width="200px"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
                                 <div class="col-md-12">
                                          <div class="form-group">
                             <label>Category</label>
-                                
-                                  <asp:TextBox ID="TextBox_Category" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                            <asp:dropdownlist ID="dropdownlist_Catagory" runat="server" class="form-control"  Width="200px"></asp:dropdownlist>
                              </div>
                               </div>
 
                               <div class="col-md-12">
                                          <div class="form-group">
-                            <label>Description (disabled)</label>
+                            <label>Description</label>
                                 
-                                  <asp:TextBox ID="TextBox_Description" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Description" runat="server" class="form-control " Width="200px"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -41,7 +40,7 @@
                                          <div class="form-group">
                             <label>ReorderLevel </label>
                                 
-                                  <asp:TextBox ID="TextBox_ReorderLevel" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_ReorderLevel" runat="server" class="form-control " Width="200px"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -49,15 +48,38 @@
                                          <div class="form-group">
                                <label>Reorder Qty </label>
                                 
-                                  <asp:TextBox ID="TextBox_ReorderQty" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_ReorderQty" runat="server" class="form-control " Width="200px"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
                               
-                                        <div class="col-md-12">
+                                <div class="col-md-12">
                                          <div class="form-group">
                                <label>Unit of Measure</label>
-                                
-                                  <asp:TextBox ID="TextBox_UnitofMeasure" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                     <asp:dropdownlist ID="dropdownlist_unitofmeasure" runat="server" class="form-control"   Width="200px"></asp:dropdownlist>
+
+                             </div>
+                              </div>
+
+                           <div class="col-md-12">
+                                         <div class="form-group">
+                               <label>Supplier1</label>
+                     <asp:dropdownlist ID="dropdownlist_Supplier1" runat="server" class="form-control"   Width="200px"></asp:dropdownlist>
+
+                             </div>
+                              </div>
+                                        <div class="col-md-12">
+                                         <div class="form-group">
+                               <label>Supplier2</label>
+                     <asp:dropdownlist ID="dropdownlist_Supplier2" runat="server" class="form-control"   Width="200px"></asp:dropdownlist>
+
+                             </div>
+                              </div>
+
+                        <div class="col-md-12">
+                                         <div class="form-group">
+                               <label>Supplier3</label>
+                     <asp:dropdownlist ID="dropdownlist_Supplier3" runat="server" class="form-control"   Width="200px"></asp:dropdownlist>
+
                              </div>
                               </div>
 

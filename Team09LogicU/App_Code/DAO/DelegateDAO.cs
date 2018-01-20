@@ -47,7 +47,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             Models.Delegate d = context.Delegates.Where(x => x.delegateID == delegateID).First();
             DateTime now = DateTime.Today;
-            if (d.endDate >= now)
+            if (d.endDate >now)
             { return true; }
             else
                 return false;
