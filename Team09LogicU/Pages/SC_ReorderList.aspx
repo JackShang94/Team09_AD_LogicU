@@ -1,69 +1,79 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_Inv_Reorder.aspx.cs" Inherits="Team09LogicU.Pages.SC_Inv_Reorder" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_ReorderList.aspx.cs" Inherits="Team09LogicU.Pages.SC_ReorderList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-Reorder
+    Reorder List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
-     <form id ="form1" runat="server">
+    <form id ="form1" runat="server">
       
-                      <div class="row">
-                    <div class="col-md-9 container-fluid">
+                     
+           
+                                 <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="card">
-                        <div class="content" >
-                        <div class=" form-group" style="height:25px; width:100%">
-                        <div class="pull-left search" style="width:75%">
-                            <div class="col-md-3" >
-                        <asp:Label ID="Label3" runat="server" Text=" Category:"></asp:Label>
-                       </div>
-                              
-         
-                                    <div class="col-md-6">
-                            <asp:dropdownlist ID="dropdownlist_Catagory" runat="server" class="form-control"  Width="200px"></asp:dropdownlist>
-                       </div>
+                            <div class="content">
+                                <form>
+                                   <div class="row">
+                                    <div class="col-md-4">
+                            <asp:Label ID="Label1" runat="server" Text=" Select Reorder Date:" Width="200px"></asp:Label>
+                            <asp:TextBox ID="textbox_SelectDate"   class="form-control datepicker" runat="server" Width="200px"   ></asp:TextBox>  
+                                   </div>   
+                                     <div class="col-md-4">
+                                       <asp:Label ID="Label2" runat="server" Text=" Select Supplier:" Width="100px"></asp:Label>
+                                   <asp:dropdownlist ID="dropdownlist_Supplier" runat="server" class="form-control"  data-style="btn-default btn-block" data-menu-style="dropdown-blue" Width="100px"></asp:dropdownlist>
+                                    </div>
+                                   <div class="col-md-4">
+                                       <asp:Label ID="Label3" runat="server" Text=" Select A Category:" Width="200px"></asp:Label>
+                                   <asp:dropdownlist ID="dropdownlist_category" runat="server" class="form-control"  data-style="btn-default btn-block" data-menu-style="dropdown-blue" Width="100px"></asp:dropdownlist>
+                                    </div>
+
+                                   </div>          
                        
-                            </div>
-                        <div class="pull-right" style="width:20%">
-                         <asp:Button ID="Button_Search" runat="server" Width="100%" Text="Search"  CssClass="btn btn-primary btn-fill btn-wd" />
-                        </div>
+                          <asp:Button ID="Button_Search" runat="server"  Text="Search"  CssClass="btn btn-primary btn-fill btn-wd pull-right" />
+                  
+                                    <div class="clearfix"></div>
                            
+                                     </form>
+                            </div>
                         </div>
-                        </div>
-                        </div>
-                         </div>
-                      </div>
-   
+                    </div>
+                    </div>
+                    </div>     
+                      </div>   
+    
+            
 
     <div class="content">
             <div class="container-fluid">       
                 <div class="content">
                 <div class="row">
                     <div class="col-lg-12">
-                        
+                        <div class="card">
                             <div class="content">
                                   <div class="container-fluid">
 								 <div class="content">
                          
-                                     <asp:LinkButton ID="LinkButton_ViewAllPurchaseorders" runat="server">LinkButton</asp:LinkButton>
+
                                   
                                      <asp:GridView ID="GridView1" runat="server"   CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "  AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None"></asp:GridView>   
                                       <AlternatingRowStyle BackColor="White" />
+                					
         				        </div>
-        				        </div>                					
-        				        
+                              <asp:Button ID="Button1"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   /><%--此处点击事件--%>
+
                             </div><!-- end content-->
-                       
+                        </div><!--  end card  -->
                     </div> <!-- end col-md-12 -->
                 </div> <!-- end row -->
 
             </div>
-        </div>                          
-        <asp:Button ID="Btn_Submit"  runat="server" Text="Add to Purchase Order List" CssClass="btn btn-primary btn-fill btn-wd "  /> 
-          <asp:Button ID="Btn_Cancel"  runat="server"  Text="Cancel"  CssClass="btn btn-default  btn-fill btn-wd"  />
+        </div>
+  </div>
 
     </div>
-          </form>
 
-     <div class="fixed-plugin">
+           <div class="fixed-plugin">
     <div class="dropdown">
         <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
@@ -274,5 +284,10 @@ Reorder
         });
 
     </script>
+
+
+
+     </form>
+
 
 </asp:Content>

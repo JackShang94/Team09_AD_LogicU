@@ -10,7 +10,7 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class SC_Inv_Reorder {
+    public partial class SC_Inv_StockCardDetail {
         
         /// <summary>
         /// form1 control.
@@ -22,6 +22,42 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label1;
+        
+        /// <summary>
+        /// label_itemcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_itemcode;
+        
+        /// <summary>
+        /// label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label2;
+        
+        /// <summary>
+        /// label_measure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_measure;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -31,31 +67,49 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// dropdownlist_Catagory control.
+        /// label_Supplier1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Catagory;
+        protected global::System.Web.UI.WebControls.Label label_Supplier1;
         
         /// <summary>
-        /// Button_Search control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Search;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// LinkButton_ViewAllPurchaseorders control.
+        /// label_Supplier2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_ViewAllPurchaseorders;
+        protected global::System.Web.UI.WebControls.Label label_Supplier2;
+        
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// label_Supplier3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Supplier3;
         
         /// <summary>
         /// GridView1 control.
@@ -67,21 +121,12 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Btn_Submit control.
+        /// Btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Submit;
-        
-        /// <summary>
-        /// Btn_Cancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Cancel;
+        protected global::System.Web.UI.WebControls.Button Btn_Back;
     }
 }
