@@ -13,13 +13,13 @@ namespace Team09LogicU.pages {
     public partial class DH_ChangeDepartmentRepresentative {
         
         /// <summary>
-        /// Label1 control.
+        /// lblDisplay1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblDisplay1;
         
         /// <summary>
         /// lblCurrentRep control.
@@ -31,13 +31,13 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label lblCurrentRep;
         
         /// <summary>
-        /// Label3 control.
+        /// lblDisplay2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblDisplay2;
         
         /// <summary>
         /// ddlEmp control.
@@ -56,5 +56,14 @@ namespace Team09LogicU.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdateRep;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

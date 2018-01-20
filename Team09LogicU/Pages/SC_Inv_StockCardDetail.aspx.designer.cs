@@ -10,7 +10,7 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class DH_PendingRequisitionDetail {
+    public partial class SC_Inv_StockCardDetail {
         
         /// <summary>
         /// form1 control.
@@ -22,120 +22,111 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label_ReqID control.
+        /// label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ReqID;
+        protected global::System.Web.UI.WebControls.Label label1;
         
         /// <summary>
-        /// lblReqID control.
+        /// label_itemcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReqID;
+        protected global::System.Web.UI.WebControls.Label label_itemcode;
         
         /// <summary>
-        /// Label_ReqDate control.
+        /// label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ReqDate;
+        protected global::System.Web.UI.WebControls.Label label2;
         
         /// <summary>
-        /// lblDate control.
+        /// label_measure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
+        protected global::System.Web.UI.WebControls.Label label_measure;
         
         /// <summary>
-        /// Label_Name control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Name;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// lblStaff control.
+        /// label_Supplier1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStaff;
+        protected global::System.Web.UI.WebControls.Label label_Supplier1;
         
         /// <summary>
-        /// Label1 control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// lblRemark control.
+        /// label_Supplier2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRemark;
+        protected global::System.Web.UI.WebControls.Label label_Supplier2;
         
         /// <summary>
-        /// GridView_detailList control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_detailList;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// label4 control.
+        /// label_Supplier3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label4;
+        protected global::System.Web.UI.WebControls.Label label_Supplier3;
         
         /// <summary>
-        /// TextBox_Remarks control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Remarks;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Btn_Approve control.
+        /// Btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Approve;
-        
-        /// <summary>
-        /// Btn_Reject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Reject;
+        protected global::System.Web.UI.WebControls.Button Btn_Back;
     }
 }
