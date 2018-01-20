@@ -42,7 +42,7 @@ namespace Team09LogicU.pages
                 {
                     HttpCookie cookie = new HttpCookie("MyCook");
                     DateTime dt = DateTime.Now;
-                    TimeSpan ts = new TimeSpan(0, 0, 10, 0, 0);
+                    TimeSpan ts = new TimeSpan(0, 0, 100, 0, 0);
                     cookie.Expires = dt.Add(ts);
                     cookie.Values.Add("userid", username);
                     cookie.Values.Add("password", password);
