@@ -51,12 +51,12 @@ namespace Team09LogicU.App_Code.DAO
             return m.Requisitions.Where(x => x.requisitionDate.Date >= from && x.requisitionDate<=to).ToList<Requisition>();
         }
 
-        public void updateRequisition(Requisition r,string remarks,string status)//?????used by dept head
+        public void updateRequisition(Requisition r,string remarks,string status)//used by dept head
         {
             r.status = status;
             r.remarks = remarks;
             r.approvedDate = DateTime.Now;
-            m.SaveChanges();//?????
+            m.SaveChanges();
         }
 
         public List<Requisition> getRequisitionByStatus(string status)//used by dept head
@@ -71,6 +71,19 @@ namespace Team09LogicU.App_Code.DAO
         public List<Requisition> getRequisitionByDeptID(string DeptID)//used by disbursement,outstanding
         {
             return m.Requisitions.Where(x => x.deptID == DeptID).ToList<Requisition>();
+        }
+
+        public List<RequisitionByStaffCart> findRequisitionByDeptIdAndStatus(string deptID, string status)
+        {
+            List<RequisitionByStaffCart> list = m.Requisitions.
+                Where(x => x.status == status && x.deptID == deptID).OrderByDescending(x => x.requisitionDate).Select(x => new RequisitionByStaffCart{RequisitionId = x.requisitionID,  StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+            return list;
+            
+        }
+
+        public Requisition findRequisitionByrequisitionId(int reqID)
+        {
+            return m.Requisitions.Find(reqID);
         }
 
         //public List<Requisition> getThisWeek(DateTime time)

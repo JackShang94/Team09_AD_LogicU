@@ -22,16 +22,28 @@ namespace Team09LogicU.pages
             if (!IsPostBack)
             {
                 logInStaffId = (string)Session["loginID"];//assume it is head now
-
-                /*Set the role and dept from login info*/
-
-                logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-                logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
-
-                if (logInRole == "head")
+                logInRole = (string)Session["loginRole"];
+                if (logInRole == "head" || logInRole == "delegateHead")
                 {
-                    DisplayCurrentRep(logInDept);
-                    DisplayAvaliableEmp(logInDept);
+                    /*Set the role and dept from login info*/
+
+                    logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
+                    logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+
+                    if (logInRole == "head")
+                    {
+                        DisplayCurrentRep(logInDept);
+                        DisplayAvaliableEmp(logInDept);
+                    }
+                }
+                else
+                {
+                    lblMessage.Text = "Access Denided";
+                    lblDisplay1.Visible = false;
+                    lblDisplay2.Visible = false;
+                    lblCurrentRep.Visible = false;
+                    ddlEmp.Visible = false;
+                    btnUpdateRep.Visible = false;
                 }
             }
 
