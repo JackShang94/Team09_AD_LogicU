@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.Models;
+
 namespace Team09LogicU.App_Code.DAO
 {
     public class RequisitionItemDAO
@@ -14,7 +15,14 @@ namespace Team09LogicU.App_Code.DAO
             return m.RequisitionItems.Where(x => x.requisitionID == requisitionID).ToList();
         }
 
-     
+        public List<ItemCart> findRequisitionItemByID(int requisitionID)
+        {
+            List<ItemCart> list = m.RequisitionItems.
+                Where(x => x.requisitionID == requisitionID).Select(x => new ItemCart { Description = x.Item.description, Quantity = x.requisitionQty, UnitOfMeasure = x.Item.unitOfMeasure }).ToList<ItemCart>();
+            return list;
+        }
+
+
         public void updateItemQty(RequisitionItem rI,int Qty)
         {
             if (rI.requisitionQty == 0)

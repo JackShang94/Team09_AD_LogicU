@@ -34,7 +34,7 @@ namespace Team09LogicU.pages
                 string name = Session["loginID"].ToString();
                 DeptStaffDAO deptstaff = new DeptStaffDAO();
                 string role = deptstaff.getRoleByStaffID(name);
-                if (role !="emp" )
+                if (role!="emp" && role!="rep" )
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
