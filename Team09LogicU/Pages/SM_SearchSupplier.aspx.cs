@@ -34,7 +34,9 @@ namespace Team09LogicU.Pages
 
         protected void GridView_supplierList_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            Response.Redirect("SM_EditSupplier.aspx");
         }
+
+       
     }
 }
