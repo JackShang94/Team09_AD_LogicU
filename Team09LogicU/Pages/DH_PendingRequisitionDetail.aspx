@@ -39,8 +39,13 @@
                             </p>
 
                              <p class="category">   
-                                  <asp:Label ID="label4" runat="server" Text=" Remarks:"></asp:Label>
-                                 <asp:TextBox ID="TextBox_Remarks" runat="server" Height="59px" TextMode="MultiLine" Width="192px"></asp:TextBox>
+                                 <div  class="col-md-1">
+                                    <asp:Label ID="label4" runat="server" Text=" Remarks:"></asp:Label>
+                                 </div>
+                                 <div  class="col-md-6">
+                                 <asp:TextBox ID="TextBox_Remarks" style="resize:none" runat="server" Height="59px" TextMode="MultiLine" Width="192px"></asp:TextBox>
+
+                                 </div>
                                  </p> 
                      </div>         
         </div>
