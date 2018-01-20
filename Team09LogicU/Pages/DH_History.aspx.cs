@@ -97,7 +97,7 @@ namespace Team09LogicU.pages
             {
                 DateTime dateFrom = Convert.ToDateTime(from);
                 DateTime dateTo = Convert.ToDateTime(to);
-                list = reqDAO.findRequisitionByDate(dateFrom,dateTo);
+                list = reqDAO.findRequisitionByDate(dateFrom,dateTo, deptID);
             }
             if ((from == "" || to == "") && ReqStaffName != "---Select Name---")
             {

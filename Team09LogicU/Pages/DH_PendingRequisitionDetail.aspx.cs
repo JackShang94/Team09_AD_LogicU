@@ -28,17 +28,17 @@ namespace Team09LogicU.Pages
                 DateTime reqDate = req.requisitionDate;
 
                 lblReqID.Text = Convert.ToString(reqID);
-                lblDate.Text = reqDate.ToString("dd MM yyyy");
+                lblDate.Text = reqDate.ToString("dd/MM/yyyy");
                 lblStaff.Text = reqStaff;
-                lblRemark.Text = req.remarks;
+                
 
-                dataBind();
+                BindData();
             }
         }
 
 
 
-        public void dataBind()
+        public void BindData()
         {
             List<ItemCart> reqItems = reqItemDAO.findRequisitionItemByID(reqID);
             GridView_detailList.DataSource = reqItems;

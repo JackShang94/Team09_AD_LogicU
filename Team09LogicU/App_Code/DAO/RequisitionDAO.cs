@@ -100,11 +100,12 @@ namespace Team09LogicU.App_Code.DAO
             return list;          
         }
 
-        public List<RequisitionByStaffCart> findRequisitionByDate(DateTime from, DateTime to)//used by dept head for searching
+        public List<RequisitionByStaffCart> findRequisitionByDate(DateTime from, DateTime to, string deptID)//used by dept head for searching
         {
             List<RequisitionByStaffCart> list = m.Requisitions.    
                 Where(x => (x.requisitionDate.Year >= from.Year && x.requisitionDate.Month >= from.Month && x.requisitionDate.Day >= from.Day) 
-                && (x.requisitionDate.Year <= to.Year && x.requisitionDate.Month <= to.Month && x.requisitionDate.Day <= to.Day)).
+                && (x.requisitionDate.Year <= to.Year && x.requisitionDate.Month <= to.Month && x.requisitionDate.Day <= to.Day)
+                &&x.deptID == deptID).
                 Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
             return list;        
         }
