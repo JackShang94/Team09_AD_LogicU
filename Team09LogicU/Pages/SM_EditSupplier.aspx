@@ -17,7 +17,7 @@
                                          <div class="form-group">
                             <label>SupplierCode</label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" ></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" ReadOnly="True" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -25,7 +25,7 @@
                                          <div class="form-group">
                             <label>SupplierName</label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" ></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" ReadOnly="True" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -81,7 +81,7 @@
             </div> 
 
                                   <asp:Button ID="Btn_Submit"  runat="server" Text="Submit" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Submit_Click" /> 
-                                 <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   />
+                                 <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click"   />
 
                                  </form>
 </asp:Content>
