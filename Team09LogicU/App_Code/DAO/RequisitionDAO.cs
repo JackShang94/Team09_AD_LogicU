@@ -60,7 +60,7 @@ namespace Team09LogicU.App_Code.DAO
         }
         public string getStatusByReqID(int reqID)
         {
-            return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.status).First().ToString();
+            return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.status).FirstOrDefault().ToString();
         }
         public List<Requisition> getRequisitionByStatus(string status)//used by dept head
         {
@@ -126,6 +126,7 @@ namespace Team09LogicU.App_Code.DAO
             return list;
         }
 
+       
         //public List<Requisition> getThisWeek(DateTime time)
         //{
         //    return m.Requisitions.Where(x => x.requisitionDate <  (DayOfWeek.Wednesday)).ToList<Requisition>();

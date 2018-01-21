@@ -21,10 +21,10 @@
                             </div>
                         </div>
                         <asp:ScriptManager ID="viewCatalogueScriptManager" runat="server">
-                            <Scripts></Scripts>
+                            
                         </asp:ScriptManager>
 
-                        <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="False">
+                        <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="True">
                             <ContentTemplate>
                                     <asp:Repeater ID="catalogueRepeater" runat="server" OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled">
                                         <HeaderTemplate>

@@ -14,7 +14,7 @@ namespace Team09LogicU.pages
     {
         //public List<cart> lcart;
         //public List<Item> lcatalogue;
-        
+        public string staffID;
         public void updateCart(List<cart> lc)
         {
             cartRepeater.DataSource = lc;
@@ -30,12 +30,14 @@ namespace Team09LogicU.pages
             if (!IsPostBack)
             {
                 /**********************Loading Cart List************************************/
+
+                //string name = Session["loginID"].ToString();
                
                 string name = Session["loginID"].ToString();
-
+                this.staffID = name;
                 //name = "emp006";
                 //Session["loginID"] = name;
-                if (Session["loginID"] == null)
+                if (this.staffID == null)
                 {
                     Response.Redirect("login.aspx");
                     
@@ -44,10 +46,8 @@ namespace Team09LogicU.pages
                 string role = Session["loginRole"].ToString();
                 //role = "emp";
                 //Session["loginRole"] = role;
-                if (role != "emp")
+                if (role =="head")
                 {
-                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "function(){"
-                    //        + "alert('NOT EMP!!!'); document.location.href='/login.aspx';} ", true);
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
@@ -60,21 +60,27 @@ namespace Team09LogicU.pages
                         lc.Add(i);
                     }
                 }
-                //this.lcart = lc;
-
-                //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
                 updateCart(lc);
                 /******************************Loading Catalogue List********************************/
                 ItemDAO idao = new ItemDAO();
-                //this.lcatalogue = idao.getItemList();
-                //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
                 List<Item> li = idao.getItemList();
                 updateCatalogue(li);//when model is being used,cannot get from it;
 
             }
             else
             {
+                
                 string name = Session["loginID"].ToString();
+                this.staffID = name;
+                string role = Session["loginRole"].ToString();
+                //role = "emp";
+                //Session["loginRole"] = role;
+                if (role == "head")
+                {
+                    HttpContext.Current.Response.Redirect("login.aspx");
+                    return;
+                }
+                //string name = Session["loginID"].ToString();
                 List<cart> lc = new List<cart>();
 
                 foreach (var i in (List<cart>)Session["cart"])
@@ -84,13 +90,10 @@ namespace Team09LogicU.pages
                         lc.Add(i);
                     }
                 }
-                //this.lcart = lc;
 
-                //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
                 updateCart(lc);
                 ItemDAO idao = new ItemDAO();
-                //this.lcatalogue = idao.getItemList();
-                //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
+
                 string sText = item_searchText.Text.ToString();
                 if (string.IsNullOrWhiteSpace(sText))
                 {
@@ -136,7 +139,9 @@ namespace Team09LogicU.pages
         /************************************Submit Requisition*************************************/
         protected void Submit_Click(object sender, EventArgs e)
         {
-            string name = Session["loginID"].ToString();
+            //string name = Session["loginID"].ToString();
+
+            string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             ///should use DAO
             string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID ).First().ToString();//supposed to be in DepartmentDAO
@@ -177,7 +182,9 @@ namespace Team09LogicU.pages
 
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];//get cart from Session
-            string name = Session["loginID"].ToString();//get name from Session
+
+            //string name = Session["loginID"].ToString();//get name from Session
+            string name = this.staffID;
             Button b = (Button)sender;//get this Button
 
             string[] info = b.CommandArgument.ToString().Split('&');

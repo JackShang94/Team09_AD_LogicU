@@ -11,7 +11,7 @@
 									<!--        Here you can write extra buttons/actions for the toolbar              -->
 								</div>
 								<asp:ScriptManager ID="myReqScriptManager" runat="server"></asp:ScriptManager>
-							<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+							<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
 										<div class="content" >
 											<h4 class=" panel-title">Pending Requisition</h4>
