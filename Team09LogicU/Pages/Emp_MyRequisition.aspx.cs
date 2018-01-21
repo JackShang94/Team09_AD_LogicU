@@ -12,6 +12,7 @@ namespace Team09LogicU.pages
     public partial class Emp_MyRequisition : System.Web.UI.Page
     {
         public List<Requisition> lr;
+        public string staffID;
         protected void Page_Load(object sender, EventArgs e)
         {
             //for session judgment
@@ -21,16 +22,16 @@ namespace Team09LogicU.pages
             string role = Session["loginRole"].ToString();
             //role = "emp";
             //SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-            if (role != "emp")
+            if (role=="head")
             {
-                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "function(){"
-                //        + "alert('NOT EMP!!!'); document.location.href='/login.aspx';} ", true);
                 HttpContext.Current.Response.Redirect("login.aspx");
                 return;
             }
             List<Requisition> lr_h = new List<Requisition>();//finally store stuffs without pending
             List<Requisition> lr = new List<Requisition>();//to store the pending 
             RequisitionDAO rdao = new RequisitionDAO();
+
+
             string name = Session["loginID"].ToString();
             //name = "emp006";
             lr_h = rdao.getRequisitionByStaffID(name);
@@ -65,8 +66,11 @@ namespace Team09LogicU.pages
                 int req =Int32.Parse( e.CommandArgument.ToString());
                 //int req = Int32.Parse(requisitionListGridView.DataKeys[e.RowIndex].Values["requisitionID"].ToString());//Get the requisition id;
                 RequisitionDAO rdao = new RequisitionDAO();
-                rdao.removeRequisition(req);
+                
                 string name = Session["loginID"].ToString();
+                rdao.removeRequisition(req);
+                //string name = Session["loginID"].ToString();
+
                 this.lr = rdao.getRequisitionByStaffID(name);
                 
                 requisitionListGridView.DataSource = rdao.getReqByStaffIDandStatus(name,"pending");

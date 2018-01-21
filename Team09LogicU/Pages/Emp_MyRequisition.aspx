@@ -11,12 +11,12 @@
 									<!--        Here you can write extra buttons/actions for the toolbar              -->
 								</div>
 								<asp:ScriptManager ID="myReqScriptManager" runat="server"></asp:ScriptManager>
-							<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+							<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
 										<div class="content" >
 											<h4 class=" panel-title">Pending Requisition</h4>
 										</div> 
-										<asp:GridView ID="requisitionListGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand">
+										<asp:GridView ID="requisitionListGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
 												<columns>
 													<asp:TemplateField>
 														<ItemTemplate>
@@ -32,7 +32,7 @@
 														<ItemTemplate>
 																<asp:LinkButton ID="viewReqDetailBtn" runat="server"  Text="Edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ControlStyle-CssClass="btn btn-simple btn-info btn-icon table-action edit"><i class="fa fa-edit"></i></asp:LinkButton>
 																
-																<asp:LinkButton ID="deleteReqBtn" runat="server" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>' ControlStyle-CssClass="btn btn-simple btn-warning btn-icon table-action remove" ><i class="fa fa-remove "></i></asp:LinkButton>
+																<asp:LinkButton ID="deleteReqBtn" runat="server" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>' ControlStyle-CssClass="btn btn-simple btn-warning btn-icon table-action remove" EnableViewState="False"><i class="fa fa-remove "></i></asp:LinkButton>
 														</ItemTemplate>
 													</asp:TemplateField>
 												
@@ -49,7 +49,7 @@
 											<h4 class=" panel-title">Search by Request Date:<asp:TextBox ID="reqDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox><asp:Button ID="Button1" runat="server"/></h4>
 										</div> 
 										
-										<asp:GridView ID="requisitionHistoryGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table">
+										<asp:GridView ID="requisitionHistoryGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table" EmptyDataText="There is no history">
 											<Columns>
 												<asp:TemplateField>
 													<ItemTemplate>
