@@ -17,9 +17,9 @@ namespace Team09LogicU.pages
             //for session judgment
             //
 
-            Session["loginID"] = "emp006";
+            //Session["loginID"] = "emp006";
             string role = Session["loginRole"].ToString();
-            role = "emp";
+            //role = "emp";
             //SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             if (role != "emp")
             {
@@ -32,7 +32,7 @@ namespace Team09LogicU.pages
             List<Requisition> lr = new List<Requisition>();//to store the pending 
             RequisitionDAO rdao = new RequisitionDAO();
             string name = Session["loginID"].ToString();
-            name = "emp006";
+            //name = "emp006";
             lr_h = rdao.getRequisitionByStaffID(name);
 
             for(int i = lr_h.Count - 1; i >= 0; i--)
