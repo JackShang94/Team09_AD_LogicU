@@ -46,14 +46,7 @@ namespace Team09LogicU.App_Code.DAO
                 //lr = getRequisitionItem(requisitionID);
                 lr = m.RequisitionItems.Where(x => x.reqItemID == reqItemID ).ToList();
                 lr.First().requisitionQty = qty;
-                //foreach (var i in lr)
-                //{
-                //    if (i.reqItemID == requisitionID)
-                //    {
-                //        i.requisitionQty = qty;
-                //        break;
-                //    }
-                //}
+
                 m.SaveChanges();
             }
             
@@ -89,6 +82,13 @@ namespace Team09LogicU.App_Code.DAO
 
         }
 
+        //public List<ReqItems> getRequisitionItem( string reqID)
+        //{
+        //    ReqItems ri = new ReqItems();
+        //    List<ReqItems> lri = new List<ReqItems>();
+        //    m.RequisitionItems.GroupJoin(m.Items, item=>item.itemID,reqItem=>reqItem.itemID).
+        //    return;
+        //}
     }
 
 }

@@ -26,48 +26,93 @@ namespace Team09LogicU.Pages
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+            //if (!IsPostBack)
+            //{
+                /******************judege the role*************************/
+                string s_role = Session["loginRole"].ToString();
+                string s_staffID = Session["loginID"].ToString();
+                if(s_role!="req"&& s_role != "emp")
+                {
+                    Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
+                }
+                /******************Judge if the url query is empty***********************/
                 int reqID = Int32.Parse(Request.QueryString["reqID"]);
-                this.reqID = Int32.Parse(Request.QueryString["reqID"]);
+                if (reqID.ToString() == null)
+                {
+                    Response.Redirect("Emp_MyRequisition.aspx");
+                }
+
+                /****************judge the staffID************************/
                 RequisitionDAO rdao = new RequisitionDAO();
+                string url_staffID = rdao.getStaffIDByReqID(reqID);
+                if (url_staffID == null)
+                {
+                    Response.Redirect("Emp_MyRequisition");
+                }
+                if (url_staffID!= s_staffID)
+                {
+                    Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
+                }
+                
+
+                //this.reqID = Int32.Parse(Request.QueryString["reqID"]);
                 RequisitionItemDAO ridao = new RequisitionItemDAO();
                 string status = rdao.getStatusByReqID(reqID);//get status
+                if (status ==null)//this requisition doesn't exist
+                {
+                    Response.Redirect("Emp_MyRequisition.aspx");
+                }
                 this.status = status;
 
                 List<RequisitionItem> lri = new List<RequisitionItem>();
-
                 lri = ridao.getRequisitionItem(reqID);
+                
                 lr_temp = lri;//when loading page,save the detail list into the session
                 requisitionItemListGridView.DataSource = lri;
                 requisitionItemListGridView.DataBind();
-            }else
-            {
-                int reqID = Int32.Parse(Request.QueryString["reqID"]);
-                this.reqID = Int32.Parse(Request.QueryString["reqID"]);
-                RequisitionDAO rdao = new RequisitionDAO();
-                RequisitionItemDAO ridao = new RequisitionItemDAO();
-                string status = rdao.getStatusByReqID(reqID);//get status
-                this.status = status;
+            //}
+            //else
+            //{
+            //    /******************judege the role*************************/
+            //    string s_role = Session["loginRole"].ToString();
+            //    string s_staffID = Session["loginID"].ToString();
+            //    if (s_role != "req" && s_role != "emp")
+            //    {
+            //        Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
+            //    }
+            //    /******************Judge if the url query is empty***********************/
+            //    int reqID = Int32.Parse(Request.QueryString["reqID"]);
+            //    if (reqID.ToString() == null)
+            //    {
+            //        Response.Redirect("Emp_MyRequisition.aspx");
+            //    }
 
-                List<RequisitionItem> lri = new List<RequisitionItem>();
+            //    /****************judge the staffID************************/
+            //    RequisitionDAO rdao = new RequisitionDAO();
+            //    string url_staffID = rdao.getStaffIDByReqID(reqID);
+            //    if (url_staffID != s_staffID)
+            //    {
+            //        Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
+            //    }
 
-                lri = ridao.getRequisitionItem(reqID);
-                lr_temp = lri;
-                requisitionItemListGridView.DataSource = lr_temp;
-                requisitionItemListGridView.DataBind();
-            }
-            
-            
 
-        }
+            //    this.reqID = Int32.Parse(Request.QueryString["reqID"]);
+            //    RequisitionItemDAO ridao = new RequisitionItemDAO();
+            //    string status = rdao.getStatusByReqID(reqID);//get status
+            //    this.status = status;
 
-      
+            //    List<RequisitionItem> lri = new List<RequisitionItem>();
+            //    lri = ridao.getRequisitionItem(reqID);
+            //    lr_temp = lri;//when loading page,save the detail list into the session
+            //    requisitionItemListGridView.DataSource = lri;
+            //    requisitionItemListGridView.DataBind();
+            //}
 
-        protected void reSubmitReqBtn_Click(object sender, EventArgs e)
-        {
 
-        }
+
+    }
+
+
         
         protected void requisitionItemListGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -114,7 +159,14 @@ namespace Team09LogicU.Pages
                         lri.RemoveAt(i);
                     }
                 }
-                lr_temp = lri;
+                this.lr_temp = lri;
+                if (lri.Count == 0)//IF deleting the last reqItem,DELETE this req
+                {
+                    RequisitionDAO rdao = new RequisitionDAO();
+                    rdao.removeRequisition(this.reqID);
+                    Response.Redirect("Emp_MyRequisition.aspx");
+                    
+                }
                 RequisitionItemDAO ridao = new RequisitionItemDAO();
                 ridao.removeItemByReqItemID(reqItemID);
                 requisitionItemListGridView.DataSource = lri;

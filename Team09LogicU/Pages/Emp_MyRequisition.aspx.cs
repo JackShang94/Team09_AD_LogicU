@@ -16,13 +16,9 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             //for session judgment
-            //
-
-            //Session["loginID"] = "emp006";
             string role = Session["loginRole"].ToString();
-            //role = "emp";
-            //SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-            if (role=="head")
+
+            if (role !="req" && role !="emp")
             {
                 HttpContext.Current.Response.Redirect("login.aspx");
                 return;

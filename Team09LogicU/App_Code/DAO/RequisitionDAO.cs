@@ -60,7 +60,22 @@ namespace Team09LogicU.App_Code.DAO
         }
         public string getStatusByReqID(int reqID)
         {
-            return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.status).FirstOrDefault().ToString();
+
+            var a = m.Requisitions.Where(x => x.requisitionID == reqID).SingleOrDefault();
+            if (a != null)
+            {
+                return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.status ).First().ToString();
+            }
+            return null;
+        }
+        public string getStaffIDByReqID(int reqID)
+        {
+            var a = m.Requisitions.Where(x => x.requisitionID == reqID).SingleOrDefault();
+            if (a != null)
+            {
+                return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.staffID).First().ToString();
+            }
+            return null;
         }
         public List<Requisition> getRequisitionByStatus(string status)//used by dept head
         {
