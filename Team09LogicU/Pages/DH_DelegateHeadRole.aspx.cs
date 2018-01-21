@@ -15,7 +15,9 @@ namespace Team09LogicU.pages
     {
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-        DataTable dHistory = new DataTable();
+        DateTime operationDate = DateTime.Today;//assume it is the current date
+        //DataTable dHistory = new DataTable();
+
         string logInStaffId;
         string logInRole;
         string currentHeadId;
@@ -26,12 +28,12 @@ namespace Team09LogicU.pages
         {
             logInStaffId = Session["loginID"].ToString();
             deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
-            dHistory = new DataTable();
-            dHistory.Columns.Add(new DataColumn("DelegateID", typeof(int)));
-            dHistory.Columns.Add(new DataColumn("StaffID", typeof(string)));
-            dHistory.Columns.Add(new DataColumn("Start Date", typeof(DateTime)));
-            dHistory.Columns.Add(new DataColumn("End Date", typeof(DateTime)));
-            dHistory.Columns.Add(new DataColumn("Status", typeof(string)));
+            //dHistory = new DataTable();
+            //dHistory.Columns.Add(new DataColumn("DelegateID", typeof(int)));
+            //dHistory.Columns.Add(new DataColumn("StaffID", typeof(string)));
+            //dHistory.Columns.Add(new DataColumn("Start Date", typeof(DateTime)));
+            //dHistory.Columns.Add(new DataColumn("End Date", typeof(DateTime)));
+            //dHistory.Columns.Add(new DataColumn("Status", typeof(string)));
 
             if (!IsPostBack)
             {
@@ -47,21 +49,21 @@ namespace Team09LogicU.pages
             }
         }
 
-        //show latest delegation status
+        //show latest delegation record
         public void showLatestDelegation()
         {
             dList = delegateDAO.findDelegatesByDepartment(deptId);
-            foreach (Models.Delegate item in dList)
-            {
-                DataRow dr = dHistory.NewRow();
-                dr["DelegateID"] = item.delegateID;
-                dr["StaffID"] = item.staffID;
-                dr["Start Date"] = item.startDate;
-                dr["End Date"] = item.endDate;
-                dr["Status"] = this.delegateStatus(item);
-                dHistory.Rows.Add(dr);
-            }
-            GridView_dHistory.DataSource = dHistory;
+            //foreach (Models.Delegate item in dList)
+            //{
+            //    DataRow dr = dHistory.NewRow();
+            //    dr["DelegateID"] = item.delegateID;
+            //    dr["StaffID"] = item.staffID;
+            //    dr["Start Date"] = item.startDate;
+            //    dr["End Date"] = item.endDate;
+            //    dr["Status"] = this.delegateStatus(item);
+            //    dHistory.Rows.Add(dr);
+            //}
+            GridView_dHistory.DataSource = dList;
             GridView_dHistory.DataBind();
         }
 
@@ -80,18 +82,13 @@ namespace Team09LogicU.pages
         }
 
         //get delegation status
-        public string delegateStatus(Models.Delegate d)
-        {
-            DateTime now = DateTime.Today;
-            if (d.endDate > now)
-            {
-                return "Active";
-            }
-            else
-            {
-                return "Expired";
-            }
-        }
+        //public string delegateStatus(Models.Delegate d)
+        //{
+        //    DateTime today = DateTime.Today;
+        //    if(today<d.startDate && d.startDate<d.endDate)
+        //    { return "active"; }
+        //    else if(today<d.startDate && d.)
+        //}
 
         protected void submit_button_Click(object sender, EventArgs e)
         {
@@ -108,8 +105,8 @@ namespace Team09LogicU.pages
                     delegateDAO.delegateToStaff(selectedStaffId, sDate, eDate);
 
                     //change the role of current head to "out of office head"
-                    currentHeadId = deptStaffDAO.findStaffByID(logInStaffId).Department.headStaffID;
-                    delegateDAO.disableHead(currentHeadId);
+                    //currentHeadId = deptStaffDAO.findStaffByID(logInStaffId).Department.headStaffID;
+                    //delegateDAO.disableHead(currentHeadId);
 
                     //update delegation status
                     Response.Write("<script>alert('Delegated succussfully!')</script>");

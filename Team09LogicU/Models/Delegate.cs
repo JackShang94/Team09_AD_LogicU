@@ -18,6 +18,7 @@ namespace Team09LogicU.Models
         public string staffID { get; set; }
         public System.DateTime startDate { get; set; }
         public System.DateTime endDate { get; set; }
+        public string status { get; set; }
     
         public virtual DeptStaff DeptStaff { get; set; }
     }

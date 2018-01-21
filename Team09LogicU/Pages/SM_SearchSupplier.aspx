@@ -38,14 +38,14 @@
 								 <div class="content">
                                 
                          <asp:Button ID="Button_Add"  runat="server" Text="Add New Supplier"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="Button_Add_Click" />
-                                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 
-                                     <asp:GridView ID="GridView_supplierList" runat="server" OnRowEditing="GridView_supplierList_RowEditing"   CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "  AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" 
+                                     <asp:GridView ID="GridView_supplierList" runat="server" OnRowEditing="GridView_supplierList_RowEditing"  CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "  AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" 
                                           CellPadding="4" ForeColor="#333333" GridLines="None">
                                          <Columns>
                                              <asp:TemplateField HeaderText="Edit" ItemStyle-CssClass="text-center" >
                                                  <ItemTemplate>
-                                                     <asp:LinkButton ID="Edit" runat="server" CssClass="fa fa-edit" CommandName="Edit" OnClientClick="Edit?" ForeColor="OrangeRed"></asp:LinkButton>
+                                                     <asp:LinkButton ID="Edit"  runat="server" CssClass="fa fa-edit" CommandName="Edit" OnClientClick="Edit?" ForeColor="OrangeRed"></asp:LinkButton>
                                                  </ItemTemplate>
                                                                                              </asp:TemplateField>
                                          </Columns>
