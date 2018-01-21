@@ -67,8 +67,7 @@ namespace Team09LogicU.pages
                 //int req = Int32.Parse(requisitionListGridView.DataKeys[e.RowIndex].Values["requisitionID"].ToString());//Get the requisition id;
                 RequisitionDAO rdao = new RequisitionDAO();
                 
-                
-                string name = this.staffID;
+                string name = Session["loginID"].ToString();
                 rdao.removeRequisition(req);
                 //string name = Session["loginID"].ToString();
 
