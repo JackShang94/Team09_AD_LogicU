@@ -17,15 +17,11 @@ namespace Team09LogicU.pages
         {
             //*******************************this is test code****************//
             DateTime date = new DateTime(2018, 1, 28);
-            //get retrivedRequisitionList
-            List<Requisition> retrivedRequisitionList = retrievalDAO.getRetrievedRequisitionList(date);
-            //update status
-            //retrievalDAO.updateRequisitionStatusAsProcessed(retrivedRequisitionList);
+
             //get retrievedItemList
             List<RetrievalFormItem> retrievedItemList= retrievalDAO.getRetrievalFormByDate(date);
             
-            //GridView_RetrievalForm.DataSource = ss;
-            //GridView_RetrievalForm.DataBind();
+
             //*******************************this is tes code****************//
         }
     }

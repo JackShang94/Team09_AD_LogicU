@@ -6,7 +6,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
 
-    <asp:gridview runat="server"></asp:gridview>
+   
+
+
+
+    <form id="form1" runat="server">
+        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover">
+        </asp:GridView>
+    </form>
+
+
+   
 
 
 
