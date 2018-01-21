@@ -58,12 +58,18 @@ namespace Team09LogicU.App_Code.DAO
             r.approvedDate = DateTime.Now;
             m.SaveChanges();
         }
-
+        public string getStatusByReqID(int reqID)
+        {
+            return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.status).First().ToString();
+        }
         public List<Requisition> getRequisitionByStatus(string status)//used by dept head
         {
             return m.Requisitions.Where(x => x.status == status).ToList<Requisition>();
         }
-
+        public List<Requisition> getReqByStaffIDandStatus(string staffID, string status)
+        {
+            return m.Requisitions.Where(x => x.staffID == staffID && x.status == status).ToList<Requisition>();
+        }
         public List<Requisition> getRequisitionByStaffID(string staffID)//
         {
             return m.Requisitions.Where(x => x.staffID == staffID).ToList<Requisition>();

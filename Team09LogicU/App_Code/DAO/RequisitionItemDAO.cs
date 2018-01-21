@@ -17,6 +17,12 @@ namespace Team09LogicU.App_Code.DAO
         {
             return m.RequisitionItems.Where(x => x.reqItemID == reqItemID).ToList();
         }
+        public List<ItemCart> findRequisitionItemByID(int requisitionID)
+        {
+            List<ItemCart> list = m.RequisitionItems.
+                Where(x => x.requisitionID == requisitionID).Select(x => new ItemCart { Description = x.Item.description, Quantity = x.requisitionQty, UnitOfMeasure = x.Item.unitOfMeasure }).ToList<ItemCart>();
+            return list;
+        }
         public void updateItemQty(RequisitionItem rI,int qty)
         {
             if (rI.requisitionQty == 0)
