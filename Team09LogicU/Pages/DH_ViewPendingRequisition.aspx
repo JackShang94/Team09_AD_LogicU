@@ -11,8 +11,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Table with Links</h4>
-                                <p class="category">Here is a subtitle for this table</p>
+                                <h4 class="title">View Pending Requisition</h4>
+                                <p class="category"></p>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">

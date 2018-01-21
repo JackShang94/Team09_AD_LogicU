@@ -150,6 +150,7 @@
     <Content Include="Pages\DH_PendingRequisitionDetail.aspx" />
     <Content Include="Pages\DH_RequisitionHistoryDetail.aspx" />
     <Content Include="Pages\Employee.Master" />
+    <Content Include="Pages\Emp_MR_RequisitionDetail.aspx" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_Reorder.aspx" />
@@ -419,6 +420,13 @@
     </Compile>
     <Compile Include="Pages\Employee.Master.designer.cs">
       <DependentUpon>Employee.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Emp_MR_RequisitionDetail.aspx.cs">
+      <DependentUpon>Emp_MR_RequisitionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Emp_MR_RequisitionDetail.aspx.designer.cs">
+      <DependentUpon>Emp_MR_RequisitionDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_MyRequisition.aspx.cs">
       <DependentUpon>Emp_MyRequisition.aspx</DependentUpon>
