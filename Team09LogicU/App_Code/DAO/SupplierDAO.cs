@@ -17,9 +17,23 @@ namespace Team09LogicU.App_Code.DAO
 
         public  Supplier getSupplierByID(string id)
         {
-            return context.Suppliers.Where(x => x.supplierID == id).First();
+            List<Supplier> slist = context.Suppliers.Where(x => x.supplierID == id).ToList();
+            Supplier s = new Supplier();
+            if (slist.Count() > 0)
+            {
+                s = slist.First();
+            }
+            return s;
         }
-
+        //find supplier by searching name or Id
+        public List<Supplier> getSupplierBySearchWord(string keyword)
+        {
+            List<Supplier> slist = context.Suppliers.Where(x => x.supplierID.Contains(keyword)
+                                                         &&x.supplierName.Contains(keyword)).ToList();
+            
+            
+            return slist;
+        }
         public void addSupplier(string supplierCode, string supplierName, string gstRegistrationNo, string address, string fax, string phone, string contactName)
         {
             Supplier supplier = new Supplier();
@@ -36,7 +50,7 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
-        public  void editSupplier(string supplierCode, string supplierName, string gstRegistrationNo, string address, string fax, string phone, string contactName)
+        public  void updateSupplier(string supplierCode, string supplierName, string gstRegistrationNo, string address, string fax, string phone, string contactName)
         {
             Supplier sl = context.Suppliers.Where(x => x.supplierID == supplierCode).First();
             sl.supplierID = supplierCode;

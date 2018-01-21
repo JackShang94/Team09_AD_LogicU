@@ -22,6 +22,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Label Label_CollectionPoint1;
         
         /// <summary>
+        /// dropdownlist1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist1;
+        
+        /// <summary>
         /// Label_CollectionPoint2 control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_CollectionPoint2;
+        
+        /// <summary>
+        /// dropdownlist2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist2;
         
         /// <summary>
         /// Label_CollectionPoint3 control.
@@ -40,6 +58,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Label Label_CollectionPoint3;
         
         /// <summary>
+        /// dropdownlist3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist3;
+        
+        /// <summary>
         /// Label_CollectionPoint4 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_CollectionPoint4;
+        
+        /// <summary>
+        /// dropdownlist4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist4;
         
         /// <summary>
         /// Label_CollectionPoint5 control.
@@ -58,6 +94,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Label Label_CollectionPoint5;
         
         /// <summary>
+        /// dropdownlist5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist5;
+        
+        /// <summary>
         /// Label_CollectionPoint6 control.
         /// </summary>
         /// <remarks>
@@ -65,6 +110,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_CollectionPoint6;
+        
+        /// <summary>
+        /// dropdownlist6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist6;
         
         /// <summary>
         /// Btn_Approve control.

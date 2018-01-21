@@ -13,22 +13,22 @@ namespace Team09LogicU.pages {
     public partial class DH_DelegateHeadRole {
         
         /// <summary>
-        /// Label1 control.
+        /// Label_logInRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Label_logInRole;
         
         /// <summary>
-        /// Label2 control.
+        /// Panel_submitDelegate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Panel Panel_submitDelegate;
         
         /// <summary>
         /// delegateStf_label control.
@@ -76,22 +76,13 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Button submit_button;
         
         /// <summary>
-        /// delegateStatus_Label control.
+        /// GridView_dHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label delegateStatus_Label;
-        
-        /// <summary>
-        /// ListBox_delegateHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox_delegateHistory;
+        protected global::System.Web.UI.WebControls.GridView GridView_dHistory;
         
         /// <summary>
         /// terminate_button control.
