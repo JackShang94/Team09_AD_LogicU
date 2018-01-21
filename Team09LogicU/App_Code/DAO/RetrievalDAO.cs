@@ -29,6 +29,7 @@ namespace Team09LogicU.App_Code.DAO
 
             return reflist;
         }
+
         //******************************************************Method 01 I am a code master***********************************************************//
         //get item total quantity from requisitions(without outstading)
         private void getRetrievalFormItemList(List<RetrievalFormItem> refl,List<Requisition> reql)
@@ -160,7 +161,7 @@ namespace Team09LogicU.App_Code.DAO
         }
 
         //get  requisitions from database
-        public List<Requisition> getRetrievedRequisitionList(DateTime date)
+        private List<Requisition> getRetrievedRequisitionList(DateTime date)
         {
             List<Requisition> reql = new List<Requisition>();
             reql = context.Requisitions.
@@ -170,7 +171,7 @@ namespace Team09LogicU.App_Code.DAO
         }
 
         //get outstanding requisitions from database
-        public List<Outstanding> getOutStandingList(DateTime date)
+        private List<Outstanding> getOutStandingList(DateTime date)
         {        
             List<Outstanding> outstandinglist = new List<Outstanding>();
             outstandinglist = context.Outstandings.
@@ -180,7 +181,7 @@ namespace Team09LogicU.App_Code.DAO
         }
 
         //Update  Requisition status as "Processed"
-        public void updateRequisitionStatusAsProcessed(List<Requisition> reql)
+        private void updateRequisitionStatusAsProcessed(List<Requisition> reql)
         {
             foreach (Requisition req in reql)
             {
@@ -190,7 +191,7 @@ namespace Team09LogicU.App_Code.DAO
         }
 
         //Update outStanding status as "Processed"
-        public void updateOutStandingStatusAsProcessed(List<Outstanding> outl)
+        private void updateOutStandingStatusAsProcessed(List<Outstanding> outl)
         {
             foreach (Outstanding item in outl)
             {
@@ -206,6 +207,66 @@ namespace Team09LogicU.App_Code.DAO
         //where status='Approved' and and approvedDate <= '2018-1-21'  )
         //group by itemID
 
-        
+        public void ConfirmRetrieval(List<RetrievalFormItem> reflist)
+        {
+            List<RetrievalFormItem> result = UpdateActualQuantity(reflist);
+
+            List<Disbursement> dislist = generateDisbersementList(result);
+
+            saveDisbursement(dislist);
+
+            List<Outstanding> outlist = generateOutstandingList(result);
+
+            saveOutstanding(outlist);
+
+            updateWarehouseQuantity(result);
+
+            updateStockCard(result);
+
+        }
+
+        private void updateStockCard(List<RetrievalFormItem> reflist)
+        {
+
+        }
+
+        private void updateWarehouseQuantity(List<RetrievalFormItem> reflist)
+        {
+
+        }
+
+        private void saveOutstanding(List<Outstanding> outlist)
+        {
+
+        }
+
+        private List<Outstanding> generateOutstandingList(List<RetrievalFormItem> reflist)
+        {
+            List<Outstanding> outlist = new List<Outstanding>();
+            return outlist;
+        }
+
+        private void saveDisbursement(List<Disbursement> dislist)
+        {
+
+        }
+
+        private List<Disbursement> generateDisbersementList(List<RetrievalFormItem> reflist)
+        {
+            List<Disbursement> dislist = new List<Disbursement>();
+            return dislist;
+        }
+
+        //Update  reflist Actual Quantity According to UI TextBox input
+        private List<RetrievalFormItem>  UpdateActualQuantity(List<RetrievalFormItem> reflist)
+        {            
+            //********************************
+            //*********************************
+            //*********************************
+            //*********************************
+            //*********************************
+            //*********************************
+            return reflist;
+        }      
     }
 }
