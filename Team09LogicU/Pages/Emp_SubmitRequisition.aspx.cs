@@ -187,20 +187,31 @@ namespace Team09LogicU.pages
             string name = this.staffID;
             Button b = (Button)sender;//get this Button
 
-            string[] info = b.CommandArgument.ToString().Split('&');
+            string[] info = b.CommandArgument.ToString().Split('&');//only get this add button
             int alert = 0;
             foreach (Control i in cartRepeater.Items)//get Quantity from the cart
             {
                 Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
                 TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
-                if (deletebtn.CommandArgument.ToString() == info[0])//find the corresponding itemID
+                string a = cartqty.Text;
+                foreach(var k in lc)
+                {
+                    if (k.ItemID == deletebtn.CommandArgument.ToString())
+                    {
+                        k.Qty = Int32.Parse(a);
+                    }
+                    
+                }
+                if (deletebtn.CommandArgument.ToString() == info[0])//Just get the corresponding itemID
                 {
                     foreach (var j in lc)//find in cart
                     {
-                        if (j.ItemID == info[0])
+                        
+                        if (j.ItemID == info[0])//only for banning add repeated items
                         {
-                            j.Qty = Int32.Parse(cartqty.Text.ToString());//store current quantity into session
+                            j.Qty = Int32.Parse(a);//store current quantity into session
                             alert = 1;
+                            break;
                         }
                     }
                 }
