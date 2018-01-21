@@ -32,10 +32,22 @@ namespace Team09LogicU.pages
                 /**********************Loading Cart List************************************/
                
                 string name = Session["loginID"].ToString();
-                DeptStaffDAO deptstaff = new DeptStaffDAO();
-                string role = deptstaff.getRoleByStaffID(name);
-                if (role !="emp" )
+                
+                name = "emp006";
+                Session["loginID"] = name;
+                if (Session["loginID"] == null)
                 {
+                    Response.Redirect("login.aspx");
+                    
+                }
+                //DeptStaffDAO deptstaff = new DeptStaffDAO();
+                string role = Session["loginRole"].ToString();
+                role = "emp";
+                Session["loginRole"] = role;
+                if (role != "emp")
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "function(){"
+                    //        + "alert('NOT EMP!!!'); document.location.href='/login.aspx';} ", true);
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
@@ -135,9 +147,7 @@ namespace Team09LogicU.pages
             //add requisition items
             Dictionary<string, int> dict = new Dictionary<string, int>();
 
-            List<string> ls = new List<string>();
 
-            string j;
             foreach(Control  i in cartRepeater.Items)//get Quantity
             {
                 Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID

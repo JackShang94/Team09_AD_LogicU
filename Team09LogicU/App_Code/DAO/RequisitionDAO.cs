@@ -39,11 +39,15 @@ namespace Team09LogicU.App_Code.DAO
             m.SaveChanges();
         }
 
-        public void removeRequisition(int reqID)//dept emp
+        public void removeRequisition(int reqID)//used by dept emp
         {
             Requisition r = m.Requisitions.Find(reqID);
-            m.Requisitions.Remove(r);
-            m.SaveChanges();
+            if (r != null)
+            {
+                m.Requisitions.Remove(r);
+                m.SaveChanges();
+            }
+            return;
         }
 
         public List<Requisition> getRequisitionByDate(DateTime from,DateTime to)//used by dept emp for searching
@@ -68,11 +72,19 @@ namespace Team09LogicU.App_Code.DAO
         {
             return m.Requisitions.Where(x => x.staffID == staffID).ToList<Requisition>();
         }
+        public List<Requisition> getReqByStaffIDandStatus(string staffID,string status)
+        {
+            return m.Requisitions.Where(x => x.staffID == staffID && x.status == status).ToList<Requisition>();
+        }
         public List<Requisition> getRequisitionByDeptID(string DeptID)//used by disbursement,outstanding
         {
             return m.Requisitions.Where(x => x.deptID == DeptID).ToList<Requisition>();
         }
 
+        public string getStatusByReqID(int reqID)
+        {
+            return m.Requisitions.Where(x => x.requisitionID == reqID).Select(x => x.status).ToList().First().ToString();
+        }
         //public List<Requisition> getThisWeek(DateTime time)
         //{
         //    return m.Requisitions.Where(x => x.requisitionDate <  (DayOfWeek.Wednesday)).ToList<Requisition>();
