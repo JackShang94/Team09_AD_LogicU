@@ -16,13 +16,13 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             //*******************************this is test code****************//
-            DateTime date = new DateTime(2018, 1, 21);
+            //DateTime date = new DateTime(2018, 1, 21);
 
             //get retrievedItemList
-            List<RetrievalFormItem> retrievedItemList= retrievalDAO.getRetrievalFormByDate(date);
+           // List<RetrievalFormItem> retrievedItemList= retrievalDAO.getRetrievalFormByDate(date);
 
             //confirm retrieval
-            retrievalDAO.ConfirmRetrieval(retrievedItemList);
+            //retrievalDAO.ConfirmRetrieval(retrievedItemList);
             //*******************************this is tes code****************//
         }
     }

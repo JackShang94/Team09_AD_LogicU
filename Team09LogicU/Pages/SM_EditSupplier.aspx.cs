@@ -22,20 +22,21 @@ namespace Team09LogicU.Pages
         string address;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //supplierID = Request["supplierID"];
+            supplierID = Request.QueryString["supplier"];
             s = new Supplier();
-            supplierID = "ALPA";
             s = sDAO.getSupplierByID(supplierID);
 
-            TextBox_SupplierCode.Text = supplierID;
-            TextBox_SupplierName.Text = s.supplierName;
-            TextBox_ContactName.Text = s.contactName;
-            TextBox_Fax.Text = s.fax;
-            TextBox_GSTRegistrationNo.Text = s.gstRegistrationNo;
-            TextBox_Phone.Text = s.phone;
-            TextBox_Address.Text = s.address;
-
-           
+            if(!IsPostBack)
+            {
+                TextBox_SupplierCode.Text = supplierID;
+                TextBox_SupplierName.Text = s.supplierName;
+                TextBox_ContactName.Text = s.contactName;
+                TextBox_Fax.Text = s.fax;
+                TextBox_GSTRegistrationNo.Text = s.gstRegistrationNo;
+                TextBox_Phone.Text = s.phone;
+                TextBox_Address.Text = s.address;
+            }
+            
         }
 
         protected void Btn_Submit_Click(object sender, EventArgs e)
@@ -49,7 +50,11 @@ namespace Team09LogicU.Pages
             address = TextBox_Address.Text;
 
             sDAO.updateSupplier(supplierID, supplierName, gstNO, address,fax, phone, contactName);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(Successfully Submitted!)", true);
+            
+            Response.Write("<script>alert('Successfully submitted!')</script>");
+            Response.Redirect("SM_SearchSupplier.aspx");
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Submitted!')", true);
+
         }
 
         protected void Btn_Back_Click(object sender, EventArgs e)
