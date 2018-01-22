@@ -47,7 +47,7 @@
 									<ContentTemplate>
 										<div class="content" >
 											<h4 class=" panel-title">Search by Request Date:<asp:TextBox ID="fromDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox>
-												<asp:TextBox ID="toDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox><asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click"/></h4>
+												<asp:TextBox ID="toDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox><asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></h4>
 											
 										</div> 
 										

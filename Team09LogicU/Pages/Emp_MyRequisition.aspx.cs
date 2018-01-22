@@ -97,13 +97,17 @@ namespace Team09LogicU.pages
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
-            
+            if (fromDate.Text == ""|| toDate.Text=="")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
+                return;
+            }
             DateTime from =Convert.ToDateTime( fromDate.Text);
             DateTime to = Convert.ToDateTime( toDate.Text);
-            if (DateTime.Compare(from, to)>0)
+            if (DateTime.Compare(from, to)>0 )
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage3", "alert('Nothing in cart')", true);
-
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('start Date should be greater than end Date')", true);
+                return;
             }
             RequisitionDAO rdao = new RequisitionDAO();
             requisitionHistoryGridView.DataSource=rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
