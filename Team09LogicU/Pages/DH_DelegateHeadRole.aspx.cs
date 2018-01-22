@@ -51,8 +51,18 @@ namespace Team09LogicU.pages
             GridView_dHistory.DataSource = dList;
             GridView_dHistory.DataBind();
 
+        //show current role
+        public void showCurrentRole()
+        {
+            logInRole = (string)ViewState["logInRole"];
             logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-            Label_logInRole.Text = logInRole;
+            ViewState["logInRole"] = logInRole;
+            Label_logInRole.Text = ViewState["logInRole"].ToString();
+
+            //int count = (int)ViewState["count"];    // GET
+            //count++;
+            //Label1.Text = count.ToString();
+            //ViewState["count"] = count;              // SET
         }
 
         //validate the submition

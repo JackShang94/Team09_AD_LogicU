@@ -163,6 +163,7 @@
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PrintPurchaseOrder.aspx" />
     <Content Include="Pages\SC_ReorderList.aspx" />
+    <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
     <Content Include="Pages\SC_ViewReorderReport.aspx" />
     <Content Include="Pages\SM_AddCatalog.aspx" />
     <Content Include="Pages\SM_AddItem.aspx" />
@@ -356,6 +357,9 @@
       <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SupplierItem.cs">
+      <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\DepartmentHead.Master.cs">
@@ -567,6 +571,13 @@
     </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.designer.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_RO_DisbursementListHistory.aspx.cs">
+      <DependentUpon>SC_RO_DisbursementListHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_RO_DisbursementListHistory.aspx.designer.cs">
+      <DependentUpon>SC_RO_DisbursementListHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_RO_OutstandingRequisition.aspx.cs">
       <DependentUpon>SC_RO_OutstandingRequisition.aspx</DependentUpon>

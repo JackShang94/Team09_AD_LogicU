@@ -12,15 +12,12 @@ namespace Team09LogicU.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class StockCard
+    public partial class sysdiagram
     {
-        public int stockCardID { get; set; }
-        public string itemID { get; set; }
-        public System.DateTime date { get; set; }
-        public int quantity { get; set; }
-        public int balance { get; set; }
-        public string record { get; set; }
-    
-        public virtual Item Item { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
