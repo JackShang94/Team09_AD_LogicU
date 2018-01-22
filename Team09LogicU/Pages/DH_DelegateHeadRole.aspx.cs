@@ -50,6 +50,7 @@ namespace Team09LogicU.pages
             dList = delegateDAO.findDelegatesByDepartment(depID);
             GridView_dHistory.DataSource = dList;
             GridView_dHistory.DataBind();
+        }
 
         //show current role
         public void showCurrentRole()
