@@ -253,6 +253,8 @@ namespace Team09LogicU.App_Code.DAO
                         st.date = DateTime.Now;
                         st.quantity = -breakitem.Actual;
                         st.balance = item.qtyOnHand;
+                        st.record = breakitem.DeptID + " Department";
+
                         context.StockCards.Add(st);
                     }
                 }
