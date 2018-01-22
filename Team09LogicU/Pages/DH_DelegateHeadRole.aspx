@@ -5,18 +5,18 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <div class="row">
+     
+                
+    <form runat="server">
+        <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="content">
-    <form runat="server">
-       
-
-        <div class="col-lg-3">
+       <div class="content">
+        <div class="header">
        <div class="h4"> Current Role:
-        <asp:Label ID="Label_logInRole" runat="server" CssClass="h5" Text="" EnableViewState="true"></asp:Label>
+       <asp:Label ID="Label_logInRole" runat="server" CssClass="h5" Text="" EnableViewState="true"></asp:Label>
        </div></div>
-        <div>
+        <div >
             <asp:Panel ID="Panel_submitDelegate" runat="server">
                 <div class="col-lg-9">
                 <h4>Delegate to: 
@@ -28,13 +28,13 @@
               </div><div class="col-lg-3"><label class="category"> To:</label>          
          <asp:TextBox ID="textBox_endDate" runat="server" CssClass="form-control datepicker" Width="80%" ></asp:TextBox>
 </div>
-                <br />
+                
                 <div class="col-lg-8" style="margin-top:20px">
                 <asp:Button ID="submit_button" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="SUBMIT" OnClick="submit_button_Click" />
                     </div>
             </asp:Panel>
         </div>
-        <br />
+        
         <div class="col-lg-12">
         <h4>Delegate History:</h4></div>
         <asp:GridView ID="GridView_dHistory"  CssClass="table table-striped table-hover" runat="server" >
@@ -44,15 +44,16 @@
 
             <SelectedRowStyle BackColor="#e4e4e4" />
         </asp:GridView>
-        <br />
+        <div class="col-lg-10" style="margin-top:20px">
         <asp:Button ID="terminate_button" runat="server" Text="TERMINATE" CssClass="btn btn-wd btn-danger" OnClick="terminate_button_Click" />
         <asp:Label ID="label_terminateDlgt" runat="server" Text=""></asp:Label>
-    </form>
-                    </div>
+            </div></div>
                 </div>
             </div>
          </div>
     
+    </form>
+                    
     	    <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
     <script src="../js/jquery.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
