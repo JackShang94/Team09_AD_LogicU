@@ -30,7 +30,7 @@
 </div>
                 <br />
                 <div class="col-lg-8" style="margin-top:20px">
-                <asp:Button ID="submit_button" runat="server" CssClass="btn btn-primary btn-fill" Text="SUBMIT" OnClick="submit_button_Click" />
+                <asp:Button ID="submit_button" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="SUBMIT" OnClick="submit_button_Click" />
                     </div>
             </asp:Panel>
         </div>
