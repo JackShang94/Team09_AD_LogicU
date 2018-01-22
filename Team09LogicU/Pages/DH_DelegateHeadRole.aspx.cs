@@ -15,80 +15,65 @@ namespace Team09LogicU.pages
     {
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-        DateTime operationDate = DateTime.Today;//assume it is the current date
-        //DataTable dHistory = new DataTable();
-
+        DateTime operationDate = DateTime.Today.AddDays(6);//assume it is the current date
         string logInStaffId;
         string logInRole;
-        string currentHeadId;
-        List<Models.Delegate> dList;
-        string deptId;
+        List<Models.Delegate> dList = new List<Models.Delegate>();
+        string deptID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            logInStaffId = Session["loginID"].ToString();
-            deptId = deptStaffDAO.findStaffByID(logInStaffId).deptID;
-            //dHistory = new DataTable();
-            //dHistory.Columns.Add(new DataColumn("DelegateID", typeof(int)));
-            //dHistory.Columns.Add(new DataColumn("StaffID", typeof(string)));
-            //dHistory.Columns.Add(new DataColumn("Start Date", typeof(DateTime)));
-            //dHistory.Columns.Add(new DataColumn("End Date", typeof(DateTime)));
-            //dHistory.Columns.Add(new DataColumn("Status", typeof(string)));
+            logInStaffId = (string)Session["loginID"];
+            deptID = deptStaffDAO.findStaffByID(logInStaffId).deptID;
 
             if (!IsPostBack)
             {
-                List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee(deptId);
-                employee_dropList.DataSource = staffList;
-                employee_dropList.DataTextField = "staffName";
-                employee_dropList.DataValueField = "staffID";
-                employee_dropList.DataBind();
-                delegateStf_label.Text = employee_dropList.Text;
-
-                showLatestDelegation();
-                showCurrentRole();
+                delegateDAO.updateStatusAndStaffRoleByDate(operationDate);
+                displayStaffToDelegate(deptID);
+                displayDelegationListAndRole(deptID);
             }
         }
 
-        //show latest delegation record
-        public void showLatestDelegation()
+        //bind staff info data
+        public void displayStaffToDelegate(string deptID)
         {
-            dList = delegateDAO.findDelegatesByDepartment(deptId);
-            //foreach (Models.Delegate item in dList)
-            //{
-            //    DataRow dr = dHistory.NewRow();
-            //    dr["DelegateID"] = item.delegateID;
-            //    dr["StaffID"] = item.staffID;
-            //    dr["Start Date"] = item.startDate;
-            //    dr["End Date"] = item.endDate;
-            //    dr["Status"] = this.delegateStatus(item);
-            //    dHistory.Rows.Add(dr);
-            //}
+            List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee(deptID);
+            employee_dropList.DataSource = staffList;
+            employee_dropList.DataTextField = "staffName";
+            employee_dropList.DataValueField = "staffID";
+            employee_dropList.DataBind();
+        }
+
+        //show latest delegation record
+        public void displayDelegationListAndRole(string depID)
+        {
+            dList = delegateDAO.findDelegatesByDepartment(depID);
             GridView_dHistory.DataSource = dList;
             GridView_dHistory.DataBind();
-        }
 
-        //show current role
-        public void showCurrentRole()
-        {
-            logInRole = (string)ViewState["logInRole"];
             logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-            ViewState["logInRole"] = logInRole;
-            Label_logInRole.Text = ViewState["logInRole"].ToString();
-
-            //int count = (int)ViewState["count"];    // GET
-            //count++;
-            //Label1.Text = count.ToString();
-            //ViewState["count"] = count;              // SET
+            Label_logInRole.Text = logInRole;
         }
 
-        //get delegation status
-        //public string delegateStatus(Models.Delegate d)
-        //{
-        //    DateTime today = DateTime.Today;
-        //    if(today<d.startDate && d.startDate<d.endDate)
-        //    { return "active"; }
-        //    else if(today<d.startDate && d.)
-        //}
+        //validate the submition
+        public bool IsValidSubmition(DateTime sDate, DateTime eDate)
+        {
+            bool isValid = true;
+            //the selected date is valid
+            if (sDate < eDate && sDate > operationDate)
+            {
+                foreach (Models.Delegate d in dList)
+                {
+                    if ((d.status == "active" || d.status == "On delegation") && (sDate <= d.endDate))
+                    {
+                        isValid = false;
+                    }
+                }
+            }
+            else
+            { isValid = false; }
+            return isValid;
+        }
 
         protected void submit_button_Click(object sender, EventArgs e)
         {
@@ -98,74 +83,51 @@ namespace Team09LogicU.pages
                 DateTime sDate = Convert.ToDateTime(textBox_startDate.Text);
                 DateTime eDate = Convert.ToDateTime(textBox_endDate.Text);
 
-                //make sure the correct selection of date
-                if (sDate < eDate && sDate >= DateTime.Today)
+                dList = delegateDAO.findDelegatesByDepartment(deptID);
+                if (IsValidSubmition(sDate, eDate))
                 {
                     //add a new delegation
                     delegateDAO.delegateToStaff(selectedStaffId, sDate, eDate);
-
-                    //change the role of current head to "out of office head"
-                    //currentHeadId = deptStaffDAO.findStaffByID(logInStaffId).Department.headStaffID;
-                    //delegateDAO.disableHead(currentHeadId);
-
-                    //update delegation status
                     Response.Write("<script>alert('Delegated succussfully!')</script>");
-                    Panel_submitDelegate.Visible = false;
-                   
-                    
                 }
                 else
                 {
                     Response.Write("<script>alert('Please select valid date!')</script>");
                 }
-            }
 
+            }
             catch { Response.Write("<script>alert('Failed to submit!')</script>"); }
 
             finally
             {
-                showLatestDelegation();
-                showCurrentRole();
+                displayDelegationListAndRole(deptID);
             }
-
-
         }
 
         protected void terminate_button_Click(object sender, EventArgs e)
         {
             if (GridView_dHistory.SelectedIndex != -1)
-            {
+            {                
                 int dID = Convert.ToInt32(GridView_dHistory.SelectedRow.Cells[1].Text.ToString());
-                bool IsActiveDelegate = delegateDAO.isActiveDelegate(dID);
-                logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-                if (logInRole == "outOfOfficeHead" || logInRole == "head")
+                Models.Delegate d = delegateDAO.findDelegationById(dID);
+                string status = d.status;
+                if (status == "active" || status == "On delegation")
                 {
-                    if (IsActiveDelegate)
-                    {
-                        delegateDAO.terminateDelegate(dID);
-                        Response.Write("<script>alert('Successfully terminated!')</script>");
-                        Panel_submitDelegate.Visible = true;
-                        
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('This delegation has already been terminated')</script>");
-                    }
+                    delegateDAO.cancelDelegation(dID);                   
+                    Response.Write("<script>alert('Successful!')</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('You have no access to this ')</script>");
+                    Response.Write("<script>alert('This delegation is already inactive')</script>");
                 }
             }
             else
             {
                 Response.Write("<script>alert('Please select at least one delegation!')</script>");
             }
-            showCurrentRole();
-            showLatestDelegation();
-
+            displayDelegationListAndRole(deptID);
         }
-
-       
     }
 }
+
+

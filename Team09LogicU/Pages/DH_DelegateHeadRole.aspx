@@ -18,15 +18,13 @@
        </div></div>
         <div>
             <asp:Panel ID="Panel_submitDelegate" runat="server">
-                <div class="col-lg-9">
-                <h4>Delegate to: 
-                <asp:Label ID="delegateStf_label" CssClass="h5" runat="server" Text=""></asp:Label></h4></div>
+                
               <div class="col-lg-3 content"><label class="category">Employee: </label> 
             <asp:DropDownList ID="employee_dropList" CssClass="form-control" Width="80%"  runat="server"></asp:DropDownList>
                </div><div class="col-lg-3"><label class="category"> From:</label>      
-         <asp:TextBox ID="textBox_startDate" runat="server" CssClass="form-control datepicker " Width="80%" ></asp:TextBox>
+         <asp:TextBox ID="textBox_startDate" runat="server"  Width="80%" TextMode="Date" ></asp:TextBox>
               </div><div class="col-lg-3"><label class="category"> To:</label>          
-         <asp:TextBox ID="textBox_endDate" runat="server" CssClass="form-control datepicker" Width="80%" ></asp:TextBox>
+         <asp:TextBox ID="textBox_endDate" runat="server"  Width="80%" TextMode="Date" ></asp:TextBox>
 </div>
                 <br />
                 <div class="col-lg-8" style="margin-top:20px">
@@ -37,7 +35,7 @@
         <br />
         <div class="col-lg-12">
         <h4>Delegate History:</h4></div>
-        <asp:GridView ID="GridView_dHistory"  CssClass="table table-striped table-hover" runat="server" >
+        <asp:GridView ID="GridView_dHistory"  CssClass="table table-striped table-hover" runat="server" EmptyDataText="No delegation record">
             <Columns> 
                 <asp:ButtonField  CommandName="Select"  ControlStyle-ForeColor="#0066ff" ControlStyle-CssClass=" text-center fa fa-search"  />
             </Columns>
@@ -46,7 +44,6 @@
         </asp:GridView>
         <br />
         <asp:Button ID="terminate_button" runat="server" Text="TERMINATE" CssClass="btn btn-wd btn-danger" OnClick="terminate_button_Click" />
-        <asp:Label ID="label_terminateDlgt" runat="server" Text=""></asp:Label>
     </form>
                     </div>
                 </div>
