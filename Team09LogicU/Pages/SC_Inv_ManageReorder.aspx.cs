@@ -49,8 +49,8 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            GridView_reorderList.DataSource = list;
-            GridView_reorderList.DataBind();
+            GridView_reorderList.DataSource = list;//
+            GridView_reorderList.DataBind();// 
         }
 
         private void DisplayBasedonCheckBox()
