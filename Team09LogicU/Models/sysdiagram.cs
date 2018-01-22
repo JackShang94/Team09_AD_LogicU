@@ -12,14 +12,12 @@ namespace Team09LogicU.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Delegate
+    public partial class sysdiagram
     {
-        public int delegateID { get; set; }
-        public string staffID { get; set; }
-        public System.DateTime startDate { get; set; }
-        public System.DateTime endDate { get; set; }
-        public string status { get; set; }
-    
-        public virtual DeptStaff DeptStaff { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -363,6 +363,9 @@
     <Compile Include="Models\SupplierItem.cs">
       <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DepartmentHead.Master.cs">
       <DependentUpon>DepartmentHead.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

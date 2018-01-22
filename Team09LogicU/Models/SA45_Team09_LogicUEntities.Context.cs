@@ -49,5 +49,6 @@ namespace Team09LogicU.Models
         public virtual DbSet<StoreStaff> StoreStaffs { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<SupplierItem> SupplierItems { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
