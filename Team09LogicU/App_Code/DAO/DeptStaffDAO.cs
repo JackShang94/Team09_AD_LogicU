@@ -47,7 +47,14 @@ namespace Team09LogicU.App_Code.DAO
         public List<DeptStaff> findOnlyEmployee(string deptId)
         {
             List<DeptStaff> staffList = context.DeptStaffs.Where(x => x.deptID == deptId
-                                                                &&x.role!="head"&&x.role!="rep").ToList();
+                                                                &&x.role=="emp").ToList();
+            return staffList;
+        }
+
+        public List<DeptStaff> findEmployeeAndRep(string deptId)
+        {
+            List<DeptStaff> staffList = context.DeptStaffs.Where(x => x.deptID == deptId
+                                                                && (x.role == "emp" || x.role == "rep")).ToList();
             return staffList;
         }
 
