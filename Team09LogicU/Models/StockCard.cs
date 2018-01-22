@@ -19,6 +19,7 @@ namespace Team09LogicU.Models
         public System.DateTime date { get; set; }
         public int quantity { get; set; }
         public int balance { get; set; }
+        public string record { get; set; }
     
         public virtual Item Item { get; set; }
     }

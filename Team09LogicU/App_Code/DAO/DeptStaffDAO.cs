@@ -9,7 +9,8 @@ namespace Team09LogicU.App_Code.DAO
 {
     public class DeptStaffDAO
     {
-        SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
+        //SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
+        SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
         //find a staff by ID
         public DeptStaff findStaffByID(string staffId)
         {
