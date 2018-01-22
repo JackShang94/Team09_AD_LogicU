@@ -53,7 +53,7 @@ namespace Team09LogicU.Pages
             GridView_reorderList.DataBind();// 
         }
 
-        private void DisplayBasedonCheckBox()
+        private void DisplayBasedonCheckBox()//
         {
             bool isSelected = CheckBox1.Checked;
 
