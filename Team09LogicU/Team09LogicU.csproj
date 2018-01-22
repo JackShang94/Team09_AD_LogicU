@@ -150,6 +150,7 @@
     <Content Include="Pages\DH_PendingRequisitionDetail.aspx" />
     <Content Include="Pages\DH_RequisitionHistoryDetail.aspx" />
     <Content Include="Pages\Employee.Master" />
+    <Content Include="Pages\Emp_MR_RequisitionDetail.aspx" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_Reorder.aspx" />
@@ -162,6 +163,7 @@
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PrintPurchaseOrder.aspx" />
     <Content Include="Pages\SC_ReorderList.aspx" />
+    <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
     <Content Include="Pages\SC_ViewReorderReport.aspx" />
     <Content Include="Pages\SM_AddCatalog.aspx" />
     <Content Include="Pages\SM_AddItem.aspx" />
@@ -257,6 +259,7 @@
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
+    <Compile Include="App_Code\DAO\RetrievalDAO.cs" />
     <Compile Include="App_Code\DAO\SupplierDAO.cs" />
     <Compile Include="App_Code\DAO\StoreStaffDAO.cs" />
     <Compile Include="App_Code\UtilClass\cart.cs" />
@@ -265,6 +268,7 @@
     <Compile Include="App_Code\UtilClass\ItemCart.cs" />
     <Compile Include="App_Code\UtilClass\Logout.cs" />
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
+    <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -418,6 +422,13 @@
     <Compile Include="Pages\Employee.Master.designer.cs">
       <DependentUpon>Employee.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Emp_MR_RequisitionDetail.aspx.cs">
+      <DependentUpon>Emp_MR_RequisitionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Emp_MR_RequisitionDetail.aspx.designer.cs">
+      <DependentUpon>Emp_MR_RequisitionDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Emp_MyRequisition.aspx.cs">
       <DependentUpon>Emp_MyRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -557,6 +568,13 @@
     </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.designer.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_RO_DisbursementListHistory.aspx.cs">
+      <DependentUpon>SC_RO_DisbursementListHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_RO_DisbursementListHistory.aspx.designer.cs">
+      <DependentUpon>SC_RO_DisbursementListHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_RO_OutstandingRequisition.aspx.cs">
       <DependentUpon>SC_RO_OutstandingRequisition.aspx</DependentUpon>

@@ -23,9 +23,6 @@
                                   <asp:Label ID="Label_Name" runat="server" Text="Request Staff: "></asp:Label>  
                                   <asp:Label ID="lblStaff" runat="server"></asp:Label>
          
-                              <p class="category">    
-                                  <asp:Label ID="Label1" runat="server" Text="Remarks: "></asp:Label>
-                                  <asp:Label ID="lblRemark" runat="server"></asp:Label>
 
                             </div> 
                             <p>

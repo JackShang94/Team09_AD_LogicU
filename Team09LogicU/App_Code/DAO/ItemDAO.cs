@@ -51,7 +51,7 @@ namespace Team09LogicU.App_Code.DAO
         
         public string getDescByItemID(string itemID)
         {
-            return m.Items.Where(x => x.itemID == itemID).Select(x=>x.description).First().ToString();
+            return m.Items.Where(x => x.itemID == itemID).Select(x=>x.description).ToList().First().ToString();
         }
         //public List<Item> getRecentItemList(string staffID) //used by requisition think u may need
         //{

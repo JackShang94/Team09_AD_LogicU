@@ -30,7 +30,8 @@ namespace Team09LogicU
         {
             if (Session["loginID"]==null)
             {
-                Session["loginID"] = "emp006";
+                Session["loginID"] = "";
+                Session["loginRole"] = "";
             }
             if (Session["cart"]==null)
             {

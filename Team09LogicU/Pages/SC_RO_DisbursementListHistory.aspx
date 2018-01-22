@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_RO_OutstandingRequisition.aspx.cs" Inherits="Team09LogicU.pages.SC_RO_OutstandingRequisition" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_RO_DisbursementListHistory.aspx.cs" Inherits="Team09LogicU.Pages.SC_RO_DisbursementListHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-Outstanding Requisition
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <form id="form1" runat="server">
+     <form id="form1" runat="server">
     <div class="row">
          <div class="col-lg-12">
         <div class="card">
