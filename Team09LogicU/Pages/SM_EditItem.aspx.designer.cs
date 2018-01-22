@@ -31,13 +31,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_ItemNumber;
         
         /// <summary>
-        /// TextBox_Category control.
+        /// dropdownlist_Catagory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Category;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Catagory;
         
         /// <summary>
         /// TextBox_Description control.
@@ -67,13 +67,40 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_ReorderQty;
         
         /// <summary>
-        /// TextBox_UnitofMeasure control.
+        /// dropdownlist_unitofmeasure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_UnitofMeasure;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_unitofmeasure;
+        
+        /// <summary>
+        /// dropdownlist_Supplier1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Supplier1;
+        
+        /// <summary>
+        /// dropdownlist_Supplier2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Supplier2;
+        
+        /// <summary>
+        /// dropdownlist_Supplier3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Supplier3;
         
         /// <summary>
         /// Btn_Update control.

@@ -15,58 +15,58 @@
 
                               <div class="col-md-12">
                                          <div class="form-group">
-                            <label>SupplierCode (disabled)</label>
+                            <label>SupplierCode</label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_SupplierCode" runat="server" ReadOnly="True" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
                                 <div class="col-md-12">
                                          <div class="form-group">
-                            <label>SupplierName (disabled)</label>
+                            <label>SupplierName</label>
                                 
-                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_SupplierName" runat="server" ReadOnly="True" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
                               <div class="col-md-12">
                                          <div class="form-group">
-                            <label>GSTRegistrationNo (disabled)</label>
+                            <label>GSTRegistrationNo</label>
                                 
-                                  <asp:TextBox ID="TextBox_GSTRegistrationNo" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_GSTRegistrationNo" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
                         <div class="col-md-12">
                                          <div class="form-group">
-                            <label>ContactName (disabled)</label>
+                            <label>ContactName</label>
                                 
-                                  <asp:TextBox ID="TextBox_ContactName" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_ContactName" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
                                <div class="col-md-12">
                                          <div class="form-group">
-                               <label>Phone (disabled)</label>
+                               <label>Phone</label>
                                 
-                                  <asp:TextBox ID="TextBox_Phone" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Phone" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
                               
                                         <div class="col-md-12">
                                          <div class="form-group">
-                               <label>Fax (disabled)</label>
+                               <label>Fax </label>
                                 
-                                  <asp:TextBox ID="TextBox_Fax" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Fax" runat="server" ></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
                            
                                                       <div class="col-md-12">
                                          <div class="form-group">
-                               <label>Address (disabled)</label>
+                               <label>Address</label>
                                 
-                                  <asp:TextBox ID="TextBox_Address" runat="server" Text="13134 "></asp:TextBox> <%-- value=""--%>
+                                  <asp:TextBox ID="TextBox_Address" runat="server"  TextMode="MultiLine"></asp:TextBox> <%-- value=""--%>
                              </div>
                               </div>
 
@@ -81,7 +81,7 @@
             </div> 
 
                                   <asp:Button ID="Btn_Submit"  runat="server" Text="Submit" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Submit_Click" /> 
-                                 <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   />
+                                 <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click"   />
 
                                  </form>
 </asp:Content>

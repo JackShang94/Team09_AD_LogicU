@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <asp:ScriptManager ID="viewCatalogueScriptManager" runat="server">
-                            <Scripts></Scripts>
+                            
                         </asp:ScriptManager>
 
                         <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="False">
@@ -64,11 +64,11 @@
                          <div class="card">
                            <div class="text-center">
                                <div class ="content">
-                                   <asp:Button ID="Submit" runat="server" Text="Checkout" OnClick="Submit_Click"/>
+                                   <asp:Button ID="Submit" runat="server" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
                                </div>
                                <div class="content">
                                    
-                                    <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit">
+                                    <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit" EnableViewState="False">
                                         <ContentTemplate>
                                               <asp:Repeater ID="cartRepeater" runat="server" OnItemCommand="cartRepeater_ItemCommand" ViewStateMode="Disabled" >
                                                 <HeaderTemplate>

@@ -14,7 +14,7 @@ namespace Team09LogicU.pages
     {
         //public List<cart> lcart;
         //public List<Item> lcatalogue;
-        
+        public string staffID;
         public void updateCart(List<cart> lc)
         {
             cartRepeater.DataSource = lc;
@@ -30,11 +30,23 @@ namespace Team09LogicU.pages
             if (!IsPostBack)
             {
                 /**********************Loading Cart List************************************/
+
+                //string name = Session["loginID"].ToString();
                
                 string name = Session["loginID"].ToString();
-                DeptStaffDAO deptstaff = new DeptStaffDAO();
-                string role = deptstaff.getRoleByStaffID(name);
-                if (role !="emp" )
+                this.staffID = name;
+                //name = "emp006";
+                //Session["loginID"] = name;
+                if (this.staffID == null)
+                {
+                    Response.Redirect("login.aspx");
+                    
+                }
+
+                string role = Session["loginRole"].ToString();
+                //role = "emp";
+                //Session["loginRole"] = role;
+                if (role =="head")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
@@ -48,21 +60,27 @@ namespace Team09LogicU.pages
                         lc.Add(i);
                     }
                 }
-                //this.lcart = lc;
-
-                //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
                 updateCart(lc);
                 /******************************Loading Catalogue List********************************/
                 ItemDAO idao = new ItemDAO();
-                //this.lcatalogue = idao.getItemList();
-                //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
                 List<Item> li = idao.getItemList();
                 updateCatalogue(li);//when model is being used,cannot get from it;
 
             }
             else
             {
+                
                 string name = Session["loginID"].ToString();
+                this.staffID = name;
+                string role = Session["loginRole"].ToString();
+                //role = "emp";
+                //Session["loginRole"] = role;
+                if (role == "head")
+                {
+                    HttpContext.Current.Response.Redirect("login.aspx");
+                    return;
+                }
+                //string name = Session["loginID"].ToString();
                 List<cart> lc = new List<cart>();
 
                 foreach (var i in (List<cart>)Session["cart"])
@@ -72,13 +90,10 @@ namespace Team09LogicU.pages
                         lc.Add(i);
                     }
                 }
-                //this.lcart = lc;
 
-                //cartRepeater.ItemDataBound += new RepeaterItemEventHandler(cartItemDataBound);
                 updateCart(lc);
                 ItemDAO idao = new ItemDAO();
-                //this.lcatalogue = idao.getItemList();
-                //   //catalogueRepeater.ItemDataBound += new RepeaterItemEventHandler(addItemDataBound);
+
                 string sText = item_searchText.Text.ToString();
                 if (string.IsNullOrWhiteSpace(sText))
                 {
@@ -124,43 +139,40 @@ namespace Team09LogicU.pages
         /************************************Submit Requisition*************************************/
         protected void Submit_Click(object sender, EventArgs e)
         {
-            string name = Session["loginID"].ToString();
+            //string name = Session["loginID"].ToString();
+
+            string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             ///should use DAO
-            string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID ).First().ToString();
+            string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID ).First().ToString();//supposed to be in DepartmentDAO
             ///
             List<cart> lc = new List<cart>();
             lc =(List < cart >) Session["cart"];
-
-            //add requisition items
-            Dictionary<string, int> dict = new Dictionary<string, int>();
-
-            List<string> ls = new List<string>();
-
-            string j;
-            foreach(Control  i in cartRepeater.Items)//get Quantity
+            if (lc.Count>0)
             {
-                Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
-                TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
-                dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
-                
+                Dictionary<string, int> dict = new Dictionary<string, int>();
+
+
+                foreach (Control i in cartRepeater.Items)//get Quantity
+                {
+                    Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                    TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
+                    dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
+
+                }
+                RequisitionDAO rdao = new RequisitionDAO();
+                rdao.addRequisition(name, deptID, dict);
+
+                lc = new List<cart>();//clear the cart session
+                Session["cart"] = lc;
+                HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
             }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('Nothing in cart')", true);
+                return;
+            } 
             
-            //for (int i =lc.Count- 1; i >= 0; i--)//not foreach enumeration
-            //{
-            //    if (lc[i].Name == name)
-            //    {
-            //        lc.RemoveAt(i);
-            //    }
-            //}
-
-            RequisitionDAO rdao = new RequisitionDAO();
-            rdao.addRequisition(name, deptID, dict);
-            lc = new List<cart>();//clear the cart session
-            Session["cart"] = lc;
-
-
-            HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
         }
 
 
@@ -170,24 +182,36 @@ namespace Team09LogicU.pages
 
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];//get cart from Session
-            string name = Session["loginID"].ToString();//get name from Session
+
+            //string name = Session["loginID"].ToString();//get name from Session
+            string name = this.staffID;
             Button b = (Button)sender;//get this Button
 
-            string[] info = b.CommandArgument.ToString().Split('&');
+            string[] info = b.CommandArgument.ToString().Split('&');//only get this add button
             int alert = 0;
             foreach (Control i in cartRepeater.Items)//get Quantity from the cart
             {
-
                 Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
-                TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
-                if (deletebtn.CommandArgument.ToString() == info[0])//find the corresponding itemID
+                TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                string a = cartqty.Text;
+                foreach(var k in lc)
+                {
+                    if (k.ItemID == deletebtn.CommandArgument.ToString())
+                    {
+                        k.Qty = Int32.Parse(a);
+                    }
+                    
+                }
+                if (deletebtn.CommandArgument.ToString() == info[0])//Just get the corresponding itemID
                 {
                     foreach (var j in lc)//find in cart
                     {
-                        if (j.ItemID == info[0])
+                        
+                        if (j.ItemID == info[0])//only for banning add repeated items
                         {
-                            j.Qty = Int32.Parse(cartqty.Text.ToString());//store quantity into session
+                            j.Qty = Int32.Parse(a);//store current quantity into session
                             alert = 1;
+                            break;
                         }
                     }
                 }

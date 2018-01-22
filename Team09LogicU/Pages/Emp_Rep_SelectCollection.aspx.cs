@@ -34,6 +34,16 @@ namespace Team09LogicU.pages
                     DisplayCurrentCP(logInDept);
                     DisplayAvaliableCP();
                 }
+                else
+                {
+                    lblMessage.Text = "Access Denied!";
+                    Label1.Visible = false;
+                    Label2.Visible = false;
+                    Label3.Visible = false;
+                    lblCurrentCP.Visible = false;
+                    ddlCP.Visible = false;
+                    btnUpdateCP.Visible = false;
+                }
             }
         }
 

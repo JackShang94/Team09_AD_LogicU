@@ -31,5 +31,11 @@ namespace Team09LogicU.Pages
         {
             Response.Redirect("SM_AddSupplier.aspx");
         }
+
+        protected void GridView_supplierList_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            string supplierID = "";
+            Response.Redirect("SM_EditSupplier?supplier=" + supplierID);
+        }
     }
 }
