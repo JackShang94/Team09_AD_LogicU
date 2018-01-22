@@ -13,7 +13,7 @@
                     <div class="content">
                         <div class=" form-group" style="height: 25px; width: 100%">
 
-                            <asp:CheckBox ID="CheckBox1" runat="server" CssClass="checkbox" AutoPostBack="true" BackColor="Azure" Text="Select the items with stock below Reorder Level" OnCheckedChanged="CheckBox1_CheckedChanged" Style="left: 0px; top: 0px" />
+                            <asp:CheckBox ID="CheckBox1" runat="server" CssClass="center-block" AutoPostBack="true" BackColor="Azure" Text="Select the items with stock below Reorder Level" OnCheckedChanged="CheckBox1_CheckedChanged" Style="left: 0px; top: 0px" Checked="True" />
 
                         </div>
                     </div>
@@ -34,72 +34,73 @@
                                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
-                                        <asp:GridView ID="GridView_reorderList" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" 
-                                            DataKeyNames="itemID" AutoGenerateColumns="False" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDataBound="RowDataBound"
-                                            CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False">
+                                                <asp:GridView ID="GridView_reorderList" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
+                                                    DataKeyNames="itemID" AutoGenerateColumns="False" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDataBound="RowDataBound"
+                                                    CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False" >
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderText="ItemID" SortExpression="SortedAscendingHeaderStyle">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Description">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Unit of Measure">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblUnitOfMeasure" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Current Stock">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblQtyOnHand" runat="server" Text='<%# Eval("qtyOnHand") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Reorder Level">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblReorderLevel" runat="server" Text='<%# Eval("reorderLevel") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Reorder Quantity">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblReorderQty" runat="server" Text='<%# Eval("reorderQty") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Order Quantity">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblOrderQty" runat="server" Text='0'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:DropDownList ID="ddlSuppliers" runat="server"></asp:DropDownList>
+                                                                <asp:TextBox ID="txtOrderQty" CssClass="form-control" Text="0" runat="server" BackColor="Azure"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                                                    ControlToValidate="txtOrderQty" ForeColor="Red" Display="Dynamic"
+                                                                    ErrorMessage="RequiredFieldValidator">Quantity is required.</asp:RequiredFieldValidator>
+                                                                <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtOrderQty" Type="Integer"
+                                                                    Operator="DataTypeCheck" Display="Dynamic" ErrorMessage="Quantity entered must be a whole number" ForeColor="Red" />
+                                                                <asp:RangeValidator ID="RangeValidator1" runat="server" Display="Dynamic"
+                                                                    ErrorMessage="RangeValidator" ControlToValidate="txtOrderQty"
+                                                                    ForeColor="Red" Type="Integer"
+                                                                    MaximumValue="10000" MinimumValue="0">Please Check Quantity.</asp:RangeValidator>
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" EnableViewState="True" />
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />
+                                                                <asp:Button ID="btnCancel" CssClass="btn btn-xs btn-default" runat="server" CommandName="Cancel" Text="Cancel" />
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
 
-                                            <Columns>
-                                                <asp:TemplateField HeaderText="ItemID" SortExpression="SortedAscendingHeaderStyle">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Description">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("description") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Unit of Measure">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblUnitOfMeasure" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Current Stock">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblQtyOnHand" runat="server" Text='<%# Eval("qtyOnHand") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Reorder Level">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblReorderLevel" runat="server" Text='<%# Eval("reorderLevel") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Reorder Quantity">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblReorderQty" runat="server" Text='<%# Eval("reorderQty") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Order Quantity">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblOrderQty" runat="server" Text='0'></asp:Label>
-                                                    </ItemTemplate>
-                                                    <EditItemTemplate>
-                                                        <asp:DropDownList ID="ddlSuppliers" runat="server"></asp:DropDownList>
-                                                        <asp:TextBox ID="txtOrderQty" CssClass="form-control" Text ="0" runat="server" BackColor="Azure"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                                            ControlToValidate="txtOrderQty" ForeColor="Red" Display="Dynamic"
-                                                            ErrorMessage="RequiredFieldValidator">Quantity is required.</asp:RequiredFieldValidator>
-                                                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtOrderQty" Type="Integer"
-                                                            Operator="DataTypeCheck" Display="Dynamic" ErrorMessage="Quantity entered must be a whole number" ForeColor="Red" />
-                                                        <asp:RangeValidator ID="RangeValidator1" runat="server" Display="Dynamic"
-                                                            ErrorMessage="RangeValidator" ControlToValidate="txtOrderQty"
-                                                            ForeColor="Red" Type="Integer"
-                                                            MaximumValue="10000" MinimumValue="0">Please Check Quantity.</asp:RangeValidator>
-                                                    </EditItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField>
-                                                    <ItemTemplate>
-                                                        <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" EnableViewState="True" />
-                                                    </ItemTemplate>
-                                                    <EditItemTemplate>
-                                                        <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />
-                                                        <asp:Button ID="btnCancel" CssClass="btn btn-xs btn-default" runat="server" CommandName="Cancel" Text="Cancel" />
-                                                    </EditItemTemplate>
-                                                </asp:TemplateField>
-                                            </Columns>
-
-                                        </asp:GridView>
-                                        <alternatingrowstyle backcolor="White" />
+                                                    <HeaderStyle CssClass=" content text-uppercase  " />
+                                                    
+                                                </asp:GridView>
+                                                <alternatingrowstyle backcolor="White" />
 
                                             </ContentTemplate>
                                         </asp:UpdatePanel>

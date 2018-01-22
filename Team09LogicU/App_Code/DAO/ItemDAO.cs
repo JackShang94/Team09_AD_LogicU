@@ -18,7 +18,7 @@ namespace Team09LogicU.App_Code.DAO
 
         public List<ReorderItem> findItemList()
         {
-            List<ReorderItem> list = m.Items.OrderByDescending(x => x.itemID).
+            List<ReorderItem> list = m.Items.OrderBy(x => x.itemID).
                 Select(x => new ReorderItem { ItemID = x.itemID, Description = x.description, UnitOfMeasure = x.unitOfMeasure,
                     QtyOnHand = x.qtyOnHand, ReorderLevel = x.reorderLevel, ReorderQty = x.reorderQty
                 }).ToList<ReorderItem>();
