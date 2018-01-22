@@ -12,16 +12,12 @@ namespace Team09LogicU.App_Code.DAO
         SA45_Team09_LogicUEntities model = new DBEntities().getDBInstance();
         public void createDisbursement(string departmentID, string storeStaffID)
         {
-            DateTime today = DateTime.Today;
             Disbursement dl = new Disbursement();
             dl.deptID = departmentID;
             dl.storeStaffID = storeStaffID;
-            dl.disburseDate = (today.DayOfWeek == DayOfWeek.Sunday ? today.AddDays(1) : today.AddDays(7 - (int)today.DayOfWeek + 1));
-            //??????
+            dl.disburseDate = DateTime.Now;
             dl.status = "Pending";
-            model.Disbursements.Add(dl);
-
-
+            model.Disbursements.Add(dl);          
             //1.Firstly need to get the current requisitionID, then update status to "Process"
             //.
             //.
@@ -59,24 +55,7 @@ namespace Team09LogicU.App_Code.DAO
             else
                 return null;
         }
-        //Not sure whether thistwo methods are functional or not
-        /*public List<DateTime> getDistinctDeliveryDates()
-        {
-            List<DateTime> hm = (from x in context.Disbursements select x.disburseDate).Distinct().ToList();
-            return hm;
-        }
-        public DateTime DateTimeNext()
-        {
-            DayOfWeek day = DayOfWeek.Monday;
-            //DateTime result = new DateTime(2017, 07, 12);
-            //Please uncomment the below line when doing the live test.
-            DateTime result = DateTime.Now.Date;
-            while (result.DayOfWeek != day)
-            {
-                result = result.AddDays(1);
-            }
-            return result;
-        }*/
+     
 
         
 

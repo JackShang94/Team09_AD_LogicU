@@ -47,6 +47,7 @@
           <Property Name="staffID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="startDate" Type="datetime" Nullable="false" />
           <Property Name="endDate" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -201,6 +202,7 @@
           <Property Name="date" Type="datetime" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
           <Property Name="balance" Type="int" Nullable="false" />
+          <Property Name="record" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="StoreNotification">
           <Key>
@@ -727,6 +729,7 @@
           <Property Name="startDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="endDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DeptStaff" Relationship="Self.FK_Delegate_DeptStaff" FromRole="Delegate" ToRole="DeptStaff" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -915,6 +918,7 @@
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="balance" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Item" Relationship="Self.FK_StockCard_Item" FromRole="StockCard" ToRole="Item" />
+          <Property Name="record" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="StoreNotification">
           <Key>
@@ -1442,6 +1446,7 @@
           <EntitySetMapping Name="Delegates">
             <EntityTypeMapping TypeName="SA45_Team09_LogicUModel.Delegate">
               <MappingFragment StoreEntitySet="Delegate">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="delegateID" ColumnName="delegateID" />
                 <ScalarProperty Name="staffID" ColumnName="staffID" />
                 <ScalarProperty Name="startDate" ColumnName="startDate" />
@@ -1610,6 +1615,7 @@
           <EntitySetMapping Name="StockCards">
             <EntityTypeMapping TypeName="SA45_Team09_LogicUModel.StockCard">
               <MappingFragment StoreEntitySet="StockCard">
+                <ScalarProperty Name="record" ColumnName="record" />
                 <ScalarProperty Name="stockCardID" ColumnName="stockCardID" />
                 <ScalarProperty Name="itemID" ColumnName="itemID" />
                 <ScalarProperty Name="date" ColumnName="date" />
