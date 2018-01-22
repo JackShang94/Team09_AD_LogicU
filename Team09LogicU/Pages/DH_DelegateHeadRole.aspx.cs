@@ -68,10 +68,10 @@ namespace Team09LogicU.pages
         //show current role
         public void showCurrentRole()
         {
-            logInRole = (string)ViewState["logInRole"];
-            logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-            ViewState["logInRole"] = logInRole;
-            Label_logInRole.Text = ViewState["logInRole"].ToString();
+            //logInRole = (string)ViewState["logInRole"];
+            //logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
+            //ViewState["logInRole"] = logInRole;
+            //Label_logInRole.Text = ViewState["logInRole"].ToString();
 
             //int count = (int)ViewState["count"];    // GET
             //count++;
