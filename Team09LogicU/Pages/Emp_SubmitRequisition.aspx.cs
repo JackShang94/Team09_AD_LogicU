@@ -246,42 +246,25 @@ namespace Team09LogicU.pages
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];
 
-            
-            foreach (Control i in cartRepeater.Items)//get Quantity from the cart
+
+            for (int i = cartRepeater.Items.Count - 1;i >= 0; i--)//get Quantity from the cart
             {
-                LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
-                TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                LinkButton deletebtn = cartRepeater.Items[i].FindControl("cart_deleteButton") as LinkButton;//get itemID
+                TextBox cartqty = cartRepeater.Items[i].FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                 string a = cartqty.Text;
                 //find the item u wanna delete
-                for (int j = lc.Count - 1; j >= 0; j--)
-                {
-                    if(lc[j].ItemID == info)
+                //for (int j = lc.Count - 1; j >= 0; j--)
+                //{
+                    if(lc[i].ItemID == info)
                     {
-                        lc.RemoveAt(j);
+                        lc.RemoveAt(i);
                         continue;
                     }
-                    lc[j].Qty = Int32.Parse(a);
-                }
-                //foreach (var k in lc)
-                //{
-                //    if (k.ItemID == deletebtn.CommandArgument.ToString())
-                //    {
-                //        k.Qty = Int32.Parse(a);
-                //    }
+                    lc[i].Qty = Int32.Parse(a);
 
-                //}
               
             }
 
-            //for (int i =lc.Count-1; i >=0; i--)//remove session cart
-            //{
-            //    if (lc[i].ItemID == info)
-            //    {
-            //        lc.RemoveAt(i);
-            //        continue;
-            //    }
-
-            //}
             Session["cart"] = lc;
 
             //this.lcart = lc;

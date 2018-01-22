@@ -97,8 +97,14 @@ namespace Team09LogicU.pages
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
+            
             DateTime from =Convert.ToDateTime( fromDate.Text);
             DateTime to = Convert.ToDateTime( toDate.Text);
+            if (DateTime.Compare(from, to)>0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage3", "alert('Nothing in cart')", true);
+
+            }
             RequisitionDAO rdao = new RequisitionDAO();
             requisitionHistoryGridView.DataSource=rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
             requisitionHistoryGridView.DataBind();
