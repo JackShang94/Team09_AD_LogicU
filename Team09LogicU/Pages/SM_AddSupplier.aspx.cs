@@ -42,15 +42,9 @@ namespace Team09LogicU.Pages
             Response.Redirect("SM_SearchSupplier.aspx");
         }
 
-        protected void Btn_Clear_Click(object sender, EventArgs e)
+        protected void Btn_Back_Click(object sender, EventArgs e)
         {
-            TextBox_SupplierCode.Text = "";
-            TextBox_SupplierName.Text = "";
-            TextBox_ContactName.Text = "";
-            TextBox_GSTRegistrationNo.Text = "";
-            TextBox_Phone.Text = "";
-            TextBox_Fax.Text = "";
-            TextBox_Address.Text = "";
+            Response.Redirect("SM_SearchSupplier.aspx");
         }
     }
 }

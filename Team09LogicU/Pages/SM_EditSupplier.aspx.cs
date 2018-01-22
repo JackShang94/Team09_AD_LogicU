@@ -52,6 +52,7 @@ namespace Team09LogicU.Pages
             sDAO.updateSupplier(supplierID, supplierName, gstNO, address,fax, phone, contactName);
             
             Response.Write("<script>alert('Successfully submitted!')</script>");
+            Response.Redirect("SM_SearchSupplier.aspx");
             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Submitted!')", true);
 
         }
