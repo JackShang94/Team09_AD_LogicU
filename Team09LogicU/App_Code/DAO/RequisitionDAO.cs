@@ -140,8 +140,13 @@ namespace Team09LogicU.App_Code.DAO
                 Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
             return list;
         }
-
-       
+        /*************used By Individual Requisition******************************/
+       public List<Requisition> findRequisitionByDateIndividual(DateTime from,DateTime to,string staffID)
+        {
+            return m.Requisitions.Where(x => (x.requisitionDate.Year >= from.Year && x.requisitionDate.Month >= from.Month && x.requisitionDate.Day >= from.Day)
+            && (x.requisitionDate.Year <= to.Year && x.requisitionDate.Month <= to.Month && x.requisitionDate.Day <= to.Day)
+            && x.staffID == staffID&&x.status!="pending").ToList();
+        }
         //public List<Requisition> getThisWeek(DateTime time)
         //{
         //    return m.Requisitions.Where(x => x.requisitionDate <  (DayOfWeek.Wednesday)).ToList<Requisition>();

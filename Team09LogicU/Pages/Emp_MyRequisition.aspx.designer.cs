@@ -58,22 +58,31 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.UpdatePanel reqHisUpdatePanel;
         
         /// <summary>
-        /// reqDate control.
+        /// fromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox reqDate;
+        protected global::System.Web.UI.WebControls.TextBox fromDate;
         
         /// <summary>
-        /// Button1 control.
+        /// toDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox toDate;
+        
+        /// <summary>
+        /// searchButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button searchButton;
         
         /// <summary>
         /// requisitionHistoryGridView control.

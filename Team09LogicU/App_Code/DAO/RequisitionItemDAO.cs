@@ -9,10 +9,24 @@ namespace Team09LogicU.App_Code.DAO
     public class RequisitionItemDAO
     {
         SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-        public List<RequisitionItem> getRequisitionItem(int requisitionID)//by reqItemID
+        public List<string> getAllRequisitionItemID(int requisitionID )
         {
-            return m.RequisitionItems.Where(x => x.requisitionID == requisitionID).ToList();
+            List<string> lAitemID = new List<string>();
+            List<RequisitionItem> lri = new List<RequisitionItem>();
+            //IQueryable i = m.RequisitionItems.Where(x => x.requisitionID == requisitionID).SelectMany(x => x.itemID).ToList();
+            lri = m.RequisitionItems.Where(x => x.requisitionID == requisitionID).ToList();
+
+            foreach (var i in lri)
+            {
+                lAitemID.Add(i.itemID);
+            }
+
+            return lAitemID;
         }
+        //public List<RequisitionItem> getRequisitionItem(int requisitionID)//by reqItemID
+        //{
+        //    return m.RequisitionItems.Where(x => x.requisitionID == requisitionID).ToList();
+        //}
         public List<RequisitionItem> getItemByreqItemID(int reqItemID)
         {
             return m.RequisitionItems.Where(x => x.reqItemID == reqItemID).ToList();
@@ -82,13 +96,65 @@ namespace Team09LogicU.App_Code.DAO
 
         }
 
-        //public List<ReqItems> getRequisitionItem( string reqID)
-        //{
-        //    ReqItems ri = new ReqItems();
-        //    List<ReqItems> lri = new List<ReqItems>();
-        //    m.RequisitionItems.GroupJoin(m.Items, item=>item.itemID,reqItem=>reqItem.itemID).
-        //    return;
-        //}
+        public List<ReqItems_custom> getRequisitionItem(int reqID)
+        {
+            //ReqItems_custom ric = new ReqItems_custom();
+            List<ReqItems_custom> lri_c = new List<ReqItems_custom>();
+            //List<string> itemIDList = getAllRequisitionItemID(reqID);
+            ItemDAO idao = new ItemDAO();
+
+            //List<RequisitionItem> lri = new List<RequisitionItem>();
+            //lri = m.RequisitionItems.Where(x => x.requisitionID == reqID).ToList();
+
+            //into i_temp
+            //from i_temp_v in i_temp.DefaultIfEmpty()
+            var a = from ri in m.RequisitionItems
+                    join i in m.Items on ri.itemID equals i.itemID
+                    where ri.requisitionID == reqID
+                    select new ReqItems_custom
+                    {
+                        ReqItemID = ri.reqItemID,
+                        ReqID = ri.requisitionID,
+                        ItemID = ri.itemID,
+                        RequisitionQty = ri.requisitionQty,
+                        Desc = i.description,
+                        Unit = i.unitOfMeasure
+                    };
+            if (a == null)
+            {
+                return lri_c;
+            }
+            lri_c=(List<ReqItems_custom>)a.ToList(); 
+
+            //ReqItems_custom r = (ReqItems_custom)a;
+            //var a = lri.Join(
+            //    m.Items,
+            //    rItem=>rItem,
+            //    item=> item.itemID,
+            //    (rItem, item) =>
+            //    {
+            //        new ReqItems_custom
+            //        {
+            //            ReqItemID=rItem.reqItemID,
+
+                    //        }
+                    //    }
+                    //    )
+            //foreach (var i in lri)
+            //{
+            //    ReqItems_custom ric = new ReqItems_custom
+            //    {
+            //        ReqItemID=i.reqItemID,
+            //        ReqID = reqID,
+            //        ItemID = i.itemID,
+            //        Desc=idao.getDescByItemID(i.itemID),
+            //        RequisitionQty =i.requisitionQty,
+            //    };
+            //    lri_c.Add(ric);
+            //}
+
+            return lri_c;
+        }
     }
 
 }

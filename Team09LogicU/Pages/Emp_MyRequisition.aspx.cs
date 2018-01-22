@@ -94,5 +94,14 @@ namespace Team09LogicU.pages
             HttpContext.Current.Response.Redirect("Emp_MR_RequisitionDetail.aspx?" +
                    "reqID=" + c);
         }
+
+        protected void searchButton_Click(object sender, EventArgs e)
+        {
+            DateTime from =Convert.ToDateTime( fromDate.Text);
+            DateTime to = Convert.ToDateTime( toDate.Text);
+            RequisitionDAO rdao = new RequisitionDAO();
+            requisitionHistoryGridView.DataSource=rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
+            requisitionHistoryGridView.DataBind();
+        }
     }
 }

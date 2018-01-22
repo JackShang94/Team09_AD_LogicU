@@ -267,7 +267,7 @@
     <Compile Include="App_Code\UtilClass\Encrypt.cs" />
     <Compile Include="App_Code\UtilClass\ItemCart.cs" />
     <Compile Include="App_Code\UtilClass\Logout.cs" />
-    <Compile Include="App_Code\UtilClass\ReqItems.cs" />
+    <Compile Include="App_Code\UtilClass\ReqItems_custom.cs" />
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
     <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
     <Compile Include="Global.asax.cs">

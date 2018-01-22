@@ -21,22 +21,27 @@ Requisition Detail
 																	<asp:Label ID="req_autoID" runat="server" ><%# Container.DataItemIndex+1 %></asp:Label>
 																</ItemTemplate>
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="reqItemID" >
+															<asp:TemplateField HeaderText="reqItemID" Visible="false">
 																<ItemTemplate>
 																	<asp:Label ID="reqItemQty" runat="server" Text='<%#Eval("reqItemID" )%>' ></asp:Label>
 																</ItemTemplate>
 															</asp:TemplateField>
-														<%--	<asp:TemplateField HeaderText="Description">
+															<asp:TemplateField HeaderText="Description">
 																<ItemTemplate>
-																	<asp:Label ID="desc" runat="server" Text=""
+																	<asp:Label ID="desc" runat="server" Text='<%#Eval("desc" )%>' ></asp:Label>
 																</ItemTemplate>
-															</asp:TemplateField>--%>
+															</asp:TemplateField>
+															<asp:TemplateField HeaderText="Unit">
+																	<ItemTemplate>
+																		<asp:Label ID="unit" runat="server" Text='<%#Eval("unit" )%>' ></asp:Label>
+																	</ItemTemplate>
+															</asp:TemplateField>
 															<%--<asp:BoundField DataField="reqItemID" headerText="RequisitionID" Visible="false"/>
 															<asp:BoundField DataField="itemID" headerText="itemID"/>--%>
-															<asp:BoundField DataField="requisitionQty" HeaderText="requisitionQty" />
+															<asp:BoundField DataField="requisitionQty" HeaderText="requisitionQty" ItemStyle-Width="100px"  />
 															<asp:TemplateField>
 																 <EditItemTemplate>
-																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>' ></asp:LinkButton><!-- -->
+																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>'  ></asp:LinkButton><!-- -->
 																	<asp:LinkButton ID="reqDetailCancel" runat="server" CommandName="Cancel" Text="Cancel" CommandArgument='<%#Eval("reqItemID") %>'></asp:LinkButton>
 															   </EditItemTemplate>
 																<ItemTemplate>

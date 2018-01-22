@@ -5,22 +5,26 @@ using System.Web;
 using Team09LogicU.Models;
 namespace Team09LogicU.App_Code.UtilClass
 {
-    public class ReqItems
+    public class ReqItems_custom
     {
+        private int reqItemID;
         private int reqID;
         private string itemID;
-        private int qty;
+        private int requisitionQty;
         private string desc;
-        public ReqItems()
+        private string unit;
+        public ReqItems_custom()
         {
 
         }
-        public ReqItems(int reqID, string itemID, int qty, string desc)
+        public ReqItems_custom(int reqItemID,int reqID, string itemID, int qty, string desc,string unit)
         {
+            this.reqItemID = ReqItemID;
             this.reqID = reqID;
             this.itemID = itemID;
-            this.qty = qty;
+            this.requisitionQty = qty;
             this.desc = desc;
+            this.Unit = unit;
         }
 
         public int ReqID
@@ -49,16 +53,16 @@ namespace Team09LogicU.App_Code.UtilClass
             }
         }
 
-        public int Qty
+        public int RequisitionQty
         {
             get
             {
-                return qty;
+                return requisitionQty;
             }
 
             set
             {
-                qty = value;
+                requisitionQty = value;
             }
         }
 
@@ -72,6 +76,32 @@ namespace Team09LogicU.App_Code.UtilClass
             set
             {
                 desc = value;
+            }
+        }
+
+        public int ReqItemID
+        {
+            get
+            {
+                return reqItemID;
+            }
+
+            set
+            {
+                reqItemID = value;
+            }
+        }
+
+        public string Unit
+        {
+            get
+            {
+                return unit;
+            }
+
+            set
+            {
+                unit = value;
             }
         }
     }
