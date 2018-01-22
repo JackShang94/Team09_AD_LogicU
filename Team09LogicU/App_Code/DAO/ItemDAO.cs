@@ -59,10 +59,36 @@ namespace Team09LogicU.App_Code.DAO
             return m.Items.Where(x=>x.itemID==itemID).ToList<Item>();
         }
         
+        public List<Item> getItemByDesc(string desc)
+        {
+            
+            return m.Items.Where(x => x.description.Contains(desc)).ToList<Item>();
+        }
         public string getDescByItemID(string itemID)
         {
-            return m.Items.Where(x => x.itemID == itemID).Select(x=>x.description).ToList().First().ToString();
+            var a= m.Items.Where(x => x.itemID == itemID);
+            if (a!=null)
+            {
+                return a.Select(x => x.description).First().ToString();
+            }
+            return "";
         }
+
+        //public List<string> getDescListByItemIDList(List<string> itemID)
+        //{
+        //    List<string> ldesc = new List<string>();
+        //    //m.Items.Where(x=>x.itemID == itemID)
+        //    //from d in m.RequisitionItems
+        //    //join e in m.Items
+        //    //m.RequisitionItems.GroupJoin(
+        //    //    m.Items,
+        //    //    item => item.item_ID,
+        //    //    ritem => ritem.item_ID,
+        //    //    (x, y) => new { ritem = x, item = y })
+        //    //    .SelectMany(
+        //    //      x => x.item
+        //    //    )
+        //}
         //public List<Item> getRecentItemList(string staffID) //used by requisition think u may need
         //{
         //    //Requisition r = new Requisition();
@@ -71,9 +97,9 @@ namespace Team09LogicU.App_Code.DAO
         //    //lr =rdao.getRequisitionByStaffID(staffID);
         //    //m.RequisitionItems
         //    //string itemID = m.RequisitionItems.Where(y=>y.).Select(x => new { x.itemID }).Take(5);
-            
+
         //    //return m.Items.OrderBy(x=>x.).Select(x=>x.).ToList<Item>();
         //}
-        
+
     }
 }

@@ -16,13 +16,9 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             //for session judgment
-            //
-
-            //Session["loginID"] = "emp006";
             string role = Session["loginRole"].ToString();
-            //role = "emp";
-            //SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-            if (role=="head")
+
+            if (role !="req" && role !="emp")
             {
                 HttpContext.Current.Response.Redirect("login.aspx");
                 return;
@@ -97,6 +93,25 @@ namespace Team09LogicU.pages
             string c =  viewBtn.CommandArgument.ToString();
             HttpContext.Current.Response.Redirect("Emp_MR_RequisitionDetail.aspx?" +
                    "reqID=" + c);
+        }
+
+        protected void searchButton_Click(object sender, EventArgs e)
+        {
+            if (fromDate.Text == ""|| toDate.Text=="")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
+                return;
+            }
+            DateTime from =Convert.ToDateTime( fromDate.Text);
+            DateTime to = Convert.ToDateTime( toDate.Text);
+            if (DateTime.Compare(from, to)>0 )
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('start Date should be greater than end Date')", true);
+                return;
+            }
+            RequisitionDAO rdao = new RequisitionDAO();
+            requisitionHistoryGridView.DataSource=rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
+            requisitionHistoryGridView.DataBind();
         }
     }
 }

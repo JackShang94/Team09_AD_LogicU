@@ -46,7 +46,7 @@ namespace Team09LogicU.pages
                 string role = Session["loginRole"].ToString();
                 //role = "emp";
                 //Session["loginRole"] = role;
-                if (role =="head")
+                if (role !="req"&& role!="emp")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
@@ -111,14 +111,14 @@ namespace Team09LogicU.pages
         /****************************Search Button****************************/
         protected void item_searchBtn_Click(object sender, EventArgs e)
         {
-            ItemDAO id = new ItemDAO();
+            ItemDAO idao = new ItemDAO();
             string sText = item_searchText.Text.ToString();
             if (string.IsNullOrWhiteSpace(sText))
             {
                 //this.lcatalogue = id.getItemList();
                 
 
-                catalogueRepeater.DataSource = id.getItemList();
+                catalogueRepeater.DataSource = idao.getItemList();
                 catalogueRepeater.DataBind();
                 catalogueUpdatePanel.Update();
                 
@@ -127,7 +127,7 @@ namespace Team09LogicU.pages
             /******************SearchByItemID!!!!*******************************/
             //this.lcatalogue = id.getItemByitemID(sText);
             
-            catalogueRepeater.DataSource = id.getItemByitemID(sText);
+            catalogueRepeater.DataSource = idao.getItemByDesc(sText);
             catalogueRepeater.DataBind();
             catalogueUpdatePanel.Update();
 
@@ -155,7 +155,7 @@ namespace Team09LogicU.pages
 
                 foreach (Control i in cartRepeater.Items)//get Quantity
                 {
-                    Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                    LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
                     dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
 
@@ -191,7 +191,7 @@ namespace Team09LogicU.pages
             int alert = 0;
             foreach (Control i in cartRepeater.Items)//get Quantity from the cart
             {
-                Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                 TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                 string a = cartqty.Text;
                 foreach(var k in lc)
@@ -240,20 +240,31 @@ namespace Team09LogicU.pages
         /******************************Delete Item***********************************/
         protected void cart_deleteBtn_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            LinkButton b = (LinkButton)sender;
             string info = b.CommandArgument.ToString();//itemID and requiredQuantity
 
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];
-            
 
-            for (int i =lc.Count-1; i >=0; i--)//remove session cart
+
+            for (int i = cartRepeater.Items.Count - 1;i >= 0; i--)//get Quantity from the cart
             {
-                if (lc[i].ItemID == info)
-                {
-                    lc.RemoveAt(i);
-                }
+                LinkButton deletebtn = cartRepeater.Items[i].FindControl("cart_deleteButton") as LinkButton;//get itemID
+                TextBox cartqty = cartRepeater.Items[i].FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                string a = cartqty.Text;
+                //find the item u wanna delete
+                //for (int j = lc.Count - 1; j >= 0; j--)
+                //{
+                    if(lc[i].ItemID == info)
+                    {
+                        lc.RemoveAt(i);
+                        continue;
+                    }
+                    lc[i].Qty = Int32.Parse(a);
+
+              
             }
+
             Session["cart"] = lc;
 
             //this.lcart = lc;

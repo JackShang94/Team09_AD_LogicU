@@ -13,9 +13,9 @@
 								<asp:ScriptManager ID="myReqScriptManager" runat="server"></asp:ScriptManager>
 							<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
-										<div class=" container" ><div class="col-lg-10" style="margin:20px 0 20px 0">
+										<div class="content" >
 											<h4 class=" panel-title">Pending Requisition</h4>
-										</div> </div>
+										</div> 
 										<asp:GridView ID="requisitionListGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
 												<columns>
 													<asp:TemplateField>
@@ -46,13 +46,10 @@
 								<asp:UpdatePanel ID="reqHisUpdatePanel" runat="server">
 									<ContentTemplate>
 										<div class="content" >
-                                            <div class="col-lg-10">
-                                                <div class="col-lg-3" style="margin:20px 0 20px 0">
-											<h6 class=" category">Search by Request Date:<asp:TextBox ID="reqDate" runat="server"  CssClass=" form-control datepicker "></asp:TextBox></h6>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" style="margin:35px 0 20px 0" Text="Search"/>
-										</div></div> </div>
+											<h4 class=" panel-title">Search by Request Date:<asp:TextBox ID="fromDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox>
+												<asp:TextBox ID="toDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox><asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></h4>
+											
+										</div> 
 										
 										<asp:GridView ID="requisitionHistoryGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table" EmptyDataText="There is no history">
 											<Columns>
@@ -123,71 +120,6 @@
                             </div>
 			</div>--%>
 
-   <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-        <script src="../js/jquery.min.js" type="text/javascript"></script>
-        <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-
-
-        <!--  Forms Validations Plugin -->
-        <script src="../js/jquery.validate.min.js"></script>
-
-        <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-        <script src="../js/moment.min.js"></script>
-
-        <!--  Date Time Picker Plugin is included in this js file -->
-        <script src="../js/bootstrap-datetimepicker.js"></script>
-
-        <!--  Select Picker Plugin -->
-        <script src="../js/bootstrap-selectpicker.js"></script>
-
-        <!--  Checkbox, Radio, Switch and Tags Input Plugins -->
-        <script src="../js/bootstrap-checkbox-radio-switch-tags.js"></script>
-
-        <!--  Charts Plugin -->
-        <script src="../js/chartist.min.js"></script>
-
-        <!--  Notifications Plugin    -->
-        <script src="../js/bootstrap-notify.js"></script>
-
-        <!-- Sweet Alert 2 plugin -->
-        <script src="../js/sweetalert2.js"></script>
-
-        <!-- Vector Map plugin -->
-        <script src="../js/jquery-jvectormap.js"></script>
-
-        <!--  Google Maps Plugin    -->
-        <script src="../js/aa743e8f448a4792bad10d201a7080f6.js"></script>
-
-        <!-- Wizard Plugin    -->
-        <script src="../js/jquery.bootstrap.wizard.min.js"></script>
-
-        <!--  Bootstrap Table Plugin    -->
-        <script src="../js/bootstrap-table.js"></script>
-
-        <!--  Plugin for DataTables.net  -->
-        <script src="../js/jquery.datatables.js"></script>
-
-        <!--  Full Calendar Plugin    -->
-        <script src="../js/fullcalendar.min.js"></script>
-
-        <!-- Light Bootstrap Dashboard Core javascript and methods -->
-        <script src="../js/light-bootstrap-dashboard.js"></script>
-
-        <!--   Sharrre Library    -->
-        <script src="../js/jquery.sharrre.js"></script>
-
-        <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../js/demo.js"></script>
-    <script type="text/javascript">
-              $().ready(function () {
-
-                  // Init Sliders
-                  demo.initFormExtendedSliders();
-
-                  // Init DatetimePicker
-                  demo.initFormExtendedDatetimepickers();
-              });
-    </script>
+  
 </asp:Content>
 
