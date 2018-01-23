@@ -16,10 +16,11 @@ namespace Team09LogicU.App_Code.UtilClass
         private int qtyOnHand;
         private int reorderLevel;
         private int reorderQty;
-        private string supplierName;
-        private decimal supplierPrice;
         List<SupplierItem> supplierItemList;
+
         private int orderQty;
+        private string supplierID;
+
 
         public string ItemID
         {
@@ -91,29 +92,7 @@ namespace Team09LogicU.App_Code.UtilClass
                 reorderQty = value;
             }
         }
-        public string SupplierName
-        {
-            get
-            {
-                return supplierName;
-            }
-            set
-            {
-                supplierName = value;
-            }
-        }
 
-        public decimal SupplierPrice
-        {
-            get
-            {
-                return supplierPrice;
-            }
-            set
-            {
-                supplierPrice = value;
-            }
-        }
 
         public List<SupplierItem> SupplierItemList
         {
@@ -139,6 +118,19 @@ namespace Team09LogicU.App_Code.UtilClass
                 orderQty = value;
             }
         }
+
+        public string SupplierID
+        {
+            get
+            {
+                return supplierID;
+            }
+            set
+            {
+                supplierID = value;
+            }
+        }
+
     }
 
 
