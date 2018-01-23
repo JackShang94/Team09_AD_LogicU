@@ -15,7 +15,17 @@ namespace Team09LogicU.App_Code.DAO
             return m.Items.ToList<Item>();
            // return m.Items.Select(x => new { x.itemID, x.categoryID, x.location, x.description, x.reorderLevel, x.reorderQty, x.unitOfMeasure, x.qtyOnHand }).ToList<object>();
         }
-        
+
+        public List<ReorderItem> findItemList()
+        {
+            List<ReorderItem> list = m.Items.OrderBy(x => x.itemID).
+                Select(x => new ReorderItem { ItemID = x.itemID, Description = x.description, UnitOfMeasure = x.unitOfMeasure,
+                    QtyOnHand = x.qtyOnHand, ReorderLevel = x.reorderLevel, ReorderQty = x.reorderQty
+                }).ToList<ReorderItem>();
+            return list;
+
+        }
+
         public void addItem(string itemID,string desc,string location,string category,decimal price,int reorderLevel,int reorderQty,string uom,List<string> sup)
         {
             Item i = new Item();
