@@ -33,9 +33,26 @@ namespace Team09LogicU.App_Code.DAO
             List<DisbursementItem> disbursementItems;
             disbursementItems = context.DisbursementItems.Where(x => x.disbursementID == disId).ToList();
             return disbursementItems;
+           
+        }
+        public List<DisbursementCart>getDisbursementCartItem(int disId)
+        {
+            List<DisbursementItem> disbursementItems;
+            List<DisbursementCart> disbursementCarts=new List<DisbursementCart>();
+            disbursementItems = context.DisbursementItems.Where(x => x.disbursementID == disId).ToList();
+            foreach (DisbursementItem items in disbursementItems)
+            {
+                DisbursementCart carts = new DisbursementCart();
+                    carts.ItemDescription = context.Items.Where(x => x.itemID == items.itemID).Select(x => x.description).First().ToString();
+                    carts.Expectedc = items.expectedQty;
+                    carts.Actual = items.actualQty;
+                    carts.Disburstime = context.Disbursements.Where(x => x.disbursementID == disId).Select(x => x.disburseDate).First();
+                    carts.Status = context.Disbursements.Where(x => x.disbursementID == disId).Select(x => x.status).First().ToString();
+                disbursementCarts.Add(carts);
+            }
+            return disbursementCarts;
         }
 
-       
 
         //Save the input actual qty
         public void savingActualQty(int disbursementItemID, int actualqty)

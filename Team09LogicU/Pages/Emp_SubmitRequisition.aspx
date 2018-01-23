@@ -15,7 +15,7 @@
                                     <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="pull-right" style="width:20%">
-                                     <asp:Button ID="item_searchBtn" runat="server" Width="100%" Text="Search"  CssClass="btn btn-default" OnClick="item_searchBtn_Click"/>
+                                     <asp:Button ID="item_searchBtn" runat="server" Width="100%" Text="Search"  CssClass="btn btn-default" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
                                     </div>
                                 </div>
                             </div>
@@ -24,9 +24,9 @@
                             
                         </asp:ScriptManager>
 
-                        <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="False">
+                        <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="True">
                             <ContentTemplate>
-                                    <asp:Repeater ID="catalogueRepeater" runat="server" OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled">
+                                    <asp:Repeater ID="catalogueRepeater" runat="server" OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled" EnableViewState="False">
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                         <ItemTemplate>
@@ -47,7 +47,7 @@
                                                                 <p >
                                
                                                                 </p>
-                                                                <asp:Button ID="addBtn" CssClass="btn btn-primary btn-fill"  runat="server" Text="Add"  Onclick="addBtn_Click" CommandName="add"  CommandArgument='<%# Eval("itemID")+"&"+Eval("description") %>'  ClientIDMode="AutoID" ViewStateMode="Enabled" /><!--CommandName="add" -->
+                                                                <asp:Button ID="addBtn" CssClass="btn btn-primary btn-fill"  runat="server" Text="Add"  Onclick="addBtn_Click" CommandName="add"  CommandArgument='<%# Eval("itemID")+"&"+Eval("description") %>'  ClientIDMode="AutoID" ViewStateMode="Enabled" EnableViewState="False" /><!--CommandName="add" -->
                                                                 <p>
                                                                     <br />
                                                                 </p>
