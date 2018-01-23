@@ -18,7 +18,7 @@ namespace Team09LogicU.pages
             //for session judgment
             string role = Session["loginRole"].ToString();
 
-            if (role !="req" && role !="emp")
+            if (role !="rep" && role !="emp")
             {
                 HttpContext.Current.Response.Redirect("login.aspx");
                 return;

@@ -17,6 +17,7 @@ namespace Team09LogicU.pages
         public string staffID;
         public void updateCart(List<cart> lc)
         {
+            Session["cart"] = lc;
             cartRepeater.DataSource = lc;
             cartRepeater.DataBind();
         }
@@ -32,7 +33,7 @@ namespace Team09LogicU.pages
                 /**********************Loading Cart List************************************/
 
                 //string name = Session["loginID"].ToString();
-               
+
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
                 //name = "emp006";
@@ -46,7 +47,7 @@ namespace Team09LogicU.pages
                 string role = Session["loginRole"].ToString();
                 //role = "emp";
                 //Session["loginRole"] = role;
-                if (role !="req"&& role!="emp")
+                if (role !="rep"&& role!="emp")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
@@ -66,7 +67,7 @@ namespace Team09LogicU.pages
                 List<Item> li = idao.getItemList();
                 updateCatalogue(li);//when model is being used,cannot get from it;
 
-            }
+        }
             else
             {
                 
@@ -75,21 +76,21 @@ namespace Team09LogicU.pages
                 string role = Session["loginRole"].ToString();
                 //role = "emp";
                 //Session["loginRole"] = role;
-                if (role == "head")
+                if (role != "emp"&& role!="rep")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
                 //string name = Session["loginID"].ToString();
-                List<cart> lc = new List<cart>();
+                List<cart> lc = (List<cart>)Session["cart"];
 
-                foreach (var i in (List<cart>)Session["cart"])
-                {
-                    if (i.Name == name)
-                    {
-                        lc.Add(i);
-                    }
-                }
+                //foreach (var i in lc)
+                //{
+                //    if (i.Name == name)
+                //    {
+                //        lc.Add(i);
+                //    }
+                //}
 
                 updateCart(lc);
                 ItemDAO idao = new ItemDAO();
@@ -118,18 +119,20 @@ namespace Team09LogicU.pages
                 //this.lcatalogue = id.getItemList();
                 
 
-                catalogueRepeater.DataSource = idao.getItemList();
-                catalogueRepeater.DataBind();
-                catalogueUpdatePanel.Update();
+                //catalogueRepeater.DataSource = idao.getItemList();
+                //catalogueRepeater.DataBind();
+                updateCatalogue(idao.getItemList());
+                //catalogueUpdatePanel.Update();
                 
                 return;
             }
             /******************SearchByItemID!!!!*******************************/
             //this.lcatalogue = id.getItemByitemID(sText);
             
-            catalogueRepeater.DataSource = idao.getItemByDesc(sText);
-            catalogueRepeater.DataBind();
-            catalogueUpdatePanel.Update();
+            //catalogueRepeater.DataSource = idao.getItemByDesc(sText);
+            //catalogueRepeater.DataBind();
+            updateCatalogue(idao.getItemByDesc(sText));
+            //catalogueUpdatePanel.Update();
 
 
         }

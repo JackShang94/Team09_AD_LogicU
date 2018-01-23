@@ -33,7 +33,7 @@ namespace Team09LogicU.Pages
                 /******************judege the role*************************/
                 string s_role = Session["loginRole"].ToString();
                 string s_staffID = Session["loginID"].ToString();
-                if(s_role!="req"&& s_role != "emp")
+                if(s_role!="rep"&& s_role != "emp")
                 {
                     Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
                 }
@@ -67,13 +67,7 @@ namespace Team09LogicU.Pages
                 }
                 this.status = status;
 
-            //List<RequisitionItem> lri = new List<RequisitionItem>();
-            //List<ReqItems_custom> lri = new List<ReqItems_custom>();
-            //lri = ridao.getRequisitionItem(reqID);
 
-            //    lr_temp = lri;//when loading page,save the detail list into the session
-            //    requisitionItemListGridView.DataSource = lri;
-            //    requisitionItemListGridView.DataBind();
             initPendingDataGrid();
 
 
@@ -140,12 +134,7 @@ namespace Team09LogicU.Pages
                 requisitionItemListGridView.DataBind();
             }else if(e.CommandName=="Update"){
                 this.reqItemID = Int32.Parse(e.CommandArgument.ToString());
-                //int reqItemID = Int32.Parse(e.CommandArgument.ToString());
-                //GridViewRow gRow = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);//get row index
-                //TextBox t = (TextBox)gRow.FindControl("editQty");
-                //LinkButton lb = (LinkButton)gRow.FindControl("reqDetailUpdate");
-                //string a = t.Text;
-                //t.ReadOnly = true;
+            
             }else if (e.CommandName == "cancel")
             {
 
@@ -166,12 +155,12 @@ namespace Team09LogicU.Pages
 
         protected void requisitionItemListGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            //GridViewRow row = requisitionItemListGridView.Rows[e.RowIndex];
-            //Control i = row.Cells[2].Controls[0];//get the quantity control( another way.............)
-            //TextBox t = (TextBox)i;
-            //string a = t.Text;
+            GridViewRow row = requisitionItemListGridView.Rows[e.RowIndex];
+            Control i = row.Cells[4].Controls[1];//get the quantity control( another way.............)
+            TextBox t = (TextBox)i;
+            string a = t.Text;
             RequisitionItemDAO ridao = new RequisitionItemDAO();
-            string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value???
+            //string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value???
 
             int reqItemQty = Int32.Parse(a);
             //if (reqItemQty < 0)

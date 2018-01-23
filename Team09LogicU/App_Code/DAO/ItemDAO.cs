@@ -51,8 +51,12 @@ namespace Team09LogicU.App_Code.DAO
         
         public List<Item> getItemByDesc(string desc)
         {
-            
-            return m.Items.Where(x => x.description.Contains(desc)).ToList<Item>();
+            if (!String.IsNullOrWhiteSpace(desc))
+            {
+                return m.Items.Where(x => x.description.ToLower().Contains(desc.ToLower())).ToList<Item>();
+            }
+            return new List<Item>();
+           
         }
         public string getDescByItemID(string itemID)
         {
