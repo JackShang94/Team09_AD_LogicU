@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <form id ="form1" runat="server">
+         <asp:Label ID="Label1" runat="server" Text="Label_test"></asp:Label>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

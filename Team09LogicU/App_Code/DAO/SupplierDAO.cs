@@ -29,7 +29,7 @@ namespace Team09LogicU.App_Code.DAO
         public List<Supplier> getSupplierBySearchWord(string keyword)
         {
             List<Supplier> slist = context.Suppliers.Where(x => x.supplierID.Contains(keyword)
-                                                         &&x.supplierName.Contains(keyword)).ToList();
+                                                         ||x.supplierName.Contains(keyword)).ToList();
             
             
             return slist;
@@ -53,6 +53,7 @@ namespace Team09LogicU.App_Code.DAO
         public  void updateSupplier(string supplierCode, string supplierName, string gstRegistrationNo, string address, string fax, string phone, string contactName)
         {
             Supplier sl = context.Suppliers.Where(x => x.supplierID == supplierCode).First();
+
             sl.supplierID = supplierCode;
             sl.supplierName = supplierName;
             sl.gstRegistrationNo = gstRegistrationNo;

@@ -17,6 +17,7 @@ namespace Team09LogicU.pages
         public string staffID;
         public void updateCart(List<cart> lc)
         {
+            Session["cart"] = lc;
             cartRepeater.DataSource = lc;
             cartRepeater.DataBind();
         }
@@ -32,7 +33,7 @@ namespace Team09LogicU.pages
                 /**********************Loading Cart List************************************/
 
                 //string name = Session["loginID"].ToString();
-               
+
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
                 //name = "emp006";
@@ -46,14 +47,14 @@ namespace Team09LogicU.pages
                 string role = Session["loginRole"].ToString();
                 //role = "emp";
                 //Session["loginRole"] = role;
-                if (role =="head")
+                if (role !="rep"&& role!="emp")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
                 List<cart> lc = new List<cart>();
-
-                foreach (var i in (List<cart>)Session["cart"])
+                List<cart> lc_session=( List<cart>)Session["cart"];
+                foreach (var i in lc_session)
                 {
                     if (i.Name == name)
                     {
@@ -66,7 +67,7 @@ namespace Team09LogicU.pages
                 List<Item> li = idao.getItemList();
                 updateCatalogue(li);//when model is being used,cannot get from it;
 
-            }
+        }
             else
             {
                 
@@ -75,21 +76,21 @@ namespace Team09LogicU.pages
                 string role = Session["loginRole"].ToString();
                 //role = "emp";
                 //Session["loginRole"] = role;
-                if (role == "head")
+                if (role != "emp"&& role!="rep")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
                 //string name = Session["loginID"].ToString();
-                List<cart> lc = new List<cart>();
+                List<cart> lc = (List<cart>)Session["cart"];
 
-                foreach (var i in (List<cart>)Session["cart"])
-                {
-                    if (i.Name == name)
-                    {
-                        lc.Add(i);
-                    }
-                }
+                //foreach (var i in lc)
+                //{
+                //    if (i.Name == name)
+                //    {
+                //        lc.Add(i);
+                //    }
+                //}
 
                 updateCart(lc);
                 ItemDAO idao = new ItemDAO();
@@ -100,7 +101,7 @@ namespace Team09LogicU.pages
                     updateCatalogue(idao.getItemList());
                 }else
                 {
-                    updateCatalogue(idao.getItemByitemID(sText));
+                    updateCatalogue(idao.getItemByDesc(sText));
                 }
             }
 
@@ -111,25 +112,24 @@ namespace Team09LogicU.pages
         /****************************Search Button****************************/
         protected void item_searchBtn_Click(object sender, EventArgs e)
         {
-            ItemDAO id = new ItemDAO();
+            ItemDAO idao = new ItemDAO();
             string sText = item_searchText.Text.ToString();
             if (string.IsNullOrWhiteSpace(sText))
             {
                 //this.lcatalogue = id.getItemList();
                 
 
-                catalogueRepeater.DataSource = id.getItemList();
-                catalogueRepeater.DataBind();
-                catalogueUpdatePanel.Update();
+                updateCatalogue(idao.getItemList());
+                //catalogueUpdatePanel.Update();
                 
                 return;
             }
             /******************SearchByItemID!!!!*******************************/
             //this.lcatalogue = id.getItemByitemID(sText);
             
-            catalogueRepeater.DataSource = id.getItemByitemID(sText);
-            catalogueRepeater.DataBind();
-            catalogueUpdatePanel.Update();
+
+            updateCatalogue(idao.getItemByDesc(sText));
+            //catalogueUpdatePanel.Update();
 
 
         }
@@ -155,7 +155,7 @@ namespace Team09LogicU.pages
 
                 foreach (Control i in cartRepeater.Items)//get Quantity
                 {
-                    Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                    LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
                     dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
 
@@ -191,7 +191,7 @@ namespace Team09LogicU.pages
             int alert = 0;
             foreach (Control i in cartRepeater.Items)//get Quantity from the cart
             {
-                Button deletebtn = i.FindControl("cart_deleteButton") as Button;//get itemID
+                LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                 TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                 string a = cartqty.Text;
                 foreach(var k in lc)
@@ -240,20 +240,31 @@ namespace Team09LogicU.pages
         /******************************Delete Item***********************************/
         protected void cart_deleteBtn_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            LinkButton b = (LinkButton)sender;
             string info = b.CommandArgument.ToString();//itemID and requiredQuantity
 
             List<cart> lc = new List<cart>();
             lc = (List<cart>)Session["cart"];
-            
 
-            for (int i =lc.Count-1; i >=0; i--)//remove session cart
+
+            for (int i = cartRepeater.Items.Count - 1;i >= 0; i--)//get Quantity from the cart
             {
-                if (lc[i].ItemID == info)
-                {
-                    lc.RemoveAt(i);
-                }
+                LinkButton deletebtn = cartRepeater.Items[i].FindControl("cart_deleteButton") as LinkButton;//get itemID
+                TextBox cartqty = cartRepeater.Items[i].FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                string a = cartqty.Text;
+                //find the item u wanna delete
+                //for (int j = lc.Count - 1; j >= 0; j--)
+                //{
+                    if(lc[i].ItemID == info)
+                    {
+                        lc.RemoveAt(i);
+                        continue;
+                    }
+                    lc[i].Qty = Int32.Parse(a);
+
+              
             }
+
             Session["cart"] = lc;
 
             //this.lcart = lc;

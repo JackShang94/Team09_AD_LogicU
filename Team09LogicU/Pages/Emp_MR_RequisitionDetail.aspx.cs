@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
+using Team09LogicU.App_Code.UtilClass;
 namespace Team09LogicU.Pages
 {
     public partial class Emp_MR_RequisitionDetail : System.Web.UI.Page
@@ -13,61 +14,66 @@ namespace Team09LogicU.Pages
         private string status;
         public int reqID;
         public int reqItemID;
-        public List<RequisitionItem> lr_temp;
+        //public List<RequisitionItem> lr_temp;
+        public List<ReqItems_custom> lr_temp;
         public void initPendingDataGrid()
         {
             RequisitionItemDAO ridao = new RequisitionItemDAO();
-            List<RequisitionItem> lri = new List<RequisitionItem>();
+            //List<RequisitionItem> lri = new List<RequisitionItem>();
+            List<ReqItems_custom> lri = new List<ReqItems_custom>();
             lri = ridao.getRequisitionItem(this.reqID);
-            lr_temp = lri;
+            this.lr_temp = lri;
             requisitionItemListGridView.DataSource = lri;
             requisitionItemListGridView.DataBind();
 
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+            
+                /******************judege the role*************************/
+                string s_role = Session["loginRole"].ToString();
+                string s_staffID = Session["loginID"].ToString();
+                if(s_role!="rep"&& s_role != "emp")
+                {
+                    Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
+                }
+                /******************Judge if the url query is empty***********************/
                 int reqID = Int32.Parse(Request.QueryString["reqID"]);
-                this.reqID = Int32.Parse(Request.QueryString["reqID"]);
+            
+                if (reqID.ToString() == null)
+                {
+                    Response.Redirect("Emp_MyRequisition.aspx");
+                }
+                this.reqID = reqID;
+                /****************judge the staffID************************/
                 RequisitionDAO rdao = new RequisitionDAO();
+                string url_staffID = rdao.getStaffIDByReqID(reqID);
+                if (url_staffID == null)
+                {
+                    Response.Redirect("Emp_MyRequisition");
+                }
+                if (url_staffID!= s_staffID)
+                {
+                    Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
+                }
+                
+
+                //this.reqID = Int32.Parse(Request.QueryString["reqID"]);
                 RequisitionItemDAO ridao = new RequisitionItemDAO();
                 string status = rdao.getStatusByReqID(reqID);//get status
+                if (status ==null)//this requisition doesn't exist
+                {
+                    Response.Redirect("Emp_MyRequisition.aspx");
+                }
                 this.status = status;
 
-                List<RequisitionItem> lri = new List<RequisitionItem>();
 
-                lri = ridao.getRequisitionItem(reqID);
-                lr_temp = lri;//when loading page,save the detail list into the session
-                requisitionItemListGridView.DataSource = lri;
-                requisitionItemListGridView.DataBind();
-            }else
-            {
-                int reqID = Int32.Parse(Request.QueryString["reqID"]);
-                this.reqID = Int32.Parse(Request.QueryString["reqID"]);
-                RequisitionDAO rdao = new RequisitionDAO();
-                RequisitionItemDAO ridao = new RequisitionItemDAO();
-                string status = rdao.getStatusByReqID(reqID);//get status
-                this.status = status;
+            initPendingDataGrid();
 
-                List<RequisitionItem> lri = new List<RequisitionItem>();
 
-                lri = ridao.getRequisitionItem(reqID);
-                lr_temp = lri;
-                requisitionItemListGridView.DataSource = lr_temp;
-                requisitionItemListGridView.DataBind();
-            }
-            
-            
+    }
 
-        }
 
-      
-
-        protected void reSubmitReqBtn_Click(object sender, EventArgs e)
-        {
-
-        }
         
         protected void requisitionItemListGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -104,29 +110,31 @@ namespace Team09LogicU.Pages
             else if (e.CommandName == "delete")
             {
                 int reqItemID =Int32.Parse( e.CommandArgument.ToString());// reqitemID !!! not ItemID!!!!
-                List<RequisitionItem> lri = new List<RequisitionItem>();
-
+                //List<RequisitionItem> lri = new List<RequisitionItem>();
+                List<ReqItems_custom> lri = new List<ReqItems_custom>();
                 lri =this.lr_temp;
                 for(int i = lri.Count - 1; i >= 0; i--)
                 {
-                    if (lri[i].reqItemID == reqItemID)
+                    if (lri[i].ReqItemID == reqItemID)
                     {
                         lri.RemoveAt(i);
                     }
                 }
-                lr_temp = lri;
+                this.lr_temp = lri;
+                if (lri.Count == 0)//IF deleting the last reqItem,DELETE this req
+                {
+                    RequisitionDAO rdao = new RequisitionDAO();
+                    rdao.removeRequisition(this.reqID);
+                    Response.Redirect("Emp_MyRequisition.aspx");
+                    
+                }
                 RequisitionItemDAO ridao = new RequisitionItemDAO();
                 ridao.removeItemByReqItemID(reqItemID);
                 requisitionItemListGridView.DataSource = lri;
                 requisitionItemListGridView.DataBind();
             }else if(e.CommandName=="Update"){
                 this.reqItemID = Int32.Parse(e.CommandArgument.ToString());
-                //int reqItemID = Int32.Parse(e.CommandArgument.ToString());
-                //GridViewRow gRow = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);//get row index
-                //TextBox t = (TextBox)gRow.FindControl("editQty");
-                //LinkButton lb = (LinkButton)gRow.FindControl("reqDetailUpdate");
-                //string a = t.Text;
-                //t.ReadOnly = true;
+            
             }else if (e.CommandName == "cancel")
             {
 
@@ -147,12 +155,12 @@ namespace Team09LogicU.Pages
 
         protected void requisitionItemListGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            //GridViewRow row = requisitionItemListGridView.Rows[e.RowIndex];
-            //Control i = row.Cells[2].Controls[0];//get the quantity control( another way.............)
-            //TextBox t = (TextBox)i;
-            //string a = t.Text;
+            GridViewRow row = requisitionItemListGridView.Rows[e.RowIndex];
+            Control i = row.Cells[4].Controls[1];//get the quantity control( another way.............)
+            TextBox t = (TextBox)i;
+            string a = t.Text;
             RequisitionItemDAO ridao = new RequisitionItemDAO();
-            string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value???
+            //string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value???
 
             int reqItemQty = Int32.Parse(a);
             //if (reqItemQty < 0)

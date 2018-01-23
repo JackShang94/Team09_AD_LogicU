@@ -417,7 +417,7 @@ namespace Team09LogicU.App_Code.DAO
                         dept.deptID = breaklist.DeptID;
                         dept.storeStaffID = (string)HttpContext.Current.Session["loginID"];
                         dept.disburseDate = DateTime.Now;
-                        dept.status = "Awaiting For Deliver";
+                        dept.status = "Awaiting Delivery";
 
                         DisbursementItem item = new DisbursementItem();
                         item.itemID = refitem.ItemID;

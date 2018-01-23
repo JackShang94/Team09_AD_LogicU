@@ -46,7 +46,9 @@
 								<asp:UpdatePanel ID="reqHisUpdatePanel" runat="server">
 									<ContentTemplate>
 										<div class="content" >
-											<h4 class=" panel-title">Search by Request Date:<asp:TextBox ID="reqDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox><asp:Button ID="Button1" runat="server"/></h4>
+											<h4 class=" panel-title">Search by Request Date:<asp:TextBox ID="fromDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox>
+												<asp:TextBox ID="toDate" runat="server"  CssClass="search" TextMode="Date"></asp:TextBox><asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></h4>
+											
 										</div> 
 										
 										<asp:GridView ID="requisitionHistoryGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table" EmptyDataText="There is no history">
