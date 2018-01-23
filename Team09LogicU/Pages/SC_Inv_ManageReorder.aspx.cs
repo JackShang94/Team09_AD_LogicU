@@ -21,25 +21,22 @@ namespace Team09LogicU.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DisplayBasedonCheckBox();
-
+            if (!IsPostBack)
+            {
+                InitBindGrid();
+            }
+            else
+            {
+                BindGrid();
+            }
         }
 
-        private void BindGrid()
-        {
-            List<ReorderItem> reorderList = new List<ReorderItem>();
-            reorderList = itemDAO.findItemList();
-            GridView_reorderList.DataSource = reorderList;
-            GridView_reorderList.DataBind();
-        }
-
-        private void DisplayLowStockItem()
+        private void InitBindGrid()
         {
             List<ReorderItem> list = new List<ReorderItem>();
             list = itemDAO.findItemList();
 
             ReorderItem item = new ReorderItem();
-
             for (int i = list.Count - 1; i >= 0; i--)
             {
                 item = list[i];
@@ -49,29 +46,24 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            GridView_reorderList.DataSource = list;//
-            GridView_reorderList.DataBind();// 
+            Session["reorderList"] = list;
+
+            GridView_reorderList.DataSource = list;
+            GridView_reorderList.DataBind();
         }
 
-        private void DisplayBasedonCheckBox()//
+        private void BindGrid()
         {
-            bool isSelected = CheckBox1.Checked;
-
-            if (isSelected)
-            {
-                this.DisplayLowStockItem();
-            }
-            else
-            {
-                this.BindGrid();
-            }
+            List<ReorderItem> list = new List<ReorderItem>();
+            list = (List<ReorderItem>)Session["reorderList"];
+            GridView_reorderList.DataSource = list;
+            GridView_reorderList.DataBind();
         }
-
 
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView_reorderList.EditIndex = e.NewEditIndex;
-            DisplayBasedonCheckBox();
+            BindGrid();
         }
 
         protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -80,12 +72,29 @@ namespace Team09LogicU.Pages
             string itemID = (GridView_reorderList.DataKeys[e.RowIndex].Values[0]).ToString();
             string supplierID = (row.FindControl("ddlSuppliers") as DropDownList).SelectedItem.Value;
             int orderQty = Int32.Parse((row.FindControl("txtOrderQty") as TextBox).Text);
+
+            List<ReorderItem> reorderList = new List<ReorderItem>();
+            reorderList = (List<ReorderItem>)Session["reorderList"];
+
+            foreach (ReorderItem rItem in reorderList)
+            {
+                if (rItem.ItemID == itemID)
+                {
+                    rItem.OrderQty = orderQty;
+                    rItem.SupplierID = supplierID;
+                }
+            }
+
+            Session["reorderList"] = reorderList;
+
+            GridView_reorderList.EditIndex = -1;
+            BindGrid();
         }
 
         protected void OnRowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView_reorderList.EditIndex = -1;
-            DisplayBasedonCheckBox();
+            BindGrid();
         }
 
         protected void RowDataBound(object sender, GridViewRowEventArgs e)
@@ -96,20 +105,25 @@ namespace Team09LogicU.Pages
                 {
                     string itemID = (e.Row.FindControl("lblItemID") as Label).Text;
                     DropDownList ddlSupplier = e.Row.FindControl("ddlSuppliers") as DropDownList;
-                    ddlSupplier.DataSource = supItemDAO.findSupplierListByItemID(itemID);
+                    List<SupplierItem> list = new List<SupplierItem>();
+                    list = supItemDAO.findSupplierListByItemID(itemID);
+
+                    var q = list.Select(p =>
+                    new { supplierID = p.supplierID, DisplayText = p.supplierID.ToString() + "---$" + p.price });
+
                     ddlSupplier.AppendDataBoundItems = true;
-                    ddlSupplier.DataTextField = "supplierID";
+                    ddlSupplier.DataSource = q;
                     ddlSupplier.DataValueField = "supplierID";
+                    ddlSupplier.DataTextField = "DisplayText";
                     ddlSupplier.DataBind();
                 }
             }
         }
 
-
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            DisplayBasedonCheckBox();
+            Response.Redirect("SC_ViewReorderReport.aspx");
         }
-
     }
+
 }
