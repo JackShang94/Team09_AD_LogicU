@@ -12,6 +12,7 @@ namespace Team09LogicU.pages
 {
     public partial class SC_RO_DisbursementList : System.Web.UI.Page
     {
+        
         DepartmentDAO dpd;
         string depName;
         string depid;
@@ -23,8 +24,10 @@ namespace Team09LogicU.pages
                 BindDropdownlist();
                 depName = DropDownList1.Text;
                 depid = dpd.findDepartmentIdByName(depName);
+                Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
                 BindGrid();
             }
+
         }
         protected void BindDropdownlist()
         {
@@ -32,15 +35,17 @@ namespace Team09LogicU.pages
             DropDownList1.DataSource = dpd.findAllDepartmentName();
             DropDownList1.DataBind();
         }
+      
         protected void BindGrid()
         {
             DisbursementListDAO disburList = new DisbursementListDAO();
             List<int> disburIds = disburList.getCurrentDisbursementsId("Awaiting For Deliver", depid);
             DisbursementItemDAO disburItem = new DisbursementItemDAO();
-            List<DisbursementItem> disburItems = new List<DisbursementItem>();
+            List<DisbursementCart> disburItems = new List<DisbursementCart>();
             foreach (int s in disburIds)
             {
-                disburItems = disburItems.Union(disburItem.getDisbursementItemsByDisbursementId(s)).ToList<DisbursementItem>();
+                disburItems = disburItems.Union(disburItem.getDisbursementCartItem(s)).ToList<DisbursementCart>();
+
             }
             GridView1.DataSource = disburItems;
             GridView1.DataBind();
@@ -51,6 +56,7 @@ namespace Team09LogicU.pages
             depName = DropDownList1.SelectedItem.Text;
             dpd = new DepartmentDAO();
             depid = dpd.findDepartmentIdByName(depName);
+            Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
             BindGrid();
         }
     }
