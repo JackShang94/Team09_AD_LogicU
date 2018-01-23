@@ -25,21 +25,7 @@ namespace Team09LogicU.App_Code.DAO
             return list;
 
         }
-        public Item getItemByID(string itemID)
-        {
-            Item i = new Item();
-            List<Item> iList = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
-            if (iList.Count() > 0)
-            {
-                i = iList.First();
-            }
-            return i;
-        }
-
-        public List<Item> getItemByCat(string category)
-        {
-            return m.Items.Where(x => x.Category.description == category).ToList<Item>();
-        }
+       
         public void addItem(string itemID,string desc,string location,string category,decimal price,int reorderLevel,int reorderQty,string uom,List<string> sup)
         {
             Item i = new Item();
@@ -92,6 +78,28 @@ namespace Team09LogicU.App_Code.DAO
             return "";
         }
 
+        public Item getItemByID(string itemID)
+        {
+            Item i = new Item();
+            List<Item> iList = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
+            if (iList.Count() > 0)
+            {
+                i = iList.First();
+            }
+            return i;
+        }
+
+        public List<Item> getItemByCat(string category)
+        {
+            return m.Items.Where(x => x.Category.description == category).ToList<Item>();
+        }
+        
+        public List<Item> getItemBySearch(string keyword)
+        {
+            return m.Items.Where(x => x.Category.description.Contains(keyword) || x.description.Contains(keyword)).ToList();
+        }
+
+        
         //public List<string> getDescListByItemIDList(List<string> itemID)
         //{
         //    List<string> ldesc = new List<string>();
