@@ -14,8 +14,10 @@
                        <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
                    </div>
                     <div class="col-lg-10">
-                        <asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover " EmptyDataText="There is no disbursement"></asp:GridView>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">View Disbursement List History</asp:LinkButton>
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover " OnRowEditing="GridView1_RowEditing" EmptyDataText="There is no disbursement">
+                            
+                        </asp:GridView>
                         <div class="col-lg-10">
                         <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
                           </div>  </div></div>

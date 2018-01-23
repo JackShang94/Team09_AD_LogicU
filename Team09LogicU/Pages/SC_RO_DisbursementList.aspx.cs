@@ -49,6 +49,7 @@ namespace Team09LogicU.pages
             }
             GridView1.DataSource = disburItems;
             GridView1.DataBind();
+            
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +59,17 @@ namespace Team09LogicU.pages
             depid = dpd.findDepartmentIdByName(depName);
             Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
             BindGrid();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            
         }
     }
 }
