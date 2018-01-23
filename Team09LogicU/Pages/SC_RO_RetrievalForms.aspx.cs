@@ -18,6 +18,16 @@ namespace Team09LogicU.pages
         private static string deptID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string name = Session["loginID"].ToString();
+            string role = Session["role"].ToString();
+            if (name == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+            if (role != "clerk")
+            {
+                Response.Redirect("login.aspx");
+            }
             //*******************************this is test code****************//
             //DateTime date = new DateTime(2018, 1, 21);
 
