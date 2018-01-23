@@ -53,8 +53,8 @@ namespace Team09LogicU.pages
                     return;
                 }
                 List<cart> lc = new List<cart>();
-
-                foreach (var i in (List<cart>)Session["cart"])
+                List<cart> lc_session=( List<cart>)Session["cart"];
+                foreach (var i in lc_session)
                 {
                     if (i.Name == name)
                     {
@@ -101,7 +101,7 @@ namespace Team09LogicU.pages
                     updateCatalogue(idao.getItemList());
                 }else
                 {
-                    updateCatalogue(idao.getItemByitemID(sText));
+                    updateCatalogue(idao.getItemByDesc(sText));
                 }
             }
 
@@ -119,8 +119,6 @@ namespace Team09LogicU.pages
                 //this.lcatalogue = id.getItemList();
                 
 
-                //catalogueRepeater.DataSource = idao.getItemList();
-                //catalogueRepeater.DataBind();
                 updateCatalogue(idao.getItemList());
                 //catalogueUpdatePanel.Update();
                 
@@ -129,8 +127,7 @@ namespace Team09LogicU.pages
             /******************SearchByItemID!!!!*******************************/
             //this.lcatalogue = id.getItemByitemID(sText);
             
-            //catalogueRepeater.DataSource = idao.getItemByDesc(sText);
-            //catalogueRepeater.DataBind();
+
             updateCatalogue(idao.getItemByDesc(sText));
             //catalogueUpdatePanel.Update();
 
