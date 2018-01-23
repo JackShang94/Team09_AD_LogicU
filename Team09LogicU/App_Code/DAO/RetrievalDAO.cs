@@ -340,20 +340,23 @@ namespace Team09LogicU.App_Code.DAO
 
         private void saveRetrieval(List<RetrievalFormItem> reflist )
         {
-            Retrieval r = new Retrieval();
-            r.retrievalDate = DateTime.Now;
-            context.Retrievals.Add(r);
-            foreach (RetrievalFormItem refitem in reflist)
+            if (reflist.Count>0)
             {
-                RetrievalItem item = new RetrievalItem();
-                item.retrievalID = r.retrievalID;
-                item.itemID = refitem.ItemID;
-                item.expectedQty = refitem.Needed;
-                item.actualQty = refitem.Actual;
+                Retrieval r = new Retrieval();
+                r.retrievalDate = DateTime.Now;
+                context.Retrievals.Add(r);
+                foreach (RetrievalFormItem refitem in reflist)
+                {
+                    RetrievalItem item = new RetrievalItem();
+                    item.retrievalID = r.retrievalID;
+                    item.itemID = refitem.ItemID;
+                    item.expectedQty = refitem.Needed;
+                    item.actualQty = refitem.Actual;
 
-                context.RetrievalItems.Add(item);               
+                    context.RetrievalItems.Add(item);               
+                }
+                context.SaveChanges();
             }
-            context.SaveChanges();
         }
 
         private void saveDisbursement(List<Disbursement> dislist)
@@ -414,7 +417,7 @@ namespace Team09LogicU.App_Code.DAO
                         dept.deptID = breaklist.DeptID;
                         dept.storeStaffID = (string)HttpContext.Current.Session["loginID"];
                         dept.disburseDate = DateTime.Now;
-                        dept.status = "Awaiting For Deliver";
+                        dept.status = "Awaiting Delivery";
 
                         DisbursementItem item = new DisbursementItem();
                         item.itemID = refitem.ItemID;

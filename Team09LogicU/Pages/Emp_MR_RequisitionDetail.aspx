@@ -19,31 +19,44 @@ Requisition Detail
 															<asp:TemplateField>
 																<ItemTemplate>
 																	<asp:Label ID="req_autoID" runat="server" ><%# Container.DataItemIndex+1 %></asp:Label>
+																</ItemTemplate>
+															</asp:TemplateField>
+															<asp:TemplateField HeaderText="reqItemID" Visible="false">
+																<ItemTemplate>
+																	<asp:Label ID="reqItemQty" runat="server" Text='<%#Eval("reqItemID" )%>' ></asp:Label>
 																	
 																</ItemTemplate>
-																
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="reqItemID">
+															<asp:TemplateField HeaderText="Description">
 																<ItemTemplate>
-																	<asp:Label ID="reqItemQty" runat="server" Text='<%#Eval("reqItemID" )%>'></asp:Label>
+																	<asp:Label ID="desc" runat="server" Text='<%#Eval("desc" )%>' ></asp:Label>
 																</ItemTemplate>
 															</asp:TemplateField>
-															<%--<asp:BoundField DataField="reqItemID" headerText="RequisitionID" Visible="false"/>
-															<asp:BoundField DataField="itemID" headerText="itemID"/>--%>
-															<asp:BoundField DataField="requisitionQty" HeaderText="requisitionQty" />
-														
+															<asp:TemplateField HeaderText="Unit">
+																	<ItemTemplate>
+																		<asp:Label ID="unit" runat="server" Text='<%#Eval("unit" )%>' ></asp:Label>
+																	</ItemTemplate>
+															</asp:TemplateField>
+															<asp:TemplateField HeaderText="requisitionQuantity">
+																<ItemTemplate>
+																	<asp:Label ID="reqQty" runat="server" Text='<%#Eval("requisitionQty" )%>' ></asp:Label>
+																</ItemTemplate>
+																<EditItemTemplate>
+																	<asp:TextBox runat="server" ID="reqQtyTextBox" Text='<%#Eval("requisitionQty") %>'></asp:TextBox>
+																	<asp:RegularExpressionValidator runat="server" ControlToValidate="reqQtyTextBox" ValidationExpression="^[0-9]*[1-9][0-9]*$" ErrorMessage="Invalid Input!!!"></asp:RegularExpressionValidator>
+																</EditItemTemplate>
+															</asp:TemplateField>
+															<%--<asp:BoundField DataField="requisitionQty" HeaderText="requisitionQty" ItemStyle-Width="100px"  />--%>
 															
 															<asp:TemplateField>
-																
 																 <EditItemTemplate>
-																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>' ></asp:LinkButton><!-- -->
+																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>'  ></asp:LinkButton><!-- -->
 																	<asp:LinkButton ID="reqDetailCancel" runat="server" CommandName="Cancel" Text="Cancel" CommandArgument='<%#Eval("reqItemID") %>'></asp:LinkButton>
 															   </EditItemTemplate>
 																<ItemTemplate>
-																	<asp:LinkButton ID="reqDetailEdit" runat="server"  CommandName="edit" CommandArgument='<%#Eval("reqItemID") %>'><i class="fa fa-edit"></i></asp:LinkButton>
-																	<asp:LinkButton ID="reqDetailDelete" runat="server"  CommandName="delete" CommandArgument='<%#Eval("reqItemID") %>'> <i class="fa fa-remove "></i></asp:LinkButton>
-																	<%--<asp:CommandField   ShowEditButton="true" ButtonType="Button" UpdateText="update"  />
-																	<asp:CommandField ShowDeleteButton="true" ButtonType="Button" DeleteText="delete"/>--%>
+																	<asp:LinkButton ID="reqDetailEdit" runat="server"  CommandName="edit" CommandArgument='<%#Eval("reqItemID") %>' EnableViewState="False"><i class="fa fa-edit"></i></asp:LinkButton>
+																	<asp:LinkButton ID="reqDetailDelete" runat="server"  CommandName="delete" CommandArgument='<%#Eval("reqItemID") %>' EnableViewState="False"> <i class="fa fa-remove "></i></asp:LinkButton>
+																	
 																</ItemTemplate>
 															</asp:TemplateField>
 															

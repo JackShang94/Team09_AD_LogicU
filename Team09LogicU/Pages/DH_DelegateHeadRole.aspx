@@ -5,54 +5,72 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <div class="row">
+     
+                
+    <form runat="server">
+        <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="content">
-    <form runat="server">
-       
-
-        <div class="col-lg-3">
+       <div class=" container">
+        <div class="col-lg-12">
        <div class="h4"> Current Role:
-        <asp:Label ID="Label_logInRole" runat="server" CssClass="h5" Text="" EnableViewState="true"></asp:Label>
+       <asp:Label ID="Label_logInRole" runat="server" CssClass="h5" Text="" EnableViewState="true"></asp:Label>
        </div></div>
-        <div>
+        <div >
             <asp:Panel ID="Panel_submitDelegate" runat="server">
-                <div class="col-lg-9">
-                <h4>Delegate to: 
-                <asp:Label ID="delegateStf_label" CssClass="h5" runat="server" Text=""></asp:Label></h4></div>
-              <div class="col-lg-3 content"><label class="category">Employee: </label> 
+                
+              <div class="col-lg-3 "><label class="category">Employee: </label> 
             <asp:DropDownList ID="employee_dropList" CssClass="form-control" Width="80%"  runat="server"></asp:DropDownList>
                </div><div class="col-lg-3"><label class="category"> From:</label>      
-         <asp:TextBox ID="textBox_startDate" runat="server" CssClass="form-control datepicker " Width="80%" ></asp:TextBox>
+         <asp:TextBox ID="textBox_startDate" runat="server"  Width="80%" CssClass="form-control datepicker"></asp:TextBox>
               </div><div class="col-lg-3"><label class="category"> To:</label>          
-         <asp:TextBox ID="textBox_endDate" runat="server" CssClass="form-control datepicker" Width="80%" ></asp:TextBox>
+         <asp:TextBox ID="textBox_endDate" runat="server"  Width="80%" CssClass="form-control datepicker" ></asp:TextBox>
 </div>
-                <br />
+                
                 <div class="col-lg-8" style="margin-top:20px">
-                <asp:Button ID="submit_button" runat="server" CssClass="btn btn-primary btn-fill" Text="SUBMIT" OnClick="submit_button_Click" />
+                <asp:Button ID="submit_button" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="SUBMIT" OnClick="submit_button_Click" />
                     </div>
             </asp:Panel>
         </div>
-        <br />
+        
         <div class="col-lg-12">
         <h4>Delegate History:</h4></div>
-        <asp:GridView ID="GridView_dHistory"  CssClass="table table-striped table-hover" runat="server" >
+        <asp:GridView ID="GridView_dHistory" AllowPaging="true" OnPageIndexChanging="GridView_dHistory_PageIndexChanging" OnRowCommand="GridView_dHistory_RowCommand"  CssClass="table table-striped table-hover" runat="server" EmptyDataText="No delegation record">
             <Columns> 
-                <asp:ButtonField  CommandName="Select"  ControlStyle-ForeColor="#0066ff" ControlStyle-CssClass=" text-center fa fa-search"  />
+                <asp:ButtonField  CommandName="Select"  ControlStyle-ForeColor="#0066ff" ControlStyle-CssClass=" text-center btn-xs btn-default" Text="select"  />
             </Columns>
-
+            <PagerTemplate>
+        <br />
+          <div class="col-lg-12">
+         <div class="col-lg-1" style="width:100px">
+         <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label></div>
+         <div class="col-lg-1" style="width:40px">
+         <asp:LinkButton ID="lbnFirst" runat="Server" Text="First"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First" ></asp:LinkButton></div>
+        <div class="col-lg-1" style="width:40px" >
+        <asp:LinkButton ID="lbnPrev" runat="server" Text="<<" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"  ></asp:LinkButton></div>
+         <div class="col-lg-1" style="width:40px" >
+            <asp:TextBox runat="server" CssClass="form-control" Width="40px" ID="inPageNum"></asp:TextBox></div>
+        <div class="col-lg-1" style="width:40px; margin-left:40px" >
+            <asp:LinkButton ID="lbnNext" runat="Server" Text=">>" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next" ></asp:LinkButton>
+         </div><div class="col-lg-1" style="width:40px">
+            <asp:LinkButton ID="lbnLast" runat="Server" Text="Last"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last" ></asp:LinkButton></div>
+              <div class="col-lg-1" style="width:40px">
+             <asp:Button ID="Button1" CommandName="go" CssClass="btn btn-primary btn-xs btn-fill" Text="GO" runat="server" />
+         </div><br />
+     </PagerTemplate>
             <SelectedRowStyle BackColor="#e4e4e4" />
         </asp:GridView>
-        <br />
+        <div class="col-lg-10" style="margin-top:20px">
         <asp:Button ID="terminate_button" runat="server" Text="TERMINATE" CssClass="btn btn-wd btn-danger" OnClick="terminate_button_Click" />
         <asp:Label ID="label_terminateDlgt" runat="server" Text=""></asp:Label>
-    </form>
+    
                     </div>
                 </div>
             </div>
-         </div>
+         </div></div>
     
+    </form>
+                    
     	    <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
     <script src="../js/jquery.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui.min.js" type="text/javascript"></script>

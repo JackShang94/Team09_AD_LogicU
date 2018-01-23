@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_Inv_StockManagement.aspx.cs" Inherits="Team09LogicU.Pages.SC_Inv_StockManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_Inv_ManageReorder.aspx.cs" Inherits="Team09LogicU.Pages.SC_Inv_ManageReorder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Stock Management
+    Reorder
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
@@ -12,19 +12,8 @@
                 <div class="card">
                     <div class="content">
                         <div class=" form-group" style="height: 25px; width: 100%">
-                            <div class="pull-left search" style="width: 75%">
-                                <div class="col-md-3">
-                                    <asp:Label ID="Label3" runat="server" Text=" Category:"></asp:Label>
-                                </div>
 
-
-                                <div class="col-md-6">
-                                    <asp:DropDownList ID="DropDownList_cat" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DropDownList_cat_SelectedIndexChanged" ></asp:DropDownList>
-                                </div>
-
-                            </div>
-                            <div class="pull-right" style="width: 20%">
-                            </div>
+                            
 
                         </div>
                     </div>
@@ -42,20 +31,79 @@
                             <div class="content">
                                 <div class="container-fluid">
                                     <div class="content">
+                                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                            <ContentTemplate>
+                                                <asp:GridView ID="GridView_reorderList" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
+                                                    DataKeyNames="itemID" AutoGenerateColumns="False" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDataBound="RowDataBound"
+                                                    CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False" >
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderText="ItemID" SortExpression="SortedAscendingHeaderStyle">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Description">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Unit of Measure">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblUnitOfMeasure" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Current Stock">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblQtyOnHand" runat="server" Text='<%# Eval("qtyOnHand") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Reorder Level">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblReorderLevel" runat="server" Text='<%# Eval("reorderLevel") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Reorder Quantity">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblReorderQty" runat="server" Text='<%# Eval("reorderQty") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Order Quantity">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblOrderQty" runat="server" Text='<%# Eval("orderQty") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:DropDownList ID="ddlSuppliers" runat="server"></asp:DropDownList>
+                                                                <asp:TextBox ID="txtOrderQty" CssClass="form-control" runat="server" BackColor="Azure"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                                                    ControlToValidate="txtOrderQty" ForeColor="Red" Display="Dynamic"
+                                                                    ErrorMessage="RequiredFieldValidator">Quantity is required.</asp:RequiredFieldValidator>
+                                                                <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtOrderQty" Type="Integer"
+                                                                    Operator="DataTypeCheck" Display="Dynamic" ErrorMessage="Quantity entered must be a whole number" ForeColor="Red" />
+                                                                <asp:RangeValidator ID="RangeValidator1" runat="server" Display="Dynamic"
+                                                                    ErrorMessage="RangeValidator" ControlToValidate="txtOrderQty"
+                                                                    ForeColor="Red" Type="Integer"
+                                                                    MaximumValue="10000" MinimumValue="0">Please Check Quantity.</asp:RangeValidator>
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" EnableViewState="True" />
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />
+                                                                <asp:Button ID="btnCancel" CssClass="btn btn-xs btn-default" runat="server" CommandName="Cancel" Text="Cancel" />
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
 
-                                        <asp:GridView ID="GridView_stock" runat="server" OnRowEditing="GridView_stock_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
-                                            CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView_stock_SelectedIndexChanged">
-                                            <Columns>
-                                                <asp:TemplateField HeaderText="View" ItemStyle-CssClass="text-center">
-                                                    <ItemTemplate>
-                                                        <asp:LinkButton ID="View" Text="Stock Card" runat="server" CssClass="fa fa-edit" CommandName="Edit" OnClientClick="Edit?" ForeColor="OrangeRed"></asp:LinkButton>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                            </Columns>
-                                        </asp:GridView>
+                                                    <HeaderStyle CssClass=" content text-uppercase  " />
+                                                    
+                                                </asp:GridView>
+                                                <alternatingrowstyle backcolor="White" />
 
-
-                                        <alternatingrowstyle backcolor="White" />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
                                     </div>
                                 </div>
 
@@ -69,6 +117,9 @@
 
                 </div>
             </div>
+            <asp:Button ID="BtnSubmit" runat="server" Text="Add to Reorder List" CssClass="btn btn-primary btn-fill btn-wd " OnClick="BtnSubmit_Click" />
+           
+
         </div>
     </form>
 
@@ -283,7 +334,5 @@
         });
 
     </script>
-
-
 
 </asp:Content>
