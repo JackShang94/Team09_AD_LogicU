@@ -138,6 +138,38 @@ namespace Team09LogicU.pages
             }
             displayDelegationListAndRole(deptID);
         }
+
+        protected void GridView_dHistory_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                GridView_dHistory.PageIndex = e.NewPageIndex;
+                displayDelegationListAndRole(deptID);
+
+                TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");
+                tb.Text = (GridView_dHistory.PageIndex + 1).ToString();
+            }
+            catch
+            {
+            }
+        }
+
+        protected void GridView_dHistory_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "go")
+            {
+                try
+                {
+                    TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_dHistory_PageIndexChanging(null, ea);
+                }
+                catch
+                {
+                }
+            }
+        }
     }
 }
 
