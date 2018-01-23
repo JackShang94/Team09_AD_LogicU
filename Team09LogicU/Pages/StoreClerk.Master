@@ -144,6 +144,25 @@
                         </ul>
                     </div>    
                 </li>
+
+                 <li>
+                    <a data-toggle="collapse" href="#ViewExamples">
+                        <i class="pe-7s-bookmarks"></i>
+                        <p>View
+                       <b class="caret"></b>
+                        </p>
+                    </a>
+                   
+                    <div class="collapse" id="ViewExamples">
+                        <ul class="nav">
+                     
+                            <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
+                          <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
+                        </ul>
+                    </div>    
+                </li>
+
+
                 <li>
                     <a  href="SC_Notification.aspx">
                         <i class="pe-7s-volume"></i>

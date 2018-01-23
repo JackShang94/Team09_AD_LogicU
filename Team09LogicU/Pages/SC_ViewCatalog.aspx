@@ -1,83 +1,62 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_Inv_AdjustmentVoucher.aspx.cs" Inherits="Team09LogicU.Pages.SC_Inv_AdjustmentVoucher" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_ViewCatalog.aspx.cs" Inherits="Team09LogicU.Pages.SC_ViewCatalog" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-Adjustment Voucher
+    View Catalog
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-      <form id ="form1" runat="server">
-      
-                      <div class="row">
-                    <div class="col-md-9 container-fluid">
-                        <div class="card">
-                        <div class="content" >
-                        <div class=" form-group" style="height:25px; width:100%">
-                        <div class="pull-left search" style="width:75%">
-                            
-                          <div class="col-md-3">
-                            <asp:TextBox ID="textbox_Search"   class="form-control " runat="server" Width="200px"   ></asp:TextBox>  
+      <form id="form1" runat="server">
+        <div class="row">
+           <div class="col-lg-12">
+                <div class="card">
+                    <div class=" container">
 
+                        <div class ="col-lg-6" style="margin-top:20px">
+                                 <div class="col-lg-3">
+                            <asp:Label ID="Label2" runat="server" Text=" Select Catalog:"  Width=300px CssClass="category" ></asp:Label>
+                                     </div>
+                                       <div class="col-lg-3">
+                            <asp:TextBox ID="TextBox_SearchByID" runat="server" Width=300px CssClass="form-control"></asp:TextBox>
+                                           </div>
+<%--                           <asp:DropDownList ID="ddlCategory" runat="server" Width=300px CssClass="form-control"></asp:DropDownList><br>--%>
+                           </div>
+                        <div class ="col-lg-6" style="margin-top:20px">
+                                    <asp:Button ID="btnSearch" runat="server" Width=200px Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click" />
+                                
                             </div>
-                       
-                            </div>
-                        <div class="pull-right" style="width:20%">
-                         <asp:Button ID="Button_Search" runat="server" Width="100%" Text="Search"  CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click"  />
-                        </div>
-                           
-                        </div>
-                        </div>
-                        </div>
-                         </div>
-                      </div>
-   
 
-    <div class="content">
-            <div class="container-fluid">       
-                <div class="content">
-                <div class="row">
-                    <div class="col-lg-12">
-                              
-                            <div class="content">
-                                  <div class="container-fluid">
-								
-<%--                                     <asp:LinkButton ID="LinkButton_ViewAllADJvoucherList" runat="server" Text="ViewADJList">LinkButton</asp:LinkButton>--%>
-                                     <asp:label ID="label" runat="server" text="Label"></asp:label>
-                                     
-                                      <asp:GridView ID="GridView_CatalogList" OnRowCommand =" GridView_CatalogList_RowCommand" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  EmptyDataText="There are no Item" AllowPaging="True"  >
-                                                  
-            
+     <div class="col-lg-10" style="margin-bottom:20px">
+                                            <asp:GridView ID="GridView_CatalogList" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Item" AllowPaging="True" onpageindexchanging="GridView_CatalogList_PageIndexChanging">
+                                                <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
-                                                        
+                                                 
                                                     <asp:BoundField DataField="itemID" HeaderText="item ID:" />
                                                     <asp:BoundField DataField="categoryID" HeaderText="categoryID:" />
+                                                    <asp:BoundField DataField="location" HeaderText="location:" />
                                                     <asp:BoundField DataField="description" HeaderText="description:" />
+                                                    <asp:BoundField DataField="reorderLevel" HeaderText="reorder Level:" />
+                                                    <asp:BoundField DataField="reorderQty" HeaderText="reorder Qty:" />
                                                     <asp:BoundField DataField="unitOfMeasure" HeaderText="unit Of Measure:" />
-                                                   
-                                                     <asp:TemplateField HeaderText="Action" ShowHeader="False">
-                                                        <ItemTemplate>
-                                                            <asp:LinkButton ID="LinkButton_Add" runat="server" CausesValidation="False" Text="Add"  CommandName="Add"  CommandArgument='<%# Eval("itemID") %>'></asp:LinkButton>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                    <asp:BoundField DataField="qtyOnHand" HeaderText="qtyOnHand:" />
+                                                    
                                                 </Columns>
-                                               <%-- <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>--%>
+                                                <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                                             </asp:GridView>
 
-        				        
-        				        </div>                					
-        				        
-                            </div><!-- end content-->
-                       
-                    </div> <!-- end col-md-12 -->
-                </div> <!-- end row -->
+     </div>
+                                    </div>
+                                    <!-- end content-->
+                                     </div>
+                                        <!--  end card  -->
+                                </div>
+                                 <!-- end col-md-12 -->
+                            </div>                    
+                        <!-- end row -->
 
-            </div>
-        </div>                          
-        <asp:Button ID="Btn_Adjvlist"  runat="server" Text="View Adjustment Voucher List" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Adjvlist_Click"  /> 
-        <%--  <asp:Button ID="Btn_Cancel"  runat="server"  Text="Cancel"  CssClass="btn btn-default  btn-fill btn-wd"  />--%>
+               
+    
 
-    </div>
-          </form>
-
-     <div class="fixed-plugin">
+    </form>
+    <div class="fixed-plugin">
     <div class="dropdown">
         <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
@@ -173,7 +152,7 @@ Adjustment Voucher
     </div>
 </div>
 
-
+</body>
 
     <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
     <script src="../js/jquery.min.js" type="text/javascript"></script>
@@ -183,14 +162,6 @@ Adjustment Voucher
 
 	<!--  Forms Validations Plugin -->
 	<script src="../js/jquery.validate.min.js"></script>
-         
-
-
-    <!--  Date Time Picker Plugin is included in this js file -->
-    <script src="../js/bootstrap-datetimepicker.js"></script>
-
-    <!--  Select Picker Plugin -->
-    <script src="../js/bootstrap-selectpicker.js"></script>
 
 	<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 	<script src="../js/moment.min.js"></script>
@@ -239,54 +210,99 @@ Adjustment Voucher
 
 	<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 	<script src="../js/demo.js"></script>
-          <script type="text/javascript">
-              $().ready(function () {
 
-                  // Init Sliders
-                  demo.initFormExtendedSliders();
-
-                  // Init DatetimePicker
-                  demo.initFormExtendedDatetimepickers();
-              });
-    </script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#datatables').DataTable({
-                "pagingType": "full_numbers",
-                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search records",
+        var $table = $('#bootstrap-table');
+
+        function operateFormatter(value, row, index) {
+            return [
+                '<a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)">',
+                    '<i class="fa fa-image"></i>',
+                '</a>',
+                '<a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)">',
+                    '<i class="fa fa-edit"></i>',
+                '</a>',
+                '<a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)">',
+                    '<i class="fa fa-remove"></i>',
+                '</a>'
+            ].join('');
+        }
+
+        $().ready(function(){
+            window.operateEvents = {
+                'click .view': function (e, value, row, index) {
+                    info = JSON.stringify(row);
+
+                    swal('You click view icon, row: ', info);
+                    console.log(info);
+                },
+                'click .edit': function (e, value, row, index) {
+                    info = JSON.stringify(row);
+
+                    swal('You click edit icon, row: ', info);
+                    console.log(info);
+                },
+                'click .remove': function (e, value, row, index) {
+                    console.log(row);
+                    $table.bootstrapTable('remove', {
+                        field: 'id',
+                        values: [row.id]
+                    });
                 }
+            };
 
+            $table.bootstrapTable({
+                toolbar: ".toolbar",
+                clickToSelect: true,
+                showRefresh: true,
+                search: true,
+                showToggle: true,
+                showColumns: true,
+                pagination: true,
+                searchAlign: 'left',
+                pageSize: 8,
+                clickToSelect: false,
+                pageList: [8,10,25,50,100],
+
+                formatShowingRows: function(pageFrom, pageTo, totalRows){
+                    //do nothing here, we don't want to show the text "showing x of y from..."
+                },
+                formatRecordsPerPage: function(pageNumber){
+                    return pageNumber + " rows visible";
+                },
+                icons: {
+                    refresh: 'fa fa-refresh',
+                    toggle: 'fa fa-th-list',
+                    columns: 'fa fa-columns',
+                    detailOpen: 'fa fa-plus-circle',
+                    detailClose: 'fa fa-minus-circle'
+                }
+            });
+
+            //activate the tooltips after the data table is initialized
+            $('[rel="tooltip"]').tooltip();
+
+            $(window).resize(function () {
+                $table.bootstrapTable('resetView');
             });
 
 
-            var table = $('#datatables').DataTable();
-
-            // Edit record
-            table.on('click', '.edit', function () {
-                $tr = $(this).closest('tr');
-
-                var data = table.row($tr).data();
-                alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-            });
-
-            // Delete a record
-            table.on('click', '.remove', function (e) {
-                $tr = $(this).closest('tr');
-                table.row($tr).remove().draw();
-                e.preventDefault();
-            });
-
-            //Like record
-            table.on('click', '.like', function () {
-                alert('You clicked on Like button');
-            });
         });
 
     </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46172202-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
 
 </asp:Content>
