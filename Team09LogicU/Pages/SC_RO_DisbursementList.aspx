@@ -11,11 +11,11 @@
                     <div class="col-lg-12">
                    <div class="col-lg-3" style="margin-top:20px">
                     <asp:Label ID="Label1" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
+                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
                    </div>
                     <div class="col-lg-10">
                         <asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover "></asp:GridView>
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover " EmptyDataText="There is no disbursement"></asp:GridView>
                         <div class="col-lg-10">
                         <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
                           </div>  </div></div>

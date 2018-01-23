@@ -10,16 +10,26 @@ namespace Team09LogicU.App_Code.DAO
     {
 
         SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-        public List<Item> getItemList()
+        public  List<Item> getItemList()
         {
             return m.Items.ToList<Item>();
-            // return m.Items.Select(x => new { x.itemID, x.categoryID, x.location, x.description, x.reorderLevel, x.reorderQty, x.unitOfMeasure, x.qtyOnHand }).ToList<object>();
+           // return m.Items.Select(x => new { x.itemID, x.categoryID, x.location, x.description, x.reorderLevel, x.reorderQty, x.unitOfMeasure, x.qtyOnHand }).ToList<object>();
         }
 
-        public void addItem(string itemID, string desc, string location, string category, decimal price, int reorderLevel, int reorderQty, string uom, List<string> sup)
+        public List<ReorderItem> findItemList()
+        {
+            List<ReorderItem> list = m.Items.OrderBy(x => x.itemID).
+                Select(x => new ReorderItem { ItemID = x.itemID, Description = x.description, UnitOfMeasure = x.unitOfMeasure,
+                    QtyOnHand = x.qtyOnHand, ReorderLevel = x.reorderLevel, ReorderQty = x.reorderQty
+                }).ToList<ReorderItem>();
+            return list;
+
+        }
+
+        public void addItem(string itemID,string desc,string location,string category,decimal price,int reorderLevel,int reorderQty,string uom,List<string> sup)
         {
             Item i = new Item();
-
+          
             i.itemID = itemID;
             i.description = desc;
             i.location = location;
@@ -28,50 +38,61 @@ namespace Team09LogicU.App_Code.DAO
             i.reorderQty = reorderQty;
             i.unitOfMeasure = uom;
             m.Items.Add(i);
-
-
-            for (var j = 0; j < sup.Count; j++)
+            
+            
+            for(var j=0;j<sup.Count; j++)
             {
                 SupplierItem si = new SupplierItem();
                 si.supplierID = j.ToString();
                 si.itemID = itemID;
                 si.price = price;
-                si.preferenceRank = (j + 1).ToString();
+                si.preferenceRank =( j + 1).ToString();
                 m.SupplierItems.Add(si);
             }
             m.SaveChanges();
 
-
+       
         }
 
         public List<Item> getItemByitemID(string itemID)
         {
-            
-             return m.Items.Where(x => x.itemID == itemID).ToList<Item>();
-            
+            return m.Items.Where(x=>x.itemID==itemID).ToList<Item>();
         }
-
-        public Item getItemByID(string itemID)
+        
+        public List<Item> getItemByDesc(string desc)
         {
-            Item i = new Item();
-            List<Item> iList = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
-            if (iList.Count() > 0)
+            if (!String.IsNullOrWhiteSpace(desc))
             {
-                i = iList.First();
+                return m.Items.Where(x => x.description.ToLower().Contains(desc.ToLower())).ToList<Item>();
             }
-            return i;
+            return new List<Item>();
+           
         }
-
         public string getDescByItemID(string itemID)
         {
-            return m.Items.Where(x => x.itemID == itemID).Select(x => x.description).ToList().First().ToString();
+            var a= m.Items.Where(x => x.itemID == itemID);
+            if (a!=null)
+            {
+                return a.Select(x => x.description).First().ToString();
+            }
+            return "";
         }
 
-        public List<Item> getItemByCat(string category)
-        {
-            return m.Items.Where(x => x.Category.description == category).ToList();
-        }
-
+        //public List<string> getDescListByItemIDList(List<string> itemID)
+        //{
+        //    List<string> ldesc = new List<string>();
+        //    //m.Items.Where(x=>x.itemID == itemID)
+        //    //from d in m.RequisitionItems
+        //    //join e in m.Items
+        //    //m.RequisitionItems.GroupJoin(
+        //    //    m.Items,
+        //    //    item => item.item_ID,
+        //    //    ritem => ritem.item_ID,
+        //    //    (x, y) => new { ritem = x, item = y })
+        //    //    .SelectMany(
+        //    //      x => x.item
+        //    //    )
+        //}
         //public List<Item> getRecentItemList(string staffID) //used by requisition think u may need
         //{
         //    //Requisition r = new Requisition();

@@ -137,7 +137,7 @@
                     <div class="collapse" id="InvExamples">
                         <ul class="nav">
                             <li><a href="SC_Inv_StockManagement.aspx">Stock Management</a></li>
-                            <li><a href="SC_Inv_Reorder.aspx">Reorder</a></li>
+                            <li><a href="SC_Inv_ManageReorder.aspx">Reorder</a></li>
                             <li><a href="SC_Inv_AdjustmentVoucher.aspx">Adjustment Voucher</a></li>
                            
                             
