@@ -34,8 +34,9 @@ namespace Team09LogicU.Pages
 
         protected void GridView_supplierList_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            string supplierID = "";
-            Response.Redirect("SM_EditSupplier?supplier=" + supplierID);
+            int i = e.NewEditIndex;
+            string supplierID=GridView_supplierList.Rows[i].Cells[1].Text.ToString();
+            Response.Redirect("SM_EditSupplier.aspx?supplier=" + supplierID);
         }
     }
 }

@@ -27,6 +27,14 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.Departments.ToList<Department>();
         }
+        public List<string> findAllDepartmentName()
+        {
+            return context.Departments.Select(x => x.deptName).ToList();
+        }
+        public string findDepartmentIdByName(string name)
+        {
+            return context.Departments.Where(x => x.deptName == name).Select(x => x.deptID).First().ToString();
+        }
 
         public void UpdateCollectionPoint(Department dept, CollectionPoint CP)
         {
@@ -38,6 +46,13 @@ namespace Team09LogicU.App_Code.DAO
         {
             dept.repStaffID = newRep.staffID;
             context.SaveChanges();
+        }
+        public string getCollectionPointbyDepartmentId(string depId)
+        {
+            //string collectionPointId=context.Departments.Where(x => x.deptID == depId).Select(x => x.collectionPointID).First().ToString();
+            //string collectionPoint = context.CollectionPoints.Where(x => x.collectionPointID == collectionPointId).Select(x => x.description).First().ToString();
+            string collectionPoint = context.Departments.Where(x => x.deptID == depId).Select(x => x.CollectionPoint.description).First().ToString();
+            return collectionPoint;
         }
 
     }

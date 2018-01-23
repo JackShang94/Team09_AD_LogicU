@@ -82,7 +82,7 @@
             </div> 
 
                                   <asp:Button ID="Btn_Submit"  runat="server" Text="Submit" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Submit_Click" /> 
-                                 <asp:Button ID="Btn_Clear"  runat="server"  Text="Clear"  CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Clear_Click"   />
+                                 <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click"   />
 
                                  </form>
 
