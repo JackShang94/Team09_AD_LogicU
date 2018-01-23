@@ -18,15 +18,9 @@ namespace Team09LogicU.App_Code.DAO
             dl.disburseDate = DateTime.Now;
             dl.status = "Pending";
             model.Disbursements.Add(dl);          
-            //1.Firstly need to get the current requisitionID, then update status to "Process"
-            //.
-            //.
-            //.
-            //2.Get Item information from retrieveal form, a list containing itemID DepartmentID, then recorded in the disbursementItem Database.
-            //.
-            //.
-            //.
+           
         }
+       
         public Disbursement findHistoryDisbursementByDeptId(string deptId, DateTime historyDate)
         {
             DateTime historyMonday = historyDate.Date.DayOfWeek == DayOfWeek.Sunday ? historyDate.Date.AddDays(-7 + 1) : historyDate.Date.AddDays(-(int)historyDate.Date.DayOfWeek + 1);
@@ -46,6 +40,10 @@ namespace Team09LogicU.App_Code.DAO
                 return selectedDisbursement;
             }
             return null;
+        }
+        public List<int> getCurrentDisbursementsId(string status,string deptid)
+        {
+            return model.Disbursements.Where(x => x.status == status&&x.deptID==deptid).Select(x => x.disbursementID).ToList();
         }
         public Disbursement getDisbursmentbyId(int disbursmentid)
         {

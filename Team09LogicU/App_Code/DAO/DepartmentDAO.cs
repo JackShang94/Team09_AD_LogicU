@@ -27,6 +27,14 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.Departments.ToList<Department>();
         }
+        public List<string> findAllDepartmentName()
+        {
+            return context.Departments.Select(x => x.deptName).ToList();
+        }
+        public string findDepartmentIdByName(string name)
+        {
+            return context.Departments.Where(x => x.deptName == name).Select(x => x.deptID).First().ToString();
+        }
 
         public void UpdateCollectionPoint(Department dept, CollectionPoint CP)
         {
