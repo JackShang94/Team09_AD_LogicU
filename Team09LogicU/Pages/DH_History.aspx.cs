@@ -49,11 +49,12 @@ namespace Team09LogicU.pages
             List<RequisitionByStaffCart> list = new List<RequisitionByStaffCart>();
             list = reqDAO.findRequisitionByDeptID(deptID);
 
-            for (int i = 0; i < list.Count; i++)
+            for (int i=list.Count-1; i>=0; i--)
             {
                 RequisitionByStaffCart reqByStaffCart = new RequisitionByStaffCart();
                 reqByStaffCart = list[i];
-                if (reqByStaffCart.Status == "pending")
+                string reqStatus = reqByStaffCart.Status;
+                if (reqStatus == "pending")
                 {
                     list.RemoveAt(i);
                 }
@@ -112,8 +113,20 @@ namespace Team09LogicU.pages
                 list = reqDAO.findRequisitionByDateAndStaffID(dateFrom, dateTo, ReqStaffID);
             }
 
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                RequisitionByStaffCart reqByStaffCart = new RequisitionByStaffCart();
+                reqByStaffCart = list[i];
+                string reqStatus = reqByStaffCart.Status;
+                if (reqStatus == "pending")
+                {
+                    list.RemoveAt(i);
+                }
+            }
+
             GridView_ReqHistory.DataSource = list;
             GridView_ReqHistory.DataBind();
         }
+
     }
 }
