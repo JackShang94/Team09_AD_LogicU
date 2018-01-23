@@ -49,7 +49,6 @@ namespace Team09LogicU.pages
             }
             GridView1.DataSource = disburItems;
             GridView1.DataBind();
-            
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,15 +60,19 @@ namespace Team09LogicU.pages
             BindGrid();
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex;
-            
+
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
         }
     }
 }

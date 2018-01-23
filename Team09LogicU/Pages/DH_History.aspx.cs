@@ -91,10 +91,10 @@ namespace Team09LogicU.pages
 
             if ((from == "" || to == "") && ReqStaffName == "---Select Name---")
             {
-                Response.Write("<script LANGUAGE='JavaScript' >alert('Please input your searching condition!')</script>");
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please input condition！');</script>");
             }
 
-            if (ReqStaffName == "---Select Name---" && (from != "" && to != ""))
+                if (ReqStaffName == "---Select Name---" && (from != "" && to != ""))
             {
                 DateTime dateFrom = Convert.ToDateTime(from);
                 DateTime dateTo = Convert.ToDateTime(to);

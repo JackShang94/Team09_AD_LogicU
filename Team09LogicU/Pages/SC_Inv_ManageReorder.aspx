@@ -13,7 +13,7 @@
                     <div class="content">
                         <div class=" form-group" style="height: 25px; width: 100%">
 
-                            <asp:CheckBox ID="CheckBox1" runat="server" CssClass="center-block" AutoPostBack="true" BackColor="Azure" Text="Select the items with stock below Reorder Level" OnCheckedChanged="CheckBox1_CheckedChanged" Style="left: 0px; top: 0px" Checked="True" />
+                            
 
                         </div>
                     </div>
@@ -70,11 +70,11 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Order Quantity">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblOrderQty" runat="server" Text='0'></asp:Label>
+                                                                <asp:Label ID="lblOrderQty" runat="server" Text='<%# Eval("orderQty") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <EditItemTemplate>
                                                                 <asp:DropDownList ID="ddlSuppliers" runat="server"></asp:DropDownList>
-                                                                <asp:TextBox ID="txtOrderQty" CssClass="form-control" Text="0" runat="server" BackColor="Azure"></asp:TextBox>
+                                                                <asp:TextBox ID="txtOrderQty" CssClass="form-control" runat="server" BackColor="Azure"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                                                     ControlToValidate="txtOrderQty" ForeColor="Red" Display="Dynamic"
                                                                     ErrorMessage="RequiredFieldValidator">Quantity is required.</asp:RequiredFieldValidator>
@@ -117,8 +117,8 @@
 
                 </div>
             </div>
-            <asp:Button ID="BtnSubmit" runat="server" Text="Add to Reorder List" CssClass="btn btn-primary btn-fill btn-wd " />
-            <asp:Button ID="BtnCancel" runat="server" Text="Cancel" CssClass="btn btn-default  btn-fill btn-wd" />
+            <asp:Button ID="BtnSubmit" runat="server" Text="Add to Reorder List" CssClass="btn btn-primary btn-fill btn-wd " OnClick="BtnSubmit_Click" />
+           
 
         </div>
     </form>
