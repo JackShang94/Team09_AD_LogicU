@@ -123,6 +123,7 @@
     <Content Include="js\chartist.min.js" />
     <Content Include="js\demo.js" />
     <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery-jvectormap.js" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.bootstrap.wizard.min.js" />
@@ -133,6 +134,8 @@
     <Content Include="js\light-bootstrap-dashboard.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\sweetalert2.js" />
+    <Content Include="css\window.css" />
+    <Content Include="js\window.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
