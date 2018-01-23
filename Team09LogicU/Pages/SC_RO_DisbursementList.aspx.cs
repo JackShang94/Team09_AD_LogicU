@@ -59,5 +59,20 @@ namespace Team09LogicU.pages
             Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
             BindGrid();
         }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
+        }
     }
 }
