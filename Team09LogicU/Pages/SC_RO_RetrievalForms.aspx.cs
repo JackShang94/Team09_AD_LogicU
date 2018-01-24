@@ -19,7 +19,7 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             string name = Session["loginID"].ToString();
-            string role = Session["role"].ToString();
+            string role = Session["loginRole"].ToString();
             if (name == null)
             {
                 Response.Redirect("login.aspx");

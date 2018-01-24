@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="adjVID" />
           </Key>
-          <Property Name="adjVID" Type="int" Nullable="false" />
+          <Property Name="adjVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="storeStaffID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="authorisedBy" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="adjDate" Type="datetime" Nullable="false" />
