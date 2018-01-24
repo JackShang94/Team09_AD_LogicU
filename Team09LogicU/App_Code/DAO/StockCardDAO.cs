@@ -31,6 +31,8 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<StockCard> sList = context.StockCards.Where(x => x.itemID==itemID).ToList<StockCard>();
             return sList;
+
+
         }
     }
 }
