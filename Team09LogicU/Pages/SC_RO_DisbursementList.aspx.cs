@@ -13,7 +13,7 @@ namespace Team09LogicU.pages
     public partial class SC_RO_DisbursementList : System.Web.UI.Page
     {
         
-        DepartmentDAO dpd;
+        DepartmentDAO dpd=new DepartmentDAO();
         string depName;
         string depid;
         protected void Page_Load(object sender, EventArgs e)
@@ -21,23 +21,25 @@ namespace Team09LogicU.pages
             
             if (!IsPostBack)
             {
-                BindDropdownlist();
-                depName = DropDownList1.Text;
-                depid = dpd.findDepartmentIdByName(depName);
-                Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
-                BindGrid();
+                BindDropdownlist();               
             }
+            depName = DropDownList1.Text;
+            depid = dpd.findDepartmentIdByName(depName);
+            Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
+            BindGrid();
 
         }
         protected void BindDropdownlist()
         {
-            dpd = new DepartmentDAO();
+            //dpd = new DepartmentDAO();
             DropDownList1.DataSource = dpd.findAllDepartmentName();
             DropDownList1.DataBind();
         }
       
         protected void BindGrid()
         {
+            depName = DropDownList1.Text;
+            depid = dpd.findDepartmentIdByName(depName);
             DisbursementListDAO disburList = new DisbursementListDAO();
             List<int> disburIds = disburList.getCurrentDisbursementsId("Awaiting For Deliver", depid);
             DisbursementItemDAO disburItem = new DisbursementItemDAO();
@@ -47,6 +49,7 @@ namespace Team09LogicU.pages
                 disburItems = disburItems.Union(disburItem.getDisbursementCartItem(s)).ToList<DisbursementCart>();
 
             }
+            Session["list"] = disburItems;
             GridView1.DataSource = disburItems;
             GridView1.DataBind();
         }
@@ -54,7 +57,7 @@ namespace Team09LogicU.pages
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             depName = DropDownList1.SelectedItem.Text;
-            dpd = new DepartmentDAO();
+            //dpd = new DepartmentDAO();
             depid = dpd.findDepartmentIdByName(depName);
             Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
             BindGrid();
@@ -62,17 +65,31 @@ namespace Team09LogicU.pages
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            GridView1.EditIndex = e.NewEditIndex;
+            GridView1.DataSource =(List<DisbursementCart>)Session["list"];
+            GridView1.DataBind();
         }
-
+          
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            int actual = Int32.Parse((row.FindControl("Actual") as TextBox).Text);
+            List<DisbursementCart> updateList = (List<DisbursementCart>)Session["list"];
+            foreach(DisbursementCart s in updateList)
+            {
+                s.Actual = actual;
+            }
+            GridView1.EditIndex = -1;
+            Session["list"] = updateList;
+            GridView1.DataSource = updateList;
+            GridView1.DataBind();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            GridView1.EditIndex = -1;
+            GridView1.DataSource = (List<DisbursementCart>)Session["list"];
+            GridView1.DataBind();
         }
     }
 }
