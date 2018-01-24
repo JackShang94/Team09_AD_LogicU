@@ -160,7 +160,7 @@ namespace Team09LogicU.Pages
             TextBox t = (TextBox)i;
             string a = t.Text;
             RequisitionItemDAO ridao = new RequisitionItemDAO();
-            //string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value???
+            //string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value if using custom template???
 
             int reqItemQty = Int32.Parse(a);
             //if (reqItemQty < 0)

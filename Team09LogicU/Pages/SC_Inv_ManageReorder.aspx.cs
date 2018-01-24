@@ -46,7 +46,7 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            Session["reorderList"] = list;
+            System.Web.HttpContext.Current.Session["reorderList"] = list;
 
             GridView_reorderList.DataSource = list;
             GridView_reorderList.DataBind();
@@ -55,7 +55,7 @@ namespace Team09LogicU.Pages
         private void BindGrid()
         {
             List<ReorderItem> list = new List<ReorderItem>();
-            list = (List<ReorderItem>)Session["reorderList"];
+            list = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
             GridView_reorderList.DataSource = list;
             GridView_reorderList.DataBind();
         }
@@ -74,7 +74,7 @@ namespace Team09LogicU.Pages
             int orderQty = Int32.Parse((row.FindControl("txtOrderQty") as TextBox).Text);
 
             List<ReorderItem> reorderList = new List<ReorderItem>();
-            reorderList = (List<ReorderItem>)Session["reorderList"];
+            reorderList = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
 
             foreach (ReorderItem rItem in reorderList)
             {
@@ -85,7 +85,7 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            Session["reorderList"] = reorderList;
+            System.Web.HttpContext.Current.Session["reorderList"] = reorderList;
 
             GridView_reorderList.EditIndex = -1;
             BindGrid();

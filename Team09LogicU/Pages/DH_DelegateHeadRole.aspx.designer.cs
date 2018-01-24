@@ -83,5 +83,14 @@ namespace Team09LogicU.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button terminate_button;
+        
+        /// <summary>
+        /// label_terminateDlgt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_terminateDlgt;
     }
 }
