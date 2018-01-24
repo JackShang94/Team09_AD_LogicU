@@ -12,9 +12,6 @@
                 <div class="card">
                     <div class="content">
                         <div class=" form-group" style="height: 25px; width: 100%">
-
-                            
-
                         </div>
                     </div>
                 </div>
@@ -36,7 +33,7 @@
                                             <ContentTemplate>
                                                 <asp:GridView ID="GridView_reorderList" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
                                                     DataKeyNames="itemID" AutoGenerateColumns="False" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDataBound="RowDataBound"
-                                                    CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False" >
+                                                    CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False">
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="ItemID" SortExpression="SortedAscendingHeaderStyle">
                                                             <ItemTemplate>
@@ -98,7 +95,7 @@
                                                     </Columns>
 
                                                     <HeaderStyle CssClass=" content text-uppercase  " />
-                                                    
+
                                                 </asp:GridView>
                                                 <alternatingrowstyle backcolor="White" />
 
@@ -118,7 +115,7 @@
                 </div>
             </div>
             <asp:Button ID="BtnSubmit" runat="server" Text="Add to Reorder List" CssClass="btn btn-primary btn-fill btn-wd " OnClick="BtnSubmit_Click" />
-           
+
 
         </div>
     </form>

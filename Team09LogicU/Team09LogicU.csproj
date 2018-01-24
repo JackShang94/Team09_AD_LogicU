@@ -156,6 +156,7 @@
     <Content Include="Pages\Emp_MR_RequisitionDetail.aspx" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
+    <Content Include="Pages\SC_Inv_AdjVoucherDetail.aspx" />
     <Content Include="Pages\SC_Inv_ManageReorder.aspx" />
     <Content Include="Pages\SC_Inv_StockCardDetail.aspx" />
     <Content Include="Pages\SC_Inv_StockManagement.aspx" />
@@ -163,8 +164,10 @@
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PrintPurchaseOrder.aspx" />
-    <Content Include="Pages\SC_ReorderList.aspx" />
+    <Content Include="Pages\SC_ReorderHistory.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
+    <Content Include="Pages\SC_ViewCatalog.aspx" />
+    <Content Include="Pages\SC_ViewDepartment.aspx" />
     <Content Include="Pages\SC_ViewReorderReport.aspx" />
     <Content Include="Pages\SM_AddCatalog.aspx" />
     <Content Include="Pages\SM_AddItem.aspx" />
@@ -220,7 +223,7 @@
     <Content Include="Pages\Emp_MyRequisition.aspx" />
     <Content Include="Pages\Emp_Notification.aspx" />
     <Content Include="Pages\Emp_Representative.aspx" />
-    <Content Include="Pages\Emp_Rep_RequisitionHistory.aspx" />
+    <Content Include="Pages\Emp_Rep_DisbursementHistory.aspx" />
     <Content Include="Pages\Emp_Rep_SelectCollection.aspx" />
     <Content Include="Pages\Emp_SubmitRequisition.aspx" />
     <Content Include="Pages\login.aspx" />
@@ -247,6 +250,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\DAO\AdjustmentVoucherDAO.cs" />
+    <Compile Include="App_Code\DAO\AdjustmentVoucherItemDAO.cs" />
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
     <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
     <Compile Include="App_Code\DAO\DelegateDAO.cs" />
@@ -275,6 +280,8 @@
     <Compile Include="App_Code\UtilClass\ItemCart.cs" />
     <Compile Include="App_Code\UtilClass\LogicUExceptions.cs" />
     <Compile Include="App_Code\UtilClass\Logout.cs" />
+    <Compile Include="App_Code\UtilClass\POItem.cs" />
+    <Compile Include="App_Code\UtilClass\ReorderCart.cs" />
     <Compile Include="App_Code\UtilClass\ReorderItem.cs" />
     <Compile Include="App_Code\UtilClass\ReqItems_custom.cs" />
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
@@ -463,12 +470,12 @@
     <Compile Include="Pages\Emp_Representative.aspx.designer.cs">
       <DependentUpon>Emp_Representative.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.cs">
-      <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.designer.cs">
-      <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.designer.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
@@ -504,6 +511,13 @@
     </Compile>
     <Compile Include="Pages\SC_Inv_AdjustmentVoucher.aspx.designer.cs">
       <DependentUpon>SC_Inv_AdjustmentVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_AdjVoucherDetail.aspx.cs">
+      <DependentUpon>SC_Inv_AdjVoucherDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_Inv_AdjVoucherDetail.aspx.designer.cs">
+      <DependentUpon>SC_Inv_AdjVoucherDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_Inv_ManageReorder.aspx.cs">
       <DependentUpon>SC_Inv_ManageReorder.aspx</DependentUpon>
@@ -554,12 +568,12 @@
     <Compile Include="Pages\SC_PrintPurchaseOrder.aspx.designer.cs">
       <DependentUpon>SC_PrintPurchaseOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_ReorderList.aspx.cs">
-      <DependentUpon>SC_ReorderList.aspx</DependentUpon>
+    <Compile Include="Pages\SC_ReorderHistory.aspx.cs">
+      <DependentUpon>SC_ReorderHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_ReorderList.aspx.designer.cs">
-      <DependentUpon>SC_ReorderList.aspx</DependentUpon>
+    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs">
+      <DependentUpon>SC_ReorderHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
@@ -588,6 +602,20 @@
     </Compile>
     <Compile Include="Pages\SC_RO_RetrievalForms.aspx.designer.cs">
       <DependentUpon>SC_RO_RetrievalForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_ViewCatalog.aspx.cs">
+      <DependentUpon>SC_ViewCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_ViewCatalog.aspx.designer.cs">
+      <DependentUpon>SC_ViewCatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_ViewDepartment.aspx.cs">
+      <DependentUpon>SC_ViewDepartment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_ViewDepartment.aspx.designer.cs">
+      <DependentUpon>SC_ViewDepartment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_ViewReorderReport.aspx.cs">
       <DependentUpon>SC_ViewReorderReport.aspx</DependentUpon>

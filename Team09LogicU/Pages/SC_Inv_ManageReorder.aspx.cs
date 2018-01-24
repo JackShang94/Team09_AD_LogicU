@@ -46,7 +46,7 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            Session["reorderList"] = list;
+            System.Web.HttpContext.Current.Session["reorderList"] = list;
 
             GridView_reorderList.DataSource = list;
             GridView_reorderList.DataBind();
@@ -55,7 +55,7 @@ namespace Team09LogicU.Pages
         private void BindGrid()
         {
             List<ReorderItem> list = new List<ReorderItem>();
-            list = (List<ReorderItem>)Session["reorderList"];
+            list = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
             GridView_reorderList.DataSource = list;
             GridView_reorderList.DataBind();
         }
@@ -74,18 +74,30 @@ namespace Team09LogicU.Pages
             int orderQty = Int32.Parse((row.FindControl("txtOrderQty") as TextBox).Text);
 
             List<ReorderItem> reorderList = new List<ReorderItem>();
-            reorderList = (List<ReorderItem>)Session["reorderList"];
+            reorderList = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
 
+
+            SupplierItem SupItem = new SupplierItem();
+            Item item = new Item();
+            SupItem = supItemDAO.findSupplierItemByItemIDAndSupplier(itemID, supplierID);
+            item = itemDAO.getItemByID(itemID);
             foreach (ReorderItem rItem in reorderList)
             {
                 if (rItem.ItemID == itemID)
                 {
+                    rItem.ItemID = itemID;
                     rItem.OrderQty = orderQty;
                     rItem.SupplierID = supplierID;
+                    rItem.ReorderLevel = item.reorderLevel;
+                    rItem.ReorderQty = item.reorderQty;
+                    rItem.Description = item.description;
+                    rItem.Price = SupItem.price;
+                    rItem.UnitOfMeasure = item.unitOfMeasure;
+                    rItem.QtyOnHand = item.qtyOnHand;
                 }
             }
 
-            Session["reorderList"] = reorderList;
+            System.Web.HttpContext.Current.Session["reorderList"] = reorderList;
 
             GridView_reorderList.EditIndex = -1;
             BindGrid();
@@ -124,6 +136,7 @@ namespace Team09LogicU.Pages
         {
             Response.Redirect("SC_ViewReorderReport.aspx");
         }
+
     }
 
 }
