@@ -11,7 +11,10 @@ namespace Team09LogicU.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
         }
     }
 }

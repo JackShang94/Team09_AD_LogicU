@@ -186,8 +186,8 @@ namespace Team09LogicU.pages
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            //retrievalDAO.ConfirmRetrieval(SC_RO_RetrievalForms.lrfi);//haven't been tested
-            //HttpContext.Current.Response.Redirect("");//who the hell may know 
+            retrievalDAO.ConfirmRetrieval(SC_RO_RetrievalForms.lrfi);//haven't been tested
+            HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");//who the hell may know 
         }
 
         protected void breakdownGridView_RowUpdated(object sender, GridViewUpdatedEventArgs e)
