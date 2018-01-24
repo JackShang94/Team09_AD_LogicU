@@ -24,6 +24,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<StockCard> sList = context.StockCards.Where(x => x.Item.Category.description == cat).ToList<StockCard>();
             return sList;
+
         }
 
         //search stock card by items
