@@ -41,12 +41,13 @@ Retrieval Forms
 					</columns>
 				</asp:GridView>
 				</ContentTemplate>
+			
 		</asp:UpdatePanel>
 		
 		<asp:UpdatePanel ID="breakdownUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
 				<%--need to highlight the selected row--%>
-				<asp:GridView ID="breakdownGridView" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px">
+				<asp:GridView ID="breakdownGridView" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
 					<Columns>
 						<asp:TemplateField HeaderText="Dept name">
 							<ItemTemplate>
@@ -69,7 +70,7 @@ Retrieval Forms
 						<%--<asp:BoundField DataField="actual" HeaderText="Actual"/>--%>
 						<asp:TemplateField HeaderText="action">
 								<EditItemTemplate>
-									<asp:LinkButton ID="actual_qtyUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("deptID") %>'  EnableViewState="False"></asp:LinkButton><!-- -->
+									<asp:LinkButton ID="actual_qtyUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("deptID") %>'  EnableViewState="False" OnClick="actual_qtyUpdate_Click"></asp:LinkButton><!-- -->
 									<asp:LinkButton ID="actual_qtyCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Eval("deptID") %>' EnableViewState="False"></asp:LinkButton>
 							</EditItemTemplate>
 							<ItemTemplate>
