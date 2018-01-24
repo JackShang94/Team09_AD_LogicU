@@ -159,7 +159,7 @@
     <Content Include="Pages\SC_Inv_AdjVoucherDetail.aspx" />
     <Content Include="Pages\SC_Inv_ManageReorder.aspx" />
     <Content Include="Pages\SC_Inv_StockCardDetail.aspx" />
-    <Content Include="Pages\SC_Inv_StockManagement.aspx" />
+    <Content Include="Pages\SC_Inv_ViewInventoryList.aspx" />
     <Content Include="Pages\SC_Notification.aspx" />
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
@@ -261,6 +261,7 @@
     <Compile Include="App_Code\DAO\DisbursementDAO.cs" />
     <Compile Include="App_Code\DAO\ItemDAO.cs" />
     <Compile Include="App_Code\DAO\LoginDAO.cs" />
+    <Compile Include="App_Code\DAO\NotificationDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderDAO.cs" />
@@ -534,12 +535,12 @@
     <Compile Include="Pages\SC_Inv_StockCardDetail.aspx.designer.cs">
       <DependentUpon>SC_Inv_StockCardDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_Inv_StockManagement.aspx.cs">
-      <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
+    <Compile Include="Pages\SC_Inv_ViewInventoryList.aspx.cs">
+      <DependentUpon>SC_Inv_ViewInventoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_Inv_StockManagement.aspx.designer.cs">
-      <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
+    <Compile Include="Pages\SC_Inv_ViewInventoryList.aspx.designer.cs">
+      <DependentUpon>SC_Inv_ViewInventoryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_Notification.aspx.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>

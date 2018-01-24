@@ -60,11 +60,10 @@
 											
 										</div> 
 										 <div class="col-lg-10" style="margin-bottom:20px;margin-top:20px" >
-										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" EmptyDataText="There is no history">
+										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True" AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" EmptyDataText="There is no history">
 											<Columns>
 												<asp:TemplateField>
 													<ItemTemplate>
-														
 														<asp:Label ID="req_history_autoLabel" runat="server"><%# Container.DataItemIndex+1 %></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>

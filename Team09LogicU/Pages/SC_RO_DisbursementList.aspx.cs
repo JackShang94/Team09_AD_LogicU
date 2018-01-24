@@ -74,15 +74,16 @@ namespace Team09LogicU.pages
         {
             GridViewRow row = GridView1.Rows[e.RowIndex];
             int actual = Int32.Parse((row.FindControl("Actual") as TextBox).Text);
-            List<DisbursementCart> updateList = (List<DisbursementCart>)Session["list"];
-            foreach(DisbursementCart s in updateList)
-            {
-                s.Actual = actual;
-            }
-            GridView1.EditIndex = -1;
-            Session["list"] = updateList;
-            GridView1.DataSource = updateList;
-            GridView1.DataBind();
+            
+                List<DisbursementCart> updateList = (List<DisbursementCart>)Session["list"];
+                foreach (DisbursementCart s in updateList)
+                {
+                    s.Actual = actual;
+                }
+                GridView1.EditIndex = -1;
+                Session["list"] = updateList;
+                GridView1.DataSource = updateList;
+                GridView1.DataBind();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -90,6 +91,11 @@ namespace Team09LogicU.pages
             GridView1.EditIndex = -1;
             GridView1.DataSource = (List<DisbursementCart>)Session["list"];
             GridView1.DataBind();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
