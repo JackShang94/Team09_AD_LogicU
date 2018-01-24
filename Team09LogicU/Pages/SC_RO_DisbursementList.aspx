@@ -11,7 +11,7 @@
                     <div class=" col-md-12" style="margin-left:-20px;">
                    <div class="col-lg-3" style="margin-top:20px">
                     <asp:Label ID="Label1" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="100px"></asp:DropDownList>
                    </div> 
                          <div class="col-lg-12" style="margin-top:20px">
                         <asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
