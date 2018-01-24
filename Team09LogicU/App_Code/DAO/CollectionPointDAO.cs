@@ -24,5 +24,12 @@ namespace Team09LogicU.App_Code.DAO
             return context.CollectionPoints.Where(x => x.description == description).First();
         }
 
+        public void updatecollection(string storestaffID,string description)
+        {
+            CollectionPoint col = context.CollectionPoints.Where(x => x.description == description).First();
+            col.storeStaffID = storestaffID;
+            context.SaveChanges();
+        }
+
     }
 }
