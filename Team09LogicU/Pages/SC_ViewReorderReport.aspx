@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <form id="form1" runat="server">
+        
         <asp:GridView ID="GridView_reorderListBySup" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <Columns>
@@ -31,6 +32,8 @@
             </Columns>
             <HeaderStyle CssClass=" content text-uppercase  " />
         </asp:GridView>
+         <asp:Button ID="btnSubmit" runat="server" Text="Submit Order" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnSubmit_Click" />
+        <asp:Button ID="btnReorderReport" runat="server" Text="Generate Reorder Report" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnReorderReport_Click" />
     </form>
 
 </asp:Content>

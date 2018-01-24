@@ -53,5 +53,10 @@ namespace Team09LogicU.Pages
             GridView_PurchaseOrder.DataBind();
 
         }
+
+        protected void btnPrintPO_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

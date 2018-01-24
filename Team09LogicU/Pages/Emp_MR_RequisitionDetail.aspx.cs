@@ -14,7 +14,6 @@ namespace Team09LogicU.Pages
         private string status;
         public int reqID;
         public int reqItemID;
-        //public List<RequisitionItem> lr_temp;
         public List<ReqItems_custom> lr_temp;
         public void initPendingDataGrid()
         {
@@ -182,7 +181,7 @@ namespace Team09LogicU.Pages
             initPendingDataGrid();
         }
 
-
+   
     }
     
 }
