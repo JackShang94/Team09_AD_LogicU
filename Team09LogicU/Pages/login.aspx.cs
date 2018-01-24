@@ -15,12 +15,13 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
              loginDAO = new LoginDAO();
-            if (Request.Cookies["MyCook"] != null)
-            {
-                TextBox1.Text = Request.Cookies["MyCook"]["userid"].ToString();             
-                TextBox2.Attributes.Add("value", Request.Cookies["MyCook"]["password"].ToString());
-                CheckBox1.Checked = true;
-            }
+            //if (Request.Cookies[TextBox1.Text] != null)
+            //{
+                
+            //    TextBox1.Text = Request.Cookies[TextBox1.Text]["userid"].ToString();             
+            //    TextBox2.Attributes.Add("value", Request.Cookies[TextBox1.Text]["password"].ToString());
+            //    CheckBox1.Checked = true;
+            //}
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace Team09LogicU.pages
                 Session["loginRole"] = result[1];           
                 if (CheckBox1.Checked)
                 {
-                    HttpCookie cookie = new HttpCookie("MyCook");
+                    HttpCookie cookie = new HttpCookie(username);
                     DateTime dt = DateTime.Now;
                     TimeSpan ts = new TimeSpan(0, 0, 100, 0, 0);
                     cookie.Expires = dt.Add(ts);

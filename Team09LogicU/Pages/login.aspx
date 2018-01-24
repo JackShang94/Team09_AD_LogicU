@@ -21,7 +21,7 @@
                                    </div>
              <div class="footer text-center">
                                    
-                  <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning btn-wd btn-fill" Text="Login" OnClick="Button1_Click" />
+                  <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning btn-wd btn-fill" Text="Login" OnClick="Button1_Click" EnableViewState="False" />
                                 </div>
              </div>
         
