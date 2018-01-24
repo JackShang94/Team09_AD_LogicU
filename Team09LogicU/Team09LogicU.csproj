@@ -223,7 +223,7 @@
     <Content Include="Pages\Emp_MyRequisition.aspx" />
     <Content Include="Pages\Emp_Notification.aspx" />
     <Content Include="Pages\Emp_Representative.aspx" />
-    <Content Include="Pages\Emp_Rep_RequisitionHistory.aspx" />
+    <Content Include="Pages\Emp_Rep_DisbursementHistory.aspx" />
     <Content Include="Pages\Emp_Rep_SelectCollection.aspx" />
     <Content Include="Pages\Emp_SubmitRequisition.aspx" />
     <Content Include="Pages\login.aspx" />
@@ -470,12 +470,12 @@
     <Compile Include="Pages\Emp_Representative.aspx.designer.cs">
       <DependentUpon>Emp_Representative.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.cs">
-      <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.designer.cs">
-      <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.designer.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
