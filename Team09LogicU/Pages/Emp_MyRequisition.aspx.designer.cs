@@ -58,6 +58,15 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.UpdatePanel reqHisUpdatePanel;
         
         /// <summary>
+        /// label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label1;
+        
+        /// <summary>
         /// fromDate control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace Team09LogicU.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fromDate;
+        
+        /// <summary>
+        /// label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label2;
         
         /// <summary>
         /// toDate control.
@@ -85,12 +103,21 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Button searchButton;
         
         /// <summary>
-        /// requisitionHistoryGridView control.
+        /// req_history_autoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView requisitionHistoryGridView;
+        protected global::System.Web.UI.WebControls.Label req_history_autoLabel;
+        
+        /// <summary>
+        /// viewReqDetailBtn_h control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton viewReqDetailBtn_h;
     }
 }
