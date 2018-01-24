@@ -60,7 +60,7 @@
 											
 										</div> 
 										 <div class="col-lg-10" style="margin-bottom:20px;margin-top:20px" >
-										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True" <%-- OnPageIndexChanging="requisitionHistoryGridView_PageIndexChanging" --%> AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" EmptyDataText="There is no history">
+										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True" AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" EmptyDataText="There is no history">
 											<Columns>
 												<asp:TemplateField>
 													<ItemTemplate>
