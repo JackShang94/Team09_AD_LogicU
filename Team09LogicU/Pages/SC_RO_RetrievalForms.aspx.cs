@@ -18,16 +18,25 @@ namespace Team09LogicU.pages
         private static string deptID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string name = Session["loginID"].ToString();
-            string role = Session["loginRole"].ToString();
-            if (name == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("login.aspx");
-            }
-            if (role != "clerk")
+                string name = Session["loginID"].ToString();
+                string role = Session["loginRole"].ToString();
+                if (name == null)
+                {
+                    Response.Redirect("login.aspx");
+                }
+                if (role != "clerk")
+                {
+                    Response.Redirect("login.aspx");
+                }
+            }else
             {
-                Response.Redirect("login.aspx");
+                //retrievalGridView.DataSource = SC_RO_RetrievalForms.lrfi;
+                //retrievalGridView.DataBind();
+                //retrievalUpdatePanel.Update();
             }
+           
             //*******************************this is test code****************//
             //DateTime date = new DateTime(2018, 1, 21);
 
@@ -130,31 +139,40 @@ namespace Team09LogicU.pages
             //string deptID = SC_RO_RetrievalForms.deptID;
             string itemID = SC_RO_RetrievalForms.itemID;
             List<RetrievalFormItem> lrfi = SC_RO_RetrievalForms.lrfi;
-            int index;
+            int sum=0;
             var x = lrfi[0].BreakList;
+
             /**********************To find out the editing row and save it to lrfi**********************/
             for (int i=0;i<lrfi.Count;i++)
             {
                 if (lrfi[i].ItemID == itemID)
                 {
-                    index = i;
+                   
                     for (int j=0;j<lrfi[i].BreakList.Count;j++)
                     {
                         if (lrfi[i].BreakList[j].DeptID == deptID)
                         {
                             lrfi[i].BreakList[j].Actual = a;
+                            
                             x = lrfi[i].BreakList;
-                            break;
+                            //break;
                         }
+                        sum += lrfi[i].BreakList[j].Actual;
                     }
+                    lrfi[i].Actual = sum;
                     break;
                 }
             }
+            
             SC_RO_RetrievalForms.lrfi = lrfi;
            
             breakdownGridView.EditIndex = -1;
             breakdownGridView.DataSource =x;
             breakdownGridView.DataBind();
+
+            retrievalGridView.DataSource = SC_RO_RetrievalForms.lrfi;
+            retrievalGridView.DataBind();
+            retrievalUpdatePanel.Update();
         }
 
         protected void breakdownGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -168,8 +186,15 @@ namespace Team09LogicU.pages
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            //retrievalDAO.ConfirmRetrieval(SC_RO_RetrievalForms.lrfi);//haven't been tested
-            //HttpContext.Current.Response.Redirect("");//who the hell may know 
+            retrievalDAO.ConfirmRetrieval(SC_RO_RetrievalForms.lrfi);//haven't been tested
+            HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");//who the hell may know 
         }
+
+        protected void breakdownGridView_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {//doens't be triggered???
+            
+        }
+
+   
     }
 }

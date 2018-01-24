@@ -106,7 +106,7 @@ namespace Team09LogicU.Pages
             GridView_reorderList.EditIndex = -1;
             BindGrid();
         }
-
+       
         protected void RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
