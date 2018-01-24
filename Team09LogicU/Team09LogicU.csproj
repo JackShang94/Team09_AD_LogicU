@@ -261,6 +261,7 @@
     <Compile Include="App_Code\DAO\DisbursementDAO.cs" />
     <Compile Include="App_Code\DAO\ItemDAO.cs" />
     <Compile Include="App_Code\DAO\LoginDAO.cs" />
+    <Compile Include="App_Code\DAO\NotificationDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderDAO.cs" />
