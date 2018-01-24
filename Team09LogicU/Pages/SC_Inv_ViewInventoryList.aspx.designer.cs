@@ -40,12 +40,12 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList_cat;
         
         /// <summary>
-        /// GridView_stock control.
+        /// View control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_stock;
+        protected global::System.Web.UI.WebControls.LinkButton View;
     }
 }
