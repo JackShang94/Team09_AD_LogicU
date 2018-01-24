@@ -149,10 +149,7 @@
                             </div>
 			</div>--%>
                
-    	    <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-    <script src="../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+
 
 
 	   <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
