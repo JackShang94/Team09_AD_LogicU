@@ -13,6 +13,7 @@ namespace Team09LogicU.pages
     {
         public List<Requisition> lr;
         public string staffID;
+        const int FixedRowCount = 4;
         protected void Page_Load(object sender, EventArgs e)
         {
             //for session judgment
@@ -72,6 +73,19 @@ namespace Team09LogicU.pages
                 requisitionListGridView.DataSource = rdao.getReqByStaffIDandStatus(name,"pending");
                 requisitionListGridView.DataBind();
             }
+            //if (e.CommandName == "go")
+            //{
+            //    try
+            //    {
+            //        TextBox tb = (TextBox)requisitionListGridView.BottomPagerRow.FindControl("inPageNum");
+            //        int num = Int32.Parse(tb.Text);
+            //        GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+            //        requisitionHistoryGridView_PageIndexChanging(null, ea);
+            //    }
+            //    catch
+            //    {
+            //    }
+            //}
         }
 
         protected void editReqDetailBtn_Click(object sender, EventArgs e)
@@ -113,5 +127,20 @@ namespace Team09LogicU.pages
             requisitionHistoryGridView.DataSource=rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
             requisitionHistoryGridView.DataBind();
         }
+
+        //protected void requisitionHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        //{
+        //    try
+        //    {
+        //        requisitionHistoryGridView.PageIndex = e.NewPageIndex;
+        //        //displayDelegationListAndRole(deptID);
+
+        //        TextBox tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
+        //        tb.Text = (requisitionHistoryGridView.PageIndex + 1).ToString();
+        //    }
+        //    catch
+        //    {
+        //    }
+        //}
     }
 }
