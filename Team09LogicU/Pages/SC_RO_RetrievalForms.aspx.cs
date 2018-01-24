@@ -18,16 +18,25 @@ namespace Team09LogicU.pages
         private static string deptID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string name = Session["loginID"].ToString();
-            string role = Session["loginRole"].ToString();
-            if (name == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("login.aspx");
-            }
-            if (role != "clerk")
+                string name = Session["loginID"].ToString();
+                string role = Session["loginRole"].ToString();
+                if (name == null)
+                {
+                    Response.Redirect("login.aspx");
+                }
+                if (role != "clerk")
+                {
+                    Response.Redirect("login.aspx");
+                }
+            }else
             {
-                Response.Redirect("login.aspx");
+                //retrievalGridView.DataSource = SC_RO_RetrievalForms.lrfi;
+                //retrievalGridView.DataBind();
+                //retrievalUpdatePanel.Update();
             }
+           
             //*******************************this is test code****************//
             //DateTime date = new DateTime(2018, 1, 21);
 
@@ -146,10 +155,11 @@ namespace Team09LogicU.pages
                             lrfi[i].BreakList[j].Actual = a;
                             
                             x = lrfi[i].BreakList;
-                            break;
+                            //break;
                         }
-                        //sum += lrfi[i].BreakList[j];
+                        sum += lrfi[i].BreakList[j].Actual;
                     }
+                    lrfi[i].Actual = sum;
                     break;
                 }
             }
@@ -160,7 +170,6 @@ namespace Team09LogicU.pages
             breakdownGridView.DataSource =x;
             breakdownGridView.DataBind();
 
-            
             retrievalGridView.DataSource = SC_RO_RetrievalForms.lrfi;
             retrievalGridView.DataBind();
             retrievalUpdatePanel.Update();
@@ -186,9 +195,6 @@ namespace Team09LogicU.pages
             
         }
 
-        protected void actual_qtyUpdate_Click(object sender, EventArgs e)
-        {
-        
-        }
+   
     }
 }

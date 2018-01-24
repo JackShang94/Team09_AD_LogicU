@@ -70,7 +70,7 @@ Retrieval Forms
 						<%--<asp:BoundField DataField="actual" HeaderText="Actual"/>--%>
 						<asp:TemplateField HeaderText="action">
 								<EditItemTemplate>
-									<asp:LinkButton ID="actual_qtyUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("deptID") %>'  EnableViewState="False" OnClick="actual_qtyUpdate_Click"></asp:LinkButton><!-- -->
+									<asp:LinkButton ID="actual_qtyUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("deptID") %>'  EnableViewState="False" ></asp:LinkButton><!-- -->
 									<asp:LinkButton ID="actual_qtyCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Eval("deptID") %>' EnableViewState="False"></asp:LinkButton>
 							</EditItemTemplate>
 							<ItemTemplate>
