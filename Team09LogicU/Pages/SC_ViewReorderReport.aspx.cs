@@ -64,5 +64,15 @@ namespace Team09LogicU.Pages
                 Response.Redirect("SC_PrintPurchaseOrder.aspx?supplierID=" + supplierID);
             }
         }
+
+        protected void btnReorderReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -11,6 +11,7 @@ Requisition Detail
 							
 									
 								<form id ="viewRequisitionDetailForm" runat="server">
+									<asp:Button  runat="server" ID="addBtn" Text="add" EnableViewState="False" />
 									<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 									<asp:UpdatePanel ID="reqDetailUpdatePanel" runat="server" UpdateMode="Always">
 										<ContentTemplate>
