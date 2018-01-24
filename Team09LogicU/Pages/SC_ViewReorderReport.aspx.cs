@@ -23,7 +23,7 @@ namespace Team09LogicU.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             List<ReorderItem> list = new List<ReorderItem>();
-            list = (List<ReorderItem>)Session["reorderList"];
+            list = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
 
             string staffID = (string)Session["loginID"];
 
@@ -35,7 +35,7 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            Session["finalReorderList"] = list;
+            System.Web.HttpContext.Current.Session["finalReorderList"] = list;
 
             var groupedSupplierList = list.Select(x => x.SupplierID).Distinct().ToList();
             

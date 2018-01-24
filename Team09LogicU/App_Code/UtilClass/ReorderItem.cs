@@ -20,6 +20,7 @@ namespace Team09LogicU.App_Code.UtilClass
 
         private int orderQty;
         private string supplierID;
+        private decimal price;
 
 
         public string ItemID
@@ -128,6 +129,18 @@ namespace Team09LogicU.App_Code.UtilClass
             set
             {
                 supplierID = value;
+            }
+        }
+
+        public decimal Price
+        {
+            get
+            {
+                return price;
+            }
+            set
+            {
+                price = value;
             }
         }
 
