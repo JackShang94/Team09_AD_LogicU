@@ -14,7 +14,7 @@
                        <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="100px"></asp:DropDownList>
                    </div> 
                          <div class="col-lg-12" style="margin-top:20px">
-                        <asp:LinkButton ID="LinkButton1" runat="server">View Current Disbursement By Department</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">View Current Disbursement By Department</asp:LinkButton>
                          </div>
                     <div class="col-lg-10">
                        
