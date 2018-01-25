@@ -17,16 +17,15 @@ Adjustment Voucher
                             <asp:TextBox ID="textbox_Search"   class="form-control " runat="server" Width="200px"   ></asp:TextBox>  
 
                             </div>
-                       
+
+
                             </div>
                         <div class="pull-right" style="width:20%">
                          <asp:Button ID="Button_Search" runat="server" Width="100%" Text="Search"  CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click"  />
-                        </div>
-                           
-                        </div>
+                        </div>          
                         </div>
                         </div>
-
+                        </div>
                          </div>
                       </div>
    
@@ -36,23 +35,22 @@ Adjustment Voucher
                 <div class="content">
                 <div class="row">
                     <div class="col-lg-12">
-                              
                             <div class="content">
-                                  <div class="container-fluid">
-								
-<%--                                     <asp:LinkButton ID="LinkButton_ViewAllADJvoucherList" runat="server" Text="ViewADJList">LinkButton</asp:LinkButton>--%>
-                                     <asp:label ID="label" runat="server" text="Label"></asp:label>
-                                     
-                                      <asp:GridView ID="GridView_CatalogList" OnRowCommand =" GridView_CatalogList_RowCommand" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  EmptyDataText="There are no Item" AllowPaging="True"  >
-                                                  
-            
+                                  <asp:ScriptManager ID="ScriptManager1" runat="server">                 
+                                       </asp:ScriptManager>
+                                  <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="True">
+                                      <ContentTemplate>
+                                      <div>
+                                  <div class="container-fluid">							
+                            <%-- <asp:LinkButton ID="LinkButton_ViewAllADJvoucherList" runat="server" Text="ViewADJList">LinkButton</asp:LinkButton>--%>
+                          <%--  <asp:label ID="label" runat="server" text="Label"></asp:label>--%>
+                                   
+                                      <asp:GridView ID="GridView_CatalogList" OnRowCommand =" GridView_CatalogList_RowCommand" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  EmptyDataText="There are no Item" AllowPaging="True"  >      
                                                 <Columns>
-                                                        
                                                     <asp:BoundField DataField="itemID" HeaderText="item ID:" />
                                                     <asp:BoundField DataField="categoryID" HeaderText="categoryID:" />
                                                     <asp:BoundField DataField="description" HeaderText="description:" />
                                                     <asp:BoundField DataField="unitOfMeasure" HeaderText="unit Of Measure:" />
-                                                   
                                                      <asp:TemplateField HeaderText="Action" ShowHeader="False">
                                                         <ItemTemplate>
                                                             <asp:LinkButton ID="LinkButton_Add" runat="server" CausesValidation="False" Text="Add"  CommandName="Add"  CommandArgument='<%# Eval("itemID") %>'></asp:LinkButton>
@@ -61,21 +59,68 @@ Adjustment Voucher
                                                 </Columns>
                                                <%-- <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>--%>
                                             </asp:GridView>
-
-        				        
-        				        </div>                					
-        				        
+                                            
+        				        </div>  
+                                 </div>
+                                          </ContentTemplate>
+                                        </asp:UpdatePanel>
                             </div><!-- end content-->
-                       
                     </div> <!-- end col-md-12 -->
                 </div> <!-- end row -->
-
             </div>
         </div>                          
-        <asp:Button ID="Btn_Adjvlist"  runat="server" Text="View Adjustment Voucher List" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Adjvlist_Click"  /> 
-        <%--  <asp:Button ID="Btn_Cancel"  runat="server"  Text="Cancel"  CssClass="btn btn-default  btn-fill btn-wd"  />--%>
 
     </div>
+
+          <div class="col-lg-4">
+                         <div class="card">
+                           <div class="text-center">
+                               <div class ="content">
+                                   <asp:Button ID="Submit" runat="server" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
+                               </div>
+                               <div class="content">
+                                   
+                                    <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit" EnableViewState="False">
+                                        <ContentTemplate>
+                                              <asp:Repeater ID="cartRepeater" runat="server" OnItemCommand="cartRepeater_ItemCommand" ViewStateMode="Disabled" >
+                                                <HeaderTemplate>
+													   <table class="table">
+																				<tr class="category">
+																				<td></td>
+                                    											<td>ItemID</td>
+                                    											<td>Amount</td>
+																				<td class="text-right">Action</td>
+																			</tr>
+                                                   </HeaderTemplate>
+                                                   <ItemTemplate>
+                                                                        <tr>
+                                                                            <td></td>
+                                    	                                    <td>   <%#Eval("itemID") %></td>
+                                    	                                    <td class="text-center" style="width:30%">
+                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
+                                                                                    
+                                                                                </asp:TextBox>
+                                    	                                    </td>
+                                                                            <td class="td-actions text-right" style="">
+                                                                                <asp:LinkButton ID="cart_deleteButton" runat="server" Text="delete"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>
+                                                                        <%--   <i class="fa fa-times"></i>--%>
+                                                                            </td>
+                                                                        </tr>
+                                                    </ItemTemplate>
+                                                    <FooterTemplate>
+                                                                        
+                                                                    </table>
+                                                    </FooterTemplate> 
+                                                 </asp:Repeater>
+                                            
+                                            </ContentTemplate>
+                                           
+                                        </asp:UpdatePanel>              
+                               </div>
+                             </div>
+                         </div>
+                     </div>       
+
           </form>
 
      <div class="fixed-plugin">

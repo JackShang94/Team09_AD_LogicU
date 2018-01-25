@@ -15,7 +15,7 @@ namespace Team09LogicU.pages
     {
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
         DelegateDAO delegateDAO = new DelegateDAO();
-        DateTime operationDate = DateTime.Today.AddDays(6);//assume it is the current date
+        DateTime operationDate = DateTime.Today;//assume it is the current date
         string logInStaffId;
         string logInRole;
         List<Models.Delegate> dList = new List<Models.Delegate>();
@@ -100,15 +100,17 @@ namespace Team09LogicU.pages
                 {
                     //add a new delegation
                     delegateDAO.delegateToStaff(selectedStaffId, sDate, eDate);
-                    Response.Write("<script>alert('Delegated succussfully!')</script>");
+                   
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Delegated succussfully!');</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Please select valid date!')</script>");
+                   
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please select valid date!');</script>");
                 }
 
             }
-            catch { Response.Write("<script>alert('Failed to submit!')</script>"); }
+            catch {  ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Failed to submit!');</script>"); }
 
             finally
             {
@@ -126,16 +128,16 @@ namespace Team09LogicU.pages
                 if (status == "active" || status == "On delegation")
                 {
                     delegateDAO.cancelDelegation(dID);                   
-                    Response.Write("<script>alert('Successful!')</script>");
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Successful!');</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('This delegation is already inactive')</script>");
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'This delegation is already inactive!');</script>");
                 }
             }
             else
             {
-                Response.Write("<script>alert('Please select at least one delegation!')</script>");
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please select at least one delegation!');</script>");
             }
             displayDelegationListAndRole(deptID);
         }
