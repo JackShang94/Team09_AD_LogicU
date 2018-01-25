@@ -24,12 +24,13 @@ namespace Team09LogicU.App_Code.DAO
             return context.AdjustmentVoucherItems.Where(x => x.adjVID == adjvID).ToList<AdjustmentVoucherItem>();
         }
 
-        public AdjustmentVoucherItem addAdjustmentVoucherItem(int adjVID, string itemID,int qty)
+        public AdjustmentVoucherItem addAdjustmentVoucherItem(int adjVID, string itemID,int qty,string record)
         {
             AdjustmentVoucherItem adjvoucheritem = new AdjustmentVoucherItem();
             adjvoucheritem.quantity = qty;
             adjvoucheritem.itemID = itemID;
             adjvoucheritem.adjVID = adjVID;
+            adjvoucheritem.record = record;
             return adjvoucheritem;
            
         }

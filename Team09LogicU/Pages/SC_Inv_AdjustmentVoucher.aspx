@@ -89,6 +89,7 @@ Adjustment Voucher
 																				<td></td>
                                     											<td>ItemID</td>
                                     											<td>Amount</td>
+                                                                                <td>Record</td>
 																				<td class="text-right">Action</td>
 																			</tr>
                                                    </HeaderTemplate>
@@ -100,6 +101,11 @@ Adjustment Voucher
                                                                                 <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
                                                                                     
                                                                                 </asp:TextBox>
+                                    	                                    </td>
+                                                                             <td class="text-center" style="width:30%">
+                                                                              <asp:TextBox ID="cart_recordTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Record") %>' >
+                                                                                    
+                                                                              </asp:TextBox>
                                     	                                    </td>
                                                                             <td class="td-actions text-right" style="">
                                                                                 <asp:LinkButton ID="cart_deleteButton" runat="server" Text="delete"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>

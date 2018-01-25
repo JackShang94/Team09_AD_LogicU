@@ -31,27 +31,17 @@ namespace Team09LogicU.Pages
         {
        
             if (!IsPostBack)
-            {
-
-               
+            {           
                 this.BindGrid();
-
-
                 if (Session["adjvcart"] == null)
                 {
                     Session["adjvcart"] = new List<AdjustmentVouchercart>();
                 }
-
-
-
                 /**********************Loading Cart List************************************/
 
                 //string name = Session["loginID"].ToString();
-
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
-                //name = "emp006";
-                //Session["loginID"] = name;
                 if (this.staffID == null)
                 {
                     Response.Redirect("login.aspx");
@@ -59,8 +49,6 @@ namespace Team09LogicU.Pages
                 }
 
                 string role = Session["loginRole"].ToString();
-                //role = "emp";
-                //Session["loginRole"] = role;
                 if (role != "clerk" )
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
@@ -88,14 +76,11 @@ namespace Team09LogicU.Pages
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
                 string role = Session["loginRole"].ToString();
-                //role = "emp";
-                //Session["loginRole"] = role;
                 if (role != "clerk" )
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
-                //string name = Session["loginID"].ToString();
                 List<AdjustmentVouchercart> lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
 
 
@@ -127,65 +112,43 @@ namespace Team09LogicU.Pages
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //List<Item> list = new List<Item>();
-
-            //string itemID = textbox_Search.Text;
-
-            //if (itemID == "")
-            //{
-
-            //    list = itemDAO.getItemList();
-            //}
-            //else
-            //{
-            //    list = itemDAO.getItemByitemID(itemID);
-            //}
-            //GridView_CatalogList.DataSource = list;
-            //GridView_CatalogList.DataBind();
+          
             ItemDAO idao = new ItemDAO();
             string sText = textbox_Search.Text.ToString();
             if (string.IsNullOrWhiteSpace(sText))
             {
-                //this.lcatalogue = id.getItemList();
-
-
                 updateCatalogue(idao.getItemList());
-                //catalogueUpdatePanel.Update();
-
                 return;
             }
             /******************SearchByItemID!!!!*******************************/
-            //this.lcatalogue = id.getItemByitemID(sText);
-
-
             updateCatalogue(idao.getItemByDesc(sText));
-            //catalogueUpdatePanel.Update();
         }
 
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            //string name = Session["loginID"].ToString();
             string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-            ///should use DAO
-            //string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID).First().ToString();//supposed to be in DepartmentDAO
-            ///
             List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
             lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
             if (lac.Count > 0)
             {
-                Dictionary<string, int> dict = new Dictionary<string, int>();
+
+                int num = 0;
                 foreach (Control i in cartRepeater.Items)//get Quantity
                 {
                     LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
-                    dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
-
+                    TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
+                    lac[num].ItemID = deletebtn.CommandArgument.ToString();
+                    lac[num].Qty = Int32.Parse(cartqty.Text.ToString());
+                    lac[num].Record = cartrecord.Text;
+                 
+                    num++;
                 }
-                AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
-                adjvdao.addAdjustmentVoucher(name, dict);
 
+                AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
+                adjvdao.addAdjustmentVoucher(name, lac);
                 lac = new List<AdjustmentVouchercart>();//clear the cart session
                 Session["adjvcart"] = lac;
                 HttpContext.Current.Response.Redirect("SC_ViewAdjustmentVoucher.aspx");
@@ -200,34 +163,26 @@ namespace Team09LogicU.Pages
 
         protected void GridView_CatalogList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
-            //if (e.CommandName == "Add")
-            //{
-            //    string itemid = e.CommandArgument.ToString();
-            //    //label.Text = itemid;
-            //}
-
            
             if (e.CommandName == "Add")
             {
                 List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
                 lac = (List<AdjustmentVouchercart>)Session["adjvcart"];//get cart from Session
-
-                //string name = Session["loginID"].ToString();//get name from Session
                 string name = this.staffID;
                 string itemid = e.CommandArgument.ToString();
-                // LinkButton b = (LinkButton)sender;//get this Button
-                //  string[] info = b.CommandArgument.ToString().Split('&');//only get this add button
                 int alert = 0;
                 foreach (Control i in cartRepeater.Items)//get Quantity from the cart
                 {
                     LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                    TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
                     string a = cartqty.Text;
+                    string b = cartrecord.Text;
                     foreach (var k in lac)
                     {
                         if (k.ItemID == deletebtn.CommandArgument.ToString())
                         {
+                            k.Record = b;
                             k.Qty = Int32.Parse(a);
                         }
 
@@ -240,6 +195,7 @@ namespace Team09LogicU.Pages
                             if (j.ItemID == itemid)//only for banning add repeated items
                             {
                                 j.Qty = Int32.Parse(a);//store current quantity into session
+                                j.Record = b;
                                 alert = 1;
                                 break;
                             }
@@ -257,13 +213,11 @@ namespace Team09LogicU.Pages
                 {
                     Name = name,
                     ItemID = itemid,
-                   //Description = info[1],//stupid
                     Qty = 1//default
                 };
 
                 lac.Add(c);
                 Session["adjvcart"] = lac;
-                //this.lcart = lc;
                 cartUpdatePanel.Update();
                 updateCart(lac);
             }
@@ -283,31 +237,22 @@ namespace Team09LogicU.Pages
             {
                 LinkButton deletebtn = cartRepeater.Items[i].FindControl("cart_deleteButton") as LinkButton;//get itemID
                 TextBox cartqty = cartRepeater.Items[i].FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                TextBox cartrecord = cartRepeater.Items[i].FindControl("cart_recordTextBox") as TextBox;//get current record
                 string a = cartqty.Text;
-                //find the item u wanna delete
-                //for (int j = lc.Count - 1; j >= 0; j--)
-                //{
+                string c= cartrecord.Text;
                 if (lac[i].ItemID == info)
                 {
                     lac.RemoveAt(i);
                     continue;
                 }
                 lac[i].Qty = Int32.Parse(a);
-
+                lac[i].Record = c;
 
             }
 
             Session["adjvcart"] = lac;
-
-            //this.lcart = lc;
             updateCart(lac);
         }
-
-
-
-
-
-            
             //cart delete
             protected void cartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
             {
