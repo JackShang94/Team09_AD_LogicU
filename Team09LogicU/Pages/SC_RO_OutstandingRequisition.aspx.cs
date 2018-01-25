@@ -32,7 +32,13 @@ namespace Team09LogicU.pages
                 }
                 deptDropDownList.DataSource = dpd.findAllDepartmentName();
                 deptDropDownList.DataBind();
-            }else
+                deptDropDownList.SelectedIndex=0;
+                this.deptName = deptDropDownList.SelectedItem.Text;
+                this.deptid = dpd.findDepartmentIdByName(this.deptName);
+                outstandingGridView.DataSource = (List<OutstandingCart>)Session["loc"];
+                outstandingGridView.DataBind();
+            }
+            else
             {
                 this.deptName = deptDropDownList.SelectedItem.Text;
                 this.deptid = dpd.findDepartmentIdByName(deptName);
@@ -46,7 +52,7 @@ namespace Team09LogicU.pages
         {
             this.deptName = deptDropDownList.SelectedItem.Text;
             this.deptid = dpd.findDepartmentIdByName(this.deptName);
-            collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(this.deptid);
+            //collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(this.deptid);
 
         }
 

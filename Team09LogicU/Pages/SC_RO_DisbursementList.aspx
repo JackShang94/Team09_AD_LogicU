@@ -65,10 +65,13 @@
                         <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
                           </div>  </div></div>
                         <div class="col-lg-3" style=" margin-top:40px;margin-bottom:20px">
-                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Inform representative" />
+                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Send Email representative" />
                        </div>
                      <div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
                         <asp:Button ID="Button2" runat="server" CssClass="btn btn-primary btn-wd " Text="Generate QR Code" />
+                       </div>
+					   <div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
+                        <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm" />
                        </div>
                        </div>
                     
