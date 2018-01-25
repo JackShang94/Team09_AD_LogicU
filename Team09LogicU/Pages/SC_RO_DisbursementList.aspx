@@ -18,9 +18,9 @@
 												 </div>--%>
 												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 												<div class="col-lg-10">
-																 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server">
+																 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server" UpdateMode="Conditional">
 																		<ContentTemplate>
-																			<asp:GridView ID="disburseGridView" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="disburseGridView_SelectedIndexChanged">
+																			<asp:GridView ID="disburseGridView" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="disburseGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="Red">
 																				<Columns>
 																					<asp:TemplateField Visible="false">
 																						<ItemTemplate>
@@ -41,13 +41,14 @@
 																</asp:UpdatePanel>
 												</div>
 												 <div class="col-lg-10">
-																 <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server">
+																 <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server" UpdateMode="Conditional">
 																	 <ContentTemplate>
-																				<asp:GridView ID="disburseItemGridView" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " DataKeyNames="itemDescription" AutoGenerateColumns="False"  OnRowEditing ="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True"   EmptyDataText="There is no disbursement">
+																				<asp:GridView ID="disburseItemGridView" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase "  AutoGenerateColumns="False"  OnRowEditing ="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True"   EmptyDataText="There is no disbursement">
 																					 <Columns>
-																								<asp:TemplateField Visible="false">
+																								<asp:TemplateField >
 																										  <ItemTemplate>
-																											  <asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("itemID") %>'></asp:Label>
+																											  <asp:HiddenField  ID="itemIDLabel" runat="server" Value='<%#Eval("itemID") %>'/>
+																											  <%--<asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("itemID") %>'></asp:Label>--%>
 																										  </ItemTemplate>
 																								</asp:TemplateField>
 																								<asp:TemplateField HeaderText="ItemDescription" SortExpression="SortedAscendingHeaderStyle">
@@ -70,7 +71,7 @@
 																								</asp:TemplateField>
 																								<asp:TemplateField>
 																											<ItemTemplate>
-																												<asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit"  CommandArgument='<%#Eval("itemID")+"&"+(Eval("actual")).ToString() %>'/>
+																												<asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit"  CommandArgument='<%#Eval("itemID")+"&"+Eval("actual") %>'/>
 																											</ItemTemplate>
 																											<EditItemTemplate>
 																												<asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />

@@ -38,14 +38,18 @@ namespace Team09LogicU.App_Code.DAO
             a.First().status = status;
             model.SaveChanges();
         }
-        public Disbursement getCurrentDisbursementsByDepartment(String deptid, DateTime naw)
+        //public Disbursement getCurrentDisbursementsByDepartment(String deptid, DateTime naw)
+        //{
+        //    Disbursement selectedDisbursement = model.Disbursements.FirstOrDefault(a => a.deptID == deptid && a.disburseDate.Year == naw.Year && a.disburseDate.Month == naw.Month && a.disburseDate.Day == naw.Day);
+        //    if (selectedDisbursement != null)
+        //    {
+        //        return selectedDisbursement;
+        //    }
+        //    return null;
+        //}
+        public List<Disbursement> getDisbursementListByDeptID(String deptid)
         {
-            Disbursement selectedDisbursement = model.Disbursements.FirstOrDefault(a => a.deptID == deptid && a.disburseDate.Year == naw.Year && a.disburseDate.Month == naw.Month && a.disburseDate.Day == naw.Day);
-            if (selectedDisbursement != null)
-            {
-                return selectedDisbursement;
-            }
-            return null;
+            return model.Disbursements.Where(x => x.deptID == deptid).ToList();
         }
         public List<int> getCurrentDisbursementsId(string status,string deptid)
         {
@@ -60,6 +64,7 @@ namespace Team09LogicU.App_Code.DAO
                 return null;
         }
 
+        
 
         public List<DisbursementCart> getDisbursementItemByDisID(int disburseID )
         {
