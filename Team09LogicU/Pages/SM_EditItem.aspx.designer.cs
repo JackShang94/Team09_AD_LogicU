@@ -22,31 +22,31 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label_itemcode control.
+        /// TextBox_itemcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_itemcode;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_itemcode;
         
         /// <summary>
-        /// Label_category control.
+        /// TextBox_category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_category;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_category;
         
         /// <summary>
-        /// Label_qty control.
+        /// TextBox_qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_qty;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_qty;
         
         /// <summary>
         /// TextBox_Description control.

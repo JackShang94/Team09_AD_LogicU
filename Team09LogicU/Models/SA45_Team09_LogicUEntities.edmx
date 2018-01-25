@@ -23,6 +23,7 @@
           <Property Name="adjVID" Type="int" Nullable="false" />
           <Property Name="itemID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="record" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -743,6 +744,7 @@
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AdjustmentVoucher" Relationship="Self.FK_AdjustmentVoucherItem_AdjustmentVoucher" FromRole="AdjustmentVoucherItem" ToRole="AdjustmentVoucher" />
           <NavigationProperty Name="Item" Relationship="Self.FK_AdjustmentVoucherItem_Item" FromRole="AdjustmentVoucherItem" ToRole="Item" />
+          <Property Name="record" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -1502,6 +1504,7 @@
           <EntitySetMapping Name="AdjustmentVoucherItems">
             <EntityTypeMapping TypeName="SA45_Team09_LogicUModel.AdjustmentVoucherItem">
               <MappingFragment StoreEntitySet="AdjustmentVoucherItem">
+                <ScalarProperty Name="record" ColumnName="record" />
                 <ScalarProperty Name="adjVItemID" ColumnName="adjVItemID" />
                 <ScalarProperty Name="adjVID" ColumnName="adjVID" />
                 <ScalarProperty Name="itemID" ColumnName="itemID" />

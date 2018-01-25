@@ -143,7 +143,7 @@
                     <div class="collapse" id="mapsExamples">
                         <ul class="nav">
                             <li><a href="Emp_Rep_SelectCollection.aspx">Select Collection</a></li>
-                            <li><a href="Emp_Rep_RequisitionHistory.aspx">Requisition History</a></li>
+                            <li><a href="Emp_Rep_DisbursementHistory.aspx">Disbursement History</a></li>
                             
                         </ul>
                     </div>

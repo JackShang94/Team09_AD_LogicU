@@ -6,8 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <form id="form1" runat="server">
-        <div class="content">
-            <div class="container-fluid">
+      
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -15,37 +14,40 @@
                             <div class="content">
                                 <div class="row">
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Item code</label><%-- value=""--%>
-                                            <asp:Label ID="Label_itemcode" runat="server" Text=""></asp:Label>
+                                            <label>Item code</label><%-- value=""--%><br />
+                                            <%--<asp:Label ID="Label_itemcode" runat="server" Text=""></asp:Label>--%>
+                                             <asp:TextBox ID="TextBox_itemcode" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Category</label>
-                                            <asp:Label ID="Label_category" runat="server" Text=""></asp:Label>
+                                            <label>Category</label><br />
+                                            <%--<asp:Label ID="Label_category" runat="server" Text=""></asp:Label>--%>
+                                            <asp:TextBox ID="TextBox_category" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Qty on Hand </label>
-                                            <asp:Label ID="Label_qty" runat="server" Text=""></asp:Label>
+                                            <label>Qty on Hand </label><br />
+                                            <%--<asp:Label ID="Label_qty" runat="server" Text=""></asp:Label>--%>
+                                            <asp:TextBox ID="TextBox_qty" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
                                             <%-- value=""--%>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <asp:TextBox ID="TextBox_Description" runat="server" class="form-control " Width="200px"></asp:TextBox>
+                                            <asp:TextBox ID="TextBox_Description" runat="server" class="form-control" Width="200px"></asp:TextBox>
                                             <%-- value=""--%>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>ReorderLevel </label>
                                             <asp:TextBox ID="TextBox_ReorderLevel" runat="server" class="form-control " Width="200px"></asp:TextBox>
@@ -53,7 +55,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Reorder Qty </label>
 
@@ -62,7 +64,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Unit of Measure</label>
                                             <asp:DropDownList ID="dropdownlist_unitofmeasure" runat="server" class="form-control" Width="200px">
@@ -75,7 +77,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Location </label>
 
@@ -83,7 +85,7 @@
                                             <%-- value=""--%>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Supplier1</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier1" runat="server" class="form-control" Width="200px"></asp:DropDownList>
@@ -91,7 +93,7 @@
                                             <asp:TextBox ID="TextBox_price1" runat="server" class="form-control " Width="200px"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Supplier2</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier2" runat="server" class="form-control" Width="200px"></asp:DropDownList>
@@ -100,7 +102,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Supplier3</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier3" runat="server" class="form-control" Width="200px"></asp:DropDownList>
@@ -114,9 +116,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
+         
 
         <asp:Button ID="Btn_Update" runat="server" Text="Update" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Update_Click" />
         <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
