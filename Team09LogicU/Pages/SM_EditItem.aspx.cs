@@ -60,9 +60,9 @@ namespace Team09LogicU.Pages
         public void displayItemInfo(string itemID)
         {
             i = iDAO.getItemByID(itemID);
-            Label_itemcode.Text = i.itemID;
-            Label_category.Text = i.categoryID;
-            Label_qty.Text = i.qtyOnHand.ToString();
+            TextBox_itemcode.Text = i.itemID;
+            TextBox_category.Text = i.categoryID;
+            TextBox_qty.Text = i.qtyOnHand.ToString();
 
             TextBox_Description.Text = i.description;
             TextBox_location.Text = i.location;

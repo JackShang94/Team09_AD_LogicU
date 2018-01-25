@@ -140,7 +140,7 @@
                             <li><a href="SC_Inv_ManageReorder.aspx">Reorder</a></li>
                             <li><a href="SC_Inv_AdjustmentVoucher.aspx">Adjustment Voucher</a></li>
                            
-                            
+                            <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
                         </ul>
                     </div>    
                 </li>
@@ -148,7 +148,7 @@
                  <li>
                     <a data-toggle="collapse" href="#ViewExamples">
                         <i class="pe-7s-bookmarks"></i>
-                        <p>View
+                        <p>View Information
                        <b class="caret"></b>
                         </p>
                     </a>
@@ -158,6 +158,8 @@
                      
                             <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
                           <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
+                            <li><a href="SC_ViewPurchaseOrderHistory.aspx">View Purchase Order History</a></li>
+                          <li><a href="  SC_ViewReorderReport.aspx">View Reorder Report</a></li>
                         </ul>
                     </div>    
                 </li>
@@ -240,14 +242,20 @@
                                 </li>
                                 <li>
                                     <a href="SC_Inv_ViewInventoryList.aspx">
-                                        <i class="pe-7s-bookmarks"></i> Inventory</a>
+                                        <i class="pe-7s-server"></i> Inventory</a>
+                                </li>
+                                 <li>
+                                    <a href="SC_ViewDepartment.aspx">
+                                        <i class="pe-7s-bookmarks"></i>View Info</a>
                                 </li>
                                 <li>
                                     <a href="SC_O_SupplierList.aspx">
                                         <i class="pe-7s-box2"></i> Others
                                     </a>
                                 </li>
-                                <li class="divider"></li>
+                                <li class="divider">
+
+                                </li>
                                 
                                 <li>
                                     <a href="login.aspx" class="text-danger">

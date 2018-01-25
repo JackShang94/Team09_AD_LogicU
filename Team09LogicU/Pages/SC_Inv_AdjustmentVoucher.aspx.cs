@@ -15,10 +15,10 @@ namespace Team09LogicU.Pages
         ItemDAO itemDAO = new ItemDAO();
          
         public string staffID;
-        public void updateCart(List<cart> lc)
+        public void updateCart(List<AdjustmentVouchercart> lac)
         {
-            Session["cart"] = lc;
-            cartRepeater.DataSource = lc;
+            Session["adjvcart"] = lac;
+            cartRepeater.DataSource = lac;
             cartRepeater.DataBind();
         }
         public void updateCatalogue(List<Item> li)
@@ -32,21 +32,16 @@ namespace Team09LogicU.Pages
        
             if (!IsPostBack)
             {
+
+               
                 this.BindGrid();
 
 
-                ////string name = Session["loginID"].ToString();
-                ////this.staffID = name;
+                if (Session["adjvcart"] == null)
+                {
+                    Session["adjvcart"] = new List<AdjustmentVouchercart>();
+                }
 
-                ////List<cart> lc = new List<cart>();
-
-                ////foreach (var i in (List<cart>)Session["cart"])
-                ////{
-                ////    if (i.Name == name)
-                ////    {
-                ////        lc.Add(i);
-                ////    }
-                ////}
 
 
                 /**********************Loading Cart List************************************/
@@ -71,16 +66,16 @@ namespace Team09LogicU.Pages
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
-                List<cart> lc = new List<cart>();
-                List<cart> lc_session = (List<cart>)Session["cart"];
-                foreach (var i in lc_session)
+                List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
+                List<AdjustmentVouchercart> lac_session = (List<AdjustmentVouchercart>)Session["adjvcart"];
+                foreach (var i in lac_session)
                 {
                     if (i.Name == name)
                     {
-                        lc.Add(i);
+                        lac.Add(i);
                     }
                 }
-                updateCart(lc);
+                updateCart(lac);
                 /******************************Loading Catalogue List********************************/
                 ItemDAO idao = new ItemDAO();
                 List<Item> li = idao.getItemList();
@@ -101,17 +96,11 @@ namespace Team09LogicU.Pages
                     return;
                 }
                 //string name = Session["loginID"].ToString();
-                List<cart> lc = (List<cart>)Session["cart"];
+                List<AdjustmentVouchercart> lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
 
-                //foreach (var i in lc)
-                //{
-                //    if (i.Name == name)
-                //    {
-                //        lc.Add(i);
-                //    }
-                //}
 
-                updateCart(lc);
+
+                updateCart(lac);
                 ItemDAO idao = new ItemDAO();
 
                 string sText = textbox_Search.Text.ToString();
@@ -182,9 +171,9 @@ namespace Team09LogicU.Pages
             ///should use DAO
             //string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID).First().ToString();//supposed to be in DepartmentDAO
             ///
-            List<cart> lc = new List<cart>();
-            lc = (List<cart>)Session["cart"];
-            if (lc.Count > 0)
+            List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
+            lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
+            if (lac.Count > 0)
             {
                 Dictionary<string, int> dict = new Dictionary<string, int>();
                 foreach (Control i in cartRepeater.Items)//get Quantity
@@ -197,8 +186,8 @@ namespace Team09LogicU.Pages
                 AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
                 adjvdao.addAdjustmentVoucher(name, dict);
 
-                lc = new List<cart>();//clear the cart session
-                Session["cart"] = lc;
+                lac = new List<AdjustmentVouchercart>();//clear the cart session
+                Session["adjvcart"] = lac;
                 HttpContext.Current.Response.Redirect("SC_ViewAdjustmentVoucher.aspx");
             }
             else
@@ -221,8 +210,8 @@ namespace Team09LogicU.Pages
            
             if (e.CommandName == "Add")
             {
-                List<cart> lc = new List<cart>();
-                lc = (List<cart>)Session["cart"];//get cart from Session
+                List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
+                lac = (List<AdjustmentVouchercart>)Session["adjvcart"];//get cart from Session
 
                 //string name = Session["loginID"].ToString();//get name from Session
                 string name = this.staffID;
@@ -235,7 +224,7 @@ namespace Team09LogicU.Pages
                     LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                     string a = cartqty.Text;
-                    foreach (var k in lc)
+                    foreach (var k in lac)
                     {
                         if (k.ItemID == deletebtn.CommandArgument.ToString())
                         {
@@ -245,7 +234,7 @@ namespace Team09LogicU.Pages
                     }
                     if (deletebtn.CommandArgument.ToString() == itemid)//Just get the corresponding itemID
                     {
-                        foreach (var j in lc)//find in cart
+                        foreach (var j in lac)//find in cart
                         {
 
                             if (j.ItemID == itemid)//only for banning add repeated items
@@ -264,7 +253,7 @@ namespace Team09LogicU.Pages
                     return;
                 }
                 //If this item not in the cart ,then add it to the cart
-                cart c = new cart
+                AdjustmentVouchercart c = new AdjustmentVouchercart
                 {
                     Name = name,
                     ItemID = itemid,
@@ -272,11 +261,11 @@ namespace Team09LogicU.Pages
                     Qty = 1//default
                 };
 
-                lc.Add(c);
-                Session["cart"] = lc;
+                lac.Add(c);
+                Session["adjvcart"] = lac;
                 //this.lcart = lc;
                 cartUpdatePanel.Update();
-                updateCart(lc);
+                updateCart(lac);
             }
         }
 
@@ -286,8 +275,8 @@ namespace Team09LogicU.Pages
             LinkButton b = (LinkButton)sender;
             string info = b.CommandArgument.ToString();//itemID and requiredQuantity
 
-            List<cart> lc = new List<cart>();
-            lc = (List<cart>)Session["cart"];
+            List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
+            lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
 
 
             for (int i = cartRepeater.Items.Count - 1; i >= 0; i--)//get Quantity from the cart
@@ -298,89 +287,23 @@ namespace Team09LogicU.Pages
                 //find the item u wanna delete
                 //for (int j = lc.Count - 1; j >= 0; j--)
                 //{
-                if (lc[i].ItemID == info)
+                if (lac[i].ItemID == info)
                 {
-                    lc.RemoveAt(i);
+                    lac.RemoveAt(i);
                     continue;
                 }
-                lc[i].Qty = Int32.Parse(a);
+                lac[i].Qty = Int32.Parse(a);
 
 
             }
 
-            Session["cart"] = lc;
+            Session["adjvcart"] = lac;
 
             //this.lcart = lc;
-            updateCart(lc);
+            updateCart(lac);
         }
 
 
-
-        //protected void Btn_Adjvlist_Click(object sender, EventArgs e)
-        //{
-
-        //    int i = 1;//test
-        //    string name = this.staffID;
-        //    SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-        //    List<cart> lc = new List<cart>();
-        //    lc = (List<cart>)Session["cart"];
-        //    if (lc.Count > 0)
-        //    {
-        //        Dictionary<string, int> dict = new Dictionary<string, int>();
-        //        AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
-
-        //        adjvdao.addAdjustmentVoucher(i, name, DateTime.Now);
-
-        //        lc = new List<cart>();//clear the cart session
-        //        Session["cart"] = lc;
-        //        HttpContext.Current.Response.Redirect("SC_Inv_AdjVoucherDetail.aspx");
-        //    }
-        //    else
-        //    {
-        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('Nothing in cart')", true);
-        //        return;
-        //    }
-        // }
-            //protected void catalogueRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-            //{
-
-                //if (e.CommandName == "add")
-                //{
-                //    List<cart> lc = new List<cart>();
-                //    lc = (List<cart>)Session["cart"];//get cart from Session
-                //    string name = Session["loginID"].ToString();//get name from Session
-
-                //    string[] info = e.CommandArgument.ToString().Split('&');
-
-                //    foreach(var i in lc)
-                //    {
-                //        if (i.ItemID == info[0])
-                //        {
-                //            string radalertscript = "<script language='javascript'>alert('Already In!!!')</script>";
-                //            Page.ClientScript.RegisterStartupScript(this.GetType(), "radalert", radalertscript);
-                //            return;
-                //        }
-                //    }
-
-
-                //    cart c = new cart
-                //    {
-                //        Name = name,
-                //        ItemID = info[0],
-                //        Description = info[1],//stupid
-                //        Qty = 1//default
-                //    };
-
-                //    lc.Add(c);
-                //    Session["cart"] = lc;              
-
-
-
-                //    //this.lcart = lc;
-                //    cartUpdatePanel.Update();
-                //    cartRepeater.DataSource = lc;
-                //    cartRepeater.DataBind();
-                //}
 
 
 
@@ -392,18 +315,18 @@ namespace Team09LogicU.Pages
             {
                 string[] info = e.CommandArgument.ToString().Split('&');
                 string itemID = info[0];
-                List<cart> lc = new List<cart>();
-                lc = (List<cart>)Session["cart"];
+                List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
+                lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
 
-                foreach (var i in lc)
+                foreach (var i in lac)
                 {
                     if (i.ItemID == itemID)
                     {
-                        lc.Remove(i);
+                        lac.Remove(i);
                     }
                 }
 
-                cartRepeater.DataSource = lc;
+                cartRepeater.DataSource = lac;
                 cartRepeater.DataBind();
 
             }
