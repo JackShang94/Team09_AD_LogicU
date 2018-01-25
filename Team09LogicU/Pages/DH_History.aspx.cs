@@ -14,6 +14,7 @@ namespace Team09LogicU.pages
     {
         RequisitionDAO reqDAO = new RequisitionDAO();
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

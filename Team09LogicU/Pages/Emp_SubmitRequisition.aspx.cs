@@ -54,14 +54,21 @@ namespace Team09LogicU.pages
                 }
                 List<cart> lc = new List<cart>();
                 List<cart> lc_session=( List<cart>)Session["cart"];
-                foreach (var i in lc_session)
+                if (lc_session.Count > 0)
                 {
-                    if (i.Name == name)
+                    updateCart(lc_session);
+                }else
+                {
+                    foreach (var i in lc_session)
                     {
-                        lc.Add(i);
+                        if (i.Name == name)
+                        {
+                            lc.Add(i);
+                        }
                     }
+                    updateCart(lc);
                 }
-                updateCart(lc);
+               
                 /******************************Loading Catalogue List********************************/
                 ItemDAO idao = new ItemDAO();
                 List<Item> li = idao.getItemList();
@@ -71,27 +78,18 @@ namespace Team09LogicU.pages
             else
             {
                 
-                string name = Session["loginID"].ToString();
-                this.staffID = name;
-                string role = Session["loginRole"].ToString();
-                //role = "emp";
-                //Session["loginRole"] = role;
-                if (role != "emp"&& role!="rep")
-                {
-                    HttpContext.Current.Response.Redirect("login.aspx");
-                    return;
-                }
+                //string name = Session["loginID"].ToString();
+                //this.staffID = name;
+                //string role = Session["loginRole"].ToString();
+                ////role = "emp";
+                ////Session["loginRole"] = role;
+                //if (role != "emp"&& role!="rep")
+                //{
+                //    HttpContext.Current.Response.Redirect("login.aspx");
+                //    return;
+                //}
                 //string name = Session["loginID"].ToString();
                 List<cart> lc = (List<cart>)Session["cart"];
-
-                //foreach (var i in lc)
-                //{
-                //    if (i.Name == name)
-                //    {
-                //        lc.Add(i);
-                //    }
-                //}
-
                 updateCart(lc);
                 ItemDAO idao = new ItemDAO();
 

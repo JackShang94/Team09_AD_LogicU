@@ -24,6 +24,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<StockCard> sList = context.StockCards.Where(x => x.Item.Category.description == cat).ToList<StockCard>();
             return sList;
+
         }
 
         //search stock card by items
@@ -31,6 +32,12 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<StockCard> sList = context.StockCards.Where(x => x.itemID==itemID).ToList<StockCard>();
             return sList;
+        }
+
+        public void CreateNewRecord(StockCard s)
+        {
+            context.StockCards.Add(s);
+            context.SaveChanges();
         }
     }
 }

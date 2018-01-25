@@ -19,41 +19,37 @@ namespace Team09LogicU.Pages
         SupplierItemDAO supItemDAO = new SupplierItemDAO();
         PurchaseOrderDAO PoDAO = new PurchaseOrderDAO();
         PurchaseOrderItemDAO POItemDAO = new PurchaseOrderItemDAO();
-
+        StockCardDAO sDAO = new StockCardDAO();
+        List<PurchaseOrder> poCart = new List<PurchaseOrder>();
+        List<ReorderItem> list = new List<ReorderItem>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<ReorderItem> list = new List<ReorderItem>();
-            list = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
-
+            
+            list = (List<ReorderItem>)Session["finalReorderList"];
             string staffID = (string)Session["loginID"];
 
-            for (int i = list.Count - 1; i >= 0; i--)
-            {
-                if (list[i].OrderQty == 0)
-                {
-                    list.RemoveAt(i);
-                }
-            }
-
-            System.Web.HttpContext.Current.Session["finalReorderList"] = list;
-
             var groupedSupplierList = list.Select(x => x.SupplierID).Distinct().ToList();
-            
+
             List<ReorderCart> reorderCart = new List<ReorderCart>();
+            
             for (int i = 0; i < groupedSupplierList.Count; i++)
             {
                 reorderCart.Add(new ReorderCart());
                 reorderCart[i].SupplierID = groupedSupplierList[i].ToString();
-                reorderCart[i].StaffName = storeStaffDAO.getStoreStaffInfoById(staffID).storeStaffName;              
-                reorderCart[i].OrderDate =DateTime.Now.ToShortDateString();
-            }
+                reorderCart[i].StaffName = storeStaffDAO.getStoreStaffInfoById(staffID).storeStaffName;
+                reorderCart[i].OrderDate = DateTime.Now.ToShortDateString();
 
+                poCart.Add(new PurchaseOrder());
+                poCart[i].supplierID = reorderCart[i].SupplierID;
+                poCart[i].orderBy = reorderCart[i].StaffName;
+                poCart[i].orderDate = Convert.ToDateTime(reorderCart[i].OrderDate);
+            }
 
             GridView_reorderListBySup.DataSource = reorderCart;
             GridView_reorderListBySup.DataBind();
         }
 
-        protected void LinkButton_ViewPO_Click(object sender, EventArgs e)  
+        protected void LinkButton_ViewPO_Click(object sender, EventArgs e)
         {
             LinkButton View = (LinkButton)sender;
             GridViewRow row = (GridViewRow)View.NamingContainer;
@@ -63,6 +59,66 @@ namespace Team09LogicU.Pages
                 supplierID = (row.FindControl("lblSupID") as Label).Text;
                 Response.Redirect("SC_PrintPurchaseOrder.aspx?supplierID=" + supplierID);
             }
+        }
+
+        protected void btnReorderReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <poCart.Count; i++)
+            {
+                PoDAO.CreateNewPO(poCart[i]);//update PO table
+
+                string supplierID = poCart[i].supplierID;
+                List<ReorderItem> list1 = new List<ReorderItem>();
+                List<PurchaseOrderItem> poItemCart = new List<PurchaseOrderItem>();
+                List<StockCard> sList = new List<StockCard>();
+
+                for (int j =0; j < list.Count; j++)
+                {
+                    if (list[j].SupplierID == supplierID)
+                    {
+                        list1.Add(list[j]);
+                    }                  
+                }
+
+                for (int k = 0; k< list1.Count; k++)
+                {
+                    poItemCart.Add(new PurchaseOrderItem());
+                    poItemCart[k].itemID = list1[k].ItemID;
+                    poItemCart[k].quantity = list1[k].OrderQty;
+                    poItemCart[k].poID = poCart[i].poID;
+                    POItemDAO.CreateNewPOItem(poItemCart[k]);//Update Purchase Order Item table
+
+                    itemDAO.UpdateItemQtyOnHand(poItemCart[k].itemID, poItemCart[k].quantity);//Update Item Table
+
+                    sList.Add(new StockCard());
+                    sList[k].itemID = list1[k].ItemID;
+                    sList[k].date = poCart[i].orderDate;
+                    sList[k].quantity = list1[k].OrderQty;
+                    sList[k].balance = itemDAO.GetItemQtyByItemID(list1[k].ItemID);
+                    sList[k].record = poCart[i].supplierID;
+                    sDAO.CreateNewRecord(sList[k]);
+
+                }
+            }
+
+            Session["finalReorderList"] = null;
+            Session["reorderList"] = null;
+            GridView_reorderListBySup.DataSource = null;
+            GridView_reorderListBySup.DataBind();
+
+            ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Success！');</script>");
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Session["finalReorderList"] = null;
+            Session["reorderList"] = null;
+            Response.Redirect("SC_Inv_ManageReorder.aspx?");
         }
     }
 }

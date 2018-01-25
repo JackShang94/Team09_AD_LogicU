@@ -111,8 +111,8 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\light-bootstrap-dashboard.css" />
     <Content Include="css\pe-icon-7-stroke.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\pe-icon-7-stroke.svg" />
+    <Content Include="js\fonts\fontawesome-webfont.svg" />
+    <Content Include="js\fonts\pe-icon-7-stroke.svg" />
     <Content Include="js\aa743e8f448a4792bad10d201a7080f6.js" />
     <Content Include="js\bootstrap-checkbox-radio-switch-tags.js" />
     <Content Include="js\bootstrap-datetimepicker.js" />
@@ -159,12 +159,12 @@
     <Content Include="Pages\SC_Inv_AdjVoucherDetail.aspx" />
     <Content Include="Pages\SC_Inv_ManageReorder.aspx" />
     <Content Include="Pages\SC_Inv_StockCardDetail.aspx" />
-    <Content Include="Pages\SC_Inv_StockManagement.aspx" />
+    <Content Include="Pages\SC_Inv_ViewInventoryList.aspx" />
     <Content Include="Pages\SC_Notification.aspx" />
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PrintPurchaseOrder.aspx" />
-    <Content Include="Pages\SC_ReorderList.aspx" />
+    <Content Include="Pages\SC_ReorderHistory.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
     <Content Include="Pages\SC_ViewAdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_ViewCatalog.aspx" />
@@ -186,15 +186,15 @@
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
     <Content Include="Pages\welcome.Master" />
-    <Content Include="fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\hgo13k-tfspn0qi1sfdufacwcynf_cdxxwclxiixg1c.ttf" />
-    <Content Include="fonts\pe-icon-7-stroke.eot" />
-    <Content Include="fonts\pe-icon-7-stroke.ttf" />
-    <Content Include="fonts\pe-icon-7-stroke.woff" />
-    <Content Include="fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
+    <Content Include="js\fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
+    <Content Include="js\fonts\fontawesome-webfont.eot" />
+    <Content Include="js\fonts\fontawesome-webfont.woff" />
+    <Content Include="js\fonts\fontawesome-webfont.woff2" />
+    <Content Include="js\fonts\hgo13k-tfspn0qi1sfdufacwcynf_cdxxwclxiixg1c.ttf" />
+    <Content Include="js\fonts\pe-icon-7-stroke.eot" />
+    <Content Include="js\fonts\pe-icon-7-stroke.ttf" />
+    <Content Include="js\fonts\pe-icon-7-stroke.woff" />
+    <Content Include="js\fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
     <Content Include="Pages\StoreManager.Master" />
     <Content Include="Pages\StoreSupervisor.Master" />
     <None Include="Web.Debug.config">
@@ -224,7 +224,7 @@
     <Content Include="Pages\Emp_MyRequisition.aspx" />
     <Content Include="Pages\Emp_Notification.aspx" />
     <Content Include="Pages\Emp_Representative.aspx" />
-    <Content Include="Pages\Emp_Rep_RequisitionHistory.aspx" />
+    <Content Include="Pages\Emp_Rep_DisbursementHistory.aspx" />
     <Content Include="Pages\Emp_Rep_SelectCollection.aspx" />
     <Content Include="Pages\Emp_SubmitRequisition.aspx" />
     <Content Include="Pages\login.aspx" />
@@ -262,6 +262,7 @@
     <Compile Include="App_Code\DAO\DisbursementDAO.cs" />
     <Compile Include="App_Code\DAO\ItemDAO.cs" />
     <Compile Include="App_Code\DAO\LoginDAO.cs" />
+    <Compile Include="App_Code\DAO\NotificationDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingDAO.cs" />
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderDAO.cs" />
@@ -281,6 +282,7 @@
     <Compile Include="App_Code\UtilClass\ItemCart.cs" />
     <Compile Include="App_Code\UtilClass\LogicUExceptions.cs" />
     <Compile Include="App_Code\UtilClass\Logout.cs" />
+    <Compile Include="App_Code\UtilClass\OutstandingCart.cs" />
     <Compile Include="App_Code\UtilClass\POItem.cs" />
     <Compile Include="App_Code\UtilClass\ReorderCart.cs" />
     <Compile Include="App_Code\UtilClass\ReorderItem.cs" />
@@ -471,12 +473,12 @@
     <Compile Include="Pages\Emp_Representative.aspx.designer.cs">
       <DependentUpon>Emp_Representative.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.cs">
-      <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Emp_Rep_RequisitionHistory.aspx.designer.cs">
-      <DependentUpon>Emp_Rep_RequisitionHistory.aspx</DependentUpon>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.designer.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
@@ -534,12 +536,12 @@
     <Compile Include="Pages\SC_Inv_StockCardDetail.aspx.designer.cs">
       <DependentUpon>SC_Inv_StockCardDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_Inv_StockManagement.aspx.cs">
-      <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
+    <Compile Include="Pages\SC_Inv_ViewInventoryList.aspx.cs">
+      <DependentUpon>SC_Inv_ViewInventoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_Inv_StockManagement.aspx.designer.cs">
-      <DependentUpon>SC_Inv_StockManagement.aspx</DependentUpon>
+    <Compile Include="Pages\SC_Inv_ViewInventoryList.aspx.designer.cs">
+      <DependentUpon>SC_Inv_ViewInventoryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_Notification.aspx.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>
@@ -569,12 +571,12 @@
     <Compile Include="Pages\SC_PrintPurchaseOrder.aspx.designer.cs">
       <DependentUpon>SC_PrintPurchaseOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_ReorderList.aspx.cs">
-      <DependentUpon>SC_ReorderList.aspx</DependentUpon>
+    <Compile Include="Pages\SC_ReorderHistory.aspx.cs">
+      <DependentUpon>SC_ReorderHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SC_ReorderList.aspx.designer.cs">
-      <DependentUpon>SC_ReorderList.aspx</DependentUpon>
+    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs">
+      <DependentUpon>SC_ReorderHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>

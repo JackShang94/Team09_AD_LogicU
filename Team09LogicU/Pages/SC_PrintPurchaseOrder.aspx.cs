@@ -22,36 +22,42 @@ namespace Team09LogicU.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             List<ReorderItem> list = new List<ReorderItem>();
-            list = (List<ReorderItem>)System.Web.HttpContext.Current.Session["finalReorderList"];
+            list = (List<ReorderItem>)Session["finalReorderList"];
+
+            List<ReorderItem> list1 = new List<ReorderItem>();
             string supplierID = Request.QueryString["supplierID"];
 
             for (int i = list.Count - 1; i >= 0; i--)
             {
-                if (list[i].SupplierID != supplierID)
+                if (list[i].SupplierID == supplierID)
                 {
-                    list.RemoveAt(i);
+                    list1.Add(list[i]);
                 }
             }
-
             List<POItem> POList = new List<POItem>();
-            SupplierItem SupItem = new SupplierItem();
-            Item item = new Item();
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list1.Count; i++)
             {
-                string itemID = list[i].ItemID;
-                SupItem = supItemDAO.findSupplierItemByItemIDAndSupplier(itemID,supplierID);
-                item = itemDAO.getItemByID(itemID);
+                string itemID = list1[i].ItemID;
                 POList.Add(new POItem());
                 POList[i].ItemID = itemID;
-                POList[i].Description = item.description;
-                POList[i].OrderQty = list[i].OrderQty;
-                POList[i].Price = SupItem.price;
+                POList[i].Description = list1[i].Description;
+                POList[i].OrderQty = list1[i].OrderQty;
+                POList[i].Price = list1[i].Price;
                 POList[i].TotalAmount = (POList[i].Price) * (POList[i].OrderQty);
             }
-           
+
             GridView_PurchaseOrder.DataSource = POList;
             GridView_PurchaseOrder.DataBind();
+        }
 
+        protected void btnPrintPO_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SC_ViewReorderReport.aspx");
         }
     }
 }

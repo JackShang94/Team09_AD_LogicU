@@ -52,6 +52,12 @@ namespace Team09LogicU.App_Code.DAO
             }
             return disbursementCarts;
         }
+        //public List<DisbursementCart> getDisbursementCartItemHistory(string depId)
+        //{
+        //    List<Disbursement> disbur = context.Disbursements.Where(x => x.deptID==depId).ToList();
+            
+            
+        //}
 
 
         //Save the input actual qty
