@@ -11,12 +11,15 @@ namespace Team09LogicU.Pages
 {
     public partial class SM_SearchSupplier : System.Web.UI.Page
     {
-        SupplierDAO supplierDAO=new SupplierDAO();
-        
+        SupplierDAO supplierDAO = new SupplierDAO();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView_supplierList.DataSource = supplierDAO.getSupplierList();
-            GridView_supplierList.DataBind();
+            if (!IsPostBack)
+            {
+                GridView_supplierList.DataSource = supplierDAO.getSupplierList();
+                GridView_supplierList.DataBind();
+            }
         }
 
         protected void Button_Search_Click(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace Team09LogicU.Pages
         protected void GridView_supplierList_RowEditing(object sender, GridViewEditEventArgs e)
         {
             int i = e.NewEditIndex;
-            string supplierID=GridView_supplierList.Rows[i].Cells[1].Text.ToString();
+            string supplierID = GridView_supplierList.Rows[i].Cells[1].Text.ToString();
             Response.Redirect("SM_EditSupplier.aspx?supplier=" + supplierID);
         }
     }
