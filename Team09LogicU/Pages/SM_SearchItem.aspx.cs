@@ -20,6 +20,7 @@ namespace Team09LogicU.Pages
                 iList = iDAO.getItemList();
                 showItemListInfo();
             }
+            updateGV();
         }
         public void showItemListInfo()
         {
@@ -27,6 +28,11 @@ namespace Team09LogicU.Pages
             GridView_itemList.DataBind();
         }
         protected void Button_search_Click(object sender, EventArgs e)
+        {
+            updateGV();
+        }
+
+        protected void updateGV()
         {
             string keyword = textbox_Search.Text;
             iList = iDAO.getItemBySearch(keyword);
@@ -44,5 +50,38 @@ namespace Team09LogicU.Pages
             string itemID = GridView_itemList.Rows[i].Cells[1].Text.ToString();
             Response.Redirect("SM_EditItem.aspx?itemID=" + itemID);
         }
+
+        protected void GridView_itemList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                GridView_itemList.PageIndex = e.NewPageIndex;
+
+                showItemListInfo();
+
+                TextBox tb = (TextBox)GridView_itemList.BottomPagerRow.FindControl("inPageNum");
+                tb.Text = (GridView_itemList.PageIndex + 1).ToString();
+            }
+            catch
+            {
+            }
+        }
+        protected void GridView_itemList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "go")
+            {
+                try
+                {
+                    TextBox tb = (TextBox)GridView_itemList.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_itemList_PageIndexChanging(null, ea);
+                }
+                catch
+                {
+                }
+            }
+        }
+
     }
 }

@@ -90,12 +90,14 @@ namespace Team09LogicU.Pages
                 }
                 else
                 {
-                    Response.Write("<script>alert('Item code can't be empty!')</script>");
+                    
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Item code can't be empty!');</script>");
                 }
             }
 
             catch
             {
+                Label1.Text = "Error";
                 Response.Write("<script>alert('Item Code already exists!')</script>");
             }
 

@@ -38,7 +38,6 @@ namespace Team09LogicU
                 Session["cart"] = new List<cart>();
             }
 
-            
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

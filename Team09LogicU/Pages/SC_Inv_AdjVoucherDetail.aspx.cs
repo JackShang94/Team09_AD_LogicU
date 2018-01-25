@@ -12,11 +12,27 @@ namespace Team09LogicU.Pages
 {
     public partial class SC_Inv_AdjVoucherDetail : System.Web.UI.Page
     {
+        static int adjvID;
+        static string clerkID;
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
+            adjvID = Int32.Parse(Request.QueryString["adjvID"]);
+            clerkID = (string)Session["loginID"];
 
+            AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
+            //string Staff = adjv;
+            string authorisedby = adjv.authorisedBy;
+            string status = adjv.status;
+            DateTime adjvDate = adjv.adjDate;
+
+            Label_StoreStafID.Text = clerkID;
+            lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
+            lblAdjvID.Text = Convert.ToString(adjvID); ;
+            Label_Authorisedby.Text = authorisedby;
+            lblStatus.Text = status;
+            BindData();
         }
 
 
@@ -53,10 +69,14 @@ namespace Team09LogicU.Pages
         }
         public void BindData()
         {
-            //List<AdjustmentVoucherItem> adjItems = adjvidao.(reqID);
-            //GridView_detailList.DataSource = reqItems;
-            //GridView_detailList.DataBind();
+            List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
+            GridView_detailList.DataSource = adjItems;
+            GridView_detailList.DataBind();
         }
-
+        protected void Btn_Back_Click(object sender, EventArgs e)
+        {
+           
+            Response.Redirect("./SC_ViewAdjustmentVoucher.aspx");
+        }
     }
 }

@@ -8,19 +8,6 @@
     <script src="../js/jquery-1.7.1.min.js"></script>
     <script src="../js/window.js"></script>
     <form id="form1" runat="server">
-
-        <div class="row">
-            <div class="col-md-9 container-fluid">
-                <div class="card">
-                    <div class="content">
-                        <div class=" form-group" style="height: 25px; width: 100%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         <div class="content">
             <div class="container-fluid">
                 <div class="content">
