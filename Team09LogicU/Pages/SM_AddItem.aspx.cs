@@ -83,9 +83,10 @@ namespace Team09LogicU.Pages
                     priceList.Add(Convert.ToDecimal(TextBox_price1.Text));
                     priceList.Add(Convert.ToDecimal(TextBox_price2.Text));
                     priceList.Add(Convert.ToDecimal(TextBox_price3.Text));
-                    //iDAO.addItem(itemID, desc, location, category, priceList, reorderLevel, reorderQty, uom, supplierList, qtyOnHand);
+
+                    iDAO.addItem(itemID, desc, location, category, priceList, reorderLevel, reorderQty, uom, supplierList, qtyOnHand);
                     Response.Write("<script>alert('Successfully submitted!')</script>");
-                    //Response.Redirect("SM_SearchItem.aspx");
+                    Response.Redirect("SM_SearchItem.aspx");
                 }
                 else
                 {
@@ -95,7 +96,6 @@ namespace Team09LogicU.Pages
 
             catch
             {
-                Label1.Text = "Error";
                 Response.Write("<script>alert('Item Code already exists!')</script>");
             }
 

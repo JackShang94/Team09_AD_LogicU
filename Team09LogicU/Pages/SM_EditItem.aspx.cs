@@ -33,7 +33,6 @@ namespace Team09LogicU.Pages
                 dropDownList_bindInfo();
                 displayItemInfo(itemID);
             }
-
         }
 
         public void dropDownList_bindInfo()
@@ -55,8 +54,7 @@ namespace Team09LogicU.Pages
             dropdownlist_Supplier3.DataTextField = "supplierID";
             dropdownlist_Supplier3.DataValueField = "supplierID";
             dropdownlist_Supplier3.DataBind();
-
-        }
+        } 
         public void displayItemInfo(string itemID)
         {
             i = iDAO.getItemByID(itemID);
