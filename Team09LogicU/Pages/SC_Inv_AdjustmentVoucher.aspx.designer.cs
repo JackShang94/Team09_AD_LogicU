@@ -40,39 +40,30 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Button Button_Search;
         
         /// <summary>
-        /// LinkButton_ViewAllADJvoucherList control.
+        /// label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_ViewAllADJvoucherList;
+        protected global::System.Web.UI.WebControls.Label label;
         
         /// <summary>
-        /// GridView1 control.
+        /// GridView_CatalogList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridView_CatalogList;
         
         /// <summary>
-        /// Btn_Submit control.
+        /// Btn_Adjvlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Submit;
-        
-        /// <summary>
-        /// Btn_Cancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Cancel;
+        protected global::System.Web.UI.WebControls.Button Btn_Adjvlist;
     }
 }

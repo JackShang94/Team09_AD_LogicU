@@ -14,8 +14,8 @@
                                         <asp:TextBox ID="TextBox2"  runat="server"  CssClass="form-control" TextMode="Password"></asp:TextBox>
                                         </div>
                                     <div class="form-group ">
-                                      <label class="checkbox ">
-                                        <asp:CheckBox ID="CheckBox1" runat="server"  />Remember Me
+                                      <label class="checkbox" ><span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span>
+                                        <asp:CheckBox ID="CheckBox1" runat="server"/>Remember Me
                                         </label>
                                     </div>
                                    </div>

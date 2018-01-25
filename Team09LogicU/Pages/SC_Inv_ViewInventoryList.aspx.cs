@@ -89,5 +89,41 @@ namespace Team09LogicU.Pages
 
         }
 
+        protected void GridView_stock_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                GridView_stock.PageIndex = e.NewPageIndex;
+                //dropDownList_bindCatInfo();
+                
+                itemList = itemDAO.getItemList();
+                showItemInfo(itemList);
+                TextBox tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
+                tb.Text = (GridView_stock.PageIndex + 1).ToString();
+            }
+            catch
+            {
+            }
+        }
+
+        protected void GridView_stock_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "go")
+            {
+                try
+                {
+                    TextBox tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_stock_PageIndexChanging(null, ea);
+                }
+                catch
+                {
+                }
+            }
+        }
+
+
+      
     }
 }

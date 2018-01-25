@@ -13,21 +13,41 @@ namespace Team09LogicU.pages
     public partial class SC_RO_RetrievalForms : System.Web.UI.Page
     {
         RetrievalDAO retrievalDAO = new RetrievalDAO();
-        private static List<RetrievalFormItem> lrfi;
-        private static string itemID;
-        private static string deptID;
+        //private static List<RetrievalFormItem> lrfi;
+        //private static string itemID;
+        //private static string deptID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string name = Session["loginID"].ToString();
-            string role = Session["role"].ToString();
-            if (name == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("login.aspx");
+                string name = Session["loginID"].ToString();
+                string role = Session["loginRole"].ToString();
+                if (name == null)
+                {
+                    Response.Redirect("login.aspx");
+                }
+                if (role != "clerk")
+                {
+                    Response.Redirect("login.aspx");
+                }
+
+                if (ViewState["itemID"] == null)
+                {
+                    ViewState["itemID"] = "";
+                }
+                if (ViewState["lrfi"] == null)
+                {
+                    ViewState["lrfi"] = new List<RetrievalFormItem>();
+                }
             }
-            if (role != "clerk")
+            else
             {
-                Response.Redirect("login.aspx");
+                
+                //retrievalGridView.DataSource = SC_RO_RetrievalForms.lrfi;
+                //retrievalGridView.DataBind();
+                //retrievalUpdatePanel.Update();
             }
+           
             //*******************************this is test code****************//
             //DateTime date = new DateTime(2018, 1, 21);
 
@@ -54,7 +74,11 @@ namespace Team09LogicU.pages
                 return;
             }
             lrfi = retrievalDAO.getRetrievalFormByDate(Convert.ToDateTime(a));
-            SC_RO_RetrievalForms.lrfi = lrfi;
+           
+            ViewState["lrfi"] = lrfi;
+            
+           
+            //SC_RO_RetrievalForms.lrfi = lrfi;
             retrievalGridView.DataSource = lrfi;
             retrievalGridView.DataBind();
             breakdownGridView.DataSource = null;
@@ -64,18 +88,15 @@ namespace Team09LogicU.pages
         protected void retrievalGridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
             GridView gv = sender as GridView;
-
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 // Hiding the Select Button Cell in Header Row.
                 e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
             }
-
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 // Hiding the Select Button Cells showing for each Data Row. 
                 e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
-
                 // Attaching one onclick event for the entire row, so that it will
                 // fire SelectedIndexChanged, while we click anywhere on the row.
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(gv, "Select$" + e.Row.RowIndex);
@@ -99,22 +120,26 @@ namespace Team09LogicU.pages
             //var lllll = retrievalGridView.SelectedRow.Cell[];//???????why cannot get this cell's value
             Label s =retrievalGridView.SelectedRow.FindControl("itemIDLabel") as Label;
             string a =s.Text;
-            SC_RO_RetrievalForms.itemID = a;
+            
+            ViewState["itemID"] = a;
+            //SC_RO_RetrievalForms.itemID = a;
 
             breakdownGridView.Visible = true;
-
+            List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
             //List<BreakdownByDepartment> lbbd = SC_RO_RetrievalForms.lrfi[index].BreakList;
-            breakdownGridView.DataSource = SC_RO_RetrievalForms.lrfi[index].BreakList;
+            breakdownGridView.DataSource = lrfi[index].BreakList;
             breakdownGridView.DataBind();
             breakdownUpdatePanel.Update();
         }
 
      
         protected void breakdownGridView_RowEditing(object sender, GridViewEditEventArgs e)
-        {
+        {//trigger first
             breakdownGridView.EditIndex= e.NewEditIndex;
-            //trigger first
-            breakdownGridView.DataSource = SC_RO_RetrievalForms.lrfi.First(x => x.ItemID == SC_RO_RetrievalForms.itemID).BreakList;
+            List<RetrievalFormItem> lrfi = new List<RetrievalFormItem>();
+            lrfi = (List<RetrievalFormItem>) ViewState["lrfi"];
+            string itemID = ViewState["itemID"].ToString();
+            breakdownGridView.DataSource = lrfi.First(x => x.ItemID == itemID).BreakList;
             breakdownGridView.DataBind();
             //SC_RO_RetrievalForms.lrfi.
         }
@@ -127,49 +152,69 @@ namespace Team09LogicU.pages
             int a = Convert.ToInt32(s);// get the changed quantity
             //int a =Convert.ToInt32( e.NewValues["actual"].ToString());
             string deptID = (breakdownGridView.Rows[e.RowIndex].FindControl("deptID") as Label).Text;
-            //string deptID = SC_RO_RetrievalForms.deptID;
-            string itemID = SC_RO_RetrievalForms.itemID;
-            List<RetrievalFormItem> lrfi = SC_RO_RetrievalForms.lrfi;
-            int index;
+            //string itemID = SC_RO_RetrievalForms.itemID;
+            string itemID = ViewState["itemID"].ToString();
+            List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>) ViewState["lrfi"];
+            int sum=0;
             var x = lrfi[0].BreakList;
+
             /**********************To find out the editing row and save it to lrfi**********************/
             for (int i=0;i<lrfi.Count;i++)
             {
                 if (lrfi[i].ItemID == itemID)
                 {
-                    index = i;
+                   
                     for (int j=0;j<lrfi[i].BreakList.Count;j++)
                     {
                         if (lrfi[i].BreakList[j].DeptID == deptID)
                         {
                             lrfi[i].BreakList[j].Actual = a;
+                            
                             x = lrfi[i].BreakList;
-                            break;
+                            //break;
                         }
+                        sum += lrfi[i].BreakList[j].Actual;
                     }
+                    lrfi[i].Actual = sum;
                     break;
                 }
             }
-            SC_RO_RetrievalForms.lrfi = lrfi;
+
+            List<RetrievalFormItem> lrfi2 = (List<RetrievalFormItem>)ViewState["lrfi"];//actually here is useless
+            //ViewState["lrfi"] = lrfi;
            
             breakdownGridView.EditIndex = -1;
             breakdownGridView.DataSource =x;
             breakdownGridView.DataBind();
+
+            retrievalGridView.DataSource =(List<RetrievalFormItem>) ViewState["lrfi"];
+            retrievalGridView.DataBind();
+            retrievalUpdatePanel.Update();
         }
 
         protected void breakdownGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             breakdownGridView.EditIndex = -1;
             int a = e.RowIndex;
+            List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
+            string itemID = ViewState["itemID"].ToString();
             //string s = (breakdownGridView.SelectedRow.Cells[0].FindControl("deptID") as Label).Text;
-            breakdownGridView.DataSource= SC_RO_RetrievalForms.lrfi.First(x=>x.ItemID==SC_RO_RetrievalForms.itemID).BreakList;
+            breakdownGridView.DataSource= lrfi.First(x=>x.ItemID==itemID).BreakList;
             breakdownGridView.DataBind();
         }
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            //retrievalDAO.ConfirmRetrieval(SC_RO_RetrievalForms.lrfi);//haven't been tested
-            //HttpContext.Current.Response.Redirect("");//who the hell may know 
+            List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
+            retrievalDAO.ConfirmRetrieval(lrfi);//haven't been tested
+            HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");//who the hell may know 
         }
+
+        protected void breakdownGridView_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {//doens't be triggered???
+            
+        }
+
+   
     }
 }

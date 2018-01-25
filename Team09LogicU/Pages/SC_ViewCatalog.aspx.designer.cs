@@ -10,60 +10,51 @@
 namespace Team09LogicU.Pages {
     
     
-    public partial class Emp_MR_RequisitionDetail {
+    public partial class SC_ViewCatalog {
         
         /// <summary>
-        /// viewRequisitionDetailForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm viewRequisitionDetailForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// addBtn control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addBtn;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// TextBox_SearchByID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_SearchByID;
         
         /// <summary>
-        /// reqDetailUpdatePanel control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel reqDetailUpdatePanel;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// requisitionItemListGridView control.
+        /// GridView_CatalogList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView requisitionItemListGridView;
-        
-        /// <summary>
-        /// backToReqBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton backToReqBtn;
+        protected global::System.Web.UI.WebControls.GridView GridView_CatalogList;
     }
 }

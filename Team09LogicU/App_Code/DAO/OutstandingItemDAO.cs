@@ -52,5 +52,40 @@ namespace Team09LogicU.App_Code.DAO
             }
             context.SaveChanges();
         }
+
+        public List<OutstandingCart> getPendingOutstandingCartByDeptID(string deptID,string status)
+        {
+            //int fromYear = from.Year;
+            //int toYear = to.Year;
+            //int fromMonth = from.Month;
+            //int toMonth = to.Month;
+            //int fromDay = from.Day;
+            //int toDay = to.Day;
+
+            var a = (from o in context.Outstandings
+                     where o.status == status && o.deptID == deptID
+                     join oi in context.OutstandingItems on o.outstandingID equals oi.outstandingID
+                     join i in context.Items on oi.itemID equals i.itemID
+                     select new OutstandingCart
+                     {
+                         ItemID = i.itemID,
+                         ItemDesc = i.description,
+                         Unit = i.unitOfMeasure,
+                         Needed = oi.expectedQty,
+                         DisburseDate = o.disburseDate
+                     });
+            List<OutstandingCart> loc = new List<OutstandingCart>();
+            if (a == null)
+            {
+                return loc;
+            }
+            loc = (List<OutstandingCart>)a.ToList();
+
+            return loc;
+             
+                      
+                        
+
+        }
     }
 }

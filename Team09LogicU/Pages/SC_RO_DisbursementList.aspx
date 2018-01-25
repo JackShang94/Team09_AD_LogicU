@@ -11,14 +11,14 @@
                     <div class=" col-md-12" style="margin-left:-20px;">
                    <div class="col-lg-3" style="margin-top:20px">
                     <asp:Label ID="Label1" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="100px"></asp:DropDownList>
                    </div> 
                          <div class="col-lg-12" style="margin-top:20px">
-                        <asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">View Current Disbursement By Department</asp:LinkButton>
                          </div>
                     <div class="col-lg-10">
                        
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " DataKeyNames="itemDescription" AutoGenerateColumns="False" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False"   EmptyDataText="There is no disbursement">
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " DataKeyNames="itemDescription" AutoGenerateColumns="False"  OnRowEditing ="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False"   EmptyDataText="There is no disbursement">
                              <Columns>
                                                         <asp:TemplateField HeaderText="ItemDescription" SortExpression="SortedAscendingHeaderStyle">
                                                             <ItemTemplate>
@@ -52,7 +52,7 @@
                                   
                                    <asp:TemplateField>
                                                             <ItemTemplate>
-                                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" EnableViewState="True" />
+                                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit"  />
                                                             </ItemTemplate>
                                                             <EditItemTemplate>
                                                                 <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />
@@ -65,10 +65,13 @@
                         <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
                           </div>  </div></div>
                         <div class="col-lg-3" style=" margin-top:40px;margin-bottom:20px">
-                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Inform representative" />
+                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Send Email representative" />
                        </div>
                      <div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
                         <asp:Button ID="Button2" runat="server" CssClass="btn btn-primary btn-wd " Text="Generate QR Code" />
+                       </div>
+					   <div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
+                        <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm" />
                        </div>
                        </div>
                     
