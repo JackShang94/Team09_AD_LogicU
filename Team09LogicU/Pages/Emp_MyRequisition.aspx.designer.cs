@@ -103,21 +103,12 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Button searchButton;
         
         /// <summary>
-        /// req_history_autoLabel control.
+        /// requisitionHistoryGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label req_history_autoLabel;
-        
-        /// <summary>
-        /// viewReqDetailBtn_h control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton viewReqDetailBtn_h;
+        protected global::System.Web.UI.WebControls.GridView requisitionHistoryGridView;
     }
 }
