@@ -35,7 +35,6 @@
             </Columns>
             <HeaderStyle CssClass=" content text-uppercase  " />
         </asp:GridView>
-        <asp:Button ID="btnPrintPO" runat="server" Text="Print" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnPrintPO_Click" />
         <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnBack_Click" />
     </form>
 </asp:Content>
