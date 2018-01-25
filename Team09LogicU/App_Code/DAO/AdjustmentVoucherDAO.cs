@@ -19,18 +19,32 @@ namespace Team09LogicU.App_Code.DAO
             return context.AdjustmentVouchers.Where(x => x.adjVID == adjvID).ToList<AdjustmentVoucher>();
         }
 
+        public List<AdjustmentVoucher> getadjvByStaffIDandStatus(string staffID, string status)
+        {
+            return context.AdjustmentVouchers.Where(x => x.storeStaffID == staffID && x.status == status).ToList<AdjustmentVoucher>();
+        }
 
 
-
-        public void addAdjustmentVoucher(int i,string storestaffID, DateTime adjdate)
+        public void addAdjustmentVoucher(string storestaffID, Dictionary<string, int> dict)
         {
             AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
 
             adjvoucher.storeStaffID = storestaffID;
-            adjvoucher.adjDate = adjdate;
-
+            adjvoucher.adjDate = DateTime.Now;
+            adjvoucher.status = "pending";
+            adjvoucher.authorisedBy = "";
             context.AdjustmentVouchers.Add(adjvoucher);
             context.SaveChanges();
+            int adjvID = adjvoucher.adjVID;
+            /*************Then Add ADJVItems******************/
+            AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+            foreach (var d in dict)
+            {
+             AdjustmentVoucherItem adjvi = adjvidao.addAdjustmentVoucherItem(adjvID, d.Key, d.Value);
+                context.AdjustmentVoucherItems.Add(adjvi);
+            }
+            context.SaveChanges();
+
         }
     }
 }
