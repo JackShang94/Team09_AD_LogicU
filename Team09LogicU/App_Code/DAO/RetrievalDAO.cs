@@ -16,11 +16,11 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<Requisition> reqlist = getRetrievedRequisitionList(date);
 
-            updateRequisitionStatusAsProcessed(reqlist);//comment it in order to test
+            //updateRequisitionStatusAsProcessed(reqlist);// should be put into the confirmBtn ???
 
             List<Outstanding> outlist = getOutStandingList(date);
 
-            updateOutStandingStatusAsProcessed(outlist);//comment it in order to test
+            //updateOutStandingStatusAsProcessed(outlist);//comment it in order to test
 
             List<RetrievalFormItem> reflist = new List<RetrievalFormItem>();
 
@@ -214,7 +214,7 @@ namespace Team09LogicU.App_Code.DAO
         //where status='Approved' and and approvedDate <= '2018-1-21'  )
         //group by itemID
 
-        public void ConfirmRetrieval(List<RetrievalFormItem> reflist)
+        public void ConfirmRetrieval(List<RetrievalFormItem> reflist,DateTime date)
         {
             List<RetrievalFormItem> result = UpdateActualQuantity(reflist);
 
@@ -232,6 +232,10 @@ namespace Team09LogicU.App_Code.DAO
 
             updateStockCardAndItemQuantity(result);
 
+            List<Requisition> reqlist2 = getRetrievedRequisitionList(date);
+            List<Outstanding> outlist2 = getOutStandingList(date);
+            updateRequisitionStatusAsProcessed(reqlist2);
+            updateOutStandingStatusAsProcessed(outlist2);
         }
 
         private void updateStockCardAndItemQuantity(List<RetrievalFormItem> reflist)

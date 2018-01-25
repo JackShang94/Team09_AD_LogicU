@@ -7,7 +7,7 @@ using Team09LogicU.Models;
 
 namespace Team09LogicU.App_Code.DAO
 {
-    public class DisbursementListDAO
+    public class DisbursementDAO
     {
         SA45_Team09_LogicUEntities model = new DBEntities().getDBInstance();
         public void createDisbursement(string departmentID, string storeStaffID)
@@ -27,9 +27,15 @@ namespace Team09LogicU.App_Code.DAO
             Disbursement disbl = model.Disbursements.Where(x => x.deptID == deptId && x.disburseDate == historyMonday).First();
             return disbl;
         }
-        public void updateDisbursementStatus(Disbursement disbl, string status)
+        public void updateDisbursementStatus(int disID, string status)
         {
-            disbl.status = status;
+            var a = model.Disbursements.Where(x => x.disbursementID == disID).ToList();
+            if (a == null)
+            {
+                return;
+            }
+
+            a.First().status = status;
             model.SaveChanges();
         }
         public Disbursement getCurrentDisbursementsByDepartment(String deptid, DateTime naw)
@@ -53,10 +59,49 @@ namespace Team09LogicU.App_Code.DAO
             else
                 return null;
         }
-        
-     
 
+
+        public List<DisbursementCart> getDisbursementItemByDisID(int disburseID )
+        {
+
+            var a = from i in model.Items
+                    join di in model.DisbursementItems on i.itemID equals di.itemID
+                    join d in model.Disbursements on di.disbursementID equals d.disbursementID
+                    where d.disbursementID == disburseID
+                    select new DisbursementCart
+                    {
+                        ItemID = i.itemID,
+                        ItemDescription = i.description,
+                        Expectedc = di.expectedQty,
+                        Actual = di.actualQty
+                    };
+
+            List < DisbursementCart > ldc = new List<DisbursementCart>();
+            if (a==null)
+            {
+                return ldc;
+            }
+            ldc = (List<DisbursementCart>)a.ToList();
+            return ldc;
+        }
         
+        public List<Disbursement> getAllAwaitingDisbursement()
+        {
+            return model.Disbursements.Where(x => x.status == "Awaiting Delivery").ToList();
+        }
+
+        public void savingActualQty(int disID,string itemID, int actualqty)
+        {
+            var k = model.DisbursementItems.Where(x => x.itemID == itemID&&x.disbursementID==disID).ToList();
+            if (k.Count == 0)
+            {
+                return;
+            }
+            DisbursementItem i = k.First();
+            i.actualQty = actualqty;
+            model.SaveChanges();
+        }
+
 
     }
 }
