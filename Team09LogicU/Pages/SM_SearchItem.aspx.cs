@@ -41,7 +41,7 @@ namespace Team09LogicU.Pages
         protected void GridView_itemList_RowEditing(object sender, GridViewEditEventArgs e)
         {
             int i = e.NewEditIndex;
-            string itemID = GridView_itemList.Rows[i].Cells[2].Text.ToString();
+            string itemID = GridView_itemList.Rows[i].Cells[1].Text.ToString();
             Response.Redirect("SM_EditItem.aspx?itemID=" + itemID);
         }
     }

@@ -26,7 +26,7 @@ namespace Team09LogicU.App_Code.DAO
 
         }
        
-        public void addItem(string itemID,string desc,string location,string category,decimal price,int reorderLevel,int reorderQty,string uom,List<string> sup)
+        public void addItem(string itemID,string desc,string location,string category,List<decimal> pList,int reorderLevel,int reorderQty,string uom,List<string> sup,int qty)
         {
             Item i = new Item();
           
@@ -37,15 +37,16 @@ namespace Team09LogicU.App_Code.DAO
             i.reorderLevel = reorderLevel;
             i.reorderQty = reorderQty;
             i.unitOfMeasure = uom;
+            i.qtyOnHand = qty;
             m.Items.Add(i);
             
             
             for(var j=0;j<sup.Count; j++)
             {
                 SupplierItem si = new SupplierItem();
-                si.supplierID = j.ToString();
+                si.supplierID = sup[j];
                 si.itemID = itemID;
-                si.price = price;
+                si.price = pList[j];
                 si.preferenceRank =( j + 1).ToString();
                 m.SupplierItems.Add(si);
             }
@@ -96,10 +97,20 @@ namespace Team09LogicU.App_Code.DAO
         
         public List<Item> getItemBySearch(string keyword)
         {
-            return m.Items.Where(x => x.Category.description.Contains(keyword) || x.description.Contains(keyword)).ToList();
+            return m.Items.Where(x => x.itemID.Contains(keyword)||x.Category.description.Contains(keyword) || x.description.Contains(keyword)).ToList();
+        }
+         public void updateItem(string itemID,string desc, string location, int reorderLevel, int reorderQty, string uom)
+        {
+            Item i = getItemByID(itemID);
+            i.description = desc;
+            i.location = location;
+            i.reorderLevel = reorderLevel;
+            i.reorderQty = reorderQty;
+            i.unitOfMeasure = uom;
+
+            m.SaveChanges();
         }
 
-        
         //public List<string> getDescListByItemIDList(List<string> itemID)
         //{
         //    List<string> ldesc = new List<string>();
