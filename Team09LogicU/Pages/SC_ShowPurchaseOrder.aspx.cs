@@ -10,7 +10,7 @@ using Team09LogicU.App_Code.UtilClass;
 
 namespace Team09LogicU.Pages
 {
-    public partial class SC_PrintPurchaseOrder : System.Web.UI.Page
+    public partial class SC_ShowPurchaseOrder : System.Web.UI.Page
     {
         StoreStaffDAO storeStaffDAO = new StoreStaffDAO();
         ItemDAO itemDAO = new ItemDAO();
@@ -52,7 +52,7 @@ namespace Team09LogicU.Pages
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SC_ViewReorderReport.aspx");
+            Response.Redirect("SC_ViewReorderList.aspx");
         }
     }
 }
