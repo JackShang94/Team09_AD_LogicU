@@ -42,7 +42,7 @@ namespace Team09LogicU.Pages
                 poCart.Add(new PurchaseOrder());
                 poCart[i].supplierID = reorderCart[i].SupplierID;
                 poCart[i].orderBy = reorderCart[i].StaffName;
-                poCart[i].orderDate = Convert.ToDateTime(reorderCart[i].OrderDate);
+                poCart[i].orderDate = DateTime.Now;
             }
 
             GridView_reorderListBySup.DataSource = reorderCart;
@@ -59,11 +59,6 @@ namespace Team09LogicU.Pages
                 supplierID = (row.FindControl("lblSupID") as Label).Text;
                 Response.Redirect("SC_PrintPurchaseOrder.aspx?supplierID=" + supplierID);
             }
-        }
-
-        protected void btnReorderReport_Click(object sender, EventArgs e)
-        {
-
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
