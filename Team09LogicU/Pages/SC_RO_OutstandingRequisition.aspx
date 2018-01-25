@@ -10,33 +10,46 @@ Outstanding Requisition
 								<div class=" container">
 										<div class="col-lg-12">
 										   <div class="col-lg-3" style="margin-top:20px">
-												<asp:Label ID="dateLabel1" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>
-												<asp:TextBox ID="dateTimeTextBox" runat="server" CssClass="form-control datepicker"></asp:TextBox>
+												<%--<asp:Label ID="dateLabel" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>--%>
+												<%--<asp:TextBox ID="dateTimeTextBox" runat="server" CssClass="form-control datepicker"></asp:TextBox>--%>
 										   </div>
-											<div class="col-lg-3" style="margin-top:20px">
+										   <div class="col-lg-3" style="margin-top:20px">
 													<asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-													<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
-										   </div>
+													<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged">
+													
+													</asp:DropDownList>
+													
+										    </div>
 											<div class="col-lg-10">
-												<asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
-												<asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover "></asp:GridView>
-												<div class="col-lg-10">
-													<asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
-												  </div> 
+												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+												<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+													<ContentTemplate>
+															<%--<asp:LinkButton ID="viewHisButton" runat="server">View Disbursement List History</asp:LinkButton>--%>
+															<asp:GridView ID="outstandingGridView" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false">
+																<Columns>
+																	<asp:BoundField  DataField="itemDesc"  HeaderText="item"/>
+																	<asp:BoundField DataField="unit" HeaderText="unit" />
+																	<asp:BoundField DataField="needed" HeaderText ="expectedQuantity" />
+																	<asp:BoundField DataField="disburseDate" HeaderText="DisburseDate" />
+																</Columns>
+															</asp:GridView>
+															<div class="col-lg-10">
+																<asp:Label ID="collectionpointLabel" runat="server" Text="Collection Point:"></asp:Label>
+															  </div> 
+														</ContentTemplate>
+												</asp:UpdatePanel>
 											</div>
-										</div>
+										</div>			
 										<div class="col-lg-3" style=" margin-top:40px;margin-bottom:20px">
-											<asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Print" />
+											<asp:Button ID="printButton" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Print"  OnClick="printButton_Click" EnableViewState="False" />
 										</div>
+									
 								</div>
 							</div>
 			</div>
 		</div>
     </form>
-     <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-    <script src="../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+
 
 
 	   <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
@@ -113,14 +126,5 @@ Outstanding Requisition
                   demo.initFormExtendedDatetimepickers();
               });
     </script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-46172202-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+    
 </asp:Content>

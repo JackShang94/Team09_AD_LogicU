@@ -92,6 +92,30 @@ namespace Team09LogicU.App_Code.DAO
             return "";
         }
 
+        public void UpdateItemQtyOnHand(string itemID, int qty)
+        {       
+            List<Item> list = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
+            Item i = new Item();
+            if (list.Count() > 0)
+            {
+                i = list.First();
+            }
+            i.qtyOnHand = i.qtyOnHand + qty;
+            m.SaveChanges();
+        }
+
+        public int GetItemQtyByItemID(string itemID)
+        {
+            Item i = new Item();
+            List<Item> iList = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
+            if (iList.Count() > 0)
+            {
+                i = iList.First();
+            }
+            int qty = i.qtyOnHand;
+            return qty;
+        }
+
         //public List<string> getDescListByItemIDList(List<string> itemID)
         //{
         //    List<string> ldesc = new List<string>();

@@ -46,7 +46,7 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            System.Web.HttpContext.Current.Session["reorderList"] = list;
+            Session["reorderList"] = list;
 
             GridView_reorderList.DataSource = list;
             GridView_reorderList.DataBind();
@@ -55,7 +55,7 @@ namespace Team09LogicU.Pages
         private void BindGrid()
         {
             List<ReorderItem> list = new List<ReorderItem>();
-            list = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
+            list = (List<ReorderItem>)Session["reorderList"];
             GridView_reorderList.DataSource = list;
             GridView_reorderList.DataBind();
         }
@@ -74,8 +74,7 @@ namespace Team09LogicU.Pages
             int orderQty = Int32.Parse((row.FindControl("txtOrderQty") as TextBox).Text);
 
             List<ReorderItem> reorderList = new List<ReorderItem>();
-            reorderList = (List<ReorderItem>)System.Web.HttpContext.Current.Session["reorderList"];
-
+            reorderList = (List<ReorderItem>)Session["reorderList"];
 
             SupplierItem SupItem = new SupplierItem();
             Item item = new Item();
@@ -97,8 +96,7 @@ namespace Team09LogicU.Pages
                 }
             }
 
-            System.Web.HttpContext.Current.Session["reorderList"] = reorderList;
-
+            Session["reorderList"] = reorderList;
             GridView_reorderList.EditIndex = -1;
             BindGrid();
         }
@@ -134,7 +132,21 @@ namespace Team09LogicU.Pages
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
+            List<ReorderItem> list = new List<ReorderItem>();
+            list = (List<ReorderItem>)Session["reorderList"];
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (list[i].OrderQty == 0)
+                {
+                    list.RemoveAt(i);
+                }
+            }
+
+            Session["finalReorderList"] = list;
+
             Response.Redirect("SC_ViewReorderReport.aspx");
+
+
         }
 
     }

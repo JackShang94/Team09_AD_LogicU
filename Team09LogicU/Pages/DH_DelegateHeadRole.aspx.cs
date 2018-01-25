@@ -146,7 +146,6 @@ namespace Team09LogicU.pages
             {
                 GridView_dHistory.PageIndex = e.NewPageIndex;
                 displayDelegationListAndRole(deptID);
-                
                 TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_dHistory.PageIndex + 1).ToString();
             }

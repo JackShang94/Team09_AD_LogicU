@@ -60,7 +60,7 @@
 											
 										</div> 
 										 <div class="col-lg-10" style="margin-bottom:20px;margin-top:20px" >
-										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" EmptyDataText="There is no history">
+										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True" AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" EmptyDataText="There is no history">
 											<Columns>
 												<asp:TemplateField>
 													<ItemTemplate>
@@ -149,10 +149,7 @@
                             </div>
 			</div>--%>
                
-    	    <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-    <script src="../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+
 
 
 	   <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->

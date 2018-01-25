@@ -281,6 +281,7 @@
     <Compile Include="App_Code\UtilClass\ItemCart.cs" />
     <Compile Include="App_Code\UtilClass\LogicUExceptions.cs" />
     <Compile Include="App_Code\UtilClass\Logout.cs" />
+    <Compile Include="App_Code\UtilClass\OutstandingCart.cs" />
     <Compile Include="App_Code\UtilClass\POItem.cs" />
     <Compile Include="App_Code\UtilClass\ReorderCart.cs" />
     <Compile Include="App_Code\UtilClass\ReorderItem.cs" />

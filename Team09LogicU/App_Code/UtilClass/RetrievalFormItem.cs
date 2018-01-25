@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Team09LogicU.App_Code.UtilClass
 {
+    [Serializable]
     public class BreakdownByDepartment
     {
 
@@ -64,7 +65,14 @@ After:
 
         public BreakdownByDepartment() { }
 
+        public BreakdownByDepartment(string deptID, int needed, int actual)
+        {
+            this.deptID = deptID;
+            this.needed = needed;
+            this.actual = actual;
+        }
     }
+    [Serializable]
     public class RetrievalFormItem
     {
 
@@ -171,6 +179,16 @@ After:
 
         public RetrievalFormItem() {
             BreakList = new List<BreakdownByDepartment>();
+        }
+
+        public RetrievalFormItem(string itemID, string itemDescription, string localtion, int needed, int actual, List<BreakdownByDepartment> breakList)
+        {
+            this.itemID = itemID;
+            this.itemDescription = itemDescription;
+            this.localtion = localtion;
+            this.needed = needed;
+            this.actual = actual;
+            this.breakList = breakList;
         }
     }
 }
