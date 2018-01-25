@@ -111,8 +111,8 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\light-bootstrap-dashboard.css" />
     <Content Include="css\pe-icon-7-stroke.css" />
-    <Content Include="js\fonts\fontawesome-webfont.svg" />
-    <Content Include="js\fonts\pe-icon-7-stroke.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\pe-icon-7-stroke.svg" />
     <Content Include="js\aa743e8f448a4792bad10d201a7080f6.js" />
     <Content Include="js\bootstrap-checkbox-radio-switch-tags.js" />
     <Content Include="js\bootstrap-datetimepicker.js" />
@@ -186,17 +186,17 @@
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
     <Content Include="Pages\welcome.Master" />
-    <Content Include="js\fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
-    <Content Include="js\fonts\fontawesome-webfont.eot" />
-    <Content Include="js\fonts\fontawesome-webfont.woff" />
-    <Content Include="js\fonts\fontawesome-webfont.woff2" />
-    <Content Include="js\fonts\hgo13k-tfspn0qi1sfdufacwcynf_cdxxwclxiixg1c.ttf" />
-    <Content Include="js\fonts\pe-icon-7-stroke.eot" />
-    <Content Include="js\fonts\pe-icon-7-stroke.ttf" />
-    <Content Include="js\fonts\pe-icon-7-stroke.woff" />
-    <Content Include="js\fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
     <Content Include="Pages\StoreManager.Master" />
     <Content Include="Pages\StoreSupervisor.Master" />
+    <Content Include="fonts\d-6iyplofoccackzxwxsokcwcynf_cdxxwclxiixg1c.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\hgo13k-tfspn0qi1sfdufacwcynf_cdxxwclxiixg1c.ttf" />
+    <Content Include="fonts\pe-icon-7-stroke.eot" />
+    <Content Include="fonts\pe-icon-7-stroke.ttf" />
+    <Content Include="fonts\pe-icon-7-stroke.woff" />
+    <Content Include="fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
