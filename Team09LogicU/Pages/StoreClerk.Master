@@ -129,14 +129,14 @@
 
                 <li>
                     <a data-toggle="collapse" href="#InvExamples">
-                        <i class="pe-7s-bookmarks"></i>
+                        <i class="pe-7s-server"></i>
                         <p>Inventory
                        <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="InvExamples">
                         <ul class="nav">
-                            <li><a href="SC_Inv_StockManagement.aspx">Stock Management</a></li>
+                            <li><a href="SC_Inv_ViewInventoryList.aspx">View Inventory List</a></li>
                             <li><a href="SC_Inv_ManageReorder.aspx">Reorder</a></li>
                             <li><a href="SC_Inv_AdjustmentVoucher.aspx">Adjustment Voucher</a></li>
                            
@@ -239,7 +239,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="SC_Inv_StockManagement.aspx">
+                                    <a href="SC_Inv_ViewInventoryList.aspx">
                                         <i class="pe-7s-bookmarks"></i> Inventory</a>
                                 </li>
                                 <li>
