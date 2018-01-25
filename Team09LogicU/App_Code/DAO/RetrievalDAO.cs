@@ -16,11 +16,11 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<Requisition> reqlist = getRetrievedRequisitionList(date);
 
-            //updateRequisitionStatusAsProcessed(reqlist);//comment it in order to test
+            updateRequisitionStatusAsProcessed(reqlist);//comment it in order to test
 
             List<Outstanding> outlist = getOutStandingList(date);
 
-            //updateOutStandingStatusAsProcessed(outlist);//comment it in order to test
+            updateOutStandingStatusAsProcessed(outlist);//comment it in order to test
 
             List<RetrievalFormItem> reflist = new List<RetrievalFormItem>();
 
