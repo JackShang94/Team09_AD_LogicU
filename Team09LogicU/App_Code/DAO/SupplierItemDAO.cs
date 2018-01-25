@@ -65,6 +65,18 @@ namespace Team09LogicU.App_Code.DAO
             }
             return pricelist;
         }
+
+        public decimal getPriceByItemIDAndSupplierID(string itemID, string supplierID)
+        {
+            List<SupplierItem> supItemList = m.SupplierItems.Where(x => x.itemID == itemID && x.supplierID==supplierID).ToList();
+            SupplierItem supItem = new SupplierItem();
+            if (supItemList.Count != 0)
+            {
+                supItem = supItemList.First();
+            }
+            decimal price = supItem.price;
+            return price;
+        }
         public SupplierItem findSupplierItemByItemIDAndSupplier(string itemID, string supplierID)
         {
             SupplierItem item = new SupplierItem();
