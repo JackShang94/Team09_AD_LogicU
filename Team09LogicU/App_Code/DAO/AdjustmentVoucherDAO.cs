@@ -19,18 +19,39 @@ namespace Team09LogicU.App_Code.DAO
             return context.AdjustmentVouchers.Where(x => x.adjVID == adjvID).ToList<AdjustmentVoucher>();
         }
 
-
-
-
-        public void addAdjustmentVoucher(int i,string storestaffID, DateTime adjdate)
+        public List<AdjustmentVoucher> getadjvByStaffIDandStatus(string staffID, string status)
         {
-            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
+            return context.AdjustmentVouchers.Where(x => x.storeStaffID == staffID && x.status == status).ToList<AdjustmentVoucher>();
+        }
+        public AdjustmentVoucher findAdjustmentVoucherByadjvId(int adjvID)
+        {
+            return context.AdjustmentVouchers.Find(adjvID);
+        }
 
+        public void addAdjustmentVoucher(string storestaffID, List<AdjustmentVouchercart> list)
+        {
+            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();    
             adjvoucher.storeStaffID = storestaffID;
-            adjvoucher.adjDate = adjdate;
-
+            adjvoucher.adjDate = DateTime.Now;
+            adjvoucher.status = "pending";
+            adjvoucher.authorisedBy = "";
             context.AdjustmentVouchers.Add(adjvoucher);
+           // context.SaveChanges();
+            int adjvID = adjvoucher.adjVID;
+            /*************Then Add ADJVItems******************/
+            AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+            
+            foreach ( AdjustmentVouchercart cartitem in list)
+            {
+                AdjustmentVoucherItem adjvi = new AdjustmentVoucherItem();
+                adjvi.adjVID = adjvoucher.adjVID;
+                adjvi.itemID = cartitem.ItemID;
+                adjvi.quantity = cartitem.Qty;
+                adjvi.record = cartitem.Record;
+                context.AdjustmentVoucherItems.Add(adjvi);
+            }
             context.SaveChanges();
+
         }
     }
 }

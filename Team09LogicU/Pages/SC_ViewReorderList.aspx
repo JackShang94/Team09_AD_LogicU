@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_ViewReorderReport.aspx.cs" Inherits="Team09LogicU.Pages.SC_ViewReorderReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_ViewReorderList.aspx.cs" Inherits="Team09LogicU.Pages.SC_ViewReorderList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -35,7 +35,6 @@
             <HeaderStyle CssClass=" content text-uppercase  " />
         </asp:GridView>
          <asp:Button ID="btnSubmit" runat="server" Text="Submit Order" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnSubmit_Click" />
-        <asp:Button ID="btnReorderReport" runat="server" Text="Generate Reorder Report" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnReorderReport_Click" />
         <asp:Button ID="btnCancel" runat="server" Text="Cancel and Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnCancel_Click" />
     </form>
 

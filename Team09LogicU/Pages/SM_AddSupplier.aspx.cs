@@ -22,24 +22,36 @@ namespace Team09LogicU.Pages
         string contactName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         protected void Btn_Submit_Click(object sender, EventArgs e)
         {
-            supplierCode = TextBox_SupplierCode.Text;
-            supplierName = TextBox_SupplierName.Text;
-            gstRegistrationNo = TextBox_ContactName.Text;
-            address = TextBox_Address.Text;
-            fax =TextBox_Fax.Text;
-            phone =TextBox_Phone.Text;
-            contactName = TextBox_ContactName.Text;
+            if (TextBox_SupplierCode.Text != "")
+            {
+                supplierCode = TextBox_SupplierCode.Text;
+                supplierName = TextBox_SupplierName.Text;
+                gstRegistrationNo = TextBox_ContactName.Text;
+                address = TextBox_Address.Text;
+                fax = TextBox_Fax.Text;
+                phone = TextBox_Phone.Text;
+                contactName = TextBox_ContactName.Text;
 
-            supplierDAO.addSupplier(supplierCode, supplierName, gstRegistrationNo, address, fax, phone, contactName);
+                try
+                {
+                    supplierDAO.addSupplier(supplierCode, supplierName, gstRegistrationNo, address, fax, phone, contactName);
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Supplier Code already exists!')</script>");
+                }
+                Response.Write("<script>alert('Successfully submitted!')</script>");
+                Response.Redirect("SM_SearchSupplier.aspx");
+            }
+            else { Response.Write("<script>alert('Supplier code can't be empty!')</script>"); }
 
-            Response.Write("<script>alert('Successfully submitted!')</script>");
-            Response.Redirect("SM_SearchSupplier.aspx");
+
         }
 
         protected void Btn_Back_Click(object sender, EventArgs e)

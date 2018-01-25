@@ -22,7 +22,6 @@ namespace Team09LogicU.pages
                 this.BindDDL();
                 this.BindGrid();
             }
-
         }
 
         protected void BindDDL()
@@ -74,6 +73,40 @@ namespace Team09LogicU.pages
             {
                 reqID = (row.FindControl("lblReqID") as Label).Text;
                 Response.Redirect("DH_RequisitionHistoryDetail.aspx?reqID=" + reqID);
+            }
+        }
+
+
+
+
+        protected void GridView_ReqHistory_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                GridView_ReqHistory.PageIndex = e.NewPageIndex;
+                BindGrid();
+                TextBox tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
+                tb.Text = (GridView_ReqHistory.PageIndex + 1).ToString();
+            }
+            catch
+            {
+            }
+        }
+
+        protected void GridView_ReqHistory_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "go")
+            {
+                try
+                {
+                    TextBox tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_ReqHistory_PageIndexChanging(null, ea);
+                }
+                catch
+                {
+                }
             }
         }
 

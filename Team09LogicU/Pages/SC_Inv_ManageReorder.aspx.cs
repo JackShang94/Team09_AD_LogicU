@@ -144,7 +144,7 @@ namespace Team09LogicU.Pages
 
             Session["finalReorderList"] = list;
 
-            Response.Redirect("SC_ViewReorderReport.aspx");
+            Response.Redirect("SC_ViewReorderList.aspx");
 
 
         }

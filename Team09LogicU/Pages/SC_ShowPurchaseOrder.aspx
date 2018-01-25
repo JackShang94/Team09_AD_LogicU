@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_PrintPurchaseOrder.aspx.cs" Inherits="Team09LogicU.Pages.SC_PrintPurchaseOrder" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_ShowPurchaseOrder.aspx.cs" Inherits="Team09LogicU.Pages.SC_ShowPurchaseOrder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -35,7 +35,6 @@
             </Columns>
             <HeaderStyle CssClass=" content text-uppercase  " />
         </asp:GridView>
-        <asp:Button ID="btnPrintPO" runat="server" Text="Print" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnPrintPO_Click" />
         <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnBack_Click" />
     </form>
 </asp:Content>

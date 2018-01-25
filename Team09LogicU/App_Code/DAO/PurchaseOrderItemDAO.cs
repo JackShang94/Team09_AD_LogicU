@@ -15,5 +15,11 @@ namespace Team09LogicU.App_Code.DAO
             m.PurchaseOrderItems.Add(poItem);
             m.SaveChanges();
         }
+
+        public List<PurchaseOrderItem> findPOItembypoID(int poID)
+        {
+            List<PurchaseOrderItem> poItemList = m.PurchaseOrderItems.Where(x => x.poID == poID).ToList();
+            return poItemList;
+        }
     }
 }

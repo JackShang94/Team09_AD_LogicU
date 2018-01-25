@@ -22,22 +22,31 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TextBox_ItemNumber control.
+        /// TextBox_itemcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_ItemNumber;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_itemcode;
         
         /// <summary>
-        /// dropdownlist_Catagory control.
+        /// TextBox_category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Catagory;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_category;
+        
+        /// <summary>
+        /// TextBox_qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_qty;
         
         /// <summary>
         /// TextBox_Description control.
@@ -76,6 +85,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.DropDownList dropdownlist_unitofmeasure;
         
         /// <summary>
+        /// TextBox_location control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_location;
+        
+        /// <summary>
         /// dropdownlist_Supplier1 control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Supplier1;
+        
+        /// <summary>
+        /// TextBox_price1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_price1;
         
         /// <summary>
         /// dropdownlist_Supplier2 control.
@@ -94,6 +121,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Supplier2;
         
         /// <summary>
+        /// TextBox_price2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_price2;
+        
+        /// <summary>
         /// dropdownlist_Supplier3 control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropdownlist_Supplier3;
+        
+        /// <summary>
+        /// TextBox_price3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_price3;
         
         /// <summary>
         /// Btn_Update control.
