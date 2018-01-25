@@ -16,5 +16,11 @@ namespace Team09LogicU.App_Code.DAO
             m.PurchaseOrders.Add(po);
             m.SaveChanges();
         }
+
+        public List<PurchaseOrder> findPOList()
+        {
+            List<PurchaseOrder> listPO = m.PurchaseOrders.ToList();
+            return listPO;
+        }
     }
 }
