@@ -23,7 +23,10 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.AdjustmentVouchers.Where(x => x.storeStaffID == staffID && x.status == status).ToList<AdjustmentVoucher>();
         }
-
+        public AdjustmentVoucher findAdjustmentVoucherByadjvId(int adjvID)
+        {
+            return context.AdjustmentVouchers.Find(adjvID);
+        }
 
         public void addAdjustmentVoucher(string storestaffID, Dictionary<string, int> dict)
         {
@@ -40,7 +43,7 @@ namespace Team09LogicU.App_Code.DAO
             AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
             foreach (var d in dict)
             {
-             AdjustmentVoucherItem adjvi = adjvidao.addAdjustmentVoucherItem(adjvID, d.Key, d.Value);
+                AdjustmentVoucherItem adjvi = adjvidao.addAdjustmentVoucherItem(adjvID, d.Key, d.Value);
                 context.AdjustmentVoucherItems.Add(adjvi);
             }
             context.SaveChanges();

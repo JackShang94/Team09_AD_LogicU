@@ -14,7 +14,7 @@ Adjustment Voucher
                         <div class="pull-left search" style="width:75%">
                             
                           <div class="col-md-3">
-                            <asp:TextBox ID="textbox_Search"   class="form-control " runat="server" Width="200px"   ></asp:TextBox>  
+                            <asp:TextBox ID="textbox_Search"   class="form-control" runat="server" Width="200px"   ></asp:TextBox>  
 
                             </div>
 

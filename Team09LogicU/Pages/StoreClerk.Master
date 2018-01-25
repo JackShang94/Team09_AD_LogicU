@@ -140,7 +140,7 @@
                             <li><a href="SC_Inv_ManageReorder.aspx">Reorder</a></li>
                             <li><a href="SC_Inv_AdjustmentVoucher.aspx">Adjustment Voucher</a></li>
                            
-                            
+                            <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
                         </ul>
                     </div>    
                 </li>
