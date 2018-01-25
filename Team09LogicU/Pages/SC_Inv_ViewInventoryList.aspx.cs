@@ -26,6 +26,7 @@ namespace Team09LogicU.Pages
                 itemList = itemDAO.getItemList();
                 showItemInfo(itemList);
             }
+            UpdateGridviewByDropdownList();
         }
 
         public void showItemInfo(List<Item> iList)
@@ -72,6 +73,20 @@ namespace Team09LogicU.Pages
 
         protected void DropDownList_cat_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if (DropDownList_cat.Text == "--All--")
+            //{
+            //    itemList = itemDAO.getItemList();//all items
+            //}
+            //else
+            //{
+            //    string cat = DropDownList_cat.Text;
+            //    itemList = itemDAO.getItemByCat(cat);//items with specific CAT
+            //}
+            //showItemInfo(itemList);
+            UpdateGridviewByDropdownList();
+        }
+        protected void UpdateGridviewByDropdownList()
+        {
             if (DropDownList_cat.Text == "--All--")
             {
                 itemList = itemDAO.getItemList();//all items
@@ -83,7 +98,6 @@ namespace Team09LogicU.Pages
             }
             showItemInfo(itemList);
         }
-
         protected void GridView_stock_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -94,10 +108,10 @@ namespace Team09LogicU.Pages
             try
             {
                 GridView_stock.PageIndex = e.NewPageIndex;
-                //dropDownList_bindCatInfo();
-                
-                itemList = itemDAO.getItemList();
-                showItemInfo(itemList);
+
+                GridView_stock.DataSource = iTable;
+                GridView_stock.DataBind();
+
                 TextBox tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_stock.PageIndex + 1).ToString();
             }

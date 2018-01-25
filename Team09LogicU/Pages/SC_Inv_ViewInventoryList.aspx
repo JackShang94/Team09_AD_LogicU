@@ -17,7 +17,7 @@
                                     <asp:DropDownList ID="DropDownList_cat" runat="server" CssClass="form-control"  AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DropDownList_cat_SelectedIndexChanged" ></asp:DropDownList>
                                 </div>
                     <div class="col-lg-10">
-                                        <asp:GridView ID="GridView_stock" runat="server"  OnRowEditing="GridView_stock_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
+                                        <asp:GridView ID="GridView_stock" runat="server" PageSize="5" OnPageIndexChanging="GridView_stock_PageIndexChanging" OnRowCommand="GridView_stock_RowCommand"  OnRowEditing="GridView_stock_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
                                             CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView_stock_SelectedIndexChanged">
                                             <Columns>
                                                 <asp:TemplateField HeaderText="View" ItemStyle-CssClass="text-center">
@@ -26,7 +26,7 @@
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>
-                                            <%--<PagerTemplate>
+                                            <PagerTemplate>
         <br />
           <div class="col-lg-12 pull-left">
          <div class="col-lg-1" style="width:100px">
@@ -44,7 +44,7 @@
               <div class="col-lg-1" style="width:40px">
              <asp:Button ID="Button1" CommandName="go"  CssClass="btn btn-xs btn-success"  Text="GO" runat="server" />
          </div><br />
-     </PagerTemplate>--%>
+     </PagerTemplate>
                                         </asp:GridView>
                                         <alternatingrowstyle backcolor="White" />
                                     </div>  
