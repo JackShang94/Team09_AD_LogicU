@@ -53,9 +53,9 @@ namespace Team09LogicU.Pages
         }
         public void BindData()
         {
-            List<AdjustmentVoucherItem> adjItems = adjvidao.(reqID);
-            GridView_detailList.DataSource = reqItems;
-            GridView_detailList.DataBind();
+            //List<AdjustmentVoucherItem> adjItems = adjvidao.(reqID);
+            //GridView_detailList.DataSource = reqItems;
+            //GridView_detailList.DataBind();
         }
 
     }
