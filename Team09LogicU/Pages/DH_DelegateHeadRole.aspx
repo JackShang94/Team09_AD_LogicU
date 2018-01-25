@@ -36,7 +36,7 @@
         <div class="col-lg-12">
         <h4>Delegate History:</h4></div>
            <div class="col-lg-10">
-        <asp:GridView ID="GridView_dHistory" AllowPaging="true" HeaderStyle-CssClass="text-uppercase"  OnPageIndexChanging="GridView_dHistory_PageIndexChanging" OnRowCommand="GridView_dHistory_RowCommand"  CssClass="table table-striped table-hover" runat="server" EmptyDataText="No delegation record">
+        <asp:GridView ID="GridView_dHistory" AllowPaging="true" PageSize="5" HeaderStyle-CssClass="text-uppercase"  OnPageIndexChanging="GridView_dHistory_PageIndexChanging" OnRowCommand="GridView_dHistory_RowCommand"  CssClass="table table-striped table-hover" runat="server" EmptyDataText="No delegation record">
             <Columns> 
                 <asp:ButtonField  CommandName="Select"  ControlStyle-ForeColor="#0066ff" ControlStyle-CssClass=" text-center btn-xs btn-default" Text="select"  />
             </Columns>
