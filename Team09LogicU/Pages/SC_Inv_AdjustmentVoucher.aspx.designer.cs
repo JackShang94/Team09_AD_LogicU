@@ -40,13 +40,22 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Button Button_Search;
         
         /// <summary>
-        /// label control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// catalogueUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel catalogueUpdatePanel;
         
         /// <summary>
         /// GridView_CatalogList control.
@@ -58,12 +67,30 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.GridView GridView_CatalogList;
         
         /// <summary>
-        /// Btn_Adjvlist control.
+        /// Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Adjvlist;
+        protected global::System.Web.UI.WebControls.Button Submit;
+        
+        /// <summary>
+        /// cartUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel cartUpdatePanel;
+        
+        /// <summary>
+        /// cartRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater cartRepeater;
     }
 }

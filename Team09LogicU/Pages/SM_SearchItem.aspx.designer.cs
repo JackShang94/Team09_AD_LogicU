@@ -31,13 +31,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox textbox_Search;
         
         /// <summary>
-        /// Button1 control.
+        /// Button_search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button_search;
         
         /// <summary>
         /// Btn_Add control.
@@ -49,12 +49,12 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Button Btn_Add;
         
         /// <summary>
-        /// GridView1 control.
+        /// GridView_itemList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridView_itemList;
     }
 }

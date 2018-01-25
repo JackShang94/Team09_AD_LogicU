@@ -166,6 +166,7 @@
     <Content Include="Pages\SC_PrintPurchaseOrder.aspx" />
     <Content Include="Pages\SC_ReorderHistory.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
+    <Content Include="Pages\SC_ViewAdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_ViewCatalog.aspx" />
     <Content Include="Pages\SC_ViewDepartment.aspx" />
     <Content Include="Pages\SC_ViewReorderReport.aspx" />
@@ -604,6 +605,13 @@
     </Compile>
     <Compile Include="Pages\SC_RO_RetrievalForms.aspx.designer.cs">
       <DependentUpon>SC_RO_RetrievalForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_ViewAdjustmentVoucher.aspx.cs">
+      <DependentUpon>SC_ViewAdjustmentVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_ViewAdjustmentVoucher.aspx.designer.cs">
+      <DependentUpon>SC_ViewAdjustmentVoucher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_ViewCatalog.aspx.cs">
       <DependentUpon>SC_ViewCatalog.aspx</DependentUpon>
