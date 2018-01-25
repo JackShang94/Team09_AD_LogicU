@@ -78,7 +78,10 @@ namespace Team09LogicU.App_Code.DAO
             }
             return "";
         }
-
+        public List<Item> getItemByCat(string category)
+        {
+            return m.Items.Where(x => x.Category.description == category).ToList<Item>();
+        }
         public Item getItemByID(string itemID)
         {
             Item i = new Item();
@@ -90,27 +93,51 @@ namespace Team09LogicU.App_Code.DAO
             return i;
         }
 
-        public List<Item> getItemByCat(string category)
-        {
-            return m.Items.Where(x => x.Category.description == category).ToList<Item>();
-        }
-        
-        public List<Item> getItemBySearch(string keyword)
-        {
-            return m.Items.Where(x => x.itemID.Contains(keyword)||x.Category.description.Contains(keyword) || x.description.Contains(keyword)).ToList();
-        }
-         public void updateItem(string itemID,string desc, string location, int reorderLevel, int reorderQty, string uom)
-        {
-            Item i = getItemByID(itemID);
-            i.description = desc;
-            i.location = location;
-            i.reorderLevel = reorderLevel;
-            i.reorderQty = reorderQty;
-            i.unitOfMeasure = uom;
 
+        public void UpdateItemQtyOnHand(string itemID, int qty)
+        {
+            List<Item> list = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
+            Item i = new Item();
+            if (list.Count() > 0)
+            {
+                i = list.First();
+            }
+            i.qtyOnHand = i.qtyOnHand + qty;
             m.SaveChanges();
         }
 
+        public int GetItemQtyByItemID(string itemID)
+        {
+            Item i = new Item();
+            List<Item> iList = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
+            if (iList.Count() > 0)
+            {
+                i = iList.First();
+            }
+            int qty = i.qtyOnHand;
+            return qty;
+        }
+         public List<Item> getItemBySearch(string keyword)
+        {
+            return m.Items.Where(x => x.itemID.Contains(keyword) || x.categoryID.Contains(keyword)
+                                                              || x.description.Contains(keyword)).ToList();
+        }
+
+        public void updateItem(string itemID, string desc, string location, int reorderLevel, int reorderQty, string uom)
+        {
+            Item i = new Item();
+            List<Item> ilist = m.Items.Where(x => x.itemID == itemID).ToList();
+            if(ilist.Count()>0)
+            {
+                i = ilist.First();
+                i.description = desc;
+                i.location = location;
+                i.reorderLevel = reorderLevel;
+                i.reorderQty = reorderQty;
+                i.unitOfMeasure = uom;
+            }
+            m.SaveChanges();
+        }
         //public List<string> getDescListByItemIDList(List<string> itemID)
         //{
         //    List<string> ldesc = new List<string>();
