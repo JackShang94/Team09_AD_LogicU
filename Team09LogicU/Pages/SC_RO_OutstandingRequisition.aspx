@@ -25,7 +25,7 @@ Outstanding Requisition
 												<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 													<ContentTemplate>
 															<%--<asp:LinkButton ID="viewHisButton" runat="server">View Disbursement List History</asp:LinkButton>--%>
-															<asp:GridView ID="outstandingGridView" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false">
+															<asp:GridView ID="outstandingGridView" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false" EmptyDataText="There are no outstanding requisitions">
 																<Columns>
 																	<asp:BoundField  DataField="itemDesc"  HeaderText="item"/>
 																	<asp:BoundField DataField="unit" HeaderText="unit" />
@@ -33,9 +33,11 @@ Outstanding Requisition
 																	<asp:BoundField DataField="disburseDate" HeaderText="DisburseDate" />
 																</Columns>
 															</asp:GridView>
-															<div class="col-lg-10">
-																<asp:Label ID="collectionpointLabel" runat="server" Text="Collection Point:"></asp:Label>
-															  </div> 
+														<%--	<div class="col-lg-10">
+																
+																<asp:Label ID="Label" runat="server" Text="Collection Point:"></asp:Label>
+																<asp:Label ID="collectionpointLabel" runat="server" Text=""></asp:Label>
+															  </div> --%>
 														</ContentTemplate>
 												</asp:UpdatePanel>
 											</div>
