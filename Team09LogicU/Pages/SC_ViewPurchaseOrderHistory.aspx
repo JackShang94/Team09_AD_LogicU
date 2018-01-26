@@ -39,12 +39,12 @@
                         </div>
 
                         <div class="col-lg-10" style="margin-bottom: 20px">
-                            <asp:gridview id="GridView_PurchaseOrder" runat="server" allowpaging="true" onpageindexchanging="GridView_PurchaseOrder_PageIndexChanging" onrowcommand="GridView_PurchaseOrder_RowCommand" cssclass="table bootstrap-table table-hover table-striped" headerstyle-cssclass=" content text-uppercase  " autogeneratecolumns="False" editrowstyle-cssclass="btn btn-warning btn-fill fa fa-edit" cellpadding="4" forecolor="#333333" gridlines="None" emptydatatext="There are no Purchase Order history record">
+                            <asp:gridview id="GridView_PurchaseOrder" runat="server" cssclass="table bootstrap-table table-hover table-striped" headerstyle-cssclass=" content text-uppercase  " autogeneratecolumns="False" editrowstyle-cssclass="btn btn-warning btn-fill fa fa-edit" cellpadding="4" forecolor="#333333" gridlines="None" emptydatatext="There are no Purchase Order history record">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
-                                                    <asp:TemplateField HeaderText="PO ID" Visible="False">
+                                                    <asp:TemplateField HeaderText="PO ID" Visible="True">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lblReqId" runat="server" Text='<%# Bind("poID") %>'></asp:Label>
+                                                            <asp:Label ID="lblpoID" runat="server" Text='<%# Bind("poID") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:BoundField DataField="supplierID" HeaderText="Supplier Name" />
@@ -56,25 +56,6 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
-                                                <PagerTemplate>
-                                                    <br />
-                                                      <div class="col-lg-12 text-center">
-                                                     <div class="col-lg-1" style="width:100px">
-                                                     <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label></div>
-                                                     <div class="col-lg-1" style="width:40px">
-                                                     <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-success"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First" ></asp:LinkButton></div>
-                                                    <div class="col-lg-1" style="width:40px" >
-                                                    <asp:LinkButton ID="lbnPrev" runat="server" Text="<<"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"  ></asp:LinkButton></div>
-                                                     <div class="col-lg-1" style="width:40px;height:80px;margin-right:-10px;margin-left:-5px;margin-top:-10px" >
-                                                        <asp:TextBox runat="server" CssClass="form-control text-center " Width="40px"  ID="inPageNum"></asp:TextBox></div>
-                                                    <div class="col-lg-1" style="width:40px; margin-left:20px" >
-                                                        <asp:LinkButton ID="lbnNext" runat="Server" Text=">>"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next" ></asp:LinkButton>
-                                                     </div><div class="col-lg-1" style="width:40px;margin-left:-10px">
-                                                        <asp:LinkButton ID="lbnLast" runat="Server" Text="Last"  CssClass="btn btn-xs btn-success"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last" ></asp:LinkButton></div>
-                                                          <div class="col-lg-1" style="width:40px">
-                                                         <asp:Button ID="Button1" CommandName="go"  CssClass="btn btn-xs btn-success"  Text="GO" runat="server" />
-                                                     </div><br />
-                                                 </PagerTemplate>
                                                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                                             </asp:gridview>
 

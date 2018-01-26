@@ -33,8 +33,14 @@ namespace Team09LogicU.Pages
             List<Supplier> supplierList = new List<Supplier>();
             supplierList = supDAO.getSupplierList();
 
+            List<string> supNameList = new List<string>();
+            foreach (Supplier s in supplierList)
+            {
+                supNameList.Add(s.supplierName);
+            }
+
             ddlSupplier.Items.Clear();
-            ddlSupplier.DataSource = supplierList;
+            ddlSupplier.DataSource = supNameList;
             ddlSupplier.AppendDataBoundItems = true;
             ddlSupplier.Items.Insert(0, new ListItem("---Select Supplier---"));
             ddlSupplier.DataBind();
@@ -47,6 +53,60 @@ namespace Team09LogicU.Pages
             GridView_PurchaseOrder.DataSource = POList;
             GridView_PurchaseOrder.DataBind();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindGridBasedOnSearch();
+        }
+
+        protected void BindGridBasedOnSearch()
+        {
+            List<PurchaseOrder> POList = new List<PurchaseOrder>();
+            string supplierName = ddlSupplier.Text;
+            string from = txtFrom.Text;
+            string to = txtTo.Text;
+
+            if ((from == "" || to == "") && supplierName == "---Select Supplier---")
+            {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please input search condition！');</script>");
+                POList = PoDAO.findPOList();
+            }
+
+            if (supplierName == "---Select Supplier---" && (from != "" && to != ""))
+            {
+                DateTime dateFrom = Convert.ToDateTime(from);
+                DateTime dateTo = Convert.ToDateTime(to);
+                POList = PoDAO.findPOByDate(dateFrom, dateTo);
+            }
+            if ((from == "" || to == "") && supplierName != "---Select Supplier---")
+            {
+                string supID = supDAO.findSupplierByName(supplierName).supplierID;
+                POList = PoDAO.findPOBySupplierID(supID);
+            }
+            if (from != "" && to != "" && supplierName != "---Select Supplier---")
+            {
+                DateTime dateFrom = Convert.ToDateTime(from);
+                DateTime dateTo = Convert.ToDateTime(to);
+                string supID = supDAO.findSupplierByName(supplierName).supplierID;
+                POList = PoDAO.findPOByDateAndSupID(dateFrom, dateTo, supID);
+            }
+
+            GridView_PurchaseOrder.DataSource = POList;
+            GridView_PurchaseOrder.DataBind();
+        }
+
+        protected void LinkButton_View_Click(object sender, EventArgs e) 
+        {
+            LinkButton View = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)View.NamingContainer;
+            string poID = "";
+            if (row != null)
+            {
+                poID = (row.FindControl("lblpoID") as Label).Text;
+                Response.Redirect("SC_PurchaseOrderHistoryDetail.aspx?poID=" + poID);
+            }
+        }
+
 
     }
 }

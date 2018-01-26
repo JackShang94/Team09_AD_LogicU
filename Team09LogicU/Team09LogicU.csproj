@@ -166,7 +166,6 @@
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PurchaseOrderHistoryDetail.aspx" />
     <Content Include="Pages\SC_ShowPurchaseOrder.aspx" />
-    <Content Include="Pages\SC_ReorderHistory.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
     <Content Include="Pages\SC_ViewAdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_ViewCatalog.aspx" />
@@ -589,13 +588,6 @@
     </Compile>
     <Compile Include="Pages\SC_ShowPurchaseOrder.aspx.designer.cs">
       <DependentUpon>SC_ShowPurchaseOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SC_ReorderHistory.aspx.cs">
-      <DependentUpon>SC_ReorderHistory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs">
-      <DependentUpon>SC_ReorderHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_RO_DisbursementList.aspx.cs">
       <DependentUpon>SC_RO_DisbursementList.aspx</DependentUpon>
