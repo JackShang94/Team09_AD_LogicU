@@ -31,8 +31,8 @@ namespace Team09LogicU.pages
                 }
                 else
                 {
-                //lblMessage.Text = "Access Denied!";
- 
+                    lblMessage.Text = "Access Denied!";
+
                 }
             }
         }

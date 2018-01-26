@@ -18,7 +18,9 @@ namespace Team09LogicU.Pages
         string logInStaffId;
         string logInRole;
         string logInDept;
+        string matchingDept;
         static int disID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             disID = Int32.Parse(Request.QueryString["disbursementID"]);
@@ -30,8 +32,9 @@ namespace Team09LogicU.Pages
 
                 logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
                 logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+                matchingDept = dDAO.getDisbursmentbyId(disID).deptID;
 
-                if (logInRole == "rep")
+                if (logInRole == "rep" && logInDept == matchingDept)
                 {
                     DisplaySelectedDisbursementDetails(disID);
                 }
