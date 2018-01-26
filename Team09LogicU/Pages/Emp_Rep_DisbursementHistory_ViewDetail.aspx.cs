@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Team09LogicU.Pages
 {
-    public partial class SC_ReorderHistory : System.Web.UI.Page
+    public partial class Emp_Rep_DisbursementHistory_ViewDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

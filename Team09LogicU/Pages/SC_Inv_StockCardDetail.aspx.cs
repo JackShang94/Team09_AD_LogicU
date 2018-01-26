@@ -37,7 +37,7 @@ namespace Team09LogicU.Pages
 
         protected void Btn_Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SC_Inv_StockManagement.aspx");
+            Response.Redirect("SC_Inv_ViewInventoryList.aspx");
         }
     }
 }

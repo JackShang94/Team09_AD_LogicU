@@ -39,6 +39,11 @@ namespace Team09LogicU.pages
                 {
                     ViewState["lrfi"] = new List<RetrievalFormItem>();
                 }
+                if (ViewState["date"] == null)
+                {
+                    ViewState["date"] = new DateTime();
+                }
+
             }
             else
             {
@@ -71,8 +76,10 @@ namespace Team09LogicU.pages
             string a = beforeDate.Text;
             if (a == "")
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please pick correct date')", true);
                 return;
             }
+            ViewState["date"] = Convert.ToDateTime(a);
             lrfi = retrievalDAO.getRetrievalFormByDate(Convert.ToDateTime(a));
            
             ViewState["lrfi"] = lrfi;
@@ -87,21 +94,21 @@ namespace Team09LogicU.pages
 
         protected void retrievalGridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            GridView gv = sender as GridView;
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                // Hiding the Select Button Cell in Header Row.
-                e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
-            }
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                // Hiding the Select Button Cells showing for each Data Row. 
-                e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
-                // Attaching one onclick event for the entire row, so that it will
-                // fire SelectedIndexChanged, while we click anywhere on the row.
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(gv, "Select$" + e.Row.RowIndex);
+            //GridView gv = sender as GridView;
+            //if (e.Row.RowType == DataControlRowType.Header)
+            //{
+            //    // Hiding the Select Button Cell in Header Row.
+            //    e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
+            //}
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    // Hiding the Select Button Cells showing for each Data Row. 
+            //    e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
+            //    // Attaching one onclick event for the entire row, so that it will
+            //    // fire SelectedIndexChanged, while we click anywhere on the row.
+            //    e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(gv, "Select$" + e.Row.RowIndex);
                 
-            }
+            //}
         }
 
         protected void retrievalGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -205,8 +212,13 @@ namespace Team09LogicU.pages
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
+            if (((List<RetrievalFormItem>)ViewState["lrfi"]).Count != 0)
+            {// what to confirm???? what if the lrfi change after changing 
+                //here it should pop up the yes or no warning instead of an alert
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('change something?')", true);
+            }
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
-            retrievalDAO.ConfirmRetrieval(lrfi);//haven't been tested
+            retrievalDAO.ConfirmRetrieval(lrfi,(DateTime)ViewState["date"]);//haven't been tested
             HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");//who the hell may know 
         }
 

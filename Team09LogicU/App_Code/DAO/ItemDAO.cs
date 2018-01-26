@@ -148,7 +148,7 @@ namespace Team09LogicU.App_Code.DAO
          public List<Item> getItemBySearch(string keyword)
         {
             return m.Items.Where(x => x.itemID.Contains(keyword) || x.categoryID.Contains(keyword)
-                                                              || x.description.Contains(keyword)).ToList();
+                                                                 || x.description.Contains(keyword)).ToList();
         }
 
         public void updateItem(string itemID, string desc, string location, int reorderLevel, int reorderQty, string uom)

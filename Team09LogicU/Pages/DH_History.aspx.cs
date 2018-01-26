@@ -22,7 +22,6 @@ namespace Team09LogicU.pages
                 this.BindDDL();
                 this.BindGrid();
             }
-
         }
 
         protected void BindDDL()
