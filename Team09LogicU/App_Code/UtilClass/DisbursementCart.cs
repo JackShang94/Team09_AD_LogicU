@@ -5,13 +5,14 @@ using System.Web;
 
 namespace Team09LogicU.App_Code.UtilClass
 {
+    [Serializable]
     public class DisbursementCart
     {
+        private string itemID;
         private string itemDescription;
         private int expectedc;
         private int actual;
-        private DateTime disburstime;
-        private string status;
+        
 
         public string ItemDescription
         {
@@ -52,29 +53,17 @@ namespace Team09LogicU.App_Code.UtilClass
             }
         }
 
-        public DateTime Disburstime
+
+        public string ItemID
         {
             get
             {
-                return disburstime;
+                return itemID;
             }
 
             set
             {
-                disburstime = value;
-            }
-        }
-
-        public string Status
-        {
-            get
-            {
-                return status;
-            }
-
-            set
-            {
-                status = value;
+                itemID = value;
             }
         }
     }

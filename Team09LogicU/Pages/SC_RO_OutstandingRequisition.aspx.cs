@@ -18,8 +18,7 @@ namespace Team09LogicU.pages
         {
             //depName = ;
             //this.deptid = dpd.findDepartmentIdByName(depName);
-          
-         
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,17 +51,20 @@ namespace Team09LogicU.pages
         {
             this.deptName = deptDropDownList.SelectedItem.Text;
             this.deptid = dpd.findDepartmentIdByName(this.deptName);
+            List<OutstandingCart> loc = new List<OutstandingCart>();
+            loc = oidao.getPendingOutstandingCartByDeptID(this.deptid, "Pending");
+            Session["loc"] = loc;
+            outstandingGridView.DataSource = loc;
+            outstandingGridView.DataBind();
+            //UpdatePanel1.Update();
             //collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(this.deptid);
 
         }
 
         protected void printButton_Click(object sender, EventArgs e)
         {
-            List<OutstandingCart> loc = new List<OutstandingCart>();
-            loc = oidao.getPendingOutstandingCartByDeptID(this.deptid, "Pending");
-            Session["loc"] = loc;
-            outstandingGridView.DataSource = loc;
-            outstandingGridView.DataBind();
+            //For print Report
+           
         }
     }
 }
