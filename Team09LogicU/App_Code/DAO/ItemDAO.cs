@@ -106,6 +106,34 @@ namespace Team09LogicU.App_Code.DAO
             m.SaveChanges();
         }
 
+        public void updateStockCardAndItemQuantity(List<AdjustmentVoucherItem> adjlist)
+        {
+            foreach (AdjustmentVoucherItem breakitem in adjlist)
+            {
+               
+                    //update item quantity
+                    Item item;
+                    List<Item> itemlist = m.Items.Where(x => x.itemID == breakitem.itemID).ToList();
+                    if (itemlist.Count > 0)// not null
+                    {
+                        item = itemlist.First();
+                        item.qtyOnHand = item.qtyOnHand + breakitem.quantity;
+                        //update stock card
+                        StockCard st = new StockCard();
+                        st.itemID = breakitem.itemID;
+                        st.date = DateTime.Now;
+                        st.quantity = breakitem.quantity;
+                        st.balance = item.qtyOnHand;
+                        st.record = breakitem.record;
+
+                        m.StockCards.Add(st);
+                    }
+                
+            }
+            m.SaveChanges();
+        }
+
+
         public int GetItemQtyByItemID(string itemID)
         {
             Item i = new Item();
