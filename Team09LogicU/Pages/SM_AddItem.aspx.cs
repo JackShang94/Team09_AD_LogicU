@@ -24,12 +24,21 @@ namespace Team09LogicU.Pages
         int qtyOnHand;
         List<string> supplierList = new List<string>();
         List<decimal> priceList = new List<decimal>();
+
+        string logInRole;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
+            logInRole = (string)Session["loginRole"];
+            if (logInRole == "manager")
             {
-                dropDownList_bindInfo();
+                if (!IsPostBack)
+                {
+                    dropDownList_bindInfo();
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
             }
         }
 
