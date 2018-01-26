@@ -3,65 +3,81 @@
     View Adjustment Detail
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <form id ="form1" runat="server">
-         <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="header">
-                             <p class="category">
-                                  <asp:Label ID="label1" runat="server" Text="Voucher: "></asp:Label>
-                                   <asp:Label ID="label_VoucherId" runat="server" Text="12233 "></asp:Label>  </p> <%--此处传值--%>
-                              <p class="category">   
-                                  <asp:Label ID="label2" runat="server" Text=" Date Issued:"></asp:Label>
-                                    <asp:Label ID="label_DateIssued" runat="server" Text="11/12/2017: "></asp:Label> </p> <%--此处传值--%>
-         
-                              <p class="category">    
-                                  <asp:Label ID="Label3" runat="server" Text="Submitted Employee: "></asp:Label>
-                                 <asp:Label ID="label_SubmittedEmployee" runat="server" Text="Mike "></asp:Label></p>   <%--此处传值--%>
-                            </div> 
-                            <p>
-                        <table id="bootstrap-table" class="table table-hover table-striped">
-                                <thead >
-                                    <%--此处传值--%>
-                                    <th data-field="itemCode" class=" text-center">ItemCode</th>
-                                	<th data-field="adjustedQTY" data-sortable="true" class=" text-center">adjustedQTY</th>
-                                	<th data-field="unitPrice" data-sortable="true" class=" text-center">UnitPrice</th>
-                                	<th data-field="reason" data-sortable="true" class=" text-center">Reason</th>      
-                                </thead>
 
-                                    <tbody>
-                                    <tr>
-                                        <td class=" text-center">123</td>
-                                    	<td class=" text-center">1</td>
-                                    	<td class=" text-center">12</td>
-                                    	<td class=" text-center">Damage</td>                                   
-                                    </tr>
-                                         <tr>
-                                        <td class=" text-center">123</td>
-                                    	<td class=" text-center">1</td>
-                                    	<td class=" text-center">12</td>
-                                    	<td class=" text-center">Damage</td>
-                                    </tr>
-                                    </tbody>
-                         </table>
-                            </p>
-                     </div>
-         
-        </div>
-     </div>
-   </div>
- </div>                         
-                          
-  
-    <asp:Button ID="Btn_Approve"  runat="server" Text="Approve" CssClass="btn btn-primary btn-fill btn-wd " /> <%--此处点击事件--%>
-    <asp:Button ID="Btn_Reject"  runat="server" Text="Reject"  CssClass="btn btn-danger btn-fill btn-wd " /><%--此处点击事件--%>
-    <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   /><%--此处点击事件--%>
-    <%-- <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=(local);Initial Catalog=LogicU;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [itemId], [categoryId], [description], [unitOfMeasure] FROM [Items] WHERE ([categoryId] = @categoryId)">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="ddl_Category" Name="categoryId" PropertyName="SelectedValue" />
-            </SelectParameters>
-        </asp:SqlDataSource>--%> <%--链接数据库？？？？--%>
+
+         <form id ="form1" runat="server">
+        
+           
+                <div class="row"> 
+                    <div class="col-lg-12">
+                        <div class="card">
+                             <div class=" container" style="margin-left:-10px">
+                             <div  class=" col-lg-3" style="margin-top:20px">
+                                 <asp:Label ID="Labeltxtadjv" CssClass="h4" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
+                                 <asp:Label ID="lblAdjvID" CssClass="h5" runat="server"></asp:Label> 
+                                 </div>
+                              <div class=" col-lg-4" style="margin-bottom:30px ; margin-top:20px">
+                                  <asp:Label ID="LabelTXTStaffid" CssClass="h4" runat="server" Text="Store Staff: "></asp:Label>  
+                                  <asp:Label ID="Label_StoreStafID" CssClass="h5" runat="server"></asp:Label></div>
+                                 <div class=" col-lg-4" style="margin-bottom:30px ; margin-top:20px">
+                                  <asp:Label ID="LabeltxtAutBy" CssClass="h4" runat="server" Text="Authorised By: "></asp:Label>  
+                                  <asp:Label ID="Label_Authorisedby" CssClass="h5" runat="server"></asp:Label></div>
+                                 <div  class=" col-lg-3" style="margin-left:-60px ; margin-top:20px">
+                                 <asp:Label ID="LabeltxtadjvDate" CssClass="h4" runat="server" Text="Request Date: "></asp:Label>
+                                 <asp:Label ID="lblDate" CssClass="h5" runat="server"></asp:Label> 
+                                 </div>
+                                 <div class=" col-lg-4" style="margin-bottom:30px ; margin-top:20px">
+                                  <asp:Label ID="Labeltxtstatus" CssClass="h4" runat="server" Text="Status: "></asp:Label>  
+                                  <asp:Label ID="lblStatus" CssClass="h5" runat="server"></asp:Label></div>
+
+
+
+
+                                 <div class=" col-lg-10" style="margin-bottom:30px ">
+                                  <asp:GridView ID="GridView_detailList" runat="server" AllowPaging="true" OnPageIndexChanging="GridView_detailList_PageIndexChanging" OnRowCommand="GridView_detailList_RowCommand" CssClass="table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " EmptyDataText="There are no record!" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" AutoGenerateDeleteButton="False" AutoGenerateEditButton="False" AutoGenerateSelectButton="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                                      
+                                       <Columns>
+                                                    <asp:BoundField DataField="adjVItemID" HeaderText="Adjustment Voucher ID:" />
+                                                    <asp:BoundField DataField="itemID" HeaderText="itemID:" />
+                                                    <asp:BoundField DataField="quantity" HeaderText="quantity:" />         
+                                       </Columns>
+
+                                      <PagerTemplate>
+                                        <br />
+                                          <div class="col-lg-12 text-center">
+                                         <div class="col-lg-1" style="width:100px">
+                                         <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label></div>
+                                         <div class="col-lg-1" style="width:40px">
+                                         <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-success"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First" ></asp:LinkButton></div>
+                                        <div class="col-lg-1" style="width:40px" >
+                                        <asp:LinkButton ID="lbnPrev" runat="server" Text="<<"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"  ></asp:LinkButton></div>
+                                         <div class="col-lg-1" style="width:40px;height:80px;margin-right:-10px;margin-left:-5px;margin-top:-10px" >
+                                            <asp:TextBox runat="server" CssClass="form-control text-center " Width="40px"  ID="inPageNum"></asp:TextBox></div>
+                                        <div class="col-lg-1" style="width:40px; margin-left:20px" >
+                                            <asp:LinkButton ID="lbnNext" runat="Server" Text=">>"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next" ></asp:LinkButton>
+                                         </div><div class="col-lg-1" style="width:40px;margin-left:-10px">
+                                            <asp:LinkButton ID="lbnLast" runat="Server" Text="Last"  CssClass="btn btn-xs btn-success"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last" ></asp:LinkButton></div>
+                                              <div class="col-lg-1" style="width:40px">
+                                             <asp:Button ID="Button1" CommandName="go"  CssClass="btn btn-xs btn-success"  Text="GO" runat="server" />
+                                         </div><br />
+                                     </PagerTemplate>
+                                      <AlternatingRowStyle BackColor="White" />
+                                </asp:GridView> <asp:Label ID="label4" runat="server" CssClass="category" Text=" Remarks:"></asp:Label>
+                                     <p></p>
+                                 <asp:TextBox ID="TextBox_Remarks" style="resize:none" CssClass="form-control" runat="server" TextMode="MultiLine" ></asp:TextBox>
+                               </div>  </div>
+                             <div  class=" col-lg-10" style="margin-top:20px">
+                              
+                          <asp:Button ID="button_Approve" runat="server"  Text="Approve"  CssClass="btn btn-primary btn-fill btn-wd" OnClick="btn_Approve_Click"  />
+                         <asp:Button ID="button_Reject" style=" display:block;" runat="server"  Text="Reject"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="btn_Reject_Click"  />
+                         <asp:Button ID="button_SendtoManager" style=" display:none;" runat="server"  Text="Send to Manager"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="btn_SendToManager_Click"  />
+
+                            <asp:Button ID="btn_Back"  runat="server" Text="Back"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="btn_Back_Click" />
+                             </div>
+                          </div>
+                          </div>
+                          </div>
+
         </form>
+
 </asp:Content>
