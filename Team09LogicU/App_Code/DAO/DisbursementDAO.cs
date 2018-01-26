@@ -107,6 +107,10 @@ namespace Team09LogicU.App_Code.DAO
             model.SaveChanges();
         }
 
+        public List<Disbursement> deptDisbursementHistory(string deptId)
+        {
+            return model.Disbursements.Where(x => x.deptID == deptId).ToList();
+        }
 
     }
 }
