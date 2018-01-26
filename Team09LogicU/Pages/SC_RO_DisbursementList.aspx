@@ -100,7 +100,9 @@
 											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
 													<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
 											</div>
-										
+											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
+													<asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-primary btn-wd " Text="view History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx"  />
+											</div>
 								
 										</div>
                     

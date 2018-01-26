@@ -22,6 +22,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// dateLabel control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,31 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Label dateLabel;
         
         /// <summary>
-        /// dateTextBox control.
+        /// fromTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateTextBox;
+        protected global::System.Web.UI.WebControls.TextBox fromTextBox;
+        
+        /// <summary>
+        /// toTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox toTextBox;
+        
+        /// <summary>
+        /// searchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button searchBtn;
         
         /// <summary>
         /// deptLabel control.
@@ -58,15 +85,6 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.DropDownList deptDropDownList;
         
         /// <summary>
-        /// LinkButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
-        /// <summary>
         /// disburseHisGridView control.
         /// </summary>
         /// <remarks>
@@ -83,14 +101,5 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
