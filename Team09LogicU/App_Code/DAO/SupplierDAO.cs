@@ -26,6 +26,18 @@ namespace Team09LogicU.App_Code.DAO
             return s;
         }
         //find supplier by searching name or Id
+
+        public Supplier findSupplierByName(string supName)
+        {
+            List<Supplier> slist = context.Suppliers.Where(x => x.supplierName==supName).ToList();
+            Supplier s = new Supplier();
+            if (slist.Count() > 0)
+            {
+                s = slist.First();
+            }
+            return s;
+        }
+
         public List<Supplier> getSupplierBySearchWord(string keyword)
         {
             List<Supplier> slist = context.Suppliers.Where(x => x.supplierID.Contains(keyword)

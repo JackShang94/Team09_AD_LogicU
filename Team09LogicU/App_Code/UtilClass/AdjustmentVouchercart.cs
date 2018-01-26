@@ -9,17 +9,17 @@ namespace Team09LogicU.App_Code.UtilClass
     {
         private string name;
         private string itemID;
-        private string description;
+        private string record;
         private int qty;
         public AdjustmentVouchercart()
         {
 
         }
-        public AdjustmentVouchercart(string name, string itemID, string desc, int qty)
+        public AdjustmentVouchercart(string name, string itemID, string record, int qty)
         {
             this.name = name;
             this.itemID = itemID;
-            this.description = desc;
+            this.record = record;
             this.qty = qty;
         }
 
@@ -31,7 +31,7 @@ namespace Team09LogicU.App_Code.UtilClass
         {
             get; set;
         }
-        public string Description
+        public string Record
         {
             get; set;
         }

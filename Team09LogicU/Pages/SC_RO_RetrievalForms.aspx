@@ -11,7 +11,8 @@ Retrieval Forms
 		<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 		<asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
-				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCreated="retrievalGridView_RowCreated" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  AutoGenerateSelectButton="true" >
+				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCreated="retrievalGridView_RowCreated" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
+				 SelectedRowStyle-BackColor="Red">
 					<columns>
 						<asp:TemplateField>
 							<ItemTemplate>
@@ -38,6 +39,8 @@ Retrieval Forms
 								<asp:Label runat="server" Text='<%#Eval("Actual") %>'></asp:Label>
 							</ItemTemplate>
 						</asp:TemplateField>
+						<asp:CommandField ShowSelectButton="true"  SelectText="view" ButtonType="Button"/>
+						
 					</columns>
 				</asp:GridView>
 				</ContentTemplate>
@@ -65,6 +68,7 @@ Retrieval Forms
 							</ItemTemplate>
 							<EditItemTemplate>
 								<asp:TextBox runat="server" ID="actualTextBox" Text='<%#Eval("actual") %>'></asp:TextBox>
+								<asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[0-9]*[1-9][0-9]*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
 							</EditItemTemplate>
 						</asp:TemplateField>
 						<%--<asp:BoundField DataField="actual" HeaderText="Actual"/>--%>

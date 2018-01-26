@@ -28,22 +28,26 @@ namespace Team09LogicU.App_Code.DAO
             return context.AdjustmentVouchers.Find(adjvID);
         }
 
-        public void addAdjustmentVoucher(string storestaffID, Dictionary<string, int> dict)
+        public void addAdjustmentVoucher(string storestaffID, List<AdjustmentVouchercart> list)
         {
-            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
-
+            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();    
             adjvoucher.storeStaffID = storestaffID;
             adjvoucher.adjDate = DateTime.Now;
             adjvoucher.status = "pending";
             adjvoucher.authorisedBy = "";
             context.AdjustmentVouchers.Add(adjvoucher);
-            context.SaveChanges();
+           // context.SaveChanges();
             int adjvID = adjvoucher.adjVID;
             /*************Then Add ADJVItems******************/
             AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
-            foreach (var d in dict)
+            
+            foreach ( AdjustmentVouchercart cartitem in list)
             {
-                AdjustmentVoucherItem adjvi = adjvidao.addAdjustmentVoucherItem(adjvID, d.Key, d.Value);
+                AdjustmentVoucherItem adjvi = new AdjustmentVoucherItem();
+                adjvi.adjVID = adjvoucher.adjVID;
+                adjvi.itemID = cartitem.ItemID;
+                adjvi.quantity = cartitem.Qty;
+                adjvi.record = cartitem.Record;
                 context.AdjustmentVoucherItems.Add(adjvi);
             }
             context.SaveChanges();

@@ -12,6 +12,21 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
+                    <div class="header">
+                        <p class="category">
+                            <asp:Label ID="Label_poID" runat="server" Text="Purchase Order ID: "></asp:Label>
+                            <asp:Label ID="lblpoID" runat="server"></asp:Label>
+                        <p class="category">
+                            <asp:Label ID="Label_SupplierName" runat="server" Text="Supplier: "></asp:Label>
+                            <asp:Label ID="lblSupplierName" runat="server"></asp:Label>
+                        <p class="category">
+                            <asp:Label ID="Label_Name" runat="server" Text="Order By: "></asp:Label>
+                            <asp:Label ID="lblName" runat="server"></asp:Label>
+
+                        <p class="category">
+                            <asp:Label ID="Label_Date" runat="server" Text="Order Date: "></asp:Label>
+                            <asp:Label ID="lblOrderDate" runat="server"></asp:Label>
+                    </div>
                     <div class=" container">
                         <div class="col-lg-10">
                             <div class="col-lg-3" style="margin-top: 20px">
@@ -29,12 +44,12 @@
                         </div>
 
                         <div class="col-lg-10" style="margin-bottom: 20px">
-                            <asp:GridView ID="GridView_PODetail" runat="server" AllowPaging="true" OnPageIndexChanging="GridView_PODetail_PageIndexChanging" OnRowCommand="GridView_PODetail_RowCommand" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <asp:GridView ID="GridView_PODetail" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
                                 <AlternatingRowStyle BackColor="White" />
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Item ID" Visible="False">
+                                    <asp:TemplateField HeaderText="Item ID" Visible="True">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblReqId" runat="server" Text='<%# Bind("itemID") %>'></asp:Label>
+                                            <asp:Label ID="lblItemID" runat="server" Text='<%# Bind("itemID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="description" HeaderText="Description" />
@@ -42,35 +57,16 @@
                                     <asp:BoundField DataField="price" HeaderText="Price" />
                                     <asp:BoundField DataField="totalAmount" HeaderText="Total Amount" />
                                 </Columns>
-                                <PagerTemplate>
-                                    <br />
-                                    <div class="col-lg-12 text-center">
-                                        <div class="col-lg-1" style="width: 100px">
-                                            <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px">
-                                            <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px">
-                                            <asp:LinkButton ID="lbnPrev" runat="server" Text="<<" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px; height: 80px; margin-right: -10px; margin-left: -5px; margin-top: -10px">
-                                            <asp:TextBox runat="server" CssClass="form-control text-center " Width="40px" ID="inPageNum"></asp:TextBox>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px; margin-left: 20px">
-                                            <asp:LinkButton ID="lbnNext" runat="Server" Text=">>" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px; margin-left: -10px">
-                                            <asp:LinkButton ID="lbnLast" runat="Server" Text="Last" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px">
-                                            <asp:Button ID="Button1" CommandName="go" CssClass="btn btn-xs btn-success" Text="GO" runat="server" />
-                                        </div>
-                                        <br />
-                                </PagerTemplate>
                                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                             </asp:GridView>
 
+                            <p class="category">
+                                <asp:Label ID="lblDisplay" runat="server" Text="Total: "></asp:Label>
+                                <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                                <br>
+                                <br>
+
+                                <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnBack_Click" />
                         </div>
                     </div>
                     <!-- end content-->

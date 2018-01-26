@@ -14,88 +14,169 @@ namespace Team09LogicU.pages
     {
         
         DepartmentDAO dpd=new DepartmentDAO();
-        string depName;
-        string depid;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            
-            if (!IsPostBack)
-            {
-                BindDropdownlist();               
-            }
-            depName = DropDownList1.Text;
-            depid = dpd.findDepartmentIdByName(depName);
-            Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
-            BindGrid();
-
-        }
+        string deptName;
+        string deptid;
+        
         protected void BindDropdownlist()
         {
             //dpd = new DepartmentDAO();
-            DropDownList1.DataSource = dpd.findAllDepartmentName();
-            DropDownList1.DataBind();
+            deptDropDownList.DataSource = dpd.findAllDepartmentName();
+            deptDropDownList.DataBind();
         }
-      
-        protected void BindGrid()
+
+        protected void disburseBindGrid()
         {
-            depName = DropDownList1.Text;
-            depid = dpd.findDepartmentIdByName(depName);
-            DisbursementListDAO disburList = new DisbursementListDAO();
-            List<int> disburIds = disburList.getCurrentDisbursementsId("Awaiting For Deliver", depid);
-            DisbursementItemDAO disburItem = new DisbursementItemDAO();
-            List<DisbursementCart> disburItems = new List<DisbursementCart>();
-            foreach (int s in disburIds)
+            deptName = deptDropDownList.SelectedItem.Text;
+            deptid = dpd.findDepartmentIdByName(deptName);
+            DisbursementDAO disDAO = new DisbursementDAO();
+            
+            disburseGridView.DataSource= disDAO.getDisbursementListByDeptID(deptid);
+            disburseGridView.DataBind();
+        }
+        protected void disburseItemBindGrid(int disburseID)
+        {
+            DisbursementDAO disDAO = new DisbursementDAO();
+            List<DisbursementCart> disburseItems = disDAO.getDisbursementItemByDisID(disburseID);
+            ViewState["list"] = disburseItems;
+            disburseItemGridView.DataSource = disburseItems;
+            disburseItemGridView.DataBind();
+        }
+        //int disID;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
             {
-                disburItems = disburItems.Union(disburItem.getDisbursementCartItem(s)).ToList<DisbursementCart>();
+                BindDropdownlist();
+                ViewState["list"] = new List<DisbursementCart>();
 
+                deptName = deptDropDownList.Text;
+                deptid = dpd.findDepartmentIdByName(deptName);
+                collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
+                disburseBindGrid();
+                ViewState["disburseID"] = 0;
+                ViewState["originQty"] = 0;
+                Button3.Visible = false;
             }
-            Session["list"] = disburItems;
-            GridView1.DataSource = disburItems;
-            GridView1.DataBind();
+            else
+            {
+                //disID = Convert.ToInt32(Session["disburseID"]);
+                deptName = deptDropDownList.SelectedItem.Text;
+                deptid = dpd.findDepartmentIdByName(deptName);
+                collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
+                //disburseBindGrid();
+                //disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
+            }
         }
+       
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void deptDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            depName = DropDownList1.SelectedItem.Text;
+            deptName = deptDropDownList.SelectedItem.Text;
             //dpd = new DepartmentDAO();
-            depid = dpd.findDepartmentIdByName(depName);
-            Label2.Text = dpd.getCollectionPointbyDepartmentId(depid);
-            BindGrid();
+            deptid = dpd.findDepartmentIdByName(deptName);
+            collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
+            disburseGridView.SelectedIndex = -1;//initialize the selected index
+            /****************this is for QRcode******************/
+            Button3.Visible = false;//
+            /****************end***********************************/
+            disburseBindGrid();
+            disburseUpdatePanel.Update();
+            disburseItemGridView.DataSource = null;
+            disburseItemGridView.DataBind();
         }
-
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void disburseGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex;
-            GridView1.DataSource =(List<DisbursementCart>)Session["list"];
-            GridView1.DataBind();
+            //int index = disburseGridView.SelectedRow.RowIndex;
+            Label s = disburseGridView.SelectedRow.FindControl("disburseIDLabel") as Label;
+            string a = s.Text;
+            int disburseID = Convert.ToInt32(a);
+            ViewState["disburseID"] = Convert.ToInt32(a);
+            Button3.Visible = true;
+            //DisbursementDAO disDAO = new DisbursementDAO();
+            disburseItemBindGrid(disburseID);
+            disburseItemUpdatePanel.Update();
+
+
+            //disburList.getDisbursementItemByDisID(disburseID);
+
+        }
+        protected void disburseItemGridView_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            
+            int s = e.NewEditIndex;
+            Label b = disburseItemGridView.Rows[e.NewEditIndex].FindControl("lblActual") as Label;
+            int originActual = Convert.ToInt32(b.Text);
+            ViewState["originQty"] = originActual;
+
+            disburseItemGridView.EditIndex = e.NewEditIndex;
+            disburseItemGridView.DataSource =(List<DisbursementCart>)ViewState["list"];
+            disburseItemGridView.DataBind();
         }
           
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void disburseItemGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
+            GridViewRow row = disburseItemGridView.Rows[e.RowIndex];
             int actual = Int32.Parse((row.FindControl("Actual") as TextBox).Text);
-            
-                List<DisbursementCart> updateList = (List<DisbursementCart>)Session["list"];
-                foreach (DisbursementCart s in updateList)
+
+
+            string itemID = (row.FindControl("itemIDLabel") as Label).Text;
+          
+
+            if (Convert.ToInt32(ViewState["originQty"]) == actual)
+            {
+                disburseItemGridView.EditIndex = -1;
+                disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
+                disburseItemGridView.DataBind();
+            }
+            else
+            {
+                DisbursementDAO disDAO = new DisbursementDAO();
+                //List<DisbursementCart> updateList = (List<DisbursementCart>)ViewState["list"];
+                disDAO.savingActualQty(Convert.ToInt32(ViewState["disburseID"]),itemID, actual);
+                disburseItemGridView.EditIndex = -1;
+                List<DisbursementCart> ldc = (List<DisbursementCart>)ViewState["list"];
+                foreach(var i in ldc)
                 {
-                    s.Actual = actual;
+                    if (i.ItemID == itemID)
+                    {
+                        i.Actual = actual;
+                        break;
+                    }
                 }
-                GridView1.EditIndex = -1;
-                Session["list"] = updateList;
-                GridView1.DataSource = updateList;
-                GridView1.DataBind();
+                disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
+                disburseItemGridView.DataBind();
+                disburseUpdatePanel.Update();
+            }
+          
         }
 
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void disburseItemGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridView1.EditIndex = -1;
-            GridView1.DataSource = (List<DisbursementCart>)Session["list"];
-            GridView1.DataBind();
+            disburseItemGridView.EditIndex = -1;
+            disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
+            
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
 
+        /***********************this confirm button simulates the scene after scanning QRcode (only for Test)**********************************/
+        /**********************To confirm specified dept disbursement**************************************************************/
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            int disburseID = Convert.ToInt32(ViewState["disburseID"]);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('u r generate the Disbursement "+disburseID+" ?')", true);
+
+
+            DisbursementDAO disDAO = new DisbursementDAO();
+            //disburList
+            disDAO.updateDisbursementStatus(Convert.ToInt32(ViewState["disburseID"]), "Completed");
+            
+            
+            
+        }
+
+        protected void disburseItemGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+    
         }
     }
 }

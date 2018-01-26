@@ -15,14 +15,14 @@ Outstanding Requisition
 										   </div>
 										   <div class="col-lg-3" style="margin-top:20px">
 													<asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-													<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged">
+													<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged" AutoPostBack="True">
 													
 													</asp:DropDownList>
 													
 										    </div>
 											<div class="col-lg-10">
 												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-												<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+												<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 													<ContentTemplate>
 															<%--<asp:LinkButton ID="viewHisButton" runat="server">View Disbursement List History</asp:LinkButton>--%>
 															<asp:GridView ID="outstandingGridView" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false" EmptyDataText="There are no outstanding requisitions">
