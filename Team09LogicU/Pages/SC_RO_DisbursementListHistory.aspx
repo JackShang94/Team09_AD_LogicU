@@ -9,16 +9,21 @@
                 <div class=" container">
                     <div class="col-lg-12">
                    <div class="col-lg-3" style="margin-top:20px">
-                    <asp:Label ID="Label1" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>
-                       <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control datepicker"></asp:TextBox>
+						<asp:Label ID="dateLabel" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>
+                       <asp:TextBox ID="dateTextBox" runat="server" CssClass="form-control datepicker"></asp:TextBox>
                    </div>
                            <div class="col-lg-3" style="margin-top:20px">
-                    <asp:Label ID="Label3" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
+                       <asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                    </div>
                     <div class="col-lg-10">
                         <asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover "></asp:GridView>
+                        <asp:GridView ID="disburseHisGridView" runat="server" CssClass="table table-striped table-hover ">
+							<Columns>
+
+							</Columns>
+
+                        </asp:GridView>
                         <div class="col-lg-10">
                         <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
                           </div>  </div></div>

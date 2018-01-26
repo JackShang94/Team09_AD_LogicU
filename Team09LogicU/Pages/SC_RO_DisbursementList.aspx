@@ -18,8 +18,8 @@
 												 </div>--%>
 												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 												<div class="col-lg-10">
-																 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server" UpdateMode="Conditional">
-																		<ContentTemplate>
+															<%--	 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server" UpdateMode="Conditional">
+																		<ContentTemplate>--%>
 																			<asp:GridView ID="disburseGridView" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="disburseGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="Red">
 																				<Columns>
 																					<asp:TemplateField Visible="false">
@@ -37,8 +37,8 @@
 																					<asp:CommandField  ShowSelectButton="true" SelectText="view" ButtonType="Button"/>
 																				</Columns>
 																			</asp:GridView>
-																		</ContentTemplate>
-																</asp:UpdatePanel>
+																<%--		</ContentTemplate>
+																</asp:UpdatePanel>--%>
 												</div>
 												 <div class="col-lg-10">
 																 <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server" UpdateMode="Conditional">
@@ -47,7 +47,7 @@
 																					 <Columns>
 																								<asp:TemplateField Visible="false">
 																										  <ItemTemplate>
-																											  <%--<asp:HiddenField  ID="itemIDLabel" runat="server" Value='<%#Eval("itemID") %>'/>--%>
+																											
 																											  <asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("itemID") %>'></asp:Label>
 																										  </ItemTemplate>
 																								</asp:TemplateField>
@@ -80,6 +80,7 @@
 																								</asp:TemplateField>
 																						 </Columns>
 																				</asp:GridView>
+																		
 																		 </ContentTemplate>
 																 </asp:UpdatePanel>
 															<div class="col-lg-10">
@@ -90,12 +91,17 @@
 											<div class="col-lg-3" style=" margin-top:40px;margin-bottom:20px">
 													<asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Send Email representative" />
 											</div>
+
+											
 											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
 													<asp:Button ID="QRcodeButton" runat="server" CssClass="btn btn-primary btn-wd " Text="Generate QR Code" />
 											</div>
+										
 											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
-													<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click"/>
+													<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
 											</div>
+										
+								
 										</div>
                     
 							</div>
