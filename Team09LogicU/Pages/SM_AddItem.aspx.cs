@@ -97,7 +97,6 @@ namespace Team09LogicU.Pages
 
             catch
             {
-                Label1.Text = "Error";
                 Response.Write("<script>alert('Item Code already exists!')</script>");
             }
 
