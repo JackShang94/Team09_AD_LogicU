@@ -83,7 +83,7 @@ namespace Team09LogicU.pages
                     Response.Redirect("SM_ApproveAdjustment.aspx");            
                     break;
                 case "supervisor":
-                    Response.Redirect("SS_ViewAdjustmentDetail.aspx");
+                    Response.Redirect("SS_ViewAdjustment.aspx");
                     break;
                 case "delegeteHead":
                     Response.Redirect("DH_ViewPendingRequisition.aspx");
