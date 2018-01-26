@@ -51,6 +51,10 @@ namespace Team09LogicU.App_Code.DAO
         {
             return model.Disbursements.Where(x => x.deptID == deptid).ToList();
         }
+        public List<Disbursement> getAwaitingDisbursementListByDeptID(String deptid)
+        {
+            return model.Disbursements.Where(x => x.deptID == deptid && x.status== "Awaiting Delivery").ToList();
+        }
         public List<int> getCurrentDisbursementsId(string status,string deptid)
         {
             return model.Disbursements.Where(x => x.status == status&&x.deptID==deptid).Select(x => x.disbursementID).ToList();

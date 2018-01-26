@@ -30,7 +30,7 @@ namespace Team09LogicU.pages
             deptid = dpd.findDepartmentIdByName(deptName);
             DisbursementDAO disDAO = new DisbursementDAO();
             
-            disburseGridView.DataSource= disDAO.getDisbursementListByDeptID(deptid);
+            disburseGridView.DataSource= disDAO.getAwaitingDisbursementListByDeptID(deptid);
             disburseGridView.DataBind();
         }
         protected void disburseItemBindGrid(int disburseID)
@@ -46,6 +46,14 @@ namespace Team09LogicU.pages
         {
             if (!IsPostBack)
             {
+                string role = Session["loginRole"].ToString();
+
+                if (role != "clerk")
+                {
+                    HttpContext.Current.Response.Redirect("login.aspx");
+                    return;
+                }
+
                 BindDropdownlist();
                 ViewState["list"] = new List<DisbursementCart>();
 
