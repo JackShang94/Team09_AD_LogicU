@@ -55,7 +55,9 @@ namespace Team09LogicU.pages
                 disburseBindGrid();
                 ViewState["disburseID"] = 0;
                 ViewState["originQty"] = 0;
-                Button3.Visible = false;
+
+                Button3.Enabled = false;
+                
             }
             else
             {
@@ -77,7 +79,7 @@ namespace Team09LogicU.pages
             collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
             disburseGridView.SelectedIndex = -1;//initialize the selected index
             /****************this is for QRcode******************/
-            Button3.Visible = false;//
+            Button3.Enabled = false;//
             /****************end***********************************/
             disburseBindGrid();
             disburseUpdatePanel.Update();
@@ -91,10 +93,12 @@ namespace Team09LogicU.pages
             string a = s.Text;
             int disburseID = Convert.ToInt32(a);
             ViewState["disburseID"] = Convert.ToInt32(a);
-            Button3.Visible = true;
+            
             //DisbursementDAO disDAO = new DisbursementDAO();
             disburseItemBindGrid(disburseID);
             disburseItemUpdatePanel.Update();
+
+            Button3.Enabled = true;
 
 
             //disburList.getDisbursementItemByDisID(disburseID);

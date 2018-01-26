@@ -94,7 +94,7 @@
 													<asp:Button ID="QRcodeButton" runat="server" CssClass="btn btn-primary btn-wd " Text="Generate QR Code" />
 											</div>
 											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
-													<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click"/>
+													<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click" Visible="True" Enabled="True" CausesValidation="False" />
 											</div>
 										</div>
                     
