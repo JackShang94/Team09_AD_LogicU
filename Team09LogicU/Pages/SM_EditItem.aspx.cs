@@ -32,7 +32,7 @@ namespace Team09LogicU.Pages
             {
                 dropDownList_bindInfo();
                 displayItemInfo(itemID);
-            }
+            }          
         }
 
         public void dropDownList_bindInfo()

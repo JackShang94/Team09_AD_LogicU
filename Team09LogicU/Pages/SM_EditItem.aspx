@@ -16,16 +16,14 @@
 
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Item code</label><%-- value=""--%><br />
-                                            <%--<asp:Label ID="Label_itemcode" runat="server" Text=""></asp:Label>--%>
+                                            <label>Item code</label><br />                                           
                                              <asp:TextBox ID="TextBox_itemcode" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Category</label><br />
-                                            <%--<asp:Label ID="Label_category" runat="server" Text=""></asp:Label>--%>
+                                            <label>Category</label><br />                                           
                                             <asp:TextBox ID="TextBox_category" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
                                         </div>
                                     </div>
@@ -33,17 +31,17 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Qty on Hand </label><br />
-                                            <%--<asp:Label ID="Label_qty" runat="server" Text=""></asp:Label>--%>
+                                            
                                             <asp:TextBox ID="TextBox_qty" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
-                                            <%-- value=""--%>
+                                           
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <asp:TextBox ID="TextBox_Description" runat="server" class="form-control" Width="200px" required="required" ></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="required1" ControlToValidate="TextBox_Description" runat="server" ErrorMessage="Required"></asp:RequiredFieldValidator><%-- value=""--%>
+                                            <asp:TextBox ID="TextBox_Description" runat="server" class="form-control" Width="200px" ></asp:TextBox>
+                                           
                                         </div>
                                     </div>
 
@@ -51,8 +49,9 @@
                                         <div class="form-group">
                                             <label>ReorderLevel </label>
                                             <asp:TextBox ID="TextBox_ReorderLevel" TextMode="Number" runat="server" class="form-control " Width="200px"></asp:TextBox>
+                                           
 
-                                            <%-- value=""--%>
+                                           
                                         </div>
                                     </div>
 
@@ -61,7 +60,7 @@
                                             <label>Reorder Qty </label>
 
                                             <asp:TextBox ID="TextBox_ReorderQty" TextMode="Number" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                            <%-- value=""--%>
+                                            
                                         </div>
                                     </div>
 
@@ -83,7 +82,7 @@
                                             <label>Location </label>
 
                                             <asp:TextBox ID="TextBox_location" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                            <%-- value=""--%>
+                                           
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -91,8 +90,8 @@
                                             <label>Supplier1</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier1" runat="server" class="form-control" Width="200px"></asp:DropDownList>
                                             <label>Price</label>
-                                            <asp:TextBox ID="TextBox_price1" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                        </div>
+                                            <asp:TextBox ID="TextBox_price1" number="number" runat="server" class="form-control " Width="200px"></asp:TextBox>
+                                           </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -117,19 +116,9 @@
                         </div>
                     </div>
                 </div>
-         
-
-        <asp:Button ID="Btn_Update" runat="server" Text="Update"  ValidationGroup="required1" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Update_Click" />
-        <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
-
+    
+        <asp:Button ID="Btn_Update" runat="server" Text="Update" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Update_Click"  />
+        <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Update_Click"  />
     </form>
-    <script type="text/javascript">
-        $().ready(function(){
-
-            $('#registerFormValidation').validate();
-            $('#loginFormValidation').validate();
-            $('#allInputsFormValidation').validate();
-
-        });
-    </script>
+   
 </asp:Content>
