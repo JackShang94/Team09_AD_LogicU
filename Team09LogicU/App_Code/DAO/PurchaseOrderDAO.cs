@@ -25,7 +25,7 @@ namespace Team09LogicU.App_Code.DAO
 
         public PurchaseOrder findPObypoID(int poID)
         {
-            List<PurchaseOrder> listPO = m.PurchaseOrders.Where(x=>x.poID==poID).ToList();
+            List<PurchaseOrder> listPO = m.PurchaseOrders.Where(x => x.poID == poID).ToList();
             PurchaseOrder po = new PurchaseOrder();
             if (listPO.Count() > 0)
             {
@@ -38,14 +38,14 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<PurchaseOrder> list = m.PurchaseOrders.
                 Where(x => (x.orderDate.Year >= from.Year) && (x.orderDate.Month >= from.Month) && (x.orderDate.Day >= from.Day)
-                &&(x.orderDate.Year <= to.Year) && (x.orderDate.Month <= to.Month) && (x.orderDate.Day <= to.Day)).ToList<PurchaseOrder>();
+                && (x.orderDate.Year <= to.Year) && (x.orderDate.Month <= to.Month) && (x.orderDate.Day <= to.Day)).ToList<PurchaseOrder>();
             return list;
         }
 
         public List<PurchaseOrder> findPOBySupplierID(string supID)
         {
             List<PurchaseOrder> list = m.PurchaseOrders.
-                Where(x=>x.supplierID==supID).ToList<PurchaseOrder>();
+                Where(x => x.supplierID == supID).ToList<PurchaseOrder>();
             return list;
         }
 
@@ -53,9 +53,40 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<PurchaseOrder> list = m.PurchaseOrders.
                 Where(x => (x.orderDate.Year >= from.Year) && (x.orderDate.Month >= from.Month) && (x.orderDate.Day >= from.Day)
-                && (x.orderDate.Year <= to.Year) && (x.orderDate.Month <= to.Month) && (x.orderDate.Day <= to.Day) && x.supplierID==supID)
+                && (x.orderDate.Year <= to.Year) && (x.orderDate.Month <= to.Month) && (x.orderDate.Day <= to.Day) && x.supplierID == supID)
                 .ToList<PurchaseOrder>();
             return list;
         }
+
+        public List<int> findPOIDbyMonth(DateTime time)
+        {
+            List<int> poIDlist = new List<int>();
+
+            List<PurchaseOrder> list = m.PurchaseOrders.
+                Where(x => (x.orderDate.Year == time.Year) && (x.orderDate.Month == time.Month))
+                .ToList<PurchaseOrder>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                poIDlist.Add(list[i].poID);
+            }
+            return poIDlist;
+        }
+
+        public string findSupplierIDbyPOid(int poID)
+        {
+            string supplierID;
+            PurchaseOrder po = m.PurchaseOrders.Where(x => (x.poID == poID)).First();
+            supplierID = po.supplierID;
+            return supplierID;
+        }
+
+        public DateTime findOrderDatebyPOid(int poID)
+        {
+            DateTime orderDate;
+            PurchaseOrder po = m.PurchaseOrders.Where(x => (x.poID == poID)).First();
+            orderDate = po.orderDate;
+            return orderDate;
+        }
+
     }
 }

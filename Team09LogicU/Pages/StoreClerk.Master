@@ -159,7 +159,7 @@
                             <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
                           <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
                             <li><a href="SC_ViewPurchaseOrderHistory.aspx">View Purchase Order History</a></li>
-                          <li><a href="  SC_ViewReorderReport.aspx">View Reorder Report</a></li>
+                          <li><a href="  SC_GenerateReorderReport.aspx">Generate Reorder Report</a></li>
                         </ul>
                     </div>    
                 </li>
