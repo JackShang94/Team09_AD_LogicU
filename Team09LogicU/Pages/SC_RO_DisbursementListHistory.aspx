@@ -11,8 +11,8 @@
                    <div class="col-lg-3" style="margin-top:20px">
 					   <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 						<asp:Label ID="dateLabel" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>
-                       <asp:TextBox ID="fromTextBox" runat="server" CssClass="form-control datepicker" TextMode="DateTime"></asp:TextBox>
-					   <asp:TextBox ID="toTextBox" runat="server" CssClass="form-control datepicker" TextMode="DateTime"></asp:TextBox>
+                       <span>Form:</span><asp:TextBox ID="fromTextBox" runat="server" CssClass="form-control datepicker" TextMode="DateTime"></asp:TextBox>
+					   <span>To:</span><asp:TextBox ID="toTextBox" runat="server" CssClass="form-control datepicker" TextMode="DateTime"></asp:TextBox>
 					   <asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click"></asp:Button>
                    </div>
                     <div class="col-lg-3" style="margin-top:20px">
@@ -39,9 +39,9 @@
 								<asp:CommandField ShowSelectButton="true"  ButtonType="Button" SelectText="Detail"/>
 							</Columns>
                         </asp:GridView>
-                        <div class="col-lg-10">
-                        <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
-                          </div>  </div></div>
+                          </div>
+
+                    </div>
                      
                     
                        </div>
