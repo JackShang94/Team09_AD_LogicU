@@ -22,9 +22,9 @@
               <div class="col-lg-3 "><label class="category">Employee: </label> 
             <asp:DropDownList ID="employee_dropList" CssClass="form-control" Width="80%"  runat="server"></asp:DropDownList>
                </div><div class="col-lg-3"><label class="category"> From:</label>      
-         <asp:TextBox ID="textBox_startDate" runat="server"  Width="80%" CssClass="form-control datepicker"></asp:TextBox>
+         <asp:TextBox ID="textBox_startDate" runat="server"  Width="80%" CssClass="form-control" TextMode="Date"></asp:TextBox>
               </div><div class="col-lg-3"><label class="category"> To:</label>          
-         <asp:TextBox ID="textBox_endDate" runat="server"  Width="80%" CssClass="form-control datepicker" ></asp:TextBox>
+         <asp:TextBox ID="textBox_endDate" runat="server"  Width="80%" CssClass="form-control" TextMode="Date" ></asp:TextBox>
 </div>
                 
                 <div class="col-lg-8" style="margin-top:20px">

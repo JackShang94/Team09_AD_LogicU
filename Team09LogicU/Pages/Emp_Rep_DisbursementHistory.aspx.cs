@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
-using Team09LogicU.App_Code.UtilClass;
+using Team09LogicU.Models;
 
 namespace Team09LogicU.pages
 {
@@ -20,26 +16,24 @@ namespace Team09LogicU.pages
         string logInDept;
         protected void Page_Load(object sender, EventArgs e)
         {
-            logInStaffId = (string)Session["loginID"];
+            if (!IsPostBack)
+            {
+                logInStaffId = (string)Session["loginID"];
 
             /*Set the role and dept from login info*/
 
-            logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-            logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+                logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
+                logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
 
-            if (logInRole == "rep")
-            {
-                DisplayDepartmentDisbursementList(logInDept);
-            }
-            else
-            {
-                //lblMessage.Text = "Access Denied!";
-                //Label1.Visible = false;
-                //Label2.Visible = false;
-                //Label3.Visible = false;
-                //lblCurrentCP.Visible = false;
-                //ddlCP.Visible = false;
-                //btnUpdateCP.Visible = false;
+                if (logInRole == "rep")
+                {
+                    DisplayDepartmentDisbursementList(logInDept);
+                }
+                else
+                {
+                    lblMessage.Text = "Access Denied!";
+
+                }
             }
         }
 
@@ -52,26 +46,26 @@ namespace Team09LogicU.pages
             dList = dDAO.deptDisbursementHistory(logInDept);
 
             deptDisbursementList.DataSource = dList;
-            //ddlCP.AppendDataBoundItems = true;
-            //ddlCP.Items.Insert(0, new ListItem("---Select Collection Point---"));
             deptDisbursementList.DataBind();
 
+        }
+
+        protected void LinkButton_View_Click(object sender, EventArgs e)
+        {
+            /*Sends viewer to the specific disbursment detail page*/
+            LinkButton View = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)View.NamingContainer;
+            string disbursementID = "";
+            if (row != null)
+            {
+                disbursementID = (row.FindControl("disbID") as Label).Text;
+                Response.Redirect("Emp_Rep_DisbursementHistory_ViewDetail.aspx?disbursementID=" + disbursementID);
+            }
         }
 
         protected void deptDisbursementList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-        protected void LinkButton_View_Click(object sender, EventArgs e)
-        {
-            LinkButton View = (LinkButton)sender;
-            GridViewRow row = (GridViewRow)View.NamingContainer;
-            //string poID = "";
-            //if (row != null)
-            //{
-            //    poID = (row.FindControl("lblpoID") as Label).Text;
-            //    Response.Redirect("SC_PurchaseOrderHistoryDetail.aspx?poID=" + poID);
-            //}
         }
     }
 }

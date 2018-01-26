@@ -20,9 +20,15 @@ namespace Team09LogicU.Pages
         string fax = "";
         string phone = "";
         string contactName = "";
+
+        string logInRole;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            logInRole = (string)Session["loginRole"];
+            if (logInRole != "manager")
+            {
+                Response.Redirect("login.aspx");
+            }
 
         }
 

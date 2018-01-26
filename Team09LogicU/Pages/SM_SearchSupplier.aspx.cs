@@ -12,13 +12,22 @@ namespace Team09LogicU.Pages
     public partial class SM_SearchSupplier : System.Web.UI.Page
     {
         SupplierDAO supplierDAO = new SupplierDAO();
-
+        string logInRole;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            logInRole = (string)Session["loginRole"];
+            if (logInRole == "manager")
             {
-                GridView_supplierList.DataSource = supplierDAO.getSupplierList();
-                GridView_supplierList.DataBind();
+                if (!IsPostBack)
+                {
+                    GridView_supplierList.DataSource = supplierDAO.getSupplierList();
+                    GridView_supplierList.DataBind();
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
             }
         }
 

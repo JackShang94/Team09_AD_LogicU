@@ -63,8 +63,14 @@ namespace Team09LogicU.App_Code.DAO
             else
                 return null;
         }
-
-        
+        public Disbursement getDisbursementByDept(string deptid)
+        {
+            Disbursement dismbt = model.Disbursements.FirstOrDefault(x => x.deptID == deptid);
+            if (dismbt != null)
+                return dismbt;
+            else
+                return null;
+        }
 
         public List<DisbursementCart> getDisbursementItemByDisID(int disburseID )
         {
