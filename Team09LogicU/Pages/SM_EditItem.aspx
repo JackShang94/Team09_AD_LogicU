@@ -42,15 +42,16 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <asp:TextBox ID="TextBox_Description" runat="server" class="form-control" Width="200px"></asp:TextBox>
-                                            <%-- value=""--%>
+                                            <asp:TextBox ID="TextBox_Description" runat="server" class="form-control" Width="200px" required="required" ></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="required1" ControlToValidate="TextBox_Description" runat="server" ErrorMessage="Required"></asp:RequiredFieldValidator><%-- value=""--%>
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>ReorderLevel </label>
-                                            <asp:TextBox ID="TextBox_ReorderLevel" runat="server" class="form-control " Width="200px"></asp:TextBox>
+                                            <asp:TextBox ID="TextBox_ReorderLevel" TextMode="Number" runat="server" class="form-control " Width="200px"></asp:TextBox>
+
                                             <%-- value=""--%>
                                         </div>
                                     </div>
@@ -59,7 +60,7 @@
                                         <div class="form-group">
                                             <label>Reorder Qty </label>
 
-                                            <asp:TextBox ID="TextBox_ReorderQty" runat="server" class="form-control " Width="200px"></asp:TextBox>
+                                            <asp:TextBox ID="TextBox_ReorderQty" TextMode="Number" runat="server" class="form-control " Width="200px"></asp:TextBox>
                                             <%-- value=""--%>
                                         </div>
                                     </div>
@@ -118,8 +119,17 @@
                 </div>
          
 
-        <asp:Button ID="Btn_Update" runat="server" Text="Update" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Update_Click" />
+        <asp:Button ID="Btn_Update" runat="server" Text="Update"  ValidationGroup="required1" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Update_Click" />
         <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
 
     </form>
+    <script type="text/javascript">
+        $().ready(function(){
+
+            $('#registerFormValidation').validate();
+            $('#loginFormValidation').validate();
+            $('#allInputsFormValidation').validate();
+
+        });
+    </script>
 </asp:Content>
