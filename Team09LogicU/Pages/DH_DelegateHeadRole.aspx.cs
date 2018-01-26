@@ -20,18 +20,25 @@ namespace Team09LogicU.pages
         string logInRole;
         List<Models.Delegate> dList = new List<Models.Delegate>();
         string deptID;
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             logInStaffId = (string)Session["loginID"];
+            logInRole = (string)Session["loginRole"];
             deptID = deptStaffDAO.findStaffByID(logInStaffId).deptID;
-
-            if (!IsPostBack)
+            if (logInRole == "head" || logInRole == "outOfOfficeHead")
             {
-                delegateDAO.updateStatusAndStaffRoleByDate(operationDate);
-                displayStaffToDelegate(deptID);
-                displayDelegationListAndRole(deptID);
+                if (!IsPostBack)
+                {
+                    delegateDAO.updateStatusAndStaffRoleByDate(operationDate);
+                    displayStaffToDelegate(deptID);
+                    displayDelegationListAndRole(deptID);
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
             }
         }
 
@@ -51,20 +58,10 @@ namespace Team09LogicU.pages
             dList = delegateDAO.findDelegatesByDepartment(depID);
             GridView_dHistory.DataSource = dList;
             GridView_dHistory.DataBind();
-        }
 
-        //show current role
-        public void showCurrentRole()
-        {
-            logInRole = (string)ViewState["logInRole"];
             logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
-            ViewState["logInRole"] = logInRole;
-            Label_logInRole.Text = ViewState["logInRole"].ToString();
-
-            //int count = (int)ViewState["count"];    // GET
-            //count++;
-            //Label1.Text = count.ToString();
-            //ViewState["count"] = count;              // SET
+            Session["loginRole"] = logInRole;
+            Label_logInRole.Text = logInRole;
         }
 
         //validate the submition
@@ -89,8 +86,8 @@ namespace Team09LogicU.pages
 
         protected void submit_button_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 string selectedStaffId = employee_dropList.SelectedValue.ToString();
                 DateTime sDate = Convert.ToDateTime(textBox_startDate.Text);
                 DateTime eDate = Convert.ToDateTime(textBox_endDate.Text);
@@ -100,34 +97,33 @@ namespace Team09LogicU.pages
                 {
                     //add a new delegation
                     delegateDAO.delegateToStaff(selectedStaffId, sDate, eDate);
-                   
+
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Delegated succussfully!');</script>");
                 }
                 else
                 {
-                   
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please select valid date!');</script>");
                 }
 
-            }
-            catch {  ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Failed to submit!');</script>"); }
+            //}
+            //catch { ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Failed to submit!');</script>"); }
 
-            finally
-            {
+            //finally
+            //{
                 displayDelegationListAndRole(deptID);
-            }
+            //}
         }
 
         protected void terminate_button_Click(object sender, EventArgs e)
         {
             if (GridView_dHistory.SelectedIndex != -1)
-            {                
+            {
                 int dID = Convert.ToInt32(GridView_dHistory.SelectedRow.Cells[1].Text.ToString());
                 Models.Delegate d = delegateDAO.findDelegationById(dID);
                 string status = d.status;
                 if (status == "active" || status == "On delegation")
                 {
-                    delegateDAO.cancelDelegation(dID);                   
+                    delegateDAO.cancelDelegation(dID);
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Successful!');</script>");
                 }
                 else
