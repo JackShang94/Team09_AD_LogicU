@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team09LogicU.pages {
+namespace Team09LogicU.Pages {
     
     
-    public partial class Emp_Rep_RequisitionHistory {
+    public partial class Emp_Rep_DisbursementHistory_ViewDetail {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,21 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// deptDisbursementList control.
+        /// disbursementDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView deptDisbursementList;
+        protected global::System.Web.UI.WebControls.GridView disbursementDetail;
         
         /// <summary>
-        /// lblMessage control.
+        /// btnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

@@ -154,6 +154,7 @@
     <Content Include="Pages\DH_RequisitionHistoryDetail.aspx" />
     <Content Include="Pages\Employee.Master" />
     <Content Include="Pages\Emp_MR_RequisitionDetail.aspx" />
+    <Content Include="Pages\Emp_Rep_DisbursementHistory_ViewDetail.aspx" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_GenerateReorderReport.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
@@ -165,6 +166,7 @@
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PurchaseOrderHistoryDetail.aspx" />
+    <Content Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx" />
     <Content Include="Pages\SC_ShowPurchaseOrder.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory.aspx" />
     <Content Include="Pages\SC_ViewAdjustmentVoucher.aspx" />
@@ -484,6 +486,13 @@
     <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.designer.cs">
       <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory_ViewDetail.aspx.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory_ViewDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Emp_Rep_DisbursementHistory_ViewDetail.aspx.designer.cs">
+      <DependentUpon>Emp_Rep_DisbursementHistory_ViewDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Emp_Rep_SelectCollection.aspx.cs">
       <DependentUpon>Emp_Rep_SelectCollection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -581,6 +590,13 @@
     </Compile>
     <Compile Include="Pages\SC_PurchaseOrderHistoryDetail.aspx.designer.cs">
       <DependentUpon>SC_PurchaseOrderHistoryDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.cs">
+      <DependentUpon>SC_RO_DisbursementListHistory_ViewDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.designer.cs">
+      <DependentUpon>SC_RO_DisbursementListHistory_ViewDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_ShowPurchaseOrder.aspx.cs">
       <DependentUpon>SC_ShowPurchaseOrder.aspx</DependentUpon>
