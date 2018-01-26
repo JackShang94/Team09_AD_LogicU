@@ -17,7 +17,6 @@ namespace Team09LogicU.Pages
         SupplierItemDAO supItemDAO = new SupplierItemDAO();
         PurchaseOrderDAO PoDAO = new PurchaseOrderDAO();
         PurchaseOrderItemDAO POItemDAO = new PurchaseOrderItemDAO();
-        StockCardDAO sDAO = new StockCardDAO();
         PurchaseOrder po = new PurchaseOrder();
         static int poID;
         protected void Page_Load(object sender, EventArgs e)
