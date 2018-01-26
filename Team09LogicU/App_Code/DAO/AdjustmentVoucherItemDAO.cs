@@ -32,7 +32,7 @@ namespace Team09LogicU.App_Code.DAO
             adjvoucheritem.adjVID = adjVID;
             adjvoucheritem.record = record;
             return adjvoucheritem;
-           
         }
+       
     }
 }

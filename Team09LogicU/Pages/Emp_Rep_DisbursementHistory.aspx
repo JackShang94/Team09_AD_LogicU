@@ -23,7 +23,11 @@
                               </Columns>
                               <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                               </asp:gridview>
+                </div><p>  
+                        <asp:Label ID="lblMessage" runat="server" Text="Label"></asp:Label>
+                        </p>  
+                 <div style="margin-left:5%">
 
-                        </div>
+            </div>
       </form>
 </asp:Content>
