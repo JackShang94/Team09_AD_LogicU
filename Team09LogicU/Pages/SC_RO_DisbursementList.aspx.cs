@@ -16,6 +16,7 @@ namespace Team09LogicU.pages
         DepartmentDAO dpd=new DepartmentDAO();
         string deptName;
         string deptid;
+        
         protected void BindDropdownlist()
         {
             //dpd = new DepartmentDAO();
@@ -53,7 +54,8 @@ namespace Team09LogicU.pages
                 collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
                 disburseBindGrid();
                 ViewState["disburseID"] = 0;
-                //Button3.Visible = false;
+                ViewState["originQty"] = 0;
+                Button3.Visible = false;
             }
             else
             {
@@ -74,8 +76,13 @@ namespace Team09LogicU.pages
             deptid = dpd.findDepartmentIdByName(deptName);
             collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
             disburseGridView.SelectedIndex = -1;//initialize the selected index
+            /****************this is for QRcode******************/
+            Button3.Visible = false;//
+            /****************end***********************************/
             disburseBindGrid();
             disburseUpdatePanel.Update();
+            disburseItemGridView.DataSource = null;
+            disburseItemGridView.DataBind();
         }
         protected void disburseGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,15 +91,23 @@ namespace Team09LogicU.pages
             string a = s.Text;
             int disburseID = Convert.ToInt32(a);
             ViewState["disburseID"] = Convert.ToInt32(a);
-
+            Button3.Visible = true;
             //DisbursementDAO disDAO = new DisbursementDAO();
             disburseItemBindGrid(disburseID);
             disburseItemUpdatePanel.Update();
+
+
             //disburList.getDisbursementItemByDisID(disburseID);
 
         }
         protected void disburseItemGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            
+            int s = e.NewEditIndex;
+            Label b = disburseItemGridView.Rows[e.NewEditIndex].FindControl("lblActual") as Label;
+            int originActual = Convert.ToInt32(b.Text);
+            ViewState["originQty"] = originActual;
+
             disburseItemGridView.EditIndex = e.NewEditIndex;
             disburseItemGridView.DataSource =(List<DisbursementCart>)ViewState["list"];
             disburseItemGridView.DataBind();
@@ -103,17 +118,11 @@ namespace Team09LogicU.pages
             GridViewRow row = disburseItemGridView.Rows[e.RowIndex];
             int actual = Int32.Parse((row.FindControl("Actual") as TextBox).Text);
 
-            //Button b = sender as Button;
-            //string[] info = b.CommandArgument.Split('&');
-            //string itemID = info[0];
-            //int originActual = Convert.ToInt32(info[1]);
-            Label a = disburseItemGridView.Rows[e.RowIndex].FindControl("itemIDLabel") as Label;
-            string itemID = a.Text;
-            int s = e.RowIndex;
-            Label b = disburseItemGridView.Rows[e.RowIndex].FindControl("lblActual") as Label;
-            int originActual = Convert.ToInt32(b.Text);
-        
-            if (originActual == actual)
+
+            string itemID = (row.FindControl("itemIDLabel") as Label).Text;
+          
+
+            if (Convert.ToInt32(ViewState["originQty"]) == actual)
             {
                 disburseItemGridView.EditIndex = -1;
                 disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
@@ -123,11 +132,20 @@ namespace Team09LogicU.pages
             {
                 DisbursementDAO disDAO = new DisbursementDAO();
                 //List<DisbursementCart> updateList = (List<DisbursementCart>)ViewState["list"];
-                disDAO.savingActualQty(Convert.ToInt32(ViewState["disburseID"]), itemID, actual);
+                disDAO.savingActualQty(Convert.ToInt32(ViewState["disburseID"]),itemID, actual);
                 disburseItemGridView.EditIndex = -1;
-
+                List<DisbursementCart> ldc = (List<DisbursementCart>)ViewState["list"];
+                foreach(var i in ldc)
+                {
+                    if (i.ItemID == itemID)
+                    {
+                        i.Actual = actual;
+                        break;
+                    }
+                }
                 disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
                 disburseItemGridView.DataBind();
+                disburseUpdatePanel.Update();
             }
           
         }
@@ -156,6 +174,9 @@ namespace Team09LogicU.pages
             
         }
 
-     
+        protected void disburseItemGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+    
+        }
     }
 }

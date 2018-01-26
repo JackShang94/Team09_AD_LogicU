@@ -43,12 +43,12 @@
 												 <div class="col-lg-10">
 																 <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server" UpdateMode="Conditional">
 																	 <ContentTemplate>
-																				<asp:GridView ID="disburseItemGridView" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase "  AutoGenerateColumns="False"  OnRowEditing ="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True"   EmptyDataText="There is no disbursement">
+																				<asp:GridView ID="disburseItemGridView" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase "  AutoGenerateColumns="False"  OnRowEditing ="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" OnRowCommand="disburseItemGridView_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True"   EmptyDataText="There is no disbursement">
 																					 <Columns>
-																								<asp:TemplateField >
+																								<asp:TemplateField Visible="false">
 																										  <ItemTemplate>
-																											  <asp:HiddenField  ID="itemIDLabel" runat="server" Value='<%#Eval("itemID") %>'/>
-																											  <%--<asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("itemID") %>'></asp:Label>--%>
+																											  <%--<asp:HiddenField  ID="itemIDLabel" runat="server" Value='<%#Eval("itemID") %>'/>--%>
+																											  <asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("itemID") %>'></asp:Label>
 																										  </ItemTemplate>
 																								</asp:TemplateField>
 																								<asp:TemplateField HeaderText="ItemDescription" SortExpression="SortedAscendingHeaderStyle">
@@ -71,7 +71,7 @@
 																								</asp:TemplateField>
 																								<asp:TemplateField>
 																											<ItemTemplate>
-																												<asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit"  CommandArgument='<%#Eval("itemID")+"&"+Eval("actual") %>'/>
+																												<asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit"  CommandArgument='<%#Eval("itemID") %>'/>
 																											</ItemTemplate>
 																											<EditItemTemplate>
 																												<asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />
