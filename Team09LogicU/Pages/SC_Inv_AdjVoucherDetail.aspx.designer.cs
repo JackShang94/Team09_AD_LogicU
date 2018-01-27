@@ -121,24 +121,6 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.GridView GridView_detailList;
         
         /// <summary>
-        /// label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label4;
-        
-        /// <summary>
-        /// TextBox_Remarks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Remarks;
-        
-        /// <summary>
         /// Btn_Back control.
         /// </summary>
         /// <remarks>

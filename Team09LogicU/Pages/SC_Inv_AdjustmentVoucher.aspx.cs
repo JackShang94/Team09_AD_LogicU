@@ -13,7 +13,8 @@ namespace Team09LogicU.Pages
     public partial class SC_Inv_AdjustmentVoucher : System.Web.UI.Page
     {
         ItemDAO itemDAO = new ItemDAO();
-         
+        CategoryDAO categoryDAO = new CategoryDAO();
+        List<Item> itemList;
         public string staffID;
         public void updateCart(List<AdjustmentVouchercart> lac)
         {
@@ -31,8 +32,9 @@ namespace Team09LogicU.Pages
         {
        
             if (!IsPostBack)
-            {           
-                this.BindGrid();
+            {
+                dropDownList_bindCatInfo();
+                //this.BindGrid();
                 if (Session["adjvcart"] == null)
                 {
                     Session["adjvcart"] = new List<AdjustmentVouchercart>();
@@ -88,44 +90,98 @@ namespace Team09LogicU.Pages
                 updateCart(lac);
                 ItemDAO idao = new ItemDAO();
 
-                string sText = textbox_Search.Text.ToString();
-                if (string.IsNullOrWhiteSpace(sText))
-                {
-                    updateCatalogue(idao.getItemList());
-                }
-                else
-                {
-                    updateCatalogue(idao.getItemByDesc(sText));
-                }
+                //string sText = textbox_Search.Text.ToString();
+                //if (string.IsNullOrWhiteSpace(sText))
+                //{
+                //    updateCatalogue(idao.getItemList());
+                //}
+                //else
+                //{
+                //    updateCatalogue(idao.getItemByDesc(sText));
+                //}
             }
         }
 
-
-        protected void BindGrid()
+        public void dropDownList_bindCatInfo()
         {
-            List<Item> itemlist = new List<Item>();
-            itemlist = itemDAO.getItemList();
-            GridView_CatalogList.DataSource = itemlist;
-            GridView_CatalogList.DataBind();
+            List<Category> catList = categoryDAO.getCategoryList();
+            DropDownList_cat.DataSource = catList;
+            DropDownList_cat.DataTextField = "categoryID";
+            DropDownList_cat.DataValueField = "categoryID";
+            DropDownList_cat.AppendDataBoundItems = true;
+            DropDownList_cat.Items.Insert(0, new ListItem("--All--"));
+            DropDownList_cat.DataBind();
         }
 
-
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void DropDownList_cat_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
+            UpdateGridviewByDropdownList();
+
+
+
+        }
+        protected void UpdateGridviewByDropdownList()
+        {
+        //    ItemDAO idao = new ItemDAO();
+        //    string sText = DropDownList_cat.ToString();
+        //    if (sText == "--All--")
+        //    {
+        //        updateCatalogue(idao.getItemList());//all items
+        //    }
+        //    else
+        //    {
+        //        itemList=(idao.getItemByCategory(sText));//items with specific CAT
+        //        updateCatalogue(itemList);
+        //    }
+
+
+
+
+
+
             ItemDAO idao = new ItemDAO();
-            string sText = textbox_Search.Text.ToString();
-            if (string.IsNullOrWhiteSpace(sText))
+        string sText = DropDownList_cat.Text.ToString();
+            if (sText == "--All--")
             {
+                //this.lcatalogue = id.getItemList();
                 updateCatalogue(idao.getItemList());
-                return;
+                //catalogueUpdatePanel.Update();
             }
-            /******************SearchByItemID!!!!*******************************/
-            updateCatalogue(idao.getItemByDesc(sText));
-        }
+            else
+            {
+                updateCatalogue(idao.getItemByCategory(sText));
+            }
+                //catalogueUpdatePanel.Update();
+
+            }
 
 
-        protected void Submit_Click(object sender, EventArgs e)
+                //protected void BindGrid()
+                //{
+                //    List<Item> itemlist = new List<Item>();
+                //    itemlist = itemDAO.getItemList();
+                //    GridView_CatalogList.DataSource = itemlist;
+                //    GridView_CatalogList.DataBind();
+                //}
+
+
+                //protected void btnSearch_Click(object sender, EventArgs e)
+                //{
+
+                //ItemDAO idao = new ItemDAO();
+                //string sText = textbox_Search.Text.ToString();
+                //    if (string.IsNullOrWhiteSpace(sText))
+                //    {
+                //        updateCatalogue(idao.getItemList());
+                //        return;
+                //    }
+                //    /******************SearchByItemID!!!!*******************************/
+                //    updateCatalogue(idao.getItemByDesc(sText));
+                //}
+
+
+       protected void Submit_Click(object sender, EventArgs e)
         {
             string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
