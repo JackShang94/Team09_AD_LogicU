@@ -108,7 +108,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AndroidServices\disbursementList.svc" />
     <Content Include="css\685fd913f1e14aebad0cc9d3713ee469.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\demo.css" />
@@ -262,10 +261,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndroidServices\disbursementList.svc.cs">
-      <DependentUpon>disbursementList.svc</DependentUpon>
-    </Compile>
-    <Compile Include="AndroidServices\IdisbursementList.cs" />
     <Compile Include="App_Code\DAO\AdjustmentVoucherDAO.cs" />
     <Compile Include="App_Code\DAO\AdjustmentVoucherItemDAO.cs" />
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
