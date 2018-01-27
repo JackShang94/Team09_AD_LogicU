@@ -39,6 +39,11 @@ Retrieval Forms
 								<asp:Label runat="server" Text='<%#Eval("Actual") %>'></asp:Label>
 							</ItemTemplate>
 						</asp:TemplateField>
+						<asp:TemplateField HeaderText="Location">
+							<ItemTemplate>
+								<asp:Label runat="server" Text='<%#Eval("location") %>'></asp:Label>
+							</ItemTemplate>
+						</asp:TemplateField>
 						<asp:CommandField ShowSelectButton="true"  SelectText="view" ButtonType="Button"/>
 						
 					</columns>

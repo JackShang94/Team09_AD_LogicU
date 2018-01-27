@@ -84,7 +84,7 @@ namespace Team09LogicU.App_Code.DAO
                             RetrievalFormItem r = new RetrievalFormItem();
                             r.ItemID = reqitem.itemID;
                             r.ItemDescription = reqitem.Item.description;
-                            r.Localtion = reqitem.Item.location;
+                            r.Location = reqitem.Item.location;
                             r.Needed = reqitem.requisitionQty;
                             r.Actual = r.Needed;
 
@@ -150,7 +150,7 @@ namespace Team09LogicU.App_Code.DAO
                             RetrievalFormItem r = new RetrievalFormItem();
                             r.ItemID = outitem.itemID;
                             r.ItemDescription = outitem.Item.description;
-                            r.Localtion = outitem.Item.location;
+                            r.Location = outitem.Item.location;
                             r.Needed = outitem.expectedQty;
                             r.Actual = r.Needed;
 
