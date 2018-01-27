@@ -82,6 +82,10 @@ namespace Team09LogicU.App_Code.DAO
         {
             return m.Items.Where(x => x.Category.description == category).ToList<Item>();
         }
+        public List<Item> getItemByCategory(string category)
+        {
+            return m.Items.Where(x => x.Category.categoryID == category).ToList<Item>();
+        }
         public Item getItemByID(string itemID)
         {
             Item i = new Item();
