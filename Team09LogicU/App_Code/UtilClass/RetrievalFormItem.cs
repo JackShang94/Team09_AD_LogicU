@@ -23,7 +23,7 @@ After:
         private string deptID;
         private int needed;
         private int actual;
-
+        
         public string DeptID
         {
             get
@@ -63,6 +63,8 @@ After:
             }
         }
 
+   
+
         public BreakdownByDepartment() { }
 
         public BreakdownByDepartment(string deptID, int needed, int actual)
@@ -94,7 +96,7 @@ After:
 */
         private string itemID;
         private string itemDescription;
-        private string localtion;
+        private string location;
         private int needed;
         private int actual;
         private List<BreakdownByDepartment> breakList;
@@ -125,16 +127,16 @@ After:
             }
         }
 
-        public string Localtion
+        public string Location
         {
             get
             {
-                return localtion;
+                return location;
             }
 
             set
             {
-                localtion = value;
+                location = value;
             }
         }
 
@@ -181,11 +183,11 @@ After:
             BreakList = new List<BreakdownByDepartment>();
         }
 
-        public RetrievalFormItem(string itemID, string itemDescription, string localtion, int needed, int actual, List<BreakdownByDepartment> breakList)
+        public RetrievalFormItem(string itemID, string itemDescription, string location, int needed, int actual, List<BreakdownByDepartment> breakList)
         {
             this.itemID = itemID;
             this.itemDescription = itemDescription;
-            this.localtion = localtion;
+            this.location = location;
             this.needed = needed;
             this.actual = actual;
             this.breakList = breakList;
