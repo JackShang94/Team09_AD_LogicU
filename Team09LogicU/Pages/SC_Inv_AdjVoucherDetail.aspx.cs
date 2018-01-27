@@ -41,7 +41,6 @@ namespace Team09LogicU.Pages
             try
             {
                 GridView_detailList.PageIndex = e.NewPageIndex;
-                BindData();
 
                 TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_detailList.PageIndex + 1).ToString();
