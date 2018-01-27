@@ -12,7 +12,7 @@ namespace Team09LogicU.AndroidServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IdisbursementList" in both code and config file together.
     [ServiceContract]
-    public interface IdisbursementList
+    public interface IDisbursementListService
     {
         [OperationContract]
         [WebGet(UriTemplate = "/Disbursement", ResponseFormat = WebMessageFormat.Json)]
