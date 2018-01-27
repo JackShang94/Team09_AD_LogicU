@@ -14,7 +14,6 @@ namespace Team09LogicU.App_Code.DAO
             return context.Suppliers.ToList();
         }
 
-
         public  Supplier getSupplierByID(string id)
         {
             List<Supplier> slist = context.Suppliers.Where(x => x.supplierID == id).ToList();
