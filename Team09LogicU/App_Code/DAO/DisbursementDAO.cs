@@ -51,6 +51,10 @@ namespace Team09LogicU.App_Code.DAO
         {
             return model.Disbursements.Where(x => x.deptID == deptid).ToList();
         }
+        public List<Disbursement> getAwaitingDisbursementListByDeptID(String deptid)
+        {
+            return model.Disbursements.Where(x => x.deptID == deptid && x.status== "Awaiting Delivery").ToList();
+        }
         public List<int> getCurrentDisbursementsId(string status,string deptid)
         {
             return model.Disbursements.Where(x => x.status == status&&x.deptID==deptid).Select(x => x.disbursementID).ToList();
@@ -100,7 +104,24 @@ namespace Team09LogicU.App_Code.DAO
         {
             return model.Disbursements.Where(x => x.status == "Awaiting Delivery").ToList();
         }
+        public List<Disbursement> getAllCompletedDisbursement()
+        {
+            
+            return model.Disbursements.Where(x => x.status == "Completed").ToList();
+        }
+        public List<Disbursement> getAllCompletedDisbursementBydeptID(string deptID)
+        {
 
+            return model.Disbursements.Where(x => x.status == "Completed"&&x.deptID==deptID).ToList();
+        }
+        public List<Disbursement> getAllCompletedDisbursementBydeptIDandDate(DateTime from,DateTime to,string deptID)
+        {
+
+            return model.Disbursements.Where(x => x.status == "Completed"&&x.deptID==deptID
+            &&x.disburseDate.Year>=from.Year&&x.disburseDate.Year<=to.Year
+            &&x.disburseDate.Month>=from.Month&&x.disburseDate.Month<=to.Month
+            &&x.disburseDate.Day>=from.Day&&x.disburseDate.Day<=to.Day).ToList();
+        }
         public void savingActualQty(int disID,string itemID, int actualqty)
         {
             var k = model.DisbursementItems.Where(x => x.itemID == itemID&&x.disbursementID==disID).ToList();

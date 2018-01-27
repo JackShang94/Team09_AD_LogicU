@@ -9,22 +9,40 @@
                 <div class=" container">
                     <div class="col-lg-12">
                    <div class="col-lg-3" style="margin-top:20px">
-                    <asp:Label ID="Label1" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>
-                       <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control datepicker"></asp:TextBox>
+					   <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+						<asp:Label ID="dateLabel" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>
+                       <span>Form:</span><asp:TextBox ID="fromTextBox" runat="server" CssClass="form-control datepicker" TextMode="DateTime"></asp:TextBox>
+					   <span>To:</span><asp:TextBox ID="toTextBox" runat="server" CssClass="form-control datepicker" TextMode="DateTime"></asp:TextBox>
+					   <asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click"></asp:Button>
                    </div>
-                           <div class="col-lg-3" style="margin-top:20px">
-                    <asp:Label ID="Label3" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
-                       <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <div class="col-lg-3" style="margin-top:20px">
+						<asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
+                        <asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                    </div>
                     <div class="col-lg-10">
-                        <asp:LinkButton ID="LinkButton1" runat="server">View Disbursement List History</asp:LinkButton>
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover "></asp:GridView>
-                        <div class="col-lg-10">
-                        <asp:Label ID="Label2" runat="server" Text="Label">Collection Point:</asp:Label>
-                          </div>  </div></div>
-                        <div class="col-lg-3" style=" margin-top:40px;margin-bottom:20px">
-                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Print" />
-                       </div>
+                        
+                        <asp:GridView ID="disburseHisGridView" runat="server" CssClass="table table-striped table-hover " OnSelectedIndexChanged="disburseHisGridView_SelectedIndexChanged" AutoGenerateColumns="false" EmptyDataText="There is no record">
+							<Columns>
+								<asp:TemplateField>
+									<ItemTemplate>
+										<%#Container.DataItemIndex+1 %>
+									</ItemTemplate>
+								</asp:TemplateField>
+								<asp:TemplateField HeaderText="disbursementID">
+									<ItemTemplate>
+										<asp:Label runat="server" ID="disIDLabel"  Text='<%#Eval("disbursementID") %>'></asp:Label>
+									</ItemTemplate>
+								</asp:TemplateField>
+								
+								<asp:BoundField DataField="storeStaffID" HeaderText="storeStaffID"/>
+								<asp:BoundField DataField="disburseDate" HeaderText="DisburseDate" />
+								<asp:CommandField ShowSelectButton="true"  ButtonType="Button" SelectText="Detail"/>
+							</Columns>
+                        </asp:GridView>
+                          </div>
+
+                    </div>
+                     
                     
                        </div>
                     
@@ -33,10 +51,7 @@
         </div>
     </div>
     </form>
-     <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-    <script src="../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+
 
 
 	   <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->

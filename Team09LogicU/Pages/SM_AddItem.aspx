@@ -121,7 +121,6 @@
                                     </div>
                                    </div>
                                 </div>
-                           
                         </div>
                     </div>
                 </div>
@@ -129,10 +128,20 @@
         <div class="col-lg-10" style="margin-left:20px">
             <div class="col-lg-2">
         <asp:Button ID="Btn_Submit" runat="server" Text="Submit" ValidationGroup="submit1" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Submit_Click" />
-        </div><div class="col-lg-2"><asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
+        </div>
+        <div class="col-lg-2"><asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
+        </div>
         </div>
 
-        </div>
+        <script type="text/javascript">
+        $().ready(function(){
+
+            $('#registerFormValidation').validate();
+            $('#loginFormValidation').validate();
+            $('#allInputsFormValidation').validate();
+
+        });
+    </script>
     </form>
 
 </asp:Content>
