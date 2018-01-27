@@ -9,10 +9,7 @@ Outstanding Requisition
 							<div class="card">
 								<div class=" container">
 										<div class="col-lg-12">
-										   <div class="col-lg-3" style="margin-top:20px">
-												<%--<asp:Label ID="dateLabel" runat="server" Text="Select a Date:" CssClass="category"></asp:Label>--%>
-												<%--<asp:TextBox ID="dateTimeTextBox" runat="server" CssClass="form-control datepicker"></asp:TextBox>--%>
-										   </div>
+
 										   <div class="col-lg-3" style="margin-top:20px">
 													<asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
 													<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged" AutoPostBack="True">

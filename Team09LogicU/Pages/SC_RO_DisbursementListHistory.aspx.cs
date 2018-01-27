@@ -83,19 +83,12 @@ namespace Team09LogicU.Pages
         {
             string f = fromTextBox.Text;
             string t = toTextBox.Text;
-            if (f == null || t == null)
+            if (f == "" || t == "")
             {
                 return;
             }
-            
-            string f_format = DateTime.ParseExact(f, "MM/dd/yyyy", CultureInfo.InvariantCulture).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-
-            string t_format = DateTime.ParseExact(t, "MM/dd/yyyy", CultureInfo.InvariantCulture)
-              .ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-
-            DateTime from = Convert.ToDateTime(f_format);
-            DateTime to = Convert.ToDateTime(t_format);
-
+            DateTime from = Convert.ToDateTime(f);
+            DateTime to = Convert.ToDateTime(t);
             if (DateTime.Compare(from, to) > 0){
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
                 return;

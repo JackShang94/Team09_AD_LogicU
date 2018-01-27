@@ -73,7 +73,7 @@ Retrieval Forms
 							</ItemTemplate>
 							<EditItemTemplate>
 								<asp:TextBox runat="server" ID="actualTextBox" Text='<%#Eval("actual") %>'></asp:TextBox>
-								<asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[0-9]*[1-9][0-9]*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+								<asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
 							</EditItemTemplate>
 						</asp:TemplateField>
 						<%--<asp:BoundField DataField="actual" HeaderText="Actual"/>--%>

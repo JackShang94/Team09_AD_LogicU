@@ -88,9 +88,9 @@
                                                                             <td></td>
                                     	                                    <td>   <%#Eval("description") %></td>
                                     	                                    <td class="text-center" style="width:30%">
-                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
-                                                                                    
+                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                                    
                                                                                 </asp:TextBox>
+                                                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
                                     	                                    </td>
                                                                             <td class="td-actions text-right" style="">
                                                                                 <asp:LinkButton ID="cart_deleteButton" runat="server" Text="delete"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>
