@@ -108,6 +108,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AndroidServices\AdjustmentVoucherItemService.svc" />
+    <Content Include="AndroidServices\AdjustmentVoucherService.svc" />
+    <Content Include="AndroidServices\DeptStaffService.svc" />
+    <Content Include="AndroidServices\DisbursementListService.svc" />
+    <Content Include="AndroidServices\DisbursementListItemService.svc" />
+    <Content Include="AndroidServices\ItemService.svc" />
+    <Content Include="AndroidServices\RetrievalFormItemService.svc" />
+    <Content Include="AndroidServices\RetrievalFormService.svc" />
+    <Content Include="AndroidServices\StoreStaffService.svc" />
     <Content Include="css\685fd913f1e14aebad0cc9d3713ee469.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\demo.css" />
@@ -261,6 +270,42 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidServices\AdjustmentVoucherItemService.svc.cs">
+      <DependentUpon>AdjustmentVoucherItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\AdjustmentVoucherService.svc.cs">
+      <DependentUpon>AdjustmentVoucherService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\DeptStaffService.svc.cs">
+      <DependentUpon>DeptStaffService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\DisbursementListService.svc.cs">
+      <DependentUpon>DisbursementListService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\DisbursementListItemService.svc.cs">
+      <DependentUpon>DisbursementListItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\IAdjustmentVoucherItemService.cs" />
+    <Compile Include="AndroidServices\IAdjustmentVoucherService.cs" />
+    <Compile Include="AndroidServices\IDeptStaffService.cs" />
+    <Compile Include="AndroidServices\IDisbursementListService.cs" />
+    <Compile Include="AndroidServices\IDisbursementListItemService.cs" />
+    <Compile Include="AndroidServices\IItemService.cs" />
+    <Compile Include="AndroidServices\IRetrievalFormItemService.cs" />
+    <Compile Include="AndroidServices\IRetrievalFormService.cs" />
+    <Compile Include="AndroidServices\IStoreStaffService.cs" />
+    <Compile Include="AndroidServices\ItemService.svc.cs">
+      <DependentUpon>ItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\RetrievalFormItemService.svc.cs">
+      <DependentUpon>RetrievalFormItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\RetrievalFormService.svc.cs">
+      <DependentUpon>RetrievalFormService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\StoreStaffService.svc.cs">
+      <DependentUpon>StoreStaffService.svc</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\DAO\AdjustmentVoucherDAO.cs" />
     <Compile Include="App_Code\DAO\AdjustmentVoucherItemDAO.cs" />
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
