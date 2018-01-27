@@ -224,18 +224,18 @@ namespace Team09LogicU.App_Code.DAO
 
             saveDisbursement(dislist);
 
-            List<Outstanding> outlist = generateOutstandingList(dislist);
-
-            saveOutstanding(outlist);
-
-            // updateWarehouseItemQuantity(result);
-
-            updateStockCardAndItemQuantity(result);
-
             List<Requisition> reqlist2 = getRetrievedRequisitionList(date);
             List<Outstanding> outlist2 = getOutStandingList(date);
             updateRequisitionStatusAsProcessed(reqlist2);
             updateOutStandingStatusAsProcessed(outlist2);
+
+            List<Outstanding> outlist = generateOutstandingList(dislist);
+
+            saveOutstanding(outlist);
+
+            updateStockCardAndItemQuantity(result);
+
+
         }
 
         private void updateStockCardAndItemQuantity(List<RetrievalFormItem> reflist)

@@ -94,10 +94,10 @@ Adjustment Voucher
                                                                             <td></td>
                                     	                                    <td>   <%#Eval("itemID") %></td>
                                     	                                    <td class="text-center" style="width:30%">
-                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
-                                                                                    
-                                                                                </asp:TextBox>
-                                    	                                    </td>
+                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                              
+                                                                                </asp:TextBox> </td>
+                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                    	                                    
                                                                              <td class="text-center" style="width:30%">
                                                                               <asp:TextBox ID="cart_recordTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Record") %>' >
                                                                                     

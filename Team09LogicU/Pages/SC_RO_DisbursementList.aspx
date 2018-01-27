@@ -66,7 +66,8 @@
 																												<asp:Label ID="lblActual" runat="server" Text='<%# Eval("actual") %>'></asp:Label>
 																											</ItemTemplate>
 																											<EditItemTemplate>                          
-																												<asp:TextBox ID="Actual" CssClass="form-control" Text='<%# Eval("actual") %>' runat="server" BackColor="Azure"></asp:TextBox>                        
+																												<asp:TextBox ID="Actual" CssClass="form-control" Text='<%# Eval("actual") %>' runat="server" BackColor="Azure"></asp:TextBox>     
+                                                                                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="Actual" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
 																											</EditItemTemplate>
 																								</asp:TemplateField>
 																								<asp:TemplateField>

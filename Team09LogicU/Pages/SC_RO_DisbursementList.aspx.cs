@@ -72,7 +72,7 @@ namespace Team09LogicU.pages
                 deptid = dpd.findDepartmentIdByName(deptName);
                 collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
                 //disburseBindGrid();
-                //disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
+               // disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
             }
         }
        
