@@ -5,13 +5,13 @@ Retrieval Forms
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <form id="form1" runat="server">
-		
-		<asp:TextBox ID="beforeDate" runat="server" TextMode="Date"></asp:TextBox>
-		<asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click" /><!--not yet finished-->
+		<label>Following are the Retrievals before :</label><asp:Label runat="server" ID="dateLablel" Text=""> </asp:Label>
+<%--		<asp:TextBox ID="beforeDate" runat="server" TextMode="Date"></asp:TextBox>
+		<asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click" />--%>
 		<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 		<asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
-				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCreated="retrievalGridView_RowCreated" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
+				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
 				 SelectedRowStyle-BackColor="Red">
 					<columns>
 						<asp:TemplateField>
