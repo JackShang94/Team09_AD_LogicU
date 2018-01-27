@@ -15,6 +15,10 @@ namespace Team09LogicU.AndroidServices
     public interface IItemService
     {
         [OperationContract]
+        [WebGet(UriTemplate = "/Item", ResponseFormat = WebMessageFormat.Json)]
+        List<WCFItem> findAll();
+
+        [OperationContract]
         [WebGet(UriTemplate = "/Item/{cat}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFItem> findItemByCat(string cat);
     }
@@ -25,14 +29,23 @@ namespace Team09LogicU.AndroidServices
         string itemID;
         string categoryID;
         string description;
+        string location;
+        string unitOfMeasure;
+        int reorderLevel;
+        int reorderQty;
+        int qtyOnHand;
 
-
-        public static WCFItem Make(string itemID, string categoryID, string description)
+        public static WCFItem Make(string itemID, string categoryID, string description, string location,string unitOfMeasure,int reorderLevel,int reorderQty,int qtyOnHand)
         {
             WCFItem i = new WCFItem();
             i.itemID = itemID;
             i.categoryID = categoryID;
             i.description = description;
+            i.location = location;
+            i.unitOfMeasure = unitOfMeasure;
+            i.reorderLevel = reorderLevel;
+            i.reorderQty = reorderQty;
+            i.qtyOnHand = qtyOnHand;
             return i;
         }
 
@@ -55,6 +68,41 @@ namespace Team09LogicU.AndroidServices
         {
             get { return description; }
             set { description = value; }
+        }
+
+        [DataMember]
+        public string UnitOfMeasure
+        {
+            get { return unitOfMeasure; }
+            set { unitOfMeasure = value; }
+        }
+
+        [DataMember]
+        public string Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
+
+        [DataMember]
+        public int ReorderLevel
+        {
+            get { return reorderLevel; }
+            set { reorderLevel = value; }
+        }
+
+        [DataMember]
+        public int ReorderQty
+        {
+            get { return reorderQty; }
+            set { reorderQty = value; }
+        }
+
+        [DataMember]
+        public int QtyOnHand
+        {
+            get { return qtyOnHand; }
+            set {   qtyOnHand = value; }
         }
     }
 }
