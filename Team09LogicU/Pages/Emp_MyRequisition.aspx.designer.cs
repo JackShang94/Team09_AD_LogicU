@@ -13,15 +13,6 @@ namespace Team09LogicU.pages {
     public partial class Emp_MyRequisition {
         
         /// <summary>
-        /// viewRequisitionForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm viewRequisitionForm;
-        
-        /// <summary>
         /// myReqScriptManager control.
         /// </summary>
         /// <remarks>

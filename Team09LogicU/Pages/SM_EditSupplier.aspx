@@ -3,7 +3,7 @@
     Edit Supplier
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <form id ="form1" runat="server">
+   
          <asp:Label ID="Label1" runat="server" Text="Label_test"></asp:Label>
         <div class="content">
             <div class="container-fluid">
@@ -84,5 +84,5 @@
                                   <asp:Button ID="Btn_Submit"  runat="server" Text="Submit" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Submit_Click" /> 
                                  <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click"   />
 
-                                 </form>
+                               
 </asp:Content>
