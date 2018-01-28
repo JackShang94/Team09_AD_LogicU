@@ -10,7 +10,7 @@ namespace Team09LogicU.App_Code.DAO
     public class LoginDAO
     {
         SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
-        string[] result = new string[] {"","","" };
+        string[] result = new string[] {"","","",""};
         private DeptStaff getDeptStaffByUsername(string username)
         {
             List<DeptStaff> staffl = context.DeptStaffs.Where(x => x.email == username).ToList();
@@ -40,7 +40,8 @@ namespace Team09LogicU.App_Code.DAO
                 DeptStaff staff = getDeptStaffByUsername(username);
                 result[0] = staff.staffID;
                 result[1] = staff.role;
-                result[2] = staff.password;                            
+                result[2] = staff.password;
+                result[3] = staff.staffName;                      
             }
             else if(getStoreStaffByUsername(username).storeStaffID!="")
             {
@@ -48,6 +49,7 @@ namespace Team09LogicU.App_Code.DAO
                 result[0] = staff.storeStaffID;
                 result[1] = staff.role;
                 result[2] = staff.password;
+                result[3] = staff.storeStaffName;
             }
             return result;
         }
