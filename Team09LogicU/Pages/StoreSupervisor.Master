@@ -98,12 +98,13 @@
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                        Tania Andrew
+                        <asp:Label ID="Label1" runat="server" Text=" "></asp:Label>
                         <b class="caret"></b>
                     </a>
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
-                            <li><a href="login.aspx">Logout</a></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></li>
                          <!-- nav  <li><a href="#">Edit Profile</a></li> -->
                            
                         </ul>
