@@ -65,10 +65,11 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href='../css/685fd913f1e14aebad0cc9d3713ee469.css' rel='stylesheet' type='text/css'>
     <link href="../css/pe-icon-7-stroke.css" rel="stylesheet" />
-
+    <!--new js/css-->
+ <link href="../css/window.css" rel="stylesheet" />
 </head>
 <body>
-
+         <form id ="form1" runat="server">
 <div class="wrapper">
     <div class="sidebar" data-color="orange" data-image="../picture/full-screen-image-3.jpg">
         <!--
@@ -258,8 +259,11 @@
     </div>
 </div>
 
-
+</form>
 </body>
+
+        <script src="../js/jquery-1.7.1.min.js"></script>
+    <script src="../js/window.js"></script>
 <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
     <script src="../js/jquery.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
@@ -327,6 +331,16 @@
       ga('send', 'pageview');
 
     </script>
+    <script src="../js/demo.js"></script>
+          <script type="text/javascript">
+              $().ready(function () {
 
+                  // Init Sliders
+                  demo.initFormExtendedSliders();
+
+                  // Init DatetimePicker
+                  demo.initFormExtendedDatetimepickers();
+              });
+    </script>
 </html>
 

@@ -3,8 +3,7 @@
  Submit Requisition
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <form id="catalogueForm" runat="server">
-   
+    
          <div class="row">
                    
                     <div class="col-md-8 container-fluid">
@@ -113,9 +112,4 @@
                      </div>          
     </div>
          
-             
-        
-         
-             
-         </form>
 </asp:Content>
