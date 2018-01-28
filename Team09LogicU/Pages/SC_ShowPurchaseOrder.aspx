@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <form id="form1" runat="server">
+  
         <asp:GridView ID="GridView_PurchaseOrder" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <Columns>
@@ -36,5 +36,5 @@
             <HeaderStyle CssClass=" content text-uppercase  " />
         </asp:GridView>
         <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnBack_Click" />
-    </form>
+  
 </asp:Content>

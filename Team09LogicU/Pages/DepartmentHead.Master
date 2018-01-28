@@ -97,7 +97,9 @@
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                        Tania Andrew
+                      <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+
+                      </asp:ContentPlaceHolder>
                         <b class="caret"></b>
                     </a>
                     <div class="collapse" id="collapseExample">
