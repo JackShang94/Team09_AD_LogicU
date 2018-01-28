@@ -10,20 +10,16 @@ Adjustment Voucher
                     <div class="col-md-9 container-fluid">
                         <div class="card">
                         <div class="content" >
-                        <div class=" form-group" style="height:25px; width:100%">
-                        <div class="pull-left search" style="width:75%">
-                            
-                          <div class="col-md-3">
-                            <asp:TextBox ID="textbox_Search"   class="form-control" runat="server" Width="200px"   ></asp:TextBox>  
+                            <div class=" form-group" style="height: 50px; width: 100%">
+                                <div class="pull-left search" style="width: 75%">
+                                    <div class="col-lg-3" style="margin-top: 20px; margin-bottom: 20px">
+                                        <asp:Label ID="Label3" runat="server" CssClass="category" Text=" Category:"></asp:Label>
+                                        <asp:DropDownList ID="DropDownList_cat" runat="server" CssClass="form-control" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DropDownList_cat_SelectedIndexChanged"></asp:DropDownList>
+                                    </div>
+                                </div>
+
 
                             </div>
-
-
-                            </div>
-                        <div class="pull-right" style="width:20%">
-                         <asp:Button ID="Button_Search" runat="server" Width="100%" Text="Search"  CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click"  />
-                        </div>          
-                        </div>
                         </div>
                         </div>
                          </div>
@@ -98,10 +94,10 @@ Adjustment Voucher
                                                                             <td></td>
                                     	                                    <td>   <%#Eval("itemID") %></td>
                                     	                                    <td class="text-center" style="width:30%">
-                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >
-                                                                                    
-                                                                                </asp:TextBox>
-                                    	                                    </td>
+                                                                                <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                              
+                                                                                </asp:TextBox> </td>
+                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                    	                                    
                                                                              <td class="text-center" style="width:30%">
                                                                               <asp:TextBox ID="cart_recordTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Record") %>' >
                                                                                     

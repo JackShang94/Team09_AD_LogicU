@@ -72,7 +72,7 @@ namespace Team09LogicU.pages
                 deptid = dpd.findDepartmentIdByName(deptName);
                 collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
                 //disburseBindGrid();
-                //disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
+               // disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
             }
         }
        
@@ -90,9 +90,10 @@ namespace Team09LogicU.pages
 
             /****************end***********************************/
             disburseBindGrid();
-            //disburseUpdatePanel.Update();
+            
             disburseItemGridView.DataSource = null;
             disburseItemGridView.DataBind();
+            disburseItemUpdatePanel.Update();
         }
         protected void disburseGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -107,7 +108,7 @@ namespace Team09LogicU.pages
             
 
             disburseItemBindGrid(disburseID);
-            //disburseItemUpdatePanel.Update();
+            disburseItemUpdatePanel.Update();
 
 
             //disburList.getDisbursementItemByDisID(disburseID);
@@ -176,15 +177,22 @@ namespace Team09LogicU.pages
         protected void Button3_Click(object sender, EventArgs e)
         {
             int disburseID = Convert.ToInt32(ViewState["disburseID"]);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('u r generate the Disbursement "+disburseID+" ?')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('u r generate the Disbursement " + disburseID + " ?')", true);
             //here should send message box yes or no
 
             DisbursementDAO disDAO = new DisbursementDAO();
+            
             //disburList
+            Button3.Enabled = false;
             disDAO.updateDisbursementStatus(Convert.ToInt32(ViewState["disburseID"]), "Completed");
-            
-            
-            
+            disburseGridView.SelectedIndex = -1;
+            disburseBindGrid();
+            disburseUpdatePanel.Update();
+            disburseItemGridView.DataSource = null;
+            disburseItemGridView.DataBind();
+
+
+
         }
 
         protected void disburseItemGridView_RowCommand(object sender, GridViewCommandEventArgs e)

@@ -84,7 +84,7 @@ namespace Team09LogicU.App_Code.DAO
                             RetrievalFormItem r = new RetrievalFormItem();
                             r.ItemID = reqitem.itemID;
                             r.ItemDescription = reqitem.Item.description;
-                            r.Localtion = reqitem.Item.location;
+                            r.Location = reqitem.Item.location;
                             r.Needed = reqitem.requisitionQty;
                             r.Actual = r.Needed;
 
@@ -150,7 +150,7 @@ namespace Team09LogicU.App_Code.DAO
                             RetrievalFormItem r = new RetrievalFormItem();
                             r.ItemID = outitem.itemID;
                             r.ItemDescription = outitem.Item.description;
-                            r.Localtion = outitem.Item.location;
+                            r.Location = outitem.Item.location;
                             r.Needed = outitem.expectedQty;
                             r.Actual = r.Needed;
 
@@ -224,18 +224,18 @@ namespace Team09LogicU.App_Code.DAO
 
             saveDisbursement(dislist);
 
-            List<Outstanding> outlist = generateOutstandingList(dislist);
-
-            saveOutstanding(outlist);
-
-            // updateWarehouseItemQuantity(result);
-
-            updateStockCardAndItemQuantity(result);
-
             List<Requisition> reqlist2 = getRetrievedRequisitionList(date);
             List<Outstanding> outlist2 = getOutStandingList(date);
             updateRequisitionStatusAsProcessed(reqlist2);
             updateOutStandingStatusAsProcessed(outlist2);
+
+            List<Outstanding> outlist = generateOutstandingList(dislist);
+
+            saveOutstanding(outlist);
+
+            updateStockCardAndItemQuantity(result);
+
+
         }
 
         private void updateStockCardAndItemQuantity(List<RetrievalFormItem> reflist)

@@ -5,11 +5,14 @@ using System.Web;
 
 namespace Team09LogicU.App_Code.UtilClass
 {
-    public class LogicUExceptions : ApplicationException
+    public static class Validation
     {
-        public LogicUExceptions(string message): base(message)
+        public static bool inputIsNotEmpty()
         {
+            bool IsValidate = false;
+            
 
+            return IsValidate;
         }
     }
 }

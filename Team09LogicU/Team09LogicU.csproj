@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -87,6 +88,8 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -105,6 +108,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AndroidServices\AdjustmentVoucherItemService.svc" />
+    <Content Include="AndroidServices\AdjustmentVoucherService.svc" />
+    <Content Include="AndroidServices\DeptStaffService.svc" />
+    <Content Include="AndroidServices\DisbursementListService.svc" />
+    <Content Include="AndroidServices\DisbursementListItemService.svc" />
+    <Content Include="AndroidServices\ItemService.svc" />
+    <Content Include="AndroidServices\RetrievalFormItemService.svc" />
+    <Content Include="AndroidServices\RetrievalFormService.svc" />
+    <Content Include="AndroidServices\StoreStaffService.svc" />
     <Content Include="css\685fd913f1e14aebad0cc9d3713ee469.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\demo.css" />
@@ -252,9 +264,48 @@
     <Content Include="picture\us.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="AndroidServices\Service1.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidServices\AdjustmentVoucherItemService.svc.cs">
+      <DependentUpon>AdjustmentVoucherItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\AdjustmentVoucherService.svc.cs">
+      <DependentUpon>AdjustmentVoucherService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\DeptStaffService.svc.cs">
+      <DependentUpon>DeptStaffService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\DisbursementListService.svc.cs">
+      <DependentUpon>DisbursementListService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\DisbursementListItemService.svc.cs">
+      <DependentUpon>DisbursementListItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\IAdjustmentVoucherItemService.cs" />
+    <Compile Include="AndroidServices\IAdjustmentVoucherService.cs" />
+    <Compile Include="AndroidServices\IDeptStaffService.cs" />
+    <Compile Include="AndroidServices\IDisbursementListService.cs" />
+    <Compile Include="AndroidServices\IDisbursementListItemService.cs" />
+    <Compile Include="AndroidServices\IItemService.cs" />
+    <Compile Include="AndroidServices\IRetrievalFormItemService.cs" />
+    <Compile Include="AndroidServices\IRetrievalFormService.cs" />
+    <Compile Include="AndroidServices\IStoreStaffService.cs" />
+    <Compile Include="AndroidServices\ItemService.svc.cs">
+      <DependentUpon>ItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\RetrievalFormItemService.svc.cs">
+      <DependentUpon>RetrievalFormItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\RetrievalFormService.svc.cs">
+      <DependentUpon>RetrievalFormService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\StoreStaffService.svc.cs">
+      <DependentUpon>StoreStaffService.svc</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\DAO\AdjustmentVoucherDAO.cs" />
     <Compile Include="App_Code\DAO\AdjustmentVoucherItemDAO.cs" />
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
@@ -295,9 +346,12 @@
     <Compile Include="App_Code\UtilClass\ReqItems_custom.cs" />
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
     <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
+    <Compile Include="App_Code\UtilClass\TrendAnalysis.cs" />
+    <Content Include="App_Code\UtilClass\Validation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="AndroidServices\IService1.cs" />
     <Compile Include="Models\AdjustmentVoucher.cs">
       <DependentUpon>SA45_Team09_LogicUEntities.tt</DependentUpon>
     </Compile>
@@ -795,12 +849,18 @@
       <DependentUpon>welcome.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AndroidServices\Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

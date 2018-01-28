@@ -31,22 +31,14 @@ namespace Team09LogicU.pages
             if (!IsPostBack)
             {
                 /**********************Loading Cart List************************************/
-
-                //string name = Session["loginID"].ToString();
-
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
-                //name = "emp006";
-                //Session["loginID"] = name;
                 if (this.staffID == null)
                 {
-                    Response.Redirect("login.aspx");
-                    
+                    Response.Redirect("login.aspx");                  
                 }
 
                 string role = Session["loginRole"].ToString();
-                //role = "emp";
-                //Session["loginRole"] = role;
                 if (role !="rep"&& role!="emp")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
@@ -77,18 +69,6 @@ namespace Team09LogicU.pages
         }
             else
             {
-                
-                //string name = Session["loginID"].ToString();
-                //this.staffID = name;
-                //string role = Session["loginRole"].ToString();
-                ////role = "emp";
-                ////Session["loginRole"] = role;
-                //if (role != "emp"&& role!="rep")
-                //{
-                //    HttpContext.Current.Response.Redirect("login.aspx");
-                //    return;
-                //}
-                //string name = Session["loginID"].ToString();
                 List<cart> lc = (List<cart>)Session["cart"];
                 updateCart(lc);
                 ItemDAO idao = new ItemDAO();
@@ -114,22 +94,11 @@ namespace Team09LogicU.pages
             string sText = item_searchText.Text.ToString();
             if (string.IsNullOrWhiteSpace(sText))
             {
-                //this.lcatalogue = id.getItemList();
-                
-
-                updateCatalogue(idao.getItemList());
-                //catalogueUpdatePanel.Update();
-                
+                updateCatalogue(idao.getItemList());              
                 return;
             }
-            /******************SearchByItemID!!!!*******************************/
-            //this.lcatalogue = id.getItemByitemID(sText);
-            
-
-            updateCatalogue(idao.getItemByDesc(sText));
-            //catalogueUpdatePanel.Update();
-
-
+            /******************SearchByItemID!!!!*******************************/            
+            updateCatalogue(idao.getItemByDesc(sText));           
         }
 
 
@@ -137,9 +106,7 @@ namespace Team09LogicU.pages
         /************************************Submit Requisition*************************************/
         protected void Submit_Click(object sender, EventArgs e)
         {
-            //string name = Session["loginID"].ToString();
-
-            string name = this.staffID;
+            string name = Session["loginID"].ToString();
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             ///should use DAO
             string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID ).First().ToString();//supposed to be in DepartmentDAO

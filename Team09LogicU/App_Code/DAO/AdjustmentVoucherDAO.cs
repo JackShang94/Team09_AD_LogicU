@@ -14,6 +14,10 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.AdjustmentVouchers.ToList();
         }
+        public List<AdjustmentVoucher> getAdjustmentVoucherListByStaffID(string staffID)
+        {
+            return context.AdjustmentVouchers.Where(x => x.storeStaffID == staffID).ToList<AdjustmentVoucher>(); ;
+        }
         public List<AdjustmentVoucher> getAdjustmentVoucherListByID(int adjvID)
         {
             return context.AdjustmentVouchers.Where(x => x.adjVID == adjvID).ToList<AdjustmentVoucher>();
@@ -37,14 +41,24 @@ namespace Team09LogicU.App_Code.DAO
                 &&(x.status == status)).ToList<AdjustmentVoucher>();
             return list;
         }
-
+        public List<AdjustmentVoucher> findadjvbyStatusandDateStaffID(DateTime from, DateTime to, string status,string staffID)
+        {
+            List<AdjustmentVoucher> list = context.AdjustmentVouchers.
+                Where(x => (x.adjDate.Year >= from.Year && x.adjDate.Month >= from.Month && x.adjDate.Day >= from.Day)
+                && (x.adjDate.Year <= to.Year && x.adjDate.Month <= to.Month && x.adjDate.Day <= to.Day)
+                && (x.status == status) && x.storeStaffID == staffID).ToList<AdjustmentVoucher>();
+            return list;
+        }
 
         public List<AdjustmentVoucher> findadjvbyDate(DateTime from, DateTime to)
         {
             return context.AdjustmentVouchers.Where(x => x.adjDate >= from && x.adjDate <= to).ToList<AdjustmentVoucher>();
         }
 
-
+        public List<AdjustmentVoucher> findadjvbyDateandStaffID(DateTime from, DateTime to,string staffID)
+        {
+            return context.AdjustmentVouchers.Where(x => (x.adjDate >= from && x.adjDate <= to)&&(x.storeStaffID == staffID)).ToList<AdjustmentVoucher>();
+        }
 
 
         public AdjustmentVoucher findAdjustmentVoucherByadjvId(int adjvID)

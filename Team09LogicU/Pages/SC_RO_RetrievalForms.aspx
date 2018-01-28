@@ -5,13 +5,13 @@ Retrieval Forms
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <form id="form1" runat="server">
-		
-		<asp:TextBox ID="beforeDate" runat="server" TextMode="Date"></asp:TextBox>
-		<asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click" /><!--not yet finished-->
+		<label>Following are the Retrievals before :</label><asp:Label runat="server" ID="dateLablel" Text=""> </asp:Label>
+<%--		<asp:TextBox ID="beforeDate" runat="server" TextMode="Date"></asp:TextBox>
+		<asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click" />--%>
 		<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 		<asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
-				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCreated="retrievalGridView_RowCreated" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
+				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
 				 SelectedRowStyle-BackColor="Red">
 					<columns>
 						<asp:TemplateField>
@@ -37,6 +37,11 @@ Retrieval Forms
 						<asp:TemplateField HeaderText="Retrieved">
 							<ItemTemplate>
 								<asp:Label runat="server" Text='<%#Eval("Actual") %>'></asp:Label>
+							</ItemTemplate>
+						</asp:TemplateField>
+						<asp:TemplateField HeaderText="Location">
+							<ItemTemplate>
+								<asp:Label runat="server" Text='<%#Eval("location") %>'></asp:Label>
 							</ItemTemplate>
 						</asp:TemplateField>
 						<asp:CommandField ShowSelectButton="true"  SelectText="view" ButtonType="Button"/>
@@ -68,7 +73,7 @@ Retrieval Forms
 							</ItemTemplate>
 							<EditItemTemplate>
 								<asp:TextBox runat="server" ID="actualTextBox" Text='<%#Eval("actual") %>'></asp:TextBox>
-								<asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[0-9]*[1-9][0-9]*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+								<asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
 							</EditItemTemplate>
 						</asp:TemplateField>
 						<%--<asp:BoundField DataField="actual" HeaderText="Actual"/>--%>
