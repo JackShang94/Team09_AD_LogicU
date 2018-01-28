@@ -3,7 +3,6 @@
     View Adjustment
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
- <form id="form1" runat="server">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -89,22 +88,4 @@
                       
                     </div>
               
-           
-      
-    </form>
-     <link href="../css/window.css" rel="stylesheet" />
-    <script src="../js/jquery-1.7.1.min.js"></script>
-    <script src="../js/window.js"></script>
-
-
-
-
-
-
-
-   
-    
-
-
-
 </asp:Content>

@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <form id="form1" runat="server">
+   
       
                 <div class="row">
                     <div class="col-md-12">
@@ -119,6 +119,5 @@
     
         <asp:Button ID="Btn_Update" runat="server" Text="Update" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Update_Click"  />
         <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Update_Click"  />
-    </form>
-   
+  
 </asp:Content>

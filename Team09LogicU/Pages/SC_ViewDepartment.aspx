@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     
-    <form id="form1" runat="server">
+  
         <div class="row">
            <div class="col-lg-12">
                 <div class="card">
@@ -37,8 +37,4 @@
                             </div>                    
                         <!-- end row -->
 
-               
-    
-
-    </form>
 </asp:Content>
