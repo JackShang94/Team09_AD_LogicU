@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.ServiceModel.Web;
 
 namespace Team09LogicU.AndroidServices
 {
@@ -12,6 +13,20 @@ namespace Team09LogicU.AndroidServices
     public interface IRetrievalFormService
     {
         [OperationContract]
-        void DoWork();
+        [WebGet(UriTemplate = "/helloworld/", ResponseFormat = WebMessageFormat.Json)]
+        string HelloWorld();
+    }
+
+    [DataContract]
+    public class RetrievalFormData
+    {
+        public RetrievalFormData(){}
+
+        [DataMember]
+        public int retrievalID { get; set; }
+
+        [DataMember]
+        public DateTime retrievalDate { get; set; }
+
     }
 }

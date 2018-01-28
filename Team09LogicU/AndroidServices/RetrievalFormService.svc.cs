@@ -11,8 +11,10 @@ namespace Team09LogicU.AndroidServices
     // NOTE: In order to launch WCF Test Client for testing this service, please select RetrievalFormService.svc or RetrievalFormService.svc.cs at the Solution Explorer and start debugging.
     public class RetrievalFormService : IRetrievalFormService
     {
-        public void DoWork()
+        public string HelloWorld()
         {
+            return "Hello World";
         }
+
     }
 }
