@@ -16,6 +16,8 @@ namespace Team09LogicU.Pages
         CategoryDAO catDAO = new CategoryDAO();
         List<Item> itemList;
         DataTable iTable;
+        TextBox tb = new TextBox();
+        string strPageNum = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +28,7 @@ namespace Team09LogicU.Pages
                 itemList = itemDAO.getItemList();
                 showItemInfo(itemList);
             }
+            tb.Text = strPageNum;
             UpdateGridviewByDropdownList();
         }
 
@@ -107,13 +110,16 @@ namespace Team09LogicU.Pages
         {
             try
             {
+
                 GridView_stock.PageIndex = e.NewPageIndex;
 
-                GridView_stock.DataSource = iTable;
-                GridView_stock.DataBind();
+                //GridView_stock.DataSource = iTable;
+                //GridView_stock.DataBind();
 
-                TextBox tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
+                tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_stock.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                UpdateGridviewByDropdownList();
             }
             catch
             {
@@ -124,16 +130,17 @@ namespace Team09LogicU.Pages
         {
             if (e.CommandName == "go")
             {
-                try
-                {
-                    TextBox tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
-                    int num = Int32.Parse(tb.Text);
-                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-                    GridView_stock_PageIndexChanging(null, ea);
-                }
-                catch
-                {
-                }
+                tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
+            }
+            try
+            {
+               
+                int num = Int32.Parse(tb.Text);
+                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                GridView_stock_PageIndexChanging(null, ea);
+            }
+            catch
+            {
             }
         }
 

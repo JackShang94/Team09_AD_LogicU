@@ -31,7 +31,7 @@
                             </div></div>
                            
                                         <div class="col-lg-10" style="margin-bottom:20px">
-                                            <asp:GridView ID="GridView_ReqHistory" runat="server" AllowPaging="true" OnPageIndexChanging="GridView_ReqHistory_PageIndexChanging" OnRowCommand="GridView_ReqHistory_RowCommand" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Requisitions history record">
+                                            <asp:GridView ID="GridView_ReqHistory" runat="server" PageSize="3" AllowPaging="true" OnPageIndexChanging="GridView_ReqHistory_PageIndexChanging" OnRowCommand="GridView_ReqHistory_RowCommand" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Requisitions history record">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Requisition ID" Visible="False">
@@ -58,7 +58,7 @@
                                                     <div class="col-lg-1" style="width:40px" >
                                                     <asp:LinkButton ID="lbnPrev" runat="server" Text="<<"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"  ></asp:LinkButton></div>
                                                      <div class="col-lg-1" style="width:40px;height:80px;margin-right:-10px;margin-left:-5px;margin-top:-10px" >
-                                                        <asp:TextBox runat="server" CssClass="form-control text-center " Width="40px"  ID="inPageNum"></asp:TextBox></div>
+                                                        <asp:TextBox runat="server" CssClass="form-control text-center " Width="40px" Text='<%# (((GridView)Container.NamingContainer).PageIndex + 1) %>'  ID="inPageNum"></asp:TextBox></div>
                                                     <div class="col-lg-1" style="width:40px; margin-left:20px" >
                                                         <asp:LinkButton ID="lbnNext" runat="Server" Text=">>"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next" ></asp:LinkButton>
                                                      </div><div class="col-lg-1" style="width:40px;margin-left:-10px">

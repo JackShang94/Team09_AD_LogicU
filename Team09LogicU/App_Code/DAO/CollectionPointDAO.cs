@@ -7,6 +7,11 @@ using Team09LogicU.Models;
 
 namespace Team09LogicU.App_Code.DAO
 {
+    public class CollectionPointInformation 
+    {
+        public string CollectionPointDescription;
+        public string NumberOfDisbursement;
+    }
     public class CollectionPointDAO
     {
 
@@ -24,6 +29,22 @@ namespace Team09LogicU.App_Code.DAO
             return context.CollectionPoints.Where(x => x.description == description).First();
         }
 
+        public List<CollectionPointInformation> getCollectionPointInformation()
+        {
+            List<CollectionPointInformation> list = new List<CollectionPointInformation>();
+
+            //var m = from p in context.CollectionPoints
+            //        join q in context.Departments on p.collectionPointID equals q.collectionPointID
+            //        join r in context.Disbursements on q.deptID equals r.deptID
+            //        where r.status == "Awaiting Delivery"
+            //        select p.description;
+
+            //var s = from c in context.CollectionPoints
+            //        group c by c.description  as 
+                    
+
+            return list;
+        }
         public void updatecollection(string storestaffID,string description)
         {
             CollectionPoint col = context.CollectionPoints.Where(x => x.description == description).First();

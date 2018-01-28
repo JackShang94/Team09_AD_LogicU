@@ -5,11 +5,7 @@ Requisition Detail
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 	<div class="col-md-12">
                         <div class="card">
-								<div class="toolbar">
-									<!--        Here you can write extra buttons/actions for the toolbar              -->
-								</div>
-							
-									
+								
 								<form id ="viewRequisitionDetailForm" runat="server">
 									<asp:Button  runat="server" ID="addBtn" Text="add" EnableViewState="False" />
 									<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

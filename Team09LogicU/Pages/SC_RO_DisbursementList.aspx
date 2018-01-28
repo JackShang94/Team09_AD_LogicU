@@ -9,6 +9,9 @@
 							<div class="card">
 										<div class="container">
 											<div class=" col-md-12" style="margin-left:-20px;">
+												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+												 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server" UpdateMode="Conditional">
+																		<ContentTemplate>
 												 <div class="col-lg-3" style="margin-top:20px">
 														<asp:Label ID="selectDepLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
 														<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged" Width="100px"></asp:DropDownList>
@@ -16,10 +19,9 @@
 												<%-- <div class="col-lg-12" style="margin-top:20px">
 														<asp:LinkButton ID="LinkButton1" runat="server" >View Current Disbursement By Department</asp:LinkButton>
 												 </div>--%>
-												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+												
 												<div class="col-lg-10">
-															<%--	 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server" UpdateMode="Conditional">
-																		<ContentTemplate>--%>
+																
 																			<asp:GridView ID="disburseGridView" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="disburseGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="Red">
 																				<Columns>
 																					<asp:TemplateField Visible="false">
@@ -37,9 +39,10 @@
 																					<asp:CommandField  ShowSelectButton="true" SelectText="view" ButtonType="Button"/>
 																				</Columns>
 																			</asp:GridView>
-																<%--		</ContentTemplate>
-																</asp:UpdatePanel>--%>
+																		
 												</div>
+																			</ContentTemplate>
+																</asp:UpdatePanel>
 												 <div class="col-lg-10">
 																 <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server" UpdateMode="Conditional">
 																	 <ContentTemplate>
@@ -66,7 +69,8 @@
 																												<asp:Label ID="lblActual" runat="server" Text='<%# Eval("actual") %>'></asp:Label>
 																											</ItemTemplate>
 																											<EditItemTemplate>                          
-																												<asp:TextBox ID="Actual" CssClass="form-control" Text='<%# Eval("actual") %>' runat="server" BackColor="Azure"></asp:TextBox>                        
+																												<asp:TextBox ID="Actual" CssClass="form-control" Text='<%# Eval("actual") %>' runat="server" BackColor="Azure"></asp:TextBox>     
+                                                                                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="Actual" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
 																											</EditItemTemplate>
 																								</asp:TemplateField>
 																								<asp:TemplateField>
@@ -80,7 +84,9 @@
 																								</asp:TemplateField>
 																						 </Columns>
 																				</asp:GridView>
-																		
+																			<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
+																					<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
+																			</div>
 																		 </ContentTemplate>
 																 </asp:UpdatePanel>
 															<div class="col-lg-10">
@@ -96,10 +102,8 @@
 											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
 													<asp:Button ID="QRcodeButton" runat="server" CssClass="btn btn-primary btn-wd " Text="Generate QR Code" />
 											</div>
+											
 										
-											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
-													<asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
-											</div>
 											<div class="col-lg-3 " style="margin-top:40px;margin-bottom:20px">
 													<asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-primary btn-wd " Text="view History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx"  />
 											</div>
