@@ -347,7 +347,7 @@
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
     <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
     <Compile Include="App_Code\UtilClass\TrendAnalysis.cs" />
-    <Content Include="App_Code\UtilClass\Validation.cs" />
+    <Compile Include="App_Code\UtilClass\Validation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
