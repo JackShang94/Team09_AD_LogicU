@@ -11,7 +11,7 @@
             <div class="col-lg-3" style="margin-top: 20px">
                 <asp:Label ID="lblDisplay1" runat="server" Text=" Please select the month" CssClass="category"></asp:Label>
                 <br>
-                <asp:TextBox ID="txtMonth" runat="server" Width="90%" CssClass="form-control datepicker" TextMode="Month"></asp:TextBox>
+                <asp:TextBox ID="txtMonth" runat="server" Width="90%" CssClass="form-control" TextMode="Month"></asp:TextBox>
             </div>
             <br>
             <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnView_Click" />

@@ -22,22 +22,13 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// beforeDate control.
+        /// dateLablel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox beforeDate;
-        
-        /// <summary>
-        /// searchBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchBtn;
+        protected global::System.Web.UI.WebControls.Label dateLablel;
         
         /// <summary>
         /// ScriptManager1 control.

@@ -5,11 +5,8 @@ using System.Web;
 
 namespace Team09LogicU.App_Code.UtilClass
 {
-    public class LogicUExceptions : ApplicationException
+    public class TrendAnalysis
     {
-        public LogicUExceptions(string message): base(message)
-        {
 
-        }
     }
 }

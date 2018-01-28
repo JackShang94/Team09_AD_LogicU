@@ -39,10 +39,13 @@ namespace Team09LogicU.pages
                 {
                     ViewState["lrfi"] = new List<RetrievalFormItem>();
                 }
-                if (ViewState["date"] == null)
-                {
-                    ViewState["date"] = new DateTime();
-                }
+                List<RetrievalFormItem> lrfi = new List<RetrievalFormItem>();
+                DateTime a = DateTime.Today;
+                dateLablel.Text = a.ToString();
+                lrfi = retrievalDAO.getRetrievalFormByDate(a);
+                ViewState["lrfi"] = lrfi;
+                retrievalGridView.DataSource = lrfi;
+                retrievalGridView.DataBind();
 
             }
             else
@@ -70,46 +73,30 @@ namespace Team09LogicU.pages
 
         }
 
-        protected void searchBtn_Click(object sender, EventArgs e)
-        {
-            List<RetrievalFormItem> lrfi = new List<RetrievalFormItem>();
-            string a = beforeDate.Text;
-            if (a == "")
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please pick correct date')", true);
-                return;
-            }
-            ViewState["date"] = Convert.ToDateTime(a);
-            lrfi = retrievalDAO.getRetrievalFormByDate(Convert.ToDateTime(a));
+        //protected void searchBtn_Click(object sender, EventArgs e)
+        //{
+        //    List<RetrievalFormItem> lrfi = new List<RetrievalFormItem>();
+        //    DateTime a = DateTime.Today;
+        //    //string a = beforeDate.Text;
+        //    //if (a == "")
+        //    //{
+        //    //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please pick correct date')", true);
+        //    //    return;
+        //    //}
+        //    //ViewState["date"] = Convert.ToDateTime(a);
+        //    lrfi = retrievalDAO.getRetrievalFormByDate(a);
            
-            ViewState["lrfi"] = lrfi;
+        //    ViewState["lrfi"] = lrfi;
             
            
-            //SC_RO_RetrievalForms.lrfi = lrfi;
-            retrievalGridView.DataSource = lrfi;
-            retrievalGridView.DataBind();
-            breakdownGridView.DataSource = null;
-            breakdownGridView.DataBind();
-        }
+        //    //SC_RO_RetrievalForms.lrfi = lrfi;
+        //    retrievalGridView.DataSource = lrfi;
+        //    retrievalGridView.DataBind();
+        //    breakdownGridView.DataSource = null;
+        //    breakdownGridView.DataBind();
+        //}
 
-        protected void retrievalGridView_RowCreated(object sender, GridViewRowEventArgs e)
-        {
-            //GridView gv = sender as GridView;
-            //if (e.Row.RowType == DataControlRowType.Header)
-            //{
-            //    // Hiding the Select Button Cell in Header Row.
-            //    e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
-            //}
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    // Hiding the Select Button Cells showing for each Data Row. 
-            //    e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
-            //    // Attaching one onclick event for the entire row, so that it will
-            //    // fire SelectedIndexChanged, while we click anywhere on the row.
-            //    e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(gv, "Select$" + e.Row.RowIndex);
-                
-            //}
-        }
+
 
         protected void retrievalGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -215,10 +202,18 @@ namespace Team09LogicU.pages
             if (((List<RetrievalFormItem>)ViewState["lrfi"]).Count != 0)
             {// what to confirm???? what if the lrfi change after changing 
                 //here it should pop up the yes or no warning instead of an alert
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('change something?')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('change something')", true);
             }
+            
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
-            retrievalDAO.ConfirmRetrieval(lrfi,(DateTime)ViewState["date"]);//haven't been tested
+            if (lrfi.Count == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Nothing to Confirm!')", true);
+                return;
+            }
+            retrievalDAO.ConfirmRetrieval(lrfi, DateTime.Today);//haven't been tested
+
+            //retrievalDAO.ConfirmRetrieval(lrfi,(DateTime)ViewState["date"]);//haven't been tested
             HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");//who the hell may know 
         }
 
