@@ -14,21 +14,11 @@ namespace Team09LogicU.pages
         LoginDAO loginDAO;
         protected void Page_Load(object sender, EventArgs e)
         {
-             loginDAO = new LoginDAO();
-            if (!IsPostBack)
-            {
-                if (Request.Cookies["MyCook"] != null)
-                {
-                    TextBox1.Text = Request.Cookies["MyCook"]["userid"].ToString();
-                    TextBox2.Attributes.Add("value", Request.Cookies["MyCook"]["password"].ToString());
-                    CheckBox1.Checked = true;
-                }
-            }
+            loginDAO = new LoginDAO();
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
+        {          
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -42,16 +32,6 @@ namespace Team09LogicU.pages
                 Session["loginID"] = result[0];
                 Session["loginRole"] = result[1];
                 Session["loginName"] = result[3];
-                if (CheckBox1.Checked)
-                {
-                    HttpCookie cookie = new HttpCookie("MyCook");
-                    DateTime dt = DateTime.Now;
-                    TimeSpan ts = new TimeSpan(0, 0, 100, 0, 0);
-                    cookie.Expires = dt.Add(ts);
-                    cookie.Values.Add("userid", username);
-                    cookie.Values.Add("password", password);
-                    Response.AppendCookie(cookie);
-                }
                 goToRolePage(result[1]);
             }
             else if(result[0]==""){
