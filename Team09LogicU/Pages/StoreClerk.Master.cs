@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Team09LogicU.App_Code.UtilClass;
+using Team09LogicU.App_Code.DAO;
 
 namespace Team09LogicU.pages
 {
@@ -11,7 +13,16 @@ namespace Team09LogicU.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label1.Text = Session["loginName"].ToString();
+            string loginID = Session["loginID"].ToString();
+            NotificationDAO nDAO = new NotificationDAO();
+            var storeNotifications = nDAO.getNewStoreNotificationByID(loginID);
+            notificationNum.Text = storeNotifications.Count().ToString();
+        }
 
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Logout.logoutUser();
         }
     }
 }

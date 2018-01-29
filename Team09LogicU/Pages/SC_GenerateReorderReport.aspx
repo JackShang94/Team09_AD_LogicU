@@ -1,12 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_GenerateReorderReport.aspx.cs" Inherits="Team09LogicU.Pages.SC_GenerateReorderReport" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    Generate Reorder Report
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <link href="../css/window.css" rel="stylesheet" />
-    <script src="../js/jquery-1.7.1.min.js"></script>
-    <script src="../js/window.js"></script>
-    <form id="form1" runat="server">
+    
+    
         <div class="col-lg-10" style="margin-bottom: 20px">
             <div class="col-lg-3" style="margin-top: 20px">
                 <asp:Label ID="lblDisplay1" runat="server" Text=" Please select the month" CssClass="category"></asp:Label>
@@ -44,5 +43,5 @@
                 <asp:Button ID="btnGenerate" runat="server" Text="Generate Report" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnGenerate_Click" Visible="False" />
         </div>
 
-    </form>
+   
 </asp:Content>

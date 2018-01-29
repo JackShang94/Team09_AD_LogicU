@@ -6,7 +6,7 @@ Requisition Detail
 	<div class="col-md-12">
                         <div class="card">
 								
-								<form id ="viewRequisitionDetailForm" runat="server">
+								
 									<asp:Button  runat="server" ID="addBtn" Text="add" EnableViewState="False" />
 									<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 									<asp:UpdatePanel ID="reqDetailUpdatePanel" runat="server" UpdateMode="Always">
@@ -64,7 +64,7 @@ Requisition Detail
 									<asp:LinkButton ID="backToReqBtn" runat="server" OnClick="backToReqBtn_Click">Back</asp:LinkButton>
 									<%--<asp:Button ID="reSubmitReqBtn" runat="server" Text="Update" OnClick="reSubmitReqBtn_Click" />--%>
 									
-								</form>
+							
 								
 						</div>
 		</div>
