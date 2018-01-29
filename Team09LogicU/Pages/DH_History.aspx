@@ -4,11 +4,9 @@
     History
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <link href="../css/window.css" rel="stylesheet" />
-    <script src="../js/jquery-1.7.1.min.js"></script>
     <script src="../js/window.js"></script>
-
-   
+    <script src="../js/jquery-1.7.1.min.js"></script>
+    <link href="../css/window.css" rel="stylesheet" />
         <div class="row">
            <div class="col-lg-12">
                 <div class="card">

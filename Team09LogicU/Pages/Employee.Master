@@ -69,6 +69,8 @@
      <link href="../css/window.css" rel="stylesheet" />
 </head>
 <body>
+      <script src="../js/jquery-1.7.1.min.js"></script>
+    <script src="../js/window.js"></script>
      <form id ="form1" runat="server">
 <div class="wrapper">
     <div class="sidebar" data-color="orange" data-image="../picture/full-screen-image-3.jpg">
@@ -260,8 +262,7 @@
 
 </body>
 
-     <script src="../js/jquery-1.7.1.min.js"></script>
-    <script src="../js/window.js"></script>
+   
 <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
     <script src="../js/jquery.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
