@@ -14,7 +14,8 @@ namespace Team09LogicU.pages
     {
         RequisitionDAO reqDAO = new RequisitionDAO();
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
-       
+        TextBox tb = new TextBox();
+        string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -83,30 +84,35 @@ namespace Team09LogicU.pages
         {
             try
             {
+                tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
                 GridView_ReqHistory.PageIndex = e.NewPageIndex;
-                BindGrid();
-                TextBox tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_ReqHistory.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                BindGrid();
             }
             catch
             {
             }
         }
+        
 
         protected void GridView_ReqHistory_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
             {
-                try
-                {
-                    TextBox tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
-                    int num = Int32.Parse(tb.Text);
-                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-                    GridView_ReqHistory_PageIndexChanging(null, ea);
-                }
-                catch
-                {
-                }
+                tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
+
+            }
+
+            try
+            {
+
+                int num = Int32.Parse(tb.Text);
+                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                GridView_ReqHistory_PageIndexChanging(null, ea);
+            }
+            catch
+            {
             }
         }
 
