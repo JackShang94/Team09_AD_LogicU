@@ -175,6 +175,8 @@
     <Content Include="Pages\SC_Inv_StockCardDetail.aspx" />
     <Content Include="Pages\SC_Inv_ViewInventoryList.aspx" />
     <Content Include="Pages\SC_Notification.aspx" />
+    <Content Include="Pages\SC_O_InventoryStatusReport.aspx" />
+    <Content Include="Pages\SC_O_SOA.aspx" />
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PurchaseOrderHistoryDetail.aspx" />
@@ -625,6 +627,20 @@
     </Compile>
     <Compile Include="Pages\SC_Notification.aspx.designer.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_O_InventoryStatusReport.aspx.cs">
+      <DependentUpon>SC_O_InventoryStatusReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_O_InventoryStatusReport.aspx.designer.cs">
+      <DependentUpon>SC_O_InventoryStatusReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_O_SOA.aspx.cs">
+      <DependentUpon>SC_O_SOA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_O_SOA.aspx.designer.cs">
+      <DependentUpon>SC_O_SOA.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_O_SupplierList.aspx.cs">
       <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>

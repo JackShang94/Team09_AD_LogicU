@@ -139,10 +139,9 @@
                     </a>
                     <div class="collapse" id="InvExamples">
                         <ul class="nav">
-                            <li><a href="SC_Inv_ViewInventoryList.aspx">View Inventory List</a></li>
-                            <li><a href="SC_Inv_ManageReorder.aspx">Reorder</a></li>
-                            <li><a href="SC_Inv_AdjustmentVoucher.aspx">Adjustment Voucher</a></li>
-                           
+                            <li><a href="SC_Inv_ViewInventoryList.aspx">Inventory List</a></li>
+                            <li><a href="SC_Inv_ManageReorder.aspx">Manage Reorder</a></li>
+                            <li><a href="SC_Inv_AdjustmentVoucher.aspx">Submit Adjustment Voucher</a></li>
                             <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
                         </ul>
                     </div>    
@@ -161,8 +160,9 @@
                      
                             <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
                           <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
-                            <li><a href="SC_ViewPurchaseOrderHistory.aspx">View Purchase Order History</a></li>
-                          <li><a href="  SC_GenerateReorderReport.aspx">Generate Reorder Report</a></li>
+                            <li><a href="SC_ViewPurchaseOrderHistory.aspx">View PO History</a></li>
+                            <li><a href="SC_O_SupplierList.aspx">View Supplier List</a></li>
+                          
                         </ul>
                     </div>    
                 </li>
@@ -179,15 +179,17 @@
                 <li>
                     <a data-toggle="collapse" href="#otherExamples">
                         <i class="pe-7s-box2"></i>
-                        <p>Others
+                        <p>Generate Report 
                            <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="otherExamples">
                         <ul class="nav">
-                            <li><a href="SC_O_SupplierList.aspx">Supplier List</a></li>
+                            <li><a href="SC_GenerateReorderReport.aspx">Reorder Report</a></li>
                             <li><a href="SC_O_TrendAnalysisReport.aspx">Trend Analysis Report</a></li>
-                            
+                             <li><a href="SC_O_SOA.aspx">SOA Report</a></li>
+                             <li><a href="SC_O_InventoryStatusReport.aspx">Inventory Status Report</a></li>
+
                         </ul>
                     </div>
                 </li>
@@ -247,15 +249,15 @@
                                 </li>
                                 <li>
                                     <a href="SC_Inv_ViewInventoryList.aspx">
-                                        <i class="pe-7s-server"></i> Inventory</a>
+                                        <i class="pe-7s-server"></i>Inventory</a>
                                 </li>
                                  <li>
                                     <a href="SC_ViewDepartment.aspx">
                                         <i class="pe-7s-bookmarks"></i>View Info</a>
                                 </li>
                                 <li>
-                                    <a href="SC_O_SupplierList.aspx">
-                                        <i class="pe-7s-box2"></i> Others
+                                    <a href="SC_GenerateReorderReport.aspx">
+                                        <i class="pe-7s-box2"></i>Reorder Report
                                     </a>
                                 </li>
                                 <li class="divider">
@@ -263,9 +265,10 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="login.aspx" class="text-danger">
-                                        <i class="pe-7s-close-circle"></i>
-                                        Log out
+                                    <a href="#" class="text-danger">
+                                        <i class="pe-7s-close-circle">
+                                           <asp:LinkButton ID="LinkButton2" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></i> 
+                                        
                                     </a>
                                 </li>
                             </ul>
