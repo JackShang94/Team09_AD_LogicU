@@ -13,22 +13,22 @@ namespace Team09LogicU.Pages {
     public partial class SC_ViewCatalog {
         
         /// <summary>
-        /// Label2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TextBox_SearchByID control.
+        /// TextBox_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_SearchByID;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Search;
         
         /// <summary>
         /// btnSearch control.

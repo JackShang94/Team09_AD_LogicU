@@ -3,15 +3,18 @@
 Retrieval Forms
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
-		<label>Following are the Retrievals before :</label><asp:Label runat="server" ID="dateLablel" Text=""> </asp:Label>
-<%--		<asp:TextBox ID="beforeDate" runat="server" TextMode="Date"></asp:TextBox>
-		<asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click" />--%>
+       <div class="row">
+           <div class="col-lg-8">
+                <div class="card">
+                    <div class="container ">
+                        <div class="col-lg-8" style="margin:20px 0px 20px 5px">
+		<label class="category text-uppercase">Following are the Retrievals before : </label><asp:Label runat="server" ID="dateLablel" CssClass="h6" Text=""> </asp:Label>
+</div><div class="col-lg-8">
 		<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 		<asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
-				<asp:GridView ID="retrievalGridView" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
-				 SelectedRowStyle-BackColor="Red">
+				<asp:GridView ID="retrievalGridView" style="margin:0px 0px 20px 0px" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
+				 SelectedRowStyle-BackColor="#eef2fd">
 					<columns>
 						<asp:TemplateField>
 							<ItemTemplate>
@@ -43,18 +46,23 @@ Retrieval Forms
 								<asp:Label runat="server" Text='<%#Eval("location") %>'></asp:Label>
 							</ItemTemplate>
 						</asp:TemplateField>
-						<asp:CommandField ShowSelectButton="true"  SelectText="view" ButtonType="Button"/>
+						<asp:CommandField ShowSelectButton="true" HeaderStyle-Font-Names="Action" ControlStyle-CssClass=" text-center btn btn-xs btn-primary"  SelectText="view" ButtonType="Button"/>
 						
 					</columns>
 				</asp:GridView>
 				</ContentTemplate>
 			
 		</asp:UpdatePanel>
-		
+		</div></div></div></div>
+    
+           <div class="col-lg-4">
+                <div class="card">
+                    <div class="container ">
+                        <div class="col-lg-4" style="margin:20px 0px 20px 0px">
 		<asp:UpdatePanel ID="breakdownUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
-				<%--need to highlight the selected row--%>
-				<asp:GridView ID="breakdownGridView" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
+				
+				<asp:GridView ID="breakdownGridView" CssClass="table table-striped table-hover"  HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
 					<Columns>
 						<asp:TemplateField HeaderText="Dept name">
 							<ItemTemplate>
@@ -71,24 +79,26 @@ Retrieval Forms
 								<asp:Label runat="server" ID="actualLabel" Text='<%#Eval("actual") %>'></asp:Label>							
 							</ItemTemplate>
 							<EditItemTemplate>
-								<asp:TextBox runat="server" ID="actualTextBox" Text='<%#Eval("actual") %>'></asp:TextBox>
+								<asp:TextBox runat="server" ID="actualTextBox" CssClass="form-control" Width="50%" Text='<%#Eval("actual") %>'></asp:TextBox>
 								<asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
 							</EditItemTemplate>
 						</asp:TemplateField>
 						<%--<asp:BoundField DataField="actual" HeaderText="Actual"/>--%>
 						<asp:TemplateField HeaderText="action">
 								<EditItemTemplate>
-									<asp:LinkButton ID="actual_qtyUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("deptID") %>'  EnableViewState="True" ></asp:LinkButton><!-- -->
-									<asp:LinkButton ID="actual_qtyCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Eval("deptID") %>' EnableViewState="True"></asp:LinkButton>
+									<asp:LinkButton ID="actual_qtyUpdate" runat="server" Text="update" CssClass="btn btn-xs btn-danger"  CommandName="Update" CommandArgument='<%#Eval("deptID") %>'  EnableViewState="True" ></asp:LinkButton><!-- -->
+									<asp:LinkButton ID="actual_qtyCancel" runat="server" Text="Cancel" CssClass="btn btn-xs btn-default" CommandName="Cancel" CommandArgument='<%#Eval("deptID") %>' EnableViewState="True"></asp:LinkButton>
 							</EditItemTemplate>
 							<ItemTemplate>
-								<asp:LinkButton ID="actual_qtyEdit" runat="server"  CommandName="edit" CommandArgument='<%#Eval("deptID") %>' EnableViewState="True"><i class="fa fa-edit"></i></asp:LinkButton>
+								<asp:LinkButton ID="actual_qtyEdit" CssClass="btn btn-xs btn-warning" Text="Edit" runat="server"  CommandName="edit" CommandArgument='<%#Eval("deptID") %>' EnableViewState="True"></asp:LinkButton>
 							</ItemTemplate>
 						</asp:TemplateField>
 					</Columns>
 				</asp:GridView>
 				</ContentTemplate>
 		</asp:UpdatePanel>
-		<asp:Button ID="confirmBtn"  runat="server" Text="confirm" OnClick="confirmBtn_Click"/>
+        <div class="col-lg-3" style="margin-top:20px;margin-left:25%">
+		<asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill"  runat="server"  Text="confirm" OnClick="confirmBtn_Click"/>
+         </div></div></div></div></div></div>
  
 </asp:Content>
