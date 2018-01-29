@@ -8,7 +8,7 @@ using Team09LogicU.App_Code.UtilClass;
 
 namespace Team09LogicU.App_Code.DAO
 {
-    public class RetrievalDAO
+    public class RetrievalDAO//
     {
         SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
 

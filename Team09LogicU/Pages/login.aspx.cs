@@ -40,7 +40,8 @@ namespace Team09LogicU.pages
             if (hashstring == result[2])
             {
                 Session["loginID"] = result[0];
-                Session["loginRole"] = result[1];           
+                Session["loginRole"] = result[1];
+                Session["loginName"] = result[3];
                 if (CheckBox1.Checked)
                 {
                     HttpCookie cookie = new HttpCookie("MyCook");

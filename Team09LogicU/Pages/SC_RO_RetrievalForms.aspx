@@ -4,7 +4,6 @@ Retrieval Forms
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <form id="form1" runat="server">
 		<label>Following are the Retrievals before :</label><asp:Label runat="server" ID="dateLablel" Text=""> </asp:Label>
 <%--		<asp:TextBox ID="beforeDate" runat="server" TextMode="Date"></asp:TextBox>
 		<asp:Button ID="searchBtn" runat="server" Text="search" OnClick="searchBtn_Click" />--%>
@@ -91,5 +90,5 @@ Retrieval Forms
 				</ContentTemplate>
 		</asp:UpdatePanel>
 		<asp:Button ID="confirmBtn"  runat="server" Text="confirm" OnClick="confirmBtn_Click"/>
-    </form>
+ 
 </asp:Content>
