@@ -19,12 +19,20 @@
                          <div class="col-lg-3" style="margin-top:20px" >
 						<asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
                         <asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server"></asp:DropDownList></div>
-                    <div class="col-lg-10" style="margin-top:20px" >
+                    <div class="col-lg-10" style="margin-top:20px;margin-bottom:20px" >
 					   <asp:Button ID="searchBtn" runat="server" Text="search" CssClass="btn btn-warning btn-wd btn-fill" OnClick="searchBtn_Click"></asp:Button></div>
                    
-                    <div class="col-lg-10" style="margin:20px 0 20px 0">
+                    </div>
+               
+                </div>
+            
+        </div>
+    </div>
+                     <div class="row">
+         <div class="col-md-10">
+        <div class="card">
                         
-                        <asp:GridView ID="disburseHisGridView" runat="server" CssClass="table table-striped table-hover " OnSelectedIndexChanged="disburseHisGridView_SelectedIndexChanged" AutoGenerateColumns="false" EmptyDataText="There is no record">
+                        <asp:GridView ID="disburseHisGridView" runat="server" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover " OnSelectedIndexChanged="disburseHisGridView_SelectedIndexChanged" AutoGenerateColumns="false" EmptyDataText="There is no record">
 							<Columns>
 								<asp:TemplateField>
 									<ItemTemplate>
@@ -42,15 +50,7 @@
 								<asp:CommandField ShowSelectButton="true" HeaderStyle-Font-Names="Action" ControlStyle-CssClass=" text-center btn btn-xs btn-primary" ButtonType="Button" SelectText="Detail"/>
 							</Columns>
                         </asp:GridView>
-                          </div>
+                          </div></div></div>
 
-                    </div>
-                     
-                    
-                      
-                </div>
-            
-        </div>
-    </div>
    
 </asp:Content>

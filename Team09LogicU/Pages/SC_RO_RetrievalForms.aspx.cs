@@ -46,7 +46,8 @@ namespace Team09LogicU.pages
                 ViewState["lrfi"] = lrfi;
                 retrievalGridView.DataSource = lrfi;
                 retrievalGridView.DataBind();
-
+                breakdownGridView.DataSource = null;
+                breakdownGridView.DataBind();
             }
             else
             {

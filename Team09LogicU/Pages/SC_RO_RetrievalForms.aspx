@@ -9,7 +9,10 @@ Retrieval Forms
                     <div class="container ">
                         <div class="col-lg-8" style="margin:20px 0px 20px 5px">
 		<label class="category text-uppercase">Following are the Retrievals before : </label><asp:Label runat="server" ID="dateLablel" CssClass="h6" Text=""> </asp:Label>
-</div><div class="col-lg-8">
+                            <div class="col-lg-3 pull-right " style="margin-right:-20px"  >
+		<asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill"   runat="server"  Text="confirm" OnClick="confirmBtn_Click"/></div></div> 
+        
+<div class="col-lg-8">
 		<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 		<asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
@@ -62,7 +65,7 @@ Retrieval Forms
                 <div class="card">
                     <div class="container ">
                         <div class="col-lg-4" style="margin:20px 0px 20px 0px">
-				<asp:GridView ID="breakdownGridView" CssClass="table table-striped table-hover"  HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
+				<asp:GridView ID="breakdownGridView" EmptyDataText="There is no information" CssClass="table table-striped table-hover"  HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
 					<Columns>
 						<asp:TemplateField HeaderText="Dept name">
 							<ItemTemplate>
@@ -95,10 +98,8 @@ Retrieval Forms
 						</asp:TemplateField>
 					</Columns>
 				</asp:GridView> 
-                <div class="col-lg-3" style="margin-top:20px;margin-left:25%">
-		<asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill"  runat="server"  Text="confirm" OnClick="confirmBtn_Click"/>
-         </div></div></div></div></div></div>
+               </div></div></div></div></div>
 				</ContentTemplate>
 		</asp:UpdatePanel>
-   
+   </div>
 </asp:Content>
