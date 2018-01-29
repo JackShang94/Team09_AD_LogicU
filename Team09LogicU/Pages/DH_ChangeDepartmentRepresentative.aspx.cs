@@ -93,7 +93,8 @@ namespace Team09LogicU.pages
             //Refesh display
             DisplayCurrentRep(logInDept);
             DisplayAvaliableEmp(logInDept);
-
+            ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('', 'Successful！');</script>");
         }
     }
+
 }

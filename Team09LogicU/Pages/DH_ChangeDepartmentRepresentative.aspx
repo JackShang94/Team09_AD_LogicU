@@ -15,7 +15,9 @@
      
     <asp:Label ID="lblDisplay2" runat="server"  CssClass=" category" Text="Select New Representative:" ></asp:Label><br>
     <asp:DropDownList ID="ddlEmp" runat="server" CssClass="form-control" Width="40%"></asp:DropDownList> <br>  
-    <asp:Button ID="btnUpdateRep" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Update Rep" OnClick="btnUpdateRep_Click" />      
+    <asp:Button ID="btnUpdateRep" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Update Rep" OnClick="btnUpdateRep_Click" />    
+                                      
+
         <asp:Label ID="lblMessage" runat="server" Text=" "></asp:Label>
       
    
@@ -23,6 +25,8 @@
                 </div>
             </div>
          </div>
+
+
 
 
 
