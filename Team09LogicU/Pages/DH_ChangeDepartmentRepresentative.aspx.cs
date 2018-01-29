@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
+using Team09LogicU.App_Code.UtilClass;
 
 namespace Team09LogicU.pages
 {
@@ -94,6 +95,18 @@ namespace Team09LogicU.pages
             DisplayCurrentRep(logInDept);
             DisplayAvaliableEmp(logInDept);
 
+            //send feedback email and notification to employee 
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            string headID = Session["loginID"].ToString();
+            string headName = Session["loginName"].ToString();
+            string staffID = newRep.staffID;
+            string staffName = newRepName;
+
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(staffID, headName + " chose you as representative. ", DateTime.Now);
+
+            Email email = new Email();
+            email.sendRepNotificationToEmployee(staffName, headName);
         }
     }
 }
