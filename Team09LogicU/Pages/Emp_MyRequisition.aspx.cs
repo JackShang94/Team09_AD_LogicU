@@ -49,7 +49,7 @@ namespace Team09LogicU.pages
                 requisitionListGridView.DataSource = lr;
                 requisitionListGridView.DataBind();
 
-             
+
                 /***************send history************************/
                 ShowRequisition();
             }
@@ -165,7 +165,7 @@ namespace Team09LogicU.pages
         }
 
         protected void requisitionHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
-            {
+        {
 
 
 
@@ -187,4 +187,4 @@ namespace Team09LogicU.pages
 
         }
     }
-    }
+}

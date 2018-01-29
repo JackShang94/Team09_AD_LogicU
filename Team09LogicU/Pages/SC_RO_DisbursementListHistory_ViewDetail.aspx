@@ -4,16 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 	  <div class="row">
-         <div class="col-lg-10">
+         <div class="col-md-10">
         <div class="card">
-                <div class=" container">
-                    <div class="col-lg-10" style="margin:20px 0 20px 0">
-		<asp:GridView ID="disburseItem_HisGridView" runat="server"></asp:GridView>
+               
+                 
+		<asp:GridView ID="disburseItem_HisGridView" CssClass="table table-striped table-hover "  runat="server"></asp:GridView>
                         </div>
                     
-                    </div></div></div></div>
-    <div class="col-lg-10" style="margin-top:20px">
-		<asp:LinkButton ID="backButton" runat="server" Text="Button" CssClass="btn btn-wd btn-default" OnClick="backButton_Click"  />
-                        </div>
+                    </div></div>
+    <div class="col-lg-10" >
+        
+		<asp:LinkButton ID="backButton" runat="server" Text="Back" CssClass="btn btn-wd btn-default" OnClick="backButton_Click"  />
+                     </div>
 
 </asp:Content>

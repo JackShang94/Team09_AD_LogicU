@@ -18,7 +18,7 @@ namespace Team09LogicU.pages
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {          
+        {
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -34,13 +34,14 @@ namespace Team09LogicU.pages
                 Session["loginName"] = result[3];
                 goToRolePage(result[1]);
             }
-            else if(result[0]==""){
+            else if (result[0] == "")
+            {
                 string message = "This user does not exist!";
             }
             else
             {
                 string message = "Invalid username or password!";
-            }           
+            }
 
         }
 
@@ -61,7 +62,7 @@ namespace Team09LogicU.pages
                     Response.Redirect("SC_RO_RetrievalForms.aspx");
                     break;
                 case "manager":
-                    Response.Redirect("SM_ApproveAdjustment.aspx");            
+                    Response.Redirect("SM_ApproveAdjustment.aspx");
                     break;
                 case "supervisor":
                     Response.Redirect("SS_ViewAdjustment.aspx");

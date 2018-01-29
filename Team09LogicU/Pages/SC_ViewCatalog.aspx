@@ -6,23 +6,17 @@
 
       
         <div class="row">
-           <div class="col-lg-12">
+           <div class="col-lg-10">
                 <div class="card">
                     <div class=" container">
-
-                        <div class ="col-lg-6" style="margin-top:20px">
-
-                                       <div class="col-lg-3">
-                            <asp:TextBox ID="TextBox_Search" runat="server" Width=300px CssClass="form-control"></asp:TextBox>
-                                           </div>
+                            <div class="col-lg-8" style="margin:20px 0 20px 0">
+                            <asp:TextBox ID="TextBox_Search" runat="server" CssClass="form-control" ></asp:TextBox></div>
 <%--                           <asp:DropDownList ID="ddlCategory" runat="server" Width=300px CssClass="form-control"></asp:DropDownList><br>--%>
-                           </div>
-                        <div class ="col-lg-6" style="margin-top:20px">
-                                    <asp:Button ID="btnSearch" runat="server" Width=200px Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click" />
-                                
-                            </div>
-
-     <div class="col-lg-10" style="margin-bottom:20px">
+                           <div class="col-lg-2" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
+                        </div></div></div>
+      
+           <div class="col-lg-10">
+                <div class="card">
                                             <asp:GridView ID="GridView_CatalogList" runat="server" CssClass="table bootstrap-table table-hover table-striped"
                                                 HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"
                                                 EmptyDataText="There are no Item" AllowPaging="True" OnRowCommand="GridView_CatalogList_RowCommand" PageSize="5" 
@@ -64,13 +58,8 @@
      </PagerTemplate>
                                             </asp:GridView>
 
-     </div>
-                                    </div>
-                                    <!-- end content-->
-                                     </div>
-                                        <!--  end card  -->
-                                </div>
-                                 <!-- end col-md-12 -->
-                            </div>                    
+     </div></div></div>
+                             
+                                              
                     
 </asp:Content>
