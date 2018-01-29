@@ -181,7 +181,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         
                         <li class="dropdown">
-                            <a href="Emp_Notification.aspx" class="dropdown-toggle" >
+                            <a href="DH_Notification.aspx" class="dropdown-toggle" >
                                 <i class="fa fa-bell-o"></i>
                                  <span class="notification">
                                     <asp:Label ID="notificationNum" runat="server" Text=" "></asp:Label></span>
