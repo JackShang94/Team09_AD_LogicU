@@ -55,13 +55,13 @@ Retrieval Forms
 		</asp:UpdatePanel>
 		</div></div></div></div>
     
+		<asp:UpdatePanel ID="breakdownUpdatePanel" runat="server" UpdateMode="Conditional">
+			<ContentTemplate>
+				
            <div class="col-lg-4">
                 <div class="card">
                     <div class="container ">
                         <div class="col-lg-4" style="margin:20px 0px 20px 0px">
-		<asp:UpdatePanel ID="breakdownUpdatePanel" runat="server" UpdateMode="Conditional">
-			<ContentTemplate>
-				
 				<asp:GridView ID="breakdownGridView" CssClass="table table-striped table-hover"  HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
 					<Columns>
 						<asp:TemplateField HeaderText="Dept name">
@@ -94,11 +94,11 @@ Retrieval Forms
 							</ItemTemplate>
 						</asp:TemplateField>
 					</Columns>
-				</asp:GridView>
-				</ContentTemplate>
-		</asp:UpdatePanel>
-        <div class="col-lg-3" style="margin-top:20px;margin-left:25%">
+				</asp:GridView> 
+                <div class="col-lg-3" style="margin-top:20px;margin-left:25%">
 		<asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill"  runat="server"  Text="confirm" OnClick="confirmBtn_Click"/>
          </div></div></div></div></div></div>
- 
+				</ContentTemplate>
+		</asp:UpdatePanel>
+   
 </asp:Content>
