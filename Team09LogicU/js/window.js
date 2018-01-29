@@ -18,7 +18,7 @@
             if ($.isFunction(closed)) closed();
         };
 
-        var html = '<div class="win"><div class="mask-layer"></div><div class="window-panel"><iframe class="title-panel" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe><div class="title"><h3></h3></div><a href="javascript:void(0)" onclick="win._close();" class="close-btn" title="关闭">×</a><iframe class="body-panel" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" src=""></iframe></div></div>';
+        var html = '<div class="win"><div class="mask-layer"></div><div class="window-panel"><iframe class="title-panel" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe><div class="title"><h3></h3></div><a href="javascript:void(0)" onclick="win._close();" class="close-btn" title="close">×</a><iframe class="body-panel" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" src=""></iframe></div></div>';
         var jq = $(html);
         jq.find(".window-panel").height(height).width(width).css("margin-left", -width / 2).css("margin-top", -height / 2);
         jq.find(".title").find(":header").html(title);
@@ -34,7 +34,7 @@
 
         jq.find(".window-panel").height(win.height).width(win.width).css("margin-left", -win.width / 2).css("margin-top", -win.height / 2);
         jq.find(".title-panel").height(win.height);
-        jq.find(".title").find(":header").html(title);
+        jq.find(".title").find(":header").html(title);win._close()
         jq.find(".body-panel").height(win.height - 100);
         jq.find(".content").html(message.replace('\r\n', '<br/>'));
         jq.appendTo('body').show();

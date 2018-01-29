@@ -5,15 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
   
 				<div class="row">
-					 <div class="col-lg-12">
+					 <div class="col-lg-10">
 							<div class="card">
 										<div class="container">
-											<div class=" col-md-12">
+											
 												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 												 <asp:UpdatePanel ID="disburseUpdatePanel" runat="server" UpdateMode="Conditional">
 																		<ContentTemplate>
 												 <div class="col-lg-3" style="margin-top:20px">
-														<asp:Label ID="selectDepLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
+														<asp:Label ID="selectDepLabel" runat="server" Text="Select a Department:" CssClass="category text-uppercase"></asp:Label>
 														<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged"></asp:DropDownList>
 												 </div> 
 											
@@ -84,10 +84,10 @@
 																						 </Columns>
 																				</asp:GridView>
                                                                          </div>
-                                                                         <div class="col-lg-10">
-																			<asp:Label ID="collectionpointLabel" runat="server" CssClass="category" Text=" ">Collection Point:</asp:Label>
-																			</div><div class="col-lg-10">
-                                                                             <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-wd " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
+                                                                         <div class="col-lg-10" style="margin-top:20px">
+																			<asp:Label ID="label_Collection" CssClass=" category text-uppercase" runat="server">Collection Point:</asp:Label><br /><asp:Label ID="collectionpointLabel" runat="server" CssClass="h6" Text=" "></asp:Label>
+																			</div><div class="col-lg-10" style="margin-bottom:20px;margin-top:20px">
+                                                                             <asp:Button ID="Button3" runat="server" CssClass="btn btn-warning btn-wd btn-fill " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
 																			</div>
 																		 </ContentTemplate>
 																 </asp:UpdatePanel>
@@ -95,26 +95,27 @@
 																
 															 </div>
 												
-											
-											<div class="col-lg-3" >
-													<asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Send Email representative" />
+											<div class="col-lg-10" style="margin-top:20px">
+											<div class="col-lg-2" >
+													<asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-fill btn-wd" Text="Send Email" />
 											</div>
 
 											
-											<div class="col-lg-3 ">
-													<asp:Button ID="QRcodeButton" runat="server" CssClass="btn btn-primary btn-wd " Text="Generate QR Code" />
+											<div class="col-lg-2 " style=" margin-left:4% ">
+													<asp:Button ID="QRcodeButton" runat="server" CssClass="btn  btn-primary  btn-wd " Text="Generate QR Code" />
 											</div>
 											
 										
-											<div class="col-lg-3 ">
-													<asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-primary btn-wd " Text="view History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx"  />
+											<div class="col-lg-2 "  style=" margin-left:5% " >
+													<asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="view History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx"  />
 											</div>
-								
-										</div>
+								</div>
+									
                     
 							</div>
             
 						</div>
 				</div>
+    
  
 </asp:Content>
