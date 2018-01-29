@@ -14,78 +14,74 @@ namespace Team09LogicU.pages
         public List<Requisition> lr;
         public string staffID;
         const int FixedRowCount = 4;
+        TextBox tb = new TextBox();
+        string strPageNum = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //for session judgment
             string role = Session["loginRole"].ToString();
-
-            if (role !="rep" && role !="emp")
+            if (!IsPostBack)
             {
-                HttpContext.Current.Response.Redirect("login.aspx");
-                return;
-            }
-            List<Requisition> lr_h = new List<Requisition>();//finally store stuffs without pending
-            List<Requisition> lr = new List<Requisition>();//to store the pending 
-            RequisitionDAO rdao = new RequisitionDAO();
-
-
-            string name = Session["loginID"].ToString();
-            //name = "emp006";
-            lr_h = rdao.getRequisitionByStaffID(name);
-
-            for(int i = lr_h.Count - 1; i >= 0; i--)
-            {
-                if (lr_h[i].status == "pending")
+                if (role != "rep" && role != "emp")
                 {
-                    lr.Add(lr_h[i]);
-                    lr_h.RemoveAt(i);
+                    HttpContext.Current.Response.Redirect("login.aspx");
+                    return;
                 }
+                List<Requisition> lr_h = new List<Requisition>();//finally store stuffs without pending
+                List<Requisition> lr = new List<Requisition>();//to store the pending 
+                RequisitionDAO rdao = new RequisitionDAO();
+
+
+                string name = Session["loginID"].ToString();
+                //name = "emp006";
+                lr_h = rdao.getRequisitionByStaffID(name);
+
+                for (int i = lr_h.Count - 1; i >= 0; i--)
+                {
+                    if (lr_h[i].status == "pending")
+                    {
+                        lr.Add(lr_h[i]);
+                        lr_h.RemoveAt(i);
+                    }
+                }
+                /**************send pending list*******************/
+                requisitionListGridView.DataSource = lr;
+                requisitionListGridView.DataBind();
+
+             
+                /***************send history************************/
+                ShowRequisition();
             }
-            /**************send pending list*******************/
-            requisitionListGridView.DataSource = lr;
-            requisitionListGridView.DataBind();
-
-
-            /***************send history************************/
-            requisitionHistoryGridView.DataSource = lr_h;
-            requisitionHistoryGridView.DataBind();
-
-
+            tb.Text = strPageNum;
         }
 
-        
+        public void ShowRequisition()
+        {
+            RequisitionDAO rdao = new RequisitionDAO();
+            requisitionHistoryGridView.DataSource = rdao.getRequisitionByStaffID(Session["loginID"].ToString());
+            requisitionHistoryGridView.DataBind();
+        }
 
         protected void requisitionListGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
             if (e.CommandName == "delete")
             {
-                int req =Int32.Parse( e.CommandArgument.ToString());
-                //int req = Int32.Parse(requisitionListGridView.DataKeys[e.RowIndex].Values["requisitionID"].ToString());//Get the requisition id;
+                int req = Int32.Parse(e.CommandArgument.ToString());
+
                 RequisitionDAO rdao = new RequisitionDAO();
-                
+
                 string name = Session["loginID"].ToString();
                 rdao.removeRequisition(req);
-                //string name = Session["loginID"].ToString();
+
 
                 this.lr = rdao.getRequisitionByStaffID(name);
-                
-                requisitionListGridView.DataSource = rdao.getReqByStaffIDandStatus(name,"pending");
+
+                requisitionListGridView.DataSource = rdao.getReqByStaffIDandStatus(name, "pending");
                 requisitionListGridView.DataBind();
             }
-            //if (e.CommandName == "go")
-            //{
-            //    try
-            //    {
-            //        TextBox tb = (TextBox)requisitionListGridView.BottomPagerRow.FindControl("inPageNum");
-            //        int num = Int32.Parse(tb.Text);
-            //        GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-            //        requisitionHistoryGridView_PageIndexChanging(null, ea);
-            //    }
-            //    catch
-            //    {
-            //    }
-            //}
+
         }
 
         protected void editReqDetailBtn_Click(object sender, EventArgs e)
@@ -103,44 +99,92 @@ namespace Team09LogicU.pages
         }
         protected void viewReqDetailBtn_h_Click(object sender, EventArgs e)
         {
-            LinkButton viewBtn=(LinkButton)sender;
-            string c =  viewBtn.CommandArgument.ToString();
+            LinkButton viewBtn = (LinkButton)sender;
+            string c = viewBtn.CommandArgument.ToString();
             HttpContext.Current.Response.Redirect("Emp_MR_RequisitionDetail.aspx?" +
                    "reqID=" + c);
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
-            if (fromDate.Text == ""|| toDate.Text=="")
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
-                return;
-            }
-            DateTime from =Convert.ToDateTime( fromDate.Text);
-            DateTime to = Convert.ToDateTime( toDate.Text);
-            if (DateTime.Compare(from, to)>0 )
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('start Date should be greater than end Date')", true);
-                return;
-            }
-            RequisitionDAO rdao = new RequisitionDAO();
-            requisitionHistoryGridView.DataSource=rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
-            requisitionHistoryGridView.DataBind();
+            updateGV();
         }
 
-        //protected void requisitionHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    try
-        //    {
-        //        requisitionHistoryGridView.PageIndex = e.NewPageIndex;
-        //        //displayDelegationListAndRole(deptID);
+        protected void updateGV()
+        {
+            RequisitionDAO rdao = new RequisitionDAO();
+            if ((fromDate.Text == "") && (toDate.Text == ""))
+            {
+                requisitionHistoryGridView.DataSource = rdao.getRequisitionByStaffID(Session["loginID"].ToString());
+                requisitionHistoryGridView.DataBind();
+            }
+            else
+            {
+                if ((fromDate.Text == "") || (toDate.Text == ""))
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
+                    return;
+                }
+                DateTime from = Convert.ToDateTime(fromDate.Text);
+                DateTime to = Convert.ToDateTime(toDate.Text);
+                if (DateTime.Compare(from, to) > 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('start Date should be greater than end Date')", true);
+                    return;
+                }
+                if ((fromDate.Text != "") && (toDate.Text != ""))
+                {
+                    requisitionHistoryGridView.DataSource = rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
+                    requisitionHistoryGridView.DataBind();
+                }
 
-        //        TextBox tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
-        //        tb.Text = (requisitionHistoryGridView.PageIndex + 1).ToString();
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
+            }
+
+        }
+
+        protected void requisitionHistoryGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+
+            if (e.CommandName == "go")
+            {
+                tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
+
+                try
+                {
+
+                    //tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    requisitionHistoryGridView_PageIndexChanging(null, ea);
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        protected void requisitionHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+            {
+
+
+
+            try
+            {
+
+                tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
+                requisitionHistoryGridView.PageIndex = e.NewPageIndex;
+
+                tb.Text = (requisitionHistoryGridView.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+
+                updateGV();
+
+            }
+            catch
+            {
+            }
+
+        }
     }
-}
+    }
