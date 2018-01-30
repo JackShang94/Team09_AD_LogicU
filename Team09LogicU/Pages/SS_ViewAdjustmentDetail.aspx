@@ -49,19 +49,31 @@
                                          </div><br />
                                      </PagerTemplate>
                                       <AlternatingRowStyle BackColor="White" />
-                                </asp:GridView> <asp:Label ID="label4" runat="server" CssClass="category" Text=" Remarks:"></asp:Label>
-                                     <p></p>
+                                </asp:GridView> 
+                               </div> 
+                                  <div class="col-lg-10" style=" margin-bottom:20px" >
+                                  <div class="col-lg-9">
+                                 <asp:Label ID="label4" runat="server" CssClass="category" Text=" Remarks:"></asp:Label></div>
+                                    <div class=" col-lg-6" style=" margin-top:20px">
                                  <asp:TextBox ID="TextBox_Remarks" style="resize:none" CssClass="form-control" runat="server" TextMode="MultiLine" ></asp:TextBox>
-                               </div>  </div>
-                             <div  class=" col-lg-10" style="margin-top:20px">
-                              
-                          <asp:Button ID="button_Approve" runat="server"  Text="Approve"  CssClass="btn btn-primary btn-fill btn-wd" OnClick="btn_Approve_Click"  />
-                         <asp:Button ID="button_Reject" style=" display:block;" runat="server"  Text="Reject"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="btn_Reject_Click"  />
-                         <asp:Button ID="button_SendtoManager" style=" display:none;" runat="server"  Text="Send to Manager"  CssClass="btn btn-primary btn-fill btn-wd " OnClick="btn_SendToManager_Click"  />
-                            <asp:Button ID="btn_Back"  runat="server" Text="Back"  CssClass="btn btn-default btn-fill btn-wd " OnClick="btn_Back_Click" />
-                             </div>
-                          </div>
-                          </div>
-                          </div>
+                                         </div>
+                                       </div>
 
+                             </div>
+                           
+                               <div class="col-lg-10" style="margin-top:20px">
+                                    <div class="col-lg-2">
+                              <asp:Button ID="btn_Back"  runat="server" Text="Back"  CssClass="btn btn-default btn-fill btn-wd " OnClick="btn_Back_Click" />
+                             </div>
+                             <div class="col-lg-2">
+                          <asp:Button ID="button_Approve" runat="server"  Text="Approve"  CssClass="btn btn-primary btn-fill btn-wd" OnClick="btn_Approve_Click"  />
+                              </div>   <div class="col-lg-2">
+                         <asp:Button ID="button_Reject" style=" display:block;" runat="server"  Text="Reject"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="btn_Reject_Click"  />
+                          </div>   <div class="col-lg-2">
+                                  <asp:Button ID="button_SendtoManager" style=" display:none;" runat="server"  Text="Send to Manager"  CssClass="btn btn-primary btn-fill btn-wd " OnClick="btn_SendToManager_Click"  />
+                              </div>  
+                          </div>
+                          </div>
+                          </div>
+                         </div>
 </asp:Content>

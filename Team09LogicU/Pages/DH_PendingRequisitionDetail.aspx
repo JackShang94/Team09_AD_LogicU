@@ -48,16 +48,20 @@
                                       <AlternatingRowStyle BackColor="White" />
                                 </asp:GridView>  
                                </div>  
-                                 <div class=" col-lg-10" style=" margin-bottom:20px">
+                                 <div class=" col-lg-10" style="margin-top:20px">
+                                      <div class="col-lg-9">
                                   <asp:Label ID="label4" runat="server" CssClass="category" Text=" Remarks:"></asp:Label>
-                                    <br>
+                                    </div>
+                                      <div class="col-lg-6" style="margin-bottom:20px">
                                  <asp:TextBox ID="TextBox_Remarks" style="resize:none" CssClass="form-control" runat="server" TextMode="MultiLine" ></asp:TextBox>
                                      </div>
+                                      </div>
                              </div>
                              <div  class=" col-lg-10" style="margin-top:20px">
                               
                              <asp:Button ID="Btn_Approve"  runat="server" Text="Approve" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Approve_Click" />
                             <asp:Button ID="Btn_Reject"  runat="server" Text="Reject"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="Btn_Reject_Click" />
+                                  <asp:Button ID="Btn_Back"  runat="server" Text="Back"  CssClass="btn btn-default btn-fill btn-wd " OnClick="Btn_Back_Click" />
                             </div>  
                         </div>
                      </div>

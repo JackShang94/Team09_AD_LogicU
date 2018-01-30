@@ -39,7 +39,7 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="Edit" ItemStyle-CssClass="text-center">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="Edit" runat="server" CssClass="btn btn-xs btn-default" Text="Edit" CommandName="Edit" OnClientClick="Edit?" ></asp:LinkButton>
+                                                <asp:LinkButton ID="Edit" runat="server" CssClass="btn btn-xs btn-warning" Text="Edit" CommandName="Edit" OnClientClick="Edit?" ></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

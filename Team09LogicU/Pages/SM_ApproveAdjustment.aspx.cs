@@ -98,7 +98,7 @@ namespace Team09LogicU.Pages
             GridView_ViewAdjustmentVoucher.DataSource = list;
             if (list.Count == 0)
             {
-                lblMessage.Text = "No pending Adjustment Voucher now.";
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'No pending adjustment Voucher!');</script>");
             }
             GridView_ViewAdjustmentVoucher.DataBind();
         }
