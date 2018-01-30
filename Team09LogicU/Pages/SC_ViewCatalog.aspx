@@ -12,7 +12,7 @@
                             <div class="col-lg-8" style="margin:20px 0 20px 0">
                             <asp:TextBox ID="TextBox_Search" runat="server" CssClass="form-control" ></asp:TextBox></div>
 <%--                           <asp:DropDownList ID="ddlCategory" runat="server" Width=300px CssClass="form-control"></asp:DropDownList><br>--%>
-                           <div class="col-lg-2" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
+                           <div class="col-lg-2" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-warning btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
                         </div></div></div>
       
            <div class="col-lg-10">
@@ -46,8 +46,8 @@
          <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-success"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First" ></asp:LinkButton></div>
         <div class="col-lg-1" style="width:40px" >
         <asp:LinkButton ID="lbnPrev" runat="server" Text="<<"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"  ></asp:LinkButton></div>
-         <div class="col-lg-1" style="width:40px;height:80px;margin-right:-10px;margin-left:-5px;margin-top:-10px" >
-            <asp:TextBox runat="server" CssClass="form-control text-center " Width="40px"  ID="inPageNum" Text='<%#(((GridView)Container.NamingContainer).PageIndex + 1)%>'></asp:TextBox></div>
+         <div class="col-lg-1" style="width:40px;height:80px;margin-right:-5px;margin-left:-5px;margin-top:-10px" >
+            <asp:TextBox runat="server" CssClass="form-control text-center " Width="45px"  ID="inPageNum" Text='<%#(((GridView)Container.NamingContainer).PageIndex + 1)%>'></asp:TextBox></div>
         <div class="col-lg-1" style="width:40px; margin-left:20px" >
             <asp:LinkButton ID="lbnNext" runat="Server" Text=">>"  CssClass="btn btn-xs btn-success"  Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next" ></asp:LinkButton>
          </div><div class="col-lg-1" style="width:40px;margin-left:-10px">

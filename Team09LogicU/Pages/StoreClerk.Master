@@ -164,7 +164,7 @@
                             <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
                           <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
                             <li><a href="SC_ViewPurchaseOrderHistory.aspx">View PO History</a></li>
-                            <li><a href="SC_O_SupplierList.aspx">View Supplier List</a></li>
+                           
                           
                         </ul>
                     </div>    

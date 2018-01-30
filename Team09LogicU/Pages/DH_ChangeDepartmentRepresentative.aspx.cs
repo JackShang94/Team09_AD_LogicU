@@ -39,7 +39,7 @@ namespace Team09LogicU.pages
                 }
                 else
                 {
-                    lblMessage.Text = "Access Denided";
+                   
                     lblDisplay1.Visible = false;
                     lblDisplay2.Visible = false;
                     lblCurrentRep.Visible = false;

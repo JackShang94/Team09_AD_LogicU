@@ -28,7 +28,6 @@ namespace Team09LogicU.Pages
             label_itemcode.Text = i.itemID;
             label_description.Text = i.description;
             label_measure.Text= i.unitOfMeasure;
-
             sList = scDAO.getStockCardByItem(itemID);
             GridView_ItemStock.DataSource = sList;
             GridView_ItemStock.DataBind();
