@@ -14,7 +14,7 @@
                                     <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="pull-right" style="width:20%">
-                                     <asp:Button ID="item_searchBtn" runat="server" Width="100%" Text="Search"  CssClass="btn btn-default" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
+                                     <asp:Button ID="item_searchBtn" runat="server" Width="100%" Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                          <div class="card">
                            <div class="text-center">
                                <div class ="content">
-                                   <asp:Button ID="Submit" runat="server" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
+                                   <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
                                </div>
                                <div class="content">
                                    
@@ -76,7 +76,7 @@
                                                 <HeaderTemplate>
 													   <table class="table">
 																				<tr class="category">
-																				<td></td>
+																				
                                     											<td>Description</td>
                                     											<td>Amount</td>
 																				<td class="text-right">Action</td>
@@ -84,15 +84,17 @@
                                                    </HeaderTemplate>
                                                    <ItemTemplate>
                                                                         <tr>
-                                                                            <td></td>
-                                    	                                    <td>   <%#Eval("description") %></td>
-                                    	                                    <td class="text-center" style="width:30%">
+                                                                            
+                                    	                                    <td style=" margin-bottom:-10px">   <%#Eval("description") %>
+                                                                                <br /><asp:RegularExpressionValidator runat="server" ForeColor="Red" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                    	                                    </td>
+                                    	                                    <td class="text-center" style="width:15%">
                                                                                 <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                                    
                                                                                 </asp:TextBox>
-                                                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                                                                
                                     	                                    </td>
-                                                                            <td class="td-actions text-right" style="">
-                                                                                <asp:LinkButton ID="cart_deleteButton" runat="server" Text="delete"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>
+                                                                            <td class="td-actions text-right" >
+                                                                                <asp:LinkButton ID="cart_deleteButton" runat="server"  ForeColor="Red"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>
                                                                                 <%--<i class="fa fa-times"></i>--%>
                                                                             </td>
                                                                         </tr>
