@@ -24,7 +24,7 @@ namespace Team09LogicU.AndroidServices
 
         [OperationContract]
         [WebGet(UriTemplate = "/Item/{itemID}", ResponseFormat = WebMessageFormat.Json)]
-        List<WCFItem> getItemByID();
+        WCFItem getItemByID(string itemID);
     }
 
     [DataContract]
