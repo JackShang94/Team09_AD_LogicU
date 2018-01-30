@@ -5,17 +5,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     
-    
-        <div class="col-lg-10" style="margin-bottom: 20px">
-            <div class="col-lg-3" style="margin-top: 20px">
+     <div class="row">
+           <div class="col-lg-10">
+                <div class="card">
+                    <div class=" container">
+        
+            <div class="col-lg-3" style="margin-top: 20px;margin-bottom:20px">
                 <asp:Label ID="lblDisplay1" runat="server" Text=" Please select the month" CssClass="category"></asp:Label>
-                <br>
-                <asp:TextBox ID="txtMonth" runat="server" Width="90%" CssClass="form-control" TextMode="Month"></asp:TextBox>
+                
+                <asp:TextBox ID="txtMonth" runat="server" CssClass="form-control" TextMode="Month"></asp:TextBox>
             </div>
-            <br>
-            <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnView_Click" />
-            <br>
-            <asp:GridView ID="GridView_ReorderReport" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText=" No record found!">
+            <div class="col-lg-3 pull-right" style="margin-top:40px;margin-bottom:20px;margin-right:20px">
+            <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd " OnClick="btnView_Click" />
+            </div>
+           <div class="col-lg-10">
+              
+            <asp:GridView ID="GridView_ReorderReport" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Item">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="poID" HeaderText="PO ID" />
@@ -32,16 +37,14 @@
                 </Columns>
                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
             </asp:GridView>
-            <br>
-            <br>
-            <p class="category">
-                <asp:Label ID="lblDisplay2" runat="server" Text="Total: " Visible="False"></asp:Label>
-                <asp:Label ID="lblTotal" runat="server"></asp:Label>
-                <br>
-                <br>
-
+           <div class="col-lg-10" style="margin:20px 0 20px 0">
+                <asp:Label ID="lblDisplay2" runat="server" Text="Total: " CssClass="h5" Visible="False"></asp:Label>
+                <asp:Label ID="lblTotal" runat="server" CssClass="h5"></asp:Label>
+               </div></div></div>
+                    </div></div></div>
+    <div class="col-lg-10">
                 <asp:Button ID="btnGenerate" runat="server" Text="Generate Report" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnGenerate_Click" Visible="False" />
-        </div>
+       </div>
 
    
 </asp:Content>

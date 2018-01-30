@@ -4,16 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 	
-	<div class="col-md-12">
+	
 		
             <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-10">
                             <div class="card">
                                     <div class=" container" >
 								<asp:ScriptManager ID="myReqScriptManager" runat="server"></asp:ScriptManager>
 							<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
-										<div class="header">
+										<div class=" col-lg-10" style="margin-top:20px">
 											<h4 class=" panel-title">Pending Requisition</h4>
 										</div>
                                     <div class="col-lg-10" style="margin-bottom:20px" >
@@ -31,11 +31,11 @@
 												
 													<asp:TemplateField >
 														<ItemTemplate>
-                                                            <div style="margin-left:10px;margin-right:-10px">
-																<asp:LinkButton ID="viewReqDetailBtn" runat="server"  Text="Edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ControlStyle-CssClass="btn btn-xs btn-default"></asp:LinkButton>
+                                                           
+																<asp:LinkButton ID="viewReqDetailBtn" runat="server" CssClass="btn btn-xs btn-warning"  Text="Edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ></asp:LinkButton>
 																
 																<asp:LinkButton ID="deleteReqBtn" runat="server" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>' ControlStyle-CssClass="btn btn-simple btn-danger btn-icon table-action remove" EnableViewState="False"><i class="fa fa-remove "></i></asp:LinkButton>
-														</div>
+														
 
 														</ItemTemplate>
 													</asp:TemplateField>
@@ -46,22 +46,22 @@
 								</asp:UpdatePanel></div>
 							</div></div></div>
             <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-10">
 							<div class="card">
 								 <div class=" container" >
 								<asp:UpdatePanel ID="reqHisUpdatePanel" runat="server">
 									<ContentTemplate>
-										<div class="header">
+										
                                             
-											<h4 class=" panel-title">Search by Request Date:</h4>
-                                            <div class="col-lg-3" ><asp:Label ID="label1" runat="server" CssClass="category" >From</asp:Label><asp:TextBox ID="fromDate" runat="server"  CssClass="form-control datepicker" ></asp:TextBox></div>
-											<div class="col-lg-3"><asp:Label ID="label2" runat="server" CssClass="category" >To</asp:Label><asp:TextBox ID="toDate" runat="server"  CssClass="form-control datepicker" ></asp:TextBox></div>
-                                             <div class="col-lg-3" style="margin-top:30px"><asp:Button ID="searchButton" CssClass="btn btn-primary btn-wd btn-fill" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></div>
+											 <div class="col-lg-10" style="margin-top:20px"><h4 class=" panel-title">Search by Request Date:</h4></div>
+                                            <div class="col-lg-3" ><asp:Label ID="label1" runat="server" CssClass="category" >From</asp:Label><asp:TextBox ID="fromDate" runat="server"  CssClass="form-control" TextMode="Date" ></asp:TextBox></div>
+											<div class="col-lg-3"><asp:Label ID="label2" runat="server" CssClass="category" >To</asp:Label><asp:TextBox ID="toDate" runat="server"  CssClass="form-control " TextMode="Date"></asp:TextBox></div>
+                                             <div class="col-lg-3" style="margin-top:20px"><asp:Button ID="searchButton" CssClass="btn btn-primary btn-wd btn-fill" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></div>
 											
-										</div> 
+										
 										 <div class="col-lg-10" style="margin-bottom:20px;margin-top:20px" >
 										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True" AllowSorting="true" 
-                                            AutoGenerateColumns="false"  DataKeyNames="requisitionID"  CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
+                                            AutoGenerateColumns="false"  DataKeyNames="requisitionID"  CssClass="table table-striped  table-hover " HeaderStyle-CssClass=" content text-uppercase  "
                                          OnPageIndexChanging="requisitionHistoryGridView_PageIndexChanging" PageSize="5"  OnRowCommand="requisitionHistoryGridView_RowCommand"
                                             EmptyDataText="There is no history" CellPadding="4" ForeColor="#333333" GridLines="None">
 											<Columns>
@@ -113,7 +113,7 @@
 								</div>
 							</div></div>
 		
-		</div>
+	
 
 </asp:Content>
 

@@ -135,6 +135,7 @@
     <Content Include="js\chartist.min.js" />
     <Content Include="js\demo.js" />
     <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\googlechart.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery-jvectormap.js" />
     <Content Include="js\jquery-ui.min.js" />
