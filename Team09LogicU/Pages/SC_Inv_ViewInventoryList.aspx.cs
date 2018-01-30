@@ -26,10 +26,11 @@ namespace Team09LogicU.Pages
                 dropDownList_bindCatInfo();
 
                 itemList = itemDAO.getItemList();
-                showItemInfo(itemList);
+                UpdateGridviewByDropdownList();
+                //showItemInfo(itemList);
             }
             tb.Text = strPageNum;
-            UpdateGridviewByDropdownList();
+            //UpdateGridviewByDropdownList();
         }
 
         public void showItemInfo(List<Item> iList)
@@ -76,6 +77,16 @@ namespace Team09LogicU.Pages
 
         protected void DropDownList_cat_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if (DropDownList_cat.Text == "--All--")
+            //{
+            //    itemList = itemDAO.getItemList();//all items
+            //}
+            //else
+            //{
+            //    string cat = DropDownList_cat.Text;
+            //    itemList = itemDAO.getItemByCat(cat);//items with specific CAT
+            //}
+            //showItemInfo(itemList);
             UpdateGridviewByDropdownList();
         }
         protected void UpdateGridviewByDropdownList()
@@ -91,17 +102,14 @@ namespace Team09LogicU.Pages
             }
             showItemInfo(itemList);
         }
-        protected void GridView_stock_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         protected void GridView_stock_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
             {
-                GridView_stock.PageIndex = e.NewPageIndex;
                 tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
+                GridView_stock.PageIndex = e.NewPageIndex;
                 tb.Text = (GridView_stock.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 UpdateGridviewByDropdownList();
@@ -110,15 +118,19 @@ namespace Team09LogicU.Pages
             {
             }
         }
+        
 
         protected void GridView_stock_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
             {
                 tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
+
             }
+
             try
-            {              
+            {
+
                 int num = Int32.Parse(tb.Text);
                 GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                 GridView_stock_PageIndexChanging(null, ea);
@@ -126,6 +138,9 @@ namespace Team09LogicU.Pages
             catch
             {
             }
-        }      
+        }
+
+
+      
     }
 }

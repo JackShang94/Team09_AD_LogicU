@@ -58,6 +58,8 @@
     this.alertEx = function (message) {
         this.alert('Notic', message);
     }
+
+
 };
 
 

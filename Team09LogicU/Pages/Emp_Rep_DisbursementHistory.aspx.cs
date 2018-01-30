@@ -31,7 +31,7 @@ namespace Team09LogicU.pages
                 }
                 else
                 {
-                    lblMessage.Text = "Access Denied!";
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Access Denied!', 'Access Denied!');{location.href='Emp_MyRequisition.aspx'}</script>");
 
                 }
             }
