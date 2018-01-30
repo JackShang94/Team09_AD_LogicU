@@ -52,7 +52,14 @@
                                      <asp:Label ID="Label_Remark" runat="server" Text="Remark: " CssClass="category"></asp:Label><br>
                                     <asp:Label ID="lblRemark" runat="server" CssClass="h5"></asp:Label>
                             </div>
+                     
+
                         </div>
+            <div class="col-lg-10" style="margin-top:20px;margin-bottom:20px">
+                           <div class="col-lg-2">
+                     <asp:Button ID="Btn_Back"  runat="server" Text="Back"  CssClass="btn btn-default btn-fill btn-wd " OnClick="Btn_Back_Click" />
+                               </div>
+                         </div>
                     </div>
                 </div>
             </div>

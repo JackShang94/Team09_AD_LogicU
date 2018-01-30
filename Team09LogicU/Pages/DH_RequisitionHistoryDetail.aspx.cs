@@ -73,5 +73,10 @@ namespace Team09LogicU.Pages
             GridView_detailList.DataSource = reqItems;
             GridView_detailList.DataBind();
         }
+
+        protected void Btn_Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./DH_History.aspx");
+        }
     }
 }
