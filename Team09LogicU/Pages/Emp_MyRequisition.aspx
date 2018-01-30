@@ -13,17 +13,17 @@
 								<asp:ScriptManager ID="myReqScriptManager" runat="server"></asp:ScriptManager>
 							<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
-										<div class=" col-lg-10" style="margin-top:20px">
+										<div class=" col-md-10" style="margin-top:20px">
 											<h4 class=" panel-title">Pending Requisition</h4>
 										</div>
-                                    <div class="col-lg-10" style="margin-bottom:20px" >
-										<asp:GridView ID="requisitionListGridView" runat="server" AllowPaging="True"  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
+                                    <div class="col-md-10" style="margin-bottom:20px" >
+										<asp:GridView ID="requisitionListGridView" HeaderStyle-BackColor="#e8e8e8" runat="server" AllowPaging="True" HeaderStyle-CssClass=" content text-uppercase "  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
 												<columns>
-													<asp:TemplateField>
+													<%--<asp:TemplateField>
 														<ItemTemplate>
 															<asp:Label ID="req_autoID" runat="server" ><%# Container.DataItemIndex+1 %></asp:Label>
 														</ItemTemplate>
-													</asp:TemplateField>
+													</asp:TemplateField>--%>
 													<asp:BoundField DataField="requisitionID" headerText="RequisitionID" Visible="false"/>
 													<asp:BoundField DataField="requisitionDate" headerText="RequisitionDate"/>
 													<asp:BoundField DataField="approvedDate" headerText="ApprovedDate" ConvertEmptyStringToNull="true"/>
@@ -34,7 +34,7 @@
                                                            
 																<asp:LinkButton ID="viewReqDetailBtn" runat="server" CssClass="btn btn-xs btn-warning"  Text="Edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ></asp:LinkButton>
 																
-																<asp:LinkButton ID="deleteReqBtn" runat="server" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>' ControlStyle-CssClass="btn btn-simple btn-danger btn-icon table-action remove" EnableViewState="False"><i class="fa fa-remove "></i></asp:LinkButton>
+																<asp:LinkButton ID="deleteReqBtn" runat="server" ForeColor="Red" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>'  EnableViewState="False"><i class="fa fa-remove "></i></asp:LinkButton>
 														
 
 														</ItemTemplate>
@@ -53,17 +53,17 @@
 									<ContentTemplate>
 										
                                             
-											 <div class="col-lg-10" style="margin-top:20px"><h4 class=" panel-title">Search by Request Date:</h4></div>
-                                            <div class="col-lg-3" ><asp:Label ID="label1" runat="server" CssClass="category" >From</asp:Label><asp:TextBox ID="fromDate" runat="server"  CssClass="form-control" TextMode="Date" ></asp:TextBox></div>
-											<div class="col-lg-3"><asp:Label ID="label2" runat="server" CssClass="category" >To</asp:Label><asp:TextBox ID="toDate" runat="server"  CssClass="form-control " TextMode="Date"></asp:TextBox></div>
-                                             <div class="col-lg-3" style="margin-top:20px"><asp:Button ID="searchButton" CssClass="btn btn-primary btn-wd btn-fill" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></div>
+											 <div class="col-md-10" style="margin-top:20px;margin-bottom:20px"><h4 class=" panel-title">Search by Request Date:</h4></div>
+                                            <div class="col-md-3" ><asp:Label ID="label1" runat="server" CssClass="category" >From</asp:Label><asp:TextBox ID="fromDate" runat="server"  CssClass="form-control" TextMode="Date" ></asp:TextBox></div>
+											<div class="col-md-3"><asp:Label ID="label2" runat="server" CssClass="category" >To</asp:Label><asp:TextBox ID="toDate" runat="server"  CssClass="form-control " TextMode="Date"></asp:TextBox></div>
+                                             <div class="col-md-10" style="margin-top:20px"><asp:Button ID="searchButton" CssClass="btn btn-primary btn-wd btn-fill" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></div>
 											
 										
-										 <div class="col-lg-10" style="margin-bottom:20px;margin-top:20px" >
-										<asp:GridView ID="requisitionHistoryGridView"  runat="server" AllowPaging="True" AllowSorting="true" 
-                                            AutoGenerateColumns="false"  DataKeyNames="requisitionID"  CssClass="table table-striped  table-hover " HeaderStyle-CssClass=" content text-uppercase  "
+										 <div class="col-md-10" style="margin-bottom:20px;margin-top:20px" >
+										<asp:GridView ID="requisitionHistoryGridView" HeaderStyle-BackColor="#e8e8e8"  runat="server" AllowPaging="True" AllowSorting="true" 
+                                            AutoGenerateColumns="false"  DataKeyNames="requisitionID"  CssClass="table table-striped table-hover" HeaderStyle-CssClass=" content text-uppercase  "
                                          OnPageIndexChanging="requisitionHistoryGridView_PageIndexChanging" PageSize="5"  OnRowCommand="requisitionHistoryGridView_RowCommand"
-                                            EmptyDataText="There is no history" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                            EmptyDataText="There is no history" CellPadding="4"  GridLines="None">
 											<Columns>
 												<asp:TemplateField>
 													<ItemTemplate>
@@ -76,14 +76,14 @@
 												<asp:BoundField DataField="status" headerText ="status"/>
 												<asp:TemplateField>
 													<ItemTemplate>
-															<asp:LinkButton ID="viewReqDetailBtn_h" runat="server"  Text="view" CommandName="view"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="viewReqDetailBtn_h_Click" ControlStyle-CssClass="btn btn-xs btn-default"></asp:LinkButton>
+															<asp:LinkButton ID="viewReqDetailBtn_h" runat="server"  Text="view" CommandName="view"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="viewReqDetailBtn_h_Click" ControlStyle-CssClass="btn btn-xs btn-primary"></asp:LinkButton>
 													</ItemTemplate>
 												</asp:TemplateField>
 											</Columns>
                                   <AlternatingRowStyle BackColor="White" />
                                              <PagerTemplate>
                                    <br />
-                                              <div class="col-lg-12 text-center">
+                                              <div class="col-lg-10 text-center">
                                              <div class="col-lg-1" style="width:100px">
                                              <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label></div>
                                              <div class="col-lg-1" style="width:40px">

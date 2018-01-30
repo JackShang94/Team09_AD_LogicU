@@ -4,8 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     
-         <div class="col-lg-10" style="margin-bottom: 20px">
-                   <asp:gridview id="deptDisbursementList" runat="server" cssclass="table bootstrap-table table-hover table-striped" headerstyle-cssclass=" content text-uppercase  " autogeneratecolumns="False" editrowstyle-cssclass="btn btn-warning btn-fill fa fa-edit" cellpadding="4" forecolor="#333333" gridlines="None" emptydatatext="There are no Purchase Order history record" OnSelectedIndexChanged="deptDisbursementList_SelectedIndexChanged">
+          <div class="row">
+                        <div class="col-lg-10">
+							<div class="card">
+                   <asp:gridview id="deptDisbursementList" runat="server" cssclass="table table-striped table-hover dtr-inline" headerstyle-cssclass=" content text-uppercase  " autogeneratecolumns="False" editrowstyle-cssclass="btn btn-warning btn-fill fa fa-edit" cellpadding="4" forecolor="#333333" gridlines="None" emptydatatext="There are no Purchase Order history record" OnSelectedIndexChanged="deptDisbursementList_SelectedIndexChanged">
                       <AlternatingRowStyle BackColor="White" />
                          <Columns>
                             <asp:TemplateField HeaderText="Disbursement ID" Visible="True">
@@ -17,17 +19,12 @@
                               <asp:BoundField DataField="status" HeaderText="Status" />
                               <asp:TemplateField HeaderText="Action" ShowHeader="False">
                               <ItemTemplate>
-                              <asp:LinkButton ID="LinkButton_View" runat="server" CausesValidation="False" Text="View" OnClick="LinkButton_View_Click"></asp:LinkButton>
+                              <asp:LinkButton ID="LinkButton_View" runat="server" CausesValidation="False" CssClass="btn btn-xs btn-primary"  Text="View" OnClick="LinkButton_View_Click"></asp:LinkButton>
                               </ItemTemplate>
                               </asp:TemplateField>
                               </Columns>
                               <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                               </asp:gridview>
-                </div><p>  
-                   
-                        </p>  
-                 <div style="margin-left:5%">
-
-            </div>
+                </div></div></div>
     
 </asp:Content>

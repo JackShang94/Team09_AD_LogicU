@@ -31,8 +31,8 @@
                                         <ItemTemplate>
                                             <div class="col-sm-8 col-lg-4">
                                                 <div class="card card-user">
-                                                    <div class="image" style="height:150px">
-                                                        <img src="../picture/full-screen-image-3.jpg" />
+                                                    <div class="image" style="height:150px" >
+                                                        <img src="../picture/<%# Eval("itemID") %>.jpg" />
                                                     </div>
                                                     <div style="margin-top:20px">
                                                             <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
