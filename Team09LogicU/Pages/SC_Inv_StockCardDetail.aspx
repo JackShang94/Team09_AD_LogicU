@@ -26,8 +26,17 @@
                                 <asp:GridView ID="GridView_ItemStock" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " 
                                     EmptyDataText="No Stock Card Record." AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
 
+
+                                     <Columns>
+                                                    <asp:BoundField DataField="date" HeaderText="date" />
+                                                    <asp:BoundField DataField="quantity" HeaderText="quantity" />
+                                                    <asp:BoundField DataField="balance" HeaderText="balance" />
+                                                    <asp:BoundField DataField="record" HeaderText="record" />
+                                                </Columns>
+
+
                                 </asp:GridView>
-                                <alternatingrowstyle backcolor="White" />
+                                
                             </p>
                         </div>
 
