@@ -63,8 +63,11 @@ namespace Team09LogicU.AndroidServices
             }
             return ldiscart_wcf;
         }
-        public void updateDisbursementItemByItemID(string itemID, int qty)
+        public void updateDisbursementItemByItemID(WCFDisbursementCart cart)
         {
+            DisbursementDAO disDAO = new DisbursementDAO();
+
+
             return;
         }
     }

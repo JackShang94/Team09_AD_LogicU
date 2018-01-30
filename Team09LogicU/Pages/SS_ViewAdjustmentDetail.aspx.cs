@@ -119,13 +119,6 @@ namespace Team09LogicU.Pages
             adjvdao.ApproveAdjustmentVoucherStatus(adjv, supervisorID);
             List<AdjustmentVoucherItem> adjvilist = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
 
-            //List<Item> itemList = new List<Item>();
-            //for (int i = 0; i < adjvilist.Count(); i++)
-            //{
-            //    itemList.Add(new Item());
-            //    itemList[i] = itemdao.getItemByID(adjvilist[i].itemID);
-            //    itemdao.UpdateItemQtyOnHand(itemList[i].itemID, adjvilist[i].quantity);
-            //}
             itemdao.updateStockCardAndItemQuantity(adjvilist);
             
             Response.Redirect("./SS_ViewAdjustment.aspx");
@@ -140,17 +133,22 @@ namespace Team09LogicU.Pages
         protected void btn_SendToManager_Click(object sender, EventArgs e)
         {
             AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvoucherID);
-            //  adjvdao.ApproveAdjustmentVoucherStatus(adjv, mansupervisorID);
-
-
-            //adjvdao.SendtoManager(adjv, mansupervisorID);//METHOD1!!!!!!!!!!!!!!!!!!!!!!!!
-
-
 
             adjvdao.SendtoManageranother(adjv);//Method2
 
+            //send email and notification to rep 
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            string supervisorName = Session["loginName"].ToString();
+            StoreStaff manager = context.StoreStaffs.Where(x => x.role == "manager").ToList().First();
+            string managerID = manager.storeStaffID;
+            string managerName = manager.storeStaffName;
 
+            string confirmDate = DateTime.Now.ToShortDateString();
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(managerID, supervisorName + " has send an adjustment voucher!" + confirmDate, DateTime.Now);
 
+            Email email = new Email();
+            email.sendAdjustmentEmailToManager(supervisorName, managerName);
 
             Response.Redirect("./SS_ViewAdjustment.aspx");
         }

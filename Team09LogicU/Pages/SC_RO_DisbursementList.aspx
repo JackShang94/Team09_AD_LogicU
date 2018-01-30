@@ -87,7 +87,7 @@
                                                                          <div class="col-lg-10" style="margin-top:20px">
 																			<asp:Label ID="label_Collection" CssClass=" category text-uppercase" runat="server">Collection Point:</asp:Label><br /><asp:Label ID="collectionpointLabel" runat="server" CssClass="h6" Text=" "></asp:Label>
 																			</div><div class="col-lg-10" style="margin-bottom:20px;margin-top:20px">
-                                                                             <asp:Button ID="Button3" runat="server" CssClass="btn btn-warning btn-wd btn-fill " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
+                                                                             <asp:Button ID="ConfirmBtn" runat="server" CssClass="btn btn-warning btn-wd btn-fill " Text="Confirm"  OnClick="Button3_Click" Enabled="False"/>
 																			</div>
 																		 </ContentTemplate>
 																 </asp:UpdatePanel>
