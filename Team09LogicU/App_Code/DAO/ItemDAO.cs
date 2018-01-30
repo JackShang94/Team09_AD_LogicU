@@ -56,7 +56,9 @@ namespace Team09LogicU.App_Code.DAO
 
         public List<Item> getItemByitemID(string itemID)
         {
-            return m.Items.Where(x=>x.itemID==itemID).ToList<Item>();
+           
+            return m.Items.Where(x => x.itemID.Contains(itemID) || x.categoryID.Contains(itemID)
+                                                                 || x.description.Contains(itemID)).ToList();
         }
         
         public List<Item> getItemByDesc(string desc)

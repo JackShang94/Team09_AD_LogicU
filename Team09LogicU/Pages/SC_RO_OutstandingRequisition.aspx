@@ -5,19 +5,19 @@ Outstanding Requisition
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
  
 		<div class="row">
-			 <div class="col-lg-12">
+			 <div class="col-lg-10">
 							<div class="card">
 								<div class=" container">
-										<div class="col-lg-12">
+										
 
-										   <div class="col-lg-3" style="margin-top:20px">
+										   <div class="col-lg-3" style="margin:20px 0 20px 0">
 													<asp:Label ID="deptLabel" runat="server" Text="Select a Department:" CssClass="category"></asp:Label>
 													<asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged" AutoPostBack="True">
 													
 													</asp:DropDownList>
 													
 										    </div>
-											<div class="col-lg-10">
+											<div class="col-lg-10" style ="margin-bottom:20px">
 												<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 												<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 													<ContentTemplate>
@@ -39,11 +39,7 @@ Outstanding Requisition
 												</asp:UpdatePanel>
 											</div>
 										</div>			
-										<div class="col-lg-3" style=" margin-top:40px;margin-bottom:20px">
-											<asp:Button ID="printButton" runat="server" CssClass="btn btn-primary btn-wd btn-fill" Text="Print"  OnClick="printButton_Click" EnableViewState="False" />
-										</div>
 									
-								</div>
 							</div>
 			</div>
 		</div>

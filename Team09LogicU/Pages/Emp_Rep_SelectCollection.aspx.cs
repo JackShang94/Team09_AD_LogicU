@@ -36,7 +36,13 @@ namespace Team09LogicU.pages
                 }
                 else
                 {
-                    lblMessage.Text = "Access Denied!";
+                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Notice', 'Please input condition！');{location.href='Emp_MyRequisition.aspx'}</script>");
+                    
+                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please input condition！');" +
+                    //    "var timer =null;timer=window.setTimeout(function(){location.href='Emp_MyRequisition.aspx';},5000);" +
+                    //    "</script>");
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Access Denied!', 'Access Denied!');{location.href='Emp_MyRequisition.aspx'}</script>");
+                    //Response.Redirect("Emp_MyRequisition.aspx");
                     Label1.Visible = false;
                     Label2.Visible = false;
                     Label3.Visible = false;

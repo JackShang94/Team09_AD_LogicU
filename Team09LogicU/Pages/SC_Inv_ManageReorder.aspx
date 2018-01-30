@@ -1,17 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_Inv_ManageReorder.aspx.cs" Inherits="Team09LogicU.Pages.SC_Inv_ManageReorder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Reorder
+    Manage Reorder
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
    
-     
-                    <div class="row">
-                        <div class="col-lg-12">
-
-                            <div class="content">
-                                <div class="container-fluid">
-                                    <div class="content">
+     <div class="row">
+            <div class="col-lg-10">
+                <div class="card">
                                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
@@ -44,18 +40,18 @@
                                                                 <asp:Label ID="lblReorderLevel" runat="server" Text='<%# Eval("reorderLevel") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Reorder Quantity">
+                                                        <asp:TemplateField HeaderText="Reorder Qty">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblReorderQty" runat="server" Text='<%# Eval("reorderQty") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Order Quantity">
+                                                        <asp:TemplateField HeaderText="Order Qty">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblOrderQty" runat="server" Text='<%# Eval("orderQty") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <EditItemTemplate>
                                                                 <asp:DropDownList ID="ddlSuppliers" runat="server"></asp:DropDownList>
-                                                                <asp:TextBox ID="txtOrderQty" CssClass="form-control" runat="server" BackColor="Azure"></asp:TextBox>
+                                                                <asp:TextBox ID="txtOrderQty" CssClass="form-control" Width="50%" runat="server" BackColor="Azure"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                                                     ControlToValidate="txtOrderQty" ForeColor="Red" Display="Dynamic"
                                                                     ErrorMessage="RequiredFieldValidator">Quantity is required.</asp:RequiredFieldValidator>
@@ -69,10 +65,10 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField>
                                                             <ItemTemplate>
-                                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" EnableViewState="True" />
+                                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-warning" runat="server" CommandName="Edit" Text="Edit" EnableViewState="True" />
                                                             </ItemTemplate>
                                                             <EditItemTemplate>
-                                                                <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-success" runat="server" CommandName="Update" Text="Update" />
+                                                                <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-danger" runat="server" CommandName="Update" Text="Update" />
                                                                 <asp:Button ID="btnCancel" CssClass="btn btn-xs btn-default" runat="server" CommandName="Cancel" Text="Cancel" />
                                                             </EditItemTemplate>
                                                         </asp:TemplateField>
@@ -89,14 +85,7 @@
                                 </div>
 
                             </div>
-                            <!-- end content-->
-
-                        </div>
-                        <!-- end col-md-12 -->
-                    </div>
-                    <!-- end row -->
-
-           
+                  
             <asp:Button ID="BtnSubmit" runat="server" Text="Add to Reorder List" CssClass="btn btn-primary btn-fill btn-wd " OnClick="BtnSubmit_Click" />
 
        

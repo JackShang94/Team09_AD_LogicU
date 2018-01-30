@@ -130,6 +130,18 @@ namespace Team09LogicU.pages
 
                 lc = new List<cart>();//clear the cart session
                 Session["cart"] = lc;
+
+                //send email and notification to head 
+                string headID = m.Departments.Where(x => x.deptID == deptID).Select(x => x.headStaffID).ToList().First();
+                string headName = m.DeptStaffs.Where(x => x.staffID == headID).Select(x => x.staffName).ToList().First();
+                string staffName = Session["loginName"].ToString();
+                string staffID = Session["loginID"].ToString();
+                NotificationDAO nDAO = new NotificationDAO();
+                nDAO.addDeptNotification(headID,staffName+" send a new requisition!",DateTime.Now);
+
+                Email email = new Email();
+                email.sendNewReqEmailToHead(staffName,headName);
+
                 HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
             }
             else
@@ -198,7 +210,6 @@ namespace Team09LogicU.pages
 
             lc.Add(c);
             Session["cart"] = lc;
-            //this.lcart = lc;
             cartUpdatePanel.Update();
             updateCart(lc);
         }
@@ -217,9 +228,6 @@ namespace Team09LogicU.pages
                 LinkButton deletebtn = cartRepeater.Items[i].FindControl("cart_deleteButton") as LinkButton;//get itemID
                 TextBox cartqty = cartRepeater.Items[i].FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                 string a = cartqty.Text;
-                //find the item u wanna delete
-                //for (int j = lc.Count - 1; j >= 0; j--)
-                //{
                     if(lc[i].ItemID == info)
                     {
                         lc.RemoveAt(i);
@@ -231,8 +239,6 @@ namespace Team09LogicU.pages
             }
 
             Session["cart"] = lc;
-
-            //this.lcart = lc;
             updateCart(lc);
         }
 
@@ -241,70 +247,11 @@ namespace Team09LogicU.pages
         //Test
         protected void catalogueRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-           
-            //if (e.CommandName == "add")
-            //{
-            //    List<cart> lc = new List<cart>();
-            //    lc = (List<cart>)Session["cart"];//get cart from Session
-            //    string name = Session["loginID"].ToString();//get name from Session
-
-            //    string[] info = e.CommandArgument.ToString().Split('&');
-
-            //    foreach(var i in lc)
-            //    {
-            //        if (i.ItemID == info[0])
-            //        {
-            //            string radalertscript = "<script language='javascript'>alert('Already In!!!')</script>";
-            //            Page.ClientScript.RegisterStartupScript(this.GetType(), "radalert", radalertscript);
-            //            return;
-            //        }
-            //    }
-              
-
-            //    cart c = new cart
-            //    {
-            //        Name = name,
-            //        ItemID = info[0],
-            //        Description = info[1],//stupid
-            //        Qty = 1//default
-            //    };
-
-            //    lc.Add(c);
-            //    Session["cart"] = lc;              
-           
-
-
-            //    //this.lcart = lc;
-            //    cartUpdatePanel.Update();
-            //    cartRepeater.DataSource = lc;
-            //    cartRepeater.DataBind();
-            //}
-            
-
-            
+                 
         }
         //cart delete
         protected void cartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            //if (e.CommandName == "delete")
-            //{
-            //    string[] info = e.CommandArgument.ToString().Split('&');
-            //    string itemID = info[0];
-            //    List<cart> lc = new List<cart>();
-            //    lc = (List<cart>)Session["cart"];
-
-            //    foreach(var i in lc)
-            //    {
-            //        if (i.ItemID == itemID)
-            //        {
-            //            lc.Remove(i);
-            //        }
-            //    }
-
-            //    cartRepeater.DataSource = lc;
-            //    cartRepeater.DataBind();
-
-            //}
+        {         
         }
 
         protected void cart_qtyTextBox_TextChanged(object sender, EventArgs e)

@@ -16,6 +16,8 @@ namespace Team09LogicU.Pages
         CategoryDAO categoryDAO = new CategoryDAO();
         List<Item> itemList;
         public string staffID;
+        TextBox tb = new TextBox();
+        string strPageNum = "";
         public void updateCart(List<AdjustmentVouchercart> lac)
         {
             Session["adjvcart"] = lac;
@@ -123,37 +125,19 @@ namespace Team09LogicU.Pages
         }
         protected void UpdateGridviewByDropdownList()
         {
-        //    ItemDAO idao = new ItemDAO();
-        //    string sText = DropDownList_cat.ToString();
-        //    if (sText == "--All--")
-        //    {
-        //        updateCatalogue(idao.getItemList());//all items
-        //    }
-        //    else
-        //    {
-        //        itemList=(idao.getItemByCategory(sText));//items with specific CAT
-        //        updateCatalogue(itemList);
-        //    }
+            //    ItemDAO idao = new ItemDAO();
+            //    string sText = DropDownList_cat.ToString();
+            //    if (sText == "--All--")
+            //    {
+            //        updateCatalogue(idao.getItemList());//all items
+            //    }
+            //    else
+            //    {
+            //        itemList=(idao.getItemByCategory(sText));//items with specific CAT
+            //        updateCatalogue(itemList);
+            //    }
 
-
-
-
-
-
-            ItemDAO idao = new ItemDAO();
-        string sText = DropDownList_cat.Text.ToString();
-            if (sText == "--All--")
-            {
-                //this.lcatalogue = id.getItemList();
-                updateCatalogue(idao.getItemList());
-                //catalogueUpdatePanel.Update();
-            }
-            else
-            {
-                updateCatalogue(idao.getItemByCategory(sText));
-            }
-                //catalogueUpdatePanel.Update();
-
+            updateGV();
             }
 
 
@@ -277,6 +261,23 @@ namespace Team09LogicU.Pages
                 cartUpdatePanel.Update();
                 updateCart(lac);
             }
+            if (e.CommandName == "go")
+            {
+                tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
+
+            }
+
+            try
+            {
+
+                int num = Int32.Parse(tb.Text);
+                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                GridView_CatalogList_PageIndexChanging(null, ea);
+            }
+            catch
+            {
+            }
+
         }
 
 
@@ -332,10 +333,45 @@ namespace Team09LogicU.Pages
 
             }
         }
+        protected void updateGV()
+        {
+            string keyword = DropDownList_cat.Text;
 
-            protected void cart_qtyTextBox_TextChanged(object sender, EventArgs e)
+
+            ItemDAO idao = new ItemDAO();
+            string sText = DropDownList_cat.Text.ToString();
+            if (sText == "--All--")
+            {
+                //this.lcatalogue = id.getItemList();
+                updateCatalogue(idao.getItemList());
+                //catalogueUpdatePanel.Update();
+            }
+            else
+            {
+                updateCatalogue(idao.getItemByCategory(sText));
+            }
+            //catalogueUpdatePanel.Update();
+        }
+        protected void cart_qtyTextBox_TextChanged(object sender, EventArgs e)
             {
 
             }
+
+        protected void GridView_CatalogList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
+                GridView_CatalogList.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_CatalogList.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                updateGV();
+
+
+            }
+            catch
+            {
+            }
+        }
     }
 }

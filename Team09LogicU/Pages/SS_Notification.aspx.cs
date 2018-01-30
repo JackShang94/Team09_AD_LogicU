@@ -6,23 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.App_Code.DAO;
+using Team09LogicU.Models;
 
 namespace Team09LogicU.Pages
 {
-    public partial class StoreManager : System.Web.UI.MasterPage
+    public partial class SS_Notification : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["loginName"].ToString();
             string loginID = Session["loginID"].ToString();
             NotificationDAO nDAO = new NotificationDAO();
-            var storeNotifications = nDAO.getNewStoreNotificationByID(loginID);
-            notificationNum.Text = storeNotifications.Count().ToString();
-        }
-
-        protected void Logout_Click(object sender, EventArgs e)
-        {
-            Logout.logoutUser();
+            List<StoreNotification> nList = nDAO.getAllStoreNotificationByID(loginID);
+            List<StoreNotification> nNewList = nDAO.getNewStoreNotificationByID(loginID);
         }
     }
 }

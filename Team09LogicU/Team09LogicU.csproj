@@ -175,6 +175,8 @@
     <Content Include="Pages\SC_Inv_StockCardDetail.aspx" />
     <Content Include="Pages\SC_Inv_ViewInventoryList.aspx" />
     <Content Include="Pages\SC_Notification.aspx" />
+    <Content Include="Pages\SC_O_InventoryStatusReport.aspx" />
+    <Content Include="Pages\SC_O_SOA.aspx" />
     <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PurchaseOrderHistoryDetail.aspx" />
@@ -193,10 +195,12 @@
     <Content Include="Pages\SM_ApproveAdjustmentDetail.aspx" />
     <Content Include="Pages\SM_EditItem.aspx" />
     <Content Include="Pages\SM_EditSupplier.aspx" />
+    <Content Include="Pages\SM_Notification.aspx" />
     <Content Include="Pages\SM_SearchItem.aspx" />
     <Content Include="Pages\SM_SearchSupplier.aspx" />
     <Content Include="Pages\SM_ViewSupplierDetail.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
+    <Content Include="Pages\SS_Notification.aspx" />
     <Content Include="Pages\SS_SendAdjustmenttoManager.aspx" />
     <Content Include="Pages\SS_ViewAdjustment.aspx" />
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
@@ -213,9 +217,7 @@
     <Content Include="fonts\pe-icon-7-stroke.ttf" />
     <Content Include="fonts\pe-icon-7-stroke.woff" />
     <Content Include="fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
-    <None Include="Properties\PublishProfiles\team09.pubxml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\PublishProfiles\Team09LogicU.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -350,7 +352,7 @@
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
     <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
     <Compile Include="App_Code\UtilClass\TrendAnalysis.cs" />
-    <Content Include="App_Code\UtilClass\Validation.cs" />
+    <Compile Include="App_Code\UtilClass\Validation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -627,6 +629,20 @@
     <Compile Include="Pages\SC_Notification.aspx.designer.cs">
       <DependentUpon>SC_Notification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SC_O_InventoryStatusReport.aspx.cs">
+      <DependentUpon>SC_O_InventoryStatusReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_O_InventoryStatusReport.aspx.designer.cs">
+      <DependentUpon>SC_O_InventoryStatusReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SC_O_SOA.aspx.cs">
+      <DependentUpon>SC_O_SOA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_O_SOA.aspx.designer.cs">
+      <DependentUpon>SC_O_SOA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SC_O_SupplierList.aspx.cs">
       <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -774,6 +790,13 @@
     <Compile Include="Pages\SM_EditSupplier.aspx.designer.cs">
       <DependentUpon>SM_EditSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SM_Notification.aspx.cs">
+      <DependentUpon>SM_Notification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_Notification.aspx.designer.cs">
+      <DependentUpon>SM_Notification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SM_SearchItem.aspx.cs">
       <DependentUpon>SM_SearchItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -801,6 +824,13 @@
     </Compile>
     <Compile Include="Pages\SS_AssignClerk.aspx.designer.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SS_Notification.aspx.cs">
+      <DependentUpon>SS_Notification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_Notification.aspx.designer.cs">
+      <DependentUpon>SS_Notification.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SS_SendAdjustmenttoManager.aspx.cs">
       <DependentUpon>SS_SendAdjustmenttoManager.aspx</DependentUpon>
