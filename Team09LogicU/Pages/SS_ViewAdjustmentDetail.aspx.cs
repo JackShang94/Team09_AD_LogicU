@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
@@ -90,7 +91,20 @@ namespace Team09LogicU.Pages
         public void BindData()
         {
             List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
-            GridView_detailList.DataSource = adjItems;
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVItemID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("itemDescription", typeof(string)));
+            iTable.Columns.Add(new DataColumn("quantity", typeof(string)));
+
+            foreach (AdjustmentVoucherItem i in adjItems)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVItemID"] = i.adjVItemID;
+                dr["itemDescription"] = i.Item.description;
+                dr["quantity"] = i.quantity;
+                iTable.Rows.Add(dr);
+            }
+            GridView_detailList.DataSource = iTable;
             GridView_detailList.DataBind();
         }
         protected void btn_Back_Click(object sender, EventArgs e)

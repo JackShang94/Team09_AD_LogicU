@@ -10,7 +10,7 @@
                 <div class="row"> 
                     <div class="col-lg-10">
                         <div class="card">
-                             <div class=" container" <%--style="margin-left:-10px"--%>>
+                             <div class=" container" >
                              <div  class=" col-lg-3" style="margin-top:20px">
                                  <asp:Label ID="Label_ReqID" CssClass="category" runat="server" Text="Requisition ID: "></asp:Label>
                                  <asp:Label ID="lblReqID" CssClass="h5" runat="server"></asp:Label> 
