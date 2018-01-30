@@ -5,6 +5,7 @@ using System.Web;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data.Entity.Core.Objects;
 
 namespace Team09LogicU.App_Code.DAO
 {
@@ -16,11 +17,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<Requisition> reqlist = getRetrievedRequisitionList(date);
 
-            //updateRequisitionStatusAsProcessed(reqlist);// should be put into the confirmBtn ???
-
             List<Outstanding> outlist = getOutStandingList(date);
-
-            //updateOutStandingStatusAsProcessed(outlist);//comment it in order to test
 
             List<RetrievalFormItem> reflist = new List<RetrievalFormItem>();
 
@@ -171,8 +168,9 @@ namespace Team09LogicU.App_Code.DAO
         private List<Requisition> getRetrievedRequisitionList(DateTime date)
         {
             List<Requisition> reql = new List<Requisition>();
-            reql = context.Requisitions. 
-                Where(x=>(x.approvedDate<=date)
+            reql = context.Requisitions.
+                Where(x =>
+                ( EntityFunctions.TruncateTime(x.approvedDate) <= EntityFunctions.TruncateTime(date))
                 && x.status == "Approved").ToList();
             return reql;
         }
@@ -214,15 +212,15 @@ namespace Team09LogicU.App_Code.DAO
         //where status='Approved' and and approvedDate <= '2018-1-21'  )
         //group by itemID
 
-        public void ConfirmRetrieval(List<RetrievalFormItem> reflist,DateTime date)
+        public void ConfirmRetrieval(List<RetrievalFormItem> result, DateTime date)
         {
-            List<RetrievalFormItem> result = UpdateActualQuantity(reflist);
-
             saveRetrieval(result);
 
             List<Disbursement> dislist = generateDisbersementList(result);
 
             saveDisbursement(dislist);
+
+            sendEmailToRep(dislist);
 
             List<Requisition> reqlist2 = getRetrievedRequisitionList(date);
             List<Outstanding> outlist2 = getOutStandingList(date);
@@ -371,7 +369,7 @@ namespace Team09LogicU.App_Code.DAO
                 foreach (DisbursementItem item in dept.DisbursementItems)
                 {
                     item.disbursementID = dept.disbursementID;
-                    context.DisbursementItems.Add(item);                
+                    context.DisbursementItems.Add(item);                         
                 }
             }
             context.SaveChanges();
@@ -436,16 +434,23 @@ namespace Team09LogicU.App_Code.DAO
             return dislist;
         }
 
-        //Update  reflist Actual Quantity According to UI TextBox input
-        private List<RetrievalFormItem>  UpdateActualQuantity(List<RetrievalFormItem> reflist)
-        {            
-            //********************************
-            //*********************************
-            //*********************************
-            //*********************************
-            //*********************************
-            //*********************************
-            return reflist;
-        }      
+        private void sendEmailToRep(List<Disbursement> dislist)
+        {
+            foreach(Disbursement disbursement in dislist)
+            {
+                //send email and notification to rep 
+                string deptid = disbursement.deptID;
+                string repID = context.Departments.Where(x => x.deptID == deptid).Select(x => x.repStaffID).ToList().First();
+                string repName = context.DeptStaffs.Where(x => x.staffID == repID).Select(x => x.staffName).ToList().First();
+                string disbursementDate = disbursement.disburseDate.ToShortDateString();
+                string collectionPointID = context.Departments.Where(x => x.deptID == deptid).Select(x => x.collectionPointID).ToList().First();
+                string collectionPoint = context.CollectionPoints.Where(x => x.collectionPointID == collectionPointID).Select(x => x.description).ToList().First();
+                NotificationDAO nDAO = new NotificationDAO();
+                nDAO.addDeptNotification(repID, "Disbursement " + disbursement.disbursementID + " is confirmed on " + disbursementDate, DateTime.Now);
+
+                Email email = new Email();
+                email.sendDisbursementEmailToRep(repName, disbursementDate, collectionPoint);
+            }
+        }
     }
 }

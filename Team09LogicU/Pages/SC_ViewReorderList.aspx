@@ -1,13 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" CodeBehind="SC_ViewReorderList.aspx.cs" Inherits="Team09LogicU.Pages.SC_ViewReorderList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    View Reorder List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <form id="form1" runat="server">
-        <link href="../css/window.css" rel="stylesheet" />
-        <script src="../js/window.js"></script>
-        <script src="../js/jquery-1.7.1.min.js"></script>
         <asp:GridView ID="GridView_reorderListBySup" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="The Reorder List is Empty!">
             <Columns>
@@ -36,6 +33,5 @@
         </asp:GridView>
          <asp:Button ID="btnSubmit" runat="server" Text="Submit Order" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnSubmit_Click" />
         <asp:Button ID="btnCancel" runat="server" Text="Cancel and Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnCancel_Click" />
-    </form>
-
+  
 </asp:Content>

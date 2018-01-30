@@ -16,11 +16,11 @@ namespace Team09LogicU.AndroidServices
     public interface IRetrievalFormItemService
     {
         [OperationContract]
-        [WebGet(UriTemplate = "/helloworld/", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/helloworld", ResponseFormat = WebMessageFormat.Json)]
         string HelloWorld();
 
         [OperationContract]
-        [WebGet(UriTemplate = "/RetrievalFormItem/get/", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/RetrievalFormItem/get", ResponseFormat = WebMessageFormat.Json)]
         List<RetrievalFormItemData> findRetrievalFormItemDate();
 
         [OperationContract]

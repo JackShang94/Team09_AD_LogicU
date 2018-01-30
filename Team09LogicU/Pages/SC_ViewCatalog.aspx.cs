@@ -14,6 +14,8 @@ namespace Team09LogicU.Pages
     {
         ItemDAO itemDAO = new ItemDAO();
         CategoryDAO categoryDAO = new CategoryDAO();
+        TextBox tb = new TextBox();
+        string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,6 +24,7 @@ namespace Team09LogicU.Pages
                 //this.BindDDL();
                 this.BindGrid();
             }
+            tb.Text = strPageNum;
         }
 
         //protected void BindDDL()
@@ -41,17 +44,43 @@ namespace Team09LogicU.Pages
         //}
         protected void GridView_CatalogList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView_CatalogList.PageIndex = e.NewPageIndex;
-            this.BindGrid();
-           
+            try
+            {
+                tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
+                GridView_CatalogList.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_CatalogList.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                updateGV();
+
+
+            }
+            catch
+            {
+            }
+
+        }
+        protected void updateGV()
+        {
+            List<Item> list = new List<Item>();
+            string keyword = TextBox_Search.Text;
+
+            if (keyword == "")
+            {
+
+                list = itemDAO.getItemList();
+            }
+            else
+            {
+                list = itemDAO.getItemBySearch(keyword);
+            }
+            GridView_CatalogList.DataSource = list;
+            GridView_CatalogList.DataBind();
+
         }
 
         protected void BindGrid()
         {
-           // string itemID = itemDAO.getItemByitemID(ddlCategory.ToString()).ToString();
             List<Item> itemlist = new List<Item>();
-            //itemlist = itemDAO.getItemByitemID(itemID);
-            //itemlist = itemDAO.getItemByitemID(TextBox_SearchByID.ToString());
             itemlist = itemDAO.getItemList();
             GridView_CatalogList.DataSource = itemlist;
             GridView_CatalogList.DataBind();
@@ -59,22 +88,28 @@ namespace Team09LogicU.Pages
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            updateGV();
+        }
 
-            List<Item> list = new List<Item>();
+        protected void GridView_CatalogList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
 
-            string itemID = TextBox_SearchByID.Text;
+            if (e.CommandName == "go")
+            {
+                tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
 
-            if (itemID == "")
+            }
+
+            try
             {
 
-                list = itemDAO.getItemList();
+                int num = Int32.Parse(tb.Text);
+                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                GridView_CatalogList_PageIndexChanging(null, ea);
             }
-            else
+            catch
             {
-                list = itemDAO.getItemByitemID(itemID);
             }
-            GridView_CatalogList.DataSource = list;
-            GridView_CatalogList.DataBind();
         }
     }
 }

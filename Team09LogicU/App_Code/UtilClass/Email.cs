@@ -80,6 +80,24 @@ namespace Team09LogicU.App_Code.UtilClass
             client.Send(mm);
         }
 
+        public void sendConfirmedDisbursementEmailToRep(string repName, string confirmDate, string disbursementID)
+        {
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.Credentials = new System.Net.NetworkCredential
+            (@"sateam09@gmail.com", "password!123");
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+            MailMessage mm = new MailMessage("sateam09@gmail.com", "shangzhengxiang@163.com");
+            mm.Subject = "Disbursement  " + disbursementID + " is confirmed!";
+            mm.IsBodyHtml = true;
+            mm.Body = "Dear " + repName + ",<br/><br/>&nbsp;&nbsp;&nbsp;  Please note that the disbursement  with ID: "
+                    + disbursementID + " is confirmed on "+ confirmDate +
+                    "<br/><br/>Thank you.<br/>The Logic U Stationary Department team.";
+
+            client.Send(mm);
+        }
+
         public void sendAdjustmentEmailToSupervisor(string clerkName, string supervisorName)
         {
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
@@ -110,7 +128,25 @@ namespace Team09LogicU.App_Code.UtilClass
             mm.Subject = "New Adjustment Voucher  Attention !";
             mm.IsBodyHtml = true;
             mm.Body = "Dear " + managerName + ",<br/><br/>" + "&nbsp;&nbsp;&nbsp; Please note that there has been a new Adjustment Voucher added by the supervisor " + supervisorName + " in your store for your attention. "
-                   + "<br/>" + "&nbsp;&nbsp;&nbsp; You may access your requisitions by logging onto the Stationary Store system."
+                   + "<br/>" + "&nbsp;&nbsp;&nbsp; You may access your adjustment voucher by logging onto the Stationary Store system."
+                   + " <br/><br/>Thank you.<br/>The Logic U Stationary Department team.";
+
+            client.Send(mm);
+        }
+
+        public void sendDelegateEmailToEmployee(string staffName,string headName,string fromDate,string toDate)
+        {
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.Credentials = new System.Net.NetworkCredential
+            (@"sateam09@gmail.com", "password!123");
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+            MailMessage mm = new MailMessage("sateam09@gmail.com", "shangzhengxiang@163.com");
+            mm.Subject = "Delegate  Attention !";
+            mm.IsBodyHtml = true;
+            mm.Body = "Dear " + staffName + ",<br/><br/>" + "&nbsp;&nbsp;&nbsp; Please note that you have been delegated as department head by  " + headName + " in your department. "
+                   + "<br/>" + "&nbsp;&nbsp;&nbsp; You may access your notification by logging onto the Stationary Store system."
                    + " <br/><br/>Thank you.<br/>The Logic U Stationary Department team.";
 
             client.Send(mm);

@@ -4,35 +4,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <form id ="form1" runat="server">
-        
-           
                 <div class="row"> 
-                    <div class="col-lg-12">
+                    <div class="col-lg-10">
                         <div class="card">
-                             <div class=" container" style="margin-left:-10px">
-                             <div  class=" col-lg-3" style="margin-top:20px">
-                                 <asp:Label ID="Labeltxtadjv" CssClass="h4" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
-                                 <asp:Label ID="lblAdjvID" CssClass="h5" runat="server"></asp:Label> 
+                             <div class=" container">
+                             <div  class=" col-lg-4" style="margin-top:20px">
+                                 <asp:Label ID="Labeltxtadjv" CssClass=" category" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
+                                 <br /><asp:Label ID="lblAdjvID" CssClass="h6" runat="server"></asp:Label> 
                                  </div>
-                              <div class=" col-lg-4" style="margin-bottom:30px ; margin-top:20px">
-                                  <asp:Label ID="LabelTXTStaffid" CssClass="h4" runat="server" Text="Store Staff: "></asp:Label>  
-                                  <asp:Label ID="Label_StoreStafID" CssClass="h5" runat="server"></asp:Label></div>
-                                 <div class=" col-lg-4" style="margin-bottom:30px ; margin-top:20px">
-                                  <asp:Label ID="LabeltxtAutBy" CssClass="h4" runat="server" Text="Authorised By: "></asp:Label>  
-                                  <asp:Label ID="Label_Authorisedby" CssClass="h5" runat="server"></asp:Label></div>
-                                 <div  class=" col-lg-4" style="margin-left:-60px ; margin-top:20px">
-                                 <asp:Label ID="LabeltxtadjvDate" CssClass="h4" runat="server" Text="Request Date: "></asp:Label>
-                                 <asp:Label ID="lblDate" CssClass="h5" runat="server"></asp:Label> 
+                              <div class=" col-lg-4" style=" margin-top:20px">
+                                  <asp:Label ID="LabelTXTStaffid" CssClass="category" runat="server" Text="Store Staff: "></asp:Label>  
+                                 <br /><asp:Label ID="Label1" CssClass="h6" runat="server"></asp:Label> 
+                                  <asp:Label ID="Label_StoreStafID" CssClass="h6" runat="server"></asp:Label></div>
+                                 <div class=" col-lg-4" style=" margin-top:20px">
+                                  <asp:Label ID="LabeltxtAutBy" CssClass="category" runat="server" Text="Authorised By: "></asp:Label>  
+                                 <br /><asp:Label ID="Label2" CssClass="h6" runat="server"></asp:Label> 
+                                  <asp:Label ID="Label_Authorisedby" CssClass="h6" runat="server"></asp:Label></div>
+                                
+                                 <div  class=" col-lg-4" style="margin-top:20px;margin-bottom:20px">
+                                 <asp:Label ID="LabeltxtadjvDate" CssClass="category" runat="server" Text="Request Date: "></asp:Label>
+                                 <br /><asp:Label ID="Label3" CssClass="h6" runat="server"></asp:Label> 
+                                 <asp:Label ID="lblDate" CssClass="h6" runat="server"></asp:Label> 
                                  </div>
-                                 <div class=" col-lg-4" style="margin-bottom:30px ; margin-top:20px">
-                                  <asp:Label ID="Labeltxtstatus" CssClass="h4" runat="server" Text="Status: "></asp:Label>  
-                                  <asp:Label ID="lblStatus" CssClass="h5" runat="server"></asp:Label></div>
+                                 <div class=" col-lg-4" style="margin-top:20px;margin-bottom:20px" >
+                                  <asp:Label ID="Labeltxtstatus" CssClass="category" runat="server" Text="Status: "></asp:Label>  
+                                 <br /><asp:Label ID="Label4" CssClass="h6" runat="server"></asp:Label> 
+                                  <asp:Label ID="lblStatus" CssClass="h6" runat="server"></asp:Label></div>
+
+                                 </div></div></div></div>
 
 
-
-
-                                 <div class=" col-lg-10" style="margin-bottom:30px ">
+                                 <div class="row"> 
+                    <div class="col-lg-10">
+                        <div class="card">
                                   <asp:GridView ID="GridView_detailList" runat="server" AllowPaging="true" OnPageIndexChanging="GridView_detailList_PageIndexChanging" OnRowCommand="GridView_detailList_RowCommand" CssClass="table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " EmptyDataText="There are no record!" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" AutoGenerateDeleteButton="False" AutoGenerateEditButton="False" AutoGenerateSelectButton="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                                       
                                       <%-- <Columns>
@@ -62,15 +66,15 @@
                                      </PagerTemplate>
                                       <AlternatingRowStyle BackColor="White" />
                                 </asp:GridView> 
-                                     <p></p>
+                                       </div>
+                          </div>
+                          </div>
                              
-                             <div  class=" col-lg-10" style="margin-top:20px">
-                              
+                            
                              
-                            <asp:Button ID="Btn_Back"  runat="server" Text="Back"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="Btn_Back_Click" />
-                             </div>
-                          </div>
-                          </div>
-                          </div>
-        </form>
+                            <asp:Button ID="Btn_Back"  runat="server" Text="Back"  CssClass="btn btn-default btn-wd " OnClick="Btn_Back_Click" />
+                           
+                        
+                       
+        
 </asp:Content>

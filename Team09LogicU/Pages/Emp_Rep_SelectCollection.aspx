@@ -3,7 +3,7 @@
     Select Collection
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <form runat="server">
+   
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -20,7 +20,7 @@
      <asp:DropDownList ID="ddlCP" runat="server"  CssClass="form-control border-gray" Width="20%"   > 
     </asp:DropDownList>
       </div><p>  
-                        <asp:Label ID="lblMessage" runat="server" Text="Label"></asp:Label>
+                      
                     </p>  
        <div style="margin-left:5%">
     <asp:Button ID="btnUpdateCP" runat="server" Text="Update Collection Point" CssClass="btn btn-primary btn-fill" OnClick="btnUpdateCP_Click" />   
@@ -31,5 +31,5 @@
         </div></div>
     </div>
        
-    </form>
+   
 </asp:Content>

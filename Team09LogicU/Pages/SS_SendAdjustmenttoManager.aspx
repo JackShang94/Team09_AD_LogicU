@@ -3,9 +3,7 @@
      View Adjustment Detail
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-   <form id ="form1" runat="server">
-         <div class="content">
-            <div class="container-fluid">
+   
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
@@ -51,10 +49,7 @@
          
         </div>
      </div>
-   </div>
- </div>                         
-                          
-  
+
     <asp:Button ID="Btn_Send"  runat="server" Text="Send" CssClass="btn btn-primary btn-fill btn-wd " /> 
     <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   />
     <%-- <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=(local);Initial Catalog=LogicU;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [itemId], [categoryId], [description], [unitOfMeasure] FROM [Items] WHERE ([categoryId] = @categoryId)">
@@ -62,6 +57,5 @@
                 <asp:ControlParameter ControlID="ddl_Category" Name="categoryId" PropertyName="SelectedValue" />
             </SelectParameters>
         </asp:SqlDataSource>--%> 
-        </form>
-
+     
 </asp:Content>

@@ -10,7 +10,6 @@ using Team09LogicU.App_Code.DAO;
 
 namespace Team09LogicU.pages
 {
-
     public partial class DH_DelegateHeadRole : System.Web.UI.Page
     {
         DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
@@ -20,7 +19,6 @@ namespace Team09LogicU.pages
         string logInRole;
         List<Models.Delegate> dList = new List<Models.Delegate>();
         string deptID;
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -86,8 +84,6 @@ namespace Team09LogicU.pages
 
         protected void submit_button_Click(object sender, EventArgs e)
         {
-            //try
-            //{
                 string selectedStaffId = employee_dropList.SelectedValue.ToString();
                 DateTime sDate = Convert.ToDateTime(textBox_startDate.Text);
                 DateTime eDate = Convert.ToDateTime(textBox_endDate.Text);
@@ -104,14 +100,7 @@ namespace Team09LogicU.pages
                 {
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please select valid date!');</script>");
                 }
-
-            //}
-            //catch { ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Failed to submit!');</script>"); }
-
-            //finally
-            //{
                 displayDelegationListAndRole(deptID);
-            //}
         }
 
         protected void terminate_button_Click(object sender, EventArgs e)
@@ -155,7 +144,7 @@ namespace Team09LogicU.pages
         protected void GridView_dHistory_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
-            {
+            { 
                 try
                 {
                     TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");

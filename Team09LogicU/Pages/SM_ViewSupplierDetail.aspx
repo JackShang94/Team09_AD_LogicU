@@ -4,8 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    
-     <form id ="form1" runat="server">
+  
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -85,6 +84,6 @@
                                   <asp:Button ID="Btn_Submit"  runat="server" Text="Submit" CssClass="btn btn-primary btn-fill btn-wd " /> 
                                  <asp:Button ID="Btn_Back"  runat="server"  Text="Back"  CssClass="btn btn-default  btn-fill btn-wd"   />
 
-                                 </form>
+                              
 
 </asp:Content>

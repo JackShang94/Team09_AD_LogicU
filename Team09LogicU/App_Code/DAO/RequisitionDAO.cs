@@ -87,7 +87,7 @@ namespace Team09LogicU.App_Code.DAO
         }
         public List<Requisition> getRequisitionByStaffID(string staffID)//
         {
-            return m.Requisitions.Where(x => x.staffID == staffID).ToList<Requisition>();
+            return m.Requisitions.Where(x => x.staffID == staffID).OrderByDescending(x => x.requisitionDate).ToList<Requisition>();
         }
         public List<Requisition> getRequisitionByDeptID(string DeptID)//used by disbursement,outstanding
         {
@@ -145,13 +145,12 @@ namespace Team09LogicU.App_Code.DAO
         {
             return m.Requisitions.Where(x => (x.requisitionDate.Year >= from.Year && x.requisitionDate.Month >= from.Month && x.requisitionDate.Day >= from.Day)
             && (x.requisitionDate.Year <= to.Year && x.requisitionDate.Month <= to.Month && x.requisitionDate.Day <= to.Day)
-            && x.staffID == staffID&&x.status!="pending").ToList();
+            && x.staffID == staffID&&x.status!="pending").OrderByDescending(x => x.requisitionDate).ToList();
         }
         //public List<Requisition> getThisWeek(DateTime time)
         //{
         //    return m.Requisitions.Where(x => x.requisitionDate <  (DayOfWeek.Wednesday)).ToList<Requisition>();
         //}
-
 
 
     }

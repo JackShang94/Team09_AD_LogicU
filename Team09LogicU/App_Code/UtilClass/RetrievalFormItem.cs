@@ -77,23 +77,6 @@ After:
     [Serializable]
     public class RetrievalFormItem
     {
-
-/* Unmerged change from project 'Team09LogicU'
-Before:
-        public string ItemID;
-        public string ItemDescription;
-        public string Localtion;
-        public int Needed;
-        public int Actual;
-        public  List<BreakdownByDepartment> BreakList;
-After:
-        private string itemID;
-        private string itemDescription;
-        private string localtion;
-        private int needed;
-        private int actual;
-        private List<BreakdownByDepartment> breakList;
-*/
         private string itemID;
         private string itemDescription;
         private string location;
