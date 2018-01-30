@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
@@ -54,7 +55,22 @@ namespace Team09LogicU.Pages
                 DateTime dateTo = Convert.ToDateTime(to);
                 list = adjvdao.findadjvbyStatusandDate(dateFrom, dateTo, Status);
             }
-
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("storeStaffID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("authorisedBy", typeof(string)));
+            iTable.Columns.Add(new DataColumn("adjDate", typeof(string)));
+            iTable.Columns.Add(new DataColumn("status", typeof(string)));
+            foreach (AdjustmentVoucher i in list)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVID"] = i.adjVID;
+                dr["storeStaffID"] = i.storeStaffID;
+                dr["authorisedBy"] = i.authorisedBy;
+                dr["adjDate"] = i.adjDate;
+                dr["status"] = i.status;
+                iTable.Rows.Add(dr);
+            }
             GridView_ViewAdjustmentVoucher.DataSource = list;
             GridView_ViewAdjustmentVoucher.DataBind();
         }
@@ -94,7 +110,25 @@ namespace Team09LogicU.Pages
             string status = "pending";
             List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
             list = adjvdao.getAdjustmentVoucherList();
-            GridView_ViewAdjustmentVoucher.DataSource = list;          
+
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("storeStaffID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("authorisedBy", typeof(string)));
+            iTable.Columns.Add(new DataColumn("adjDate", typeof(string)));
+            iTable.Columns.Add(new DataColumn("status", typeof(string)));
+            foreach (AdjustmentVoucher i in list)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVID"] = i.adjVID;
+                dr["storeStaffID"] = i.storeStaffID;
+                dr["authorisedBy"] = i.authorisedBy;
+                dr["adjDate"] = i.adjDate;
+                dr["status"] = i.status;
+                iTable.Rows.Add(dr);
+            }
+
+                GridView_ViewAdjustmentVoucher.DataSource = list;          
             GridView_ViewAdjustmentVoucher.DataBind();
         }
 

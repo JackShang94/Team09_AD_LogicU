@@ -144,7 +144,7 @@ namespace Team09LogicU.pages
         protected void GridView_dHistory_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
-            {
+            { 
                 try
                 {
                     TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");

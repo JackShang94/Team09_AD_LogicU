@@ -21,7 +21,7 @@ namespace Team09LogicU.AndroidServices
         //[WebGet(UriTemplate = "/Disbursement",ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json )]
         //List<WCFDisbursement> getDisbursementByDeptID()
         [OperationContract]
-        [WebInvoke(UriTemplate = "/Disbursement", Method ="POST" , BodyStyle =WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json,RequestFormat = WebMessageFormat.Json )]
+        [WebGet(UriTemplate = "/Disbursement?deptID={deptID}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFDisbursement> getDisbursementByDeptID(string deptID);
 
         [OperationContract]
@@ -30,7 +30,7 @@ namespace Team09LogicU.AndroidServices
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/Disbursement/update", Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        void updateDisbursementItemByItemID(string itemID, int qty);
+        void updateDisbursementItemByItemID(WCFDisbursementCart discart);
 
     }
 
@@ -113,14 +113,14 @@ namespace Team09LogicU.AndroidServices
     {
         private string itemID;
         private string itemDescription;
-        private int expectedc;
+        private int expected;
         private int actual;
 
-        public WCFDisbursementCart(string itemID, string itemDescription, int expectedc, int actual)
+        public WCFDisbursementCart(string itemID, string itemDescription, int expected, int actual)
         {
             this.itemID = itemID;
             this.itemDescription = itemDescription;
-            this.expectedc = expectedc;
+            this.expected = expected;
             this.actual = actual;
         }
         [DataMember]
@@ -150,16 +150,16 @@ namespace Team09LogicU.AndroidServices
             }
         }
         [DataMember]
-        public int Expectedc
+        public int Expected
         {
             get
             {
-                return expectedc;
+                return expected;
             }
 
             set
             {
-                expectedc = value;
+                expected = value;
             }
         }
         [DataMember]
