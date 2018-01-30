@@ -38,5 +38,13 @@ namespace Team09LogicU.AndroidServices
             }
             return targetItemList;
         }
+
+        public WCFItem getItemByID(string id)
+        {
+            WCFItem targetItem = new WCFItem();
+            Item i = itemDAO.getItemByID(id);
+            WCFItem wcfItem = WCFItem.Make(i.itemID, i.categoryID, i.description, i.location, i.unitOfMeasure, i.reorderLevel, i.reorderQty, i.qtyOnHand);
+            return targetItem;
+        }
     }
 }
