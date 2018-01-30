@@ -67,6 +67,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.Label lblStaff;
         
         /// <summary>
+        /// GridView_detailList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView_detailList;
+        
+        /// <summary>
         /// Label_Remark control.
         /// </summary>
         /// <remarks>
@@ -83,14 +92,5 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRemark;
-        
-        /// <summary>
-        /// GridView_detailList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_detailList;
     }
 }

@@ -63,7 +63,7 @@ namespace Team09LogicU.pages
             GridView_PendingReqList.DataSource = list;
             if (list.Count==0)
             {
-                lblMessage.Text = "No pending requisition now.";
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'There is no record！');</script>");
             }
             GridView_PendingReqList.DataBind();
         }
