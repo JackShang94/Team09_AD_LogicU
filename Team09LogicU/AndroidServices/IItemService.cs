@@ -20,7 +20,7 @@ namespace Team09LogicU.AndroidServices
 
         [OperationContract]
         [WebGet(UriTemplate = "/Item/{cat}", ResponseFormat = WebMessageFormat.Json)]
-        List<WCFItem> findItemByCat(string cat);
+        List<WCFItem> findItemBySearch(string keyword);
     }
 
     [DataContract]

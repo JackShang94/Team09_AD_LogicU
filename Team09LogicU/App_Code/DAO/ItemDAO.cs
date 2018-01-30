@@ -8,7 +8,6 @@ namespace Team09LogicU.App_Code.DAO
 {
     public class ItemDAO
     {
-
         SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
         public  List<Item> getItemList()
         {

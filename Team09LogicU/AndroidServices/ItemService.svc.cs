@@ -27,10 +27,10 @@ namespace Team09LogicU.AndroidServices
             return targetItemList;
         }
 
-        public List<WCFItem> findItemByCat(string cat)
+        public List<WCFItem> findItemBySearch(string keyword)
         {
             List<WCFItem> targetItemList = new List<WCFItem>();
-            List<Item> ilist=itemDAO.getItemByCategory(cat);
+            List<Item> ilist = itemDAO.getItemBySearch(keyword);
             foreach(Item i in ilist)
             {
                 WCFItem wcfItem = WCFItem.Make(i.itemID, i.categoryID, i.description, i.location, i.unitOfMeasure, i.reorderLevel, i.reorderQty, i.qtyOnHand);

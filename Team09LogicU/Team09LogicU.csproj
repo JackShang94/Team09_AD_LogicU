@@ -213,6 +213,9 @@
     <Content Include="fonts\pe-icon-7-stroke.ttf" />
     <Content Include="fonts\pe-icon-7-stroke.woff" />
     <Content Include="fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
+    <None Include="Properties\PublishProfiles\team09.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
