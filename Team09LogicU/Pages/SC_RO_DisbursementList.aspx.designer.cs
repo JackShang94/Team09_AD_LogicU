@@ -94,13 +94,13 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Label collectionpointLabel;
         
         /// <summary>
-        /// Button3 control.
+        /// ConfirmBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button ConfirmBtn;
         
         /// <summary>
         /// NotifyButton control.
