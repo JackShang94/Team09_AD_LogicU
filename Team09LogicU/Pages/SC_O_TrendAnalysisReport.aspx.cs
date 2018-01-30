@@ -11,7 +11,13 @@ namespace Team09LogicU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string data = "["+
+         "['Element', 'Density', { role: 'style' }],"+
+         "['Copper', 8.94, '#b87333'], "+
+         "['Silver', 10.49, 'silver'], "+
+         "['Platinum', 21.45, 'color: #e5e4e2' ]"+ 
+      "]";
+            chartData.InnerHtml = "<script>var chart1Data =" + data + ";</script>";
         }
     }
 }
