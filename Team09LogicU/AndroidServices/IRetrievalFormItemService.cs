@@ -24,8 +24,8 @@ namespace Team09LogicU.AndroidServices
         List<RetrievalFormItemData> findRetrievalFormItemDate();
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/RetrievalFormItem/post/update", Method = "POST", BodyStyle=WebMessageBodyStyle.Wrapped, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        void updateRetrievalFormItemData(List<RetrievalFormItemData> datalist, DateTime date);
+        [WebInvoke(UriTemplate = "/RetrievalFormItem/post/update", Method = "POST", BodyStyle=WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        void updateRetrievalFormItemData(List<RetrievalFormItemData> datalist);
     }
 
     [DataContract]
@@ -49,9 +49,9 @@ namespace Team09LogicU.AndroidServices
         public int itemActual { get; set; }
 
         [DataMember]
-        public List<BreakdownByDepartment> breakList { get; set; }
+        public List<BreakdownByDepartment> breakdownByDepartmentList { get; set; }
 
-        public static RetrievalFormItemData Make(string itemID, string description, string itemLocation, int itemNeeded, int itemActual, List<BreakdownByDepartment> breakList )
+        public static RetrievalFormItemData Make(string itemID, string description, string itemLocation, int itemNeeded, int itemActual, List<BreakdownByDepartment> breakdownByDepartmentList)
         {
             RetrievalFormItemData data = new RetrievalFormItemData();
             data.itemID = itemID;
@@ -59,7 +59,7 @@ namespace Team09LogicU.AndroidServices
             data.itemLocation = itemLocation;
             data.itemNeeded = itemNeeded;
             data.itemActual = itemActual;
-            data.breakList = breakList;
+            data.breakdownByDepartmentList = breakdownByDepartmentList;
 
             return data;
         }
