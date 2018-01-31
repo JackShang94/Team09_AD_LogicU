@@ -86,7 +86,7 @@
                                                                         <tr>
                                                                             
                                     	                                    <td style=" margin-bottom:-10px">   <%#Eval("description") %>
-                                                                                <br /><asp:RegularExpressionValidator runat="server" ForeColor="Red" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                                                                <br /><asp:RegularExpressionValidator runat="server" ForeColor="Red" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
                                     	                                    </td>
                                     	                                    <td class="text-center" style="width:15%">
                                                                                 <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                                    
