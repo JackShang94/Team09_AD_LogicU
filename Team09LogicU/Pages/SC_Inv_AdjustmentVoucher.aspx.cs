@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
@@ -26,7 +27,23 @@ namespace Team09LogicU.Pages
         }
         public void updateCatalogue(List<Item> li)
         {
-            GridView_CatalogList.DataSource = li;
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("itemID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("categoryID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("description", typeof(string)));
+            iTable.Columns.Add(new DataColumn("unitOfMeasure", typeof(string)));
+          
+            foreach (Item i in li)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["itemID"] = i.itemID;
+                dr["categoryID"] = i.categoryID;
+                dr["description"] = i.description;
+                dr["unitOfMeasure"] = i.unitOfMeasure;
+            
+                iTable.Rows.Add(dr);
+            }
+            GridView_CatalogList.DataSource = iTable;
             GridView_CatalogList.DataBind();
         }
 
