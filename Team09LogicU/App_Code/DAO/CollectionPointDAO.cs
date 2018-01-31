@@ -33,19 +33,13 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<CollectionPointInformation> list = new List<CollectionPointInformation>();
 
-            //var result = from es in context.HoursWorked
-            //             join ts in context.TimeSheet on es.Employee equals ts.Employee
-            //             join ed in context.EmployeeDetailed on es.Employee equals ed.Employee
-            //             group ts by new { es.Name, ed.Date } into g
-            //             select new
-            //             {
-            //                 Name = g.Key.Name,
-            //                 FirstDate = g.Key.Date,
-            //                 HoursWorked = g.Sum(e => e.LaborTime),
-            //             };
-
-
-
+            var result = from ds in context.Disbursements
+                         join dp in context.Departments on ds.deptID equals dp.deptID
+                         join cp in context.CollectionPoints on dp.collectionPointID equals cp.collectionPointID
+                         select cp.description;
+            //string sql = "select * from IntegralInfo where convert(nvarchar,getdate(),23)='{0}' and status=1 and userinfoid='{1}'";
+            //sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd"), uid);
+            //var IntegralInfoObj = context.Database.SqlQuery<IntegralInfo>(sql).FirstOrDefault();
             return list;
         }
         public void updatecollection(string storestaffID,string description)
