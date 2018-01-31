@@ -15,6 +15,8 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             loginDAO = new LoginDAO();
+            CollectionPointDAO ss = new CollectionPointDAO();
+            ss.getCollectionPointInformation();
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)

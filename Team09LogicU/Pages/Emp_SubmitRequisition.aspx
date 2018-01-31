@@ -13,8 +13,8 @@
                                     <div class="pull-left search" style="width:75%">
                                     <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
-                                    <div class="pull-right" style="width:20%">
-                                     <asp:Button ID="item_searchBtn" runat="server" Width="100%" Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
+                                    <div class="pull-right" >
+                                     <asp:Button ID="item_searchBtn" runat="server"  Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
                                     </div>
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
 
                         <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="True">
                             <ContentTemplate>
-                                    <asp:Repeater ID="catalogueRepeater" runat="server" OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled" EnableViewState="False">
+                                    <asp:Repeater ID="catalogueRepeater"  runat="server"  OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled" EnableViewState="False">
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                         <ItemTemplate>
@@ -36,7 +36,8 @@
                                                     </div>
                                                     <div style="margin-top:20px">
                                                             <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                                    <asp:Label ID="descLabel" runat="server" Text='<%# Eval("description") %>'></asp:Label>     
+                                                                    <asp:Label ID="descLabel" runat="server" Text='<%# Eval("description") %>'></asp:Label>   
+                                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>    
                                                             </p> 
 															<p class="description text-center " style="margin-left:10px;margin-right:10px"> 
                                                                     <asp:Label ID="unitLabel" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>     
@@ -56,14 +57,17 @@
                                             </div>
                                         </ItemTemplate>
                                         <FooterTemplate>
+                                           
                                         </FooterTemplate>
                                     </asp:Repeater>
+                                
                                 </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
                          <!----------------------------------Cart---------------------------------------------------------->
-                        <div class="col-lg-4">
-                         <div class="card">
+              
+                        <div class="col-lg-3">
+                         <div class="card" style="position:fixed;right:2%;width:25%">
                            <div class="text-center">
                                <div class ="content">
                                    <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
