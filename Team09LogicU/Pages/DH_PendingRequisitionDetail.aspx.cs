@@ -118,5 +118,10 @@ namespace Team09LogicU.Pages
 
             Response.Redirect("./DH_ViewPendingRequisition.aspx");
         }
+
+        protected void Btn_Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./DH_ViewPendingRequisition.aspx");
+        }
     }
 }

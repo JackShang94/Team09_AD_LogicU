@@ -10,7 +10,7 @@
                 <div class="row"> 
                     <div class="col-lg-10">
                         <div class="card">
-                             <div class=" container" <%--style="margin-left:-10px"--%>>
+                             <div class=" container" >
                              <div  class=" col-lg-3" style="margin-top:20px">
                                  <asp:Label ID="Label_ReqID" CssClass="category" runat="server" Text="Requisition ID: "></asp:Label>
                                  <asp:Label ID="lblReqID" CssClass="h5" runat="server"></asp:Label> 
@@ -48,16 +48,20 @@
                                       <AlternatingRowStyle BackColor="White" />
                                 </asp:GridView>  
                                </div>  
-                                 <div class=" col-lg-10" style=" margin-bottom:20px">
+                                 <div class=" col-lg-10" style="margin-top:20px">
+                                      <div class="col-lg-9">
                                   <asp:Label ID="label4" runat="server" CssClass="category" Text=" Remarks:"></asp:Label>
-                                    <br>
+                                    </div>
+                                      <div class="col-lg-6" style="margin-bottom:20px">
                                  <asp:TextBox ID="TextBox_Remarks" style="resize:none" CssClass="form-control" runat="server" TextMode="MultiLine" ></asp:TextBox>
                                      </div>
+                                      </div>
                              </div>
                              <div  class=" col-lg-10" style="margin-top:20px">
                               
                              <asp:Button ID="Btn_Approve"  runat="server" Text="Approve" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Approve_Click" />
                             <asp:Button ID="Btn_Reject"  runat="server" Text="Reject"  CssClass="btn btn-danger btn-fill btn-wd " OnClick="Btn_Reject_Click" />
+                                  <asp:Button ID="Btn_Back"  runat="server" Text="Back"  CssClass="btn btn-default btn-fill btn-wd " OnClick="Btn_Back_Click" />
                             </div>  
                         </div>
                      </div>

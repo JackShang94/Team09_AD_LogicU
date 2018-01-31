@@ -96,8 +96,7 @@ Submit Adjustment Voucher
                                     	                                    <td class="text-left" style="width:15%">
                                                                                 <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                              
                                                                                 </asp:TextBox> </td>
-                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
-                                    	                                    
+                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>  
                                                                              <td class="text-right" style="width:50%">
                                                                               <asp:TextBox ID="cart_recordTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Record") %>' >
                                                                                     

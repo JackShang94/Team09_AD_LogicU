@@ -85,7 +85,7 @@
 
         <div class="logo">
             <a href="#" class="logo-text">
-                Store Supplier
+                Store Supervisor
             </a>
         </div>
 		<div class="logo logo-mini">
@@ -134,7 +134,13 @@
                     </a>        
                 </li>
 
-             
+              <li>
+                    <a  href="SS_Notification.aspx">
+                        <i class="pe-7s-volume"></i>
+                        <p>Notification
+                        </p>
+                    </a>         
+                </li>
          
             </ul>
     	</div>
