@@ -18,6 +18,8 @@ namespace Team09LogicU.pages
             NotificationDAO nDAO = new NotificationDAO();
             List<DeptNotification> nList = nDAO.getAllDeptNotificationByID(loginID);
             List<DeptNotification> nNewList = nDAO.getNewDeptNotificationByID(loginID);
+            notice_Repeater.DataSource = nList;
+            notice_Repeater.DataBind();
         }
     }
 }
