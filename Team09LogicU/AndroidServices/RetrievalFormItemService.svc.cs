@@ -30,13 +30,13 @@ namespace Team09LogicU.AndroidServices
             for (int i = 0; i < list.Count(); i++)
             {
                 DataList.Add(new RetrievalFormItemData());
-                DataList[i] = RetrievalFormItemData.Make(list[i].ItemID,list[i].ItemDescription,list[i].Location,list[i].Needed,list[i].Actual, list[i].BreakList);
+                DataList[i] = RetrievalFormItemData.Make(list[i].ItemID,list[i].ItemDescription,list[i].Location,list[i].Needed,list[i].Actual, list[i].BreakdownByDepartmentList);
             }
 
             return DataList;
         }
 
-        public void updateRetrievalFormItemData(List<RetrievalFormItemData> datalist, DateTime date)
+        public void updateRetrievalFormItemData(List<RetrievalFormItemData> datalist)
         {
             List<RetrievalFormItem> list = new List<RetrievalFormItem>();
             for (int i = 0; i < datalist.Count(); i++)
@@ -47,7 +47,9 @@ namespace Team09LogicU.AndroidServices
                 list[i].Location = datalist[i].itemLocation;
                 list[i].Needed = datalist[i].itemNeeded;
                 list[i].Actual = datalist[i].itemActual;
+                list[i].BreakdownByDepartmentList = datalist[i].breakdownByDepartmentList;
             }
+            DateTime date = DateTime.Now;
             reDAO.ConfirmRetrieval(list, date);
         }
 
