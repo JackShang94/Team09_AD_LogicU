@@ -13,6 +13,7 @@ namespace Team09LogicU.AndroidServices
     // NOTE: In order to launch WCF Test Client for testing this service, please select disbursementList.svc or disbursementList.svc.cs at the Solution Explorer and start debugging.
     public class DisbursementListService : IDisbursementListService
     {
+        
         public List<WCFDept> getAllDept()
         {
             DepartmentDAO deptDAO = new DepartmentDAO();
@@ -63,9 +64,32 @@ namespace Team09LogicU.AndroidServices
             }
             return ldiscart_wcf;
         }
-        public void updateDisbursementItemByItemID(string itemID, int qty)
+        public void updateDisbursementItemByItemID(cartList_JSON cart_JSON,string disID)
         {
+            List<WCFDisbursementCart> cart_wcf = cart_JSON.DiscartList;
+            //string disID = "9";
+            int disID_int = Int32.Parse(disID);
+            using (SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities())
+            {
+                List<DisbursementItem> ldisitem  =context.DisbursementItems.Where(x => x.disbursementID == (disID_int)).ToList();
+                for (int i = 0; i < cart_wcf.Count; i++)
+                {
+                    foreach (var j in ldisitem)
+                    {
+                        if (j.itemID == cart_wcf[i].ItemID)
+                        {
+                            j.actualQty = cart_wcf[i].Actual;
+                            break;
+                        }
+                    }
+                }
+                context.SaveChanges();
+
+            }
             return;
+                //List<DisbursementItem> ldisitem = disitemDAO.getDisbursementItemsByDisbursementId(Convert.ToInt32(disID));
+
+
         }
     }
 }

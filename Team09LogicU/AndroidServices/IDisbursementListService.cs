@@ -21,7 +21,7 @@ namespace Team09LogicU.AndroidServices
         //[WebGet(UriTemplate = "/Disbursement",ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json )]
         //List<WCFDisbursement> getDisbursementByDeptID()
         [OperationContract]
-        [WebInvoke(UriTemplate = "/Disbursement", Method ="POST" , BodyStyle =WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json,RequestFormat = WebMessageFormat.Json )]
+        [WebGet(UriTemplate = "/Disbursement?deptID={deptID}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFDisbursement> getDisbursementByDeptID(string deptID);
 
         [OperationContract]
@@ -29,11 +29,28 @@ namespace Team09LogicU.AndroidServices
         List<WCFDisbursementCart> getDisbursementItemByDisID(string disID);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/Disbursement/update", Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        void updateDisbursementItemByItemID(string itemID, int qty);
+        [WebInvoke(UriTemplate = "/Disbursement/{disID}/update", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        void updateDisbursementItemByItemID(cartList_JSON cartList_json,string disID);
 
     }
+    [DataContract]
+    public class cartList_JSON
+    {
+        private List<WCFDisbursementCart> discartList;
+        [DataMember(Name = "discartList")]
+        public List<WCFDisbursementCart> DiscartList
+        {
+            get
+            {
+                return discartList;
+            }
 
+            set
+            {
+                discartList = value;
+            }
+        }
+    }
     [DataContract]
     public class WCFDisbursement
     {
@@ -113,17 +130,17 @@ namespace Team09LogicU.AndroidServices
     {
         private string itemID;
         private string itemDescription;
-        private int expectedc;
+        private int expected;
         private int actual;
 
-        public WCFDisbursementCart(string itemID, string itemDescription, int expectedc, int actual)
+        public WCFDisbursementCart(string itemID, string itemDescription, int expected, int actual)
         {
             this.itemID = itemID;
             this.itemDescription = itemDescription;
-            this.expectedc = expectedc;
+            this.expected = expected;
             this.actual = actual;
         }
-        [DataMember]
+        [DataMember(Name ="itemID")]
         public string ItemID
         {
             get
@@ -136,7 +153,7 @@ namespace Team09LogicU.AndroidServices
                 itemID = value;
             }
         }
-        [DataMember]
+        [DataMember(Name= "itemDescription")]
         public string ItemDescription
         {
             get
@@ -149,20 +166,20 @@ namespace Team09LogicU.AndroidServices
                 itemDescription = value;
             }
         }
-        [DataMember]
-        public int Expectedc
+        [DataMember(Name = "expected")]
+        public int Expected
         {
             get
             {
-                return expectedc;
+                return expected;
             }
 
             set
             {
-                expectedc = value;
+                expected = value;
             }
         }
-        [DataMember]
+        [DataMember(Name = "actual")]
         public int Actual
         {
             get

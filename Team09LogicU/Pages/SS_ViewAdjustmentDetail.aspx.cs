@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
@@ -18,6 +19,8 @@ namespace Team09LogicU.Pages
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
         ItemDAO itemdao = new ItemDAO();
         StockCardDAO stockcdao = new StockCardDAO();
+        TextBox tb = new TextBox();
+        string strPageNum = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,21 +35,24 @@ namespace Team09LogicU.Pages
             string status = adjv.status;
             DateTime adjvDate = adjv.adjDate;
 
-            if (adjvdao.price(adjvoucherID) == 1)
-            {
-                button_SendtoManager.Style.Value = " display:block;";
-                TextBox_Remarks.Style.Value = " display:none;";
-                button_Reject.Style.Value = " display:none;";
-                button_Approve.Style.Value = " display:none;";
-            }
+          
             if (adjv.status != "pending")
             {
                 TextBox_Remarks.Style.Value = " display:none;";
                 button_Reject.Style.Value = " display:none;";
                 button_Approve.Style.Value = " display:none;";
-              
+
             }
-            
+            else {
+                if (adjvdao.price(adjvoucherID) == 1)
+                {
+                    button_SendtoManager.Style.Value = " display:block;";
+                    TextBox_Remarks.Style.Value = " display:none;";
+                    button_Reject.Style.Value = " display:none;";
+                    button_Approve.Style.Value = " display:none;";
+                }
+               
+            }
 
 
             Label_StoreStafID.Text = supervisorID;
@@ -60,11 +66,13 @@ namespace Team09LogicU.Pages
         {
             try
             {
+                tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 GridView_detailList.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
                 BindData();
 
-                TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
-                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+
             }
             catch
             {
@@ -90,7 +98,20 @@ namespace Team09LogicU.Pages
         public void BindData()
         {
             List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
-            GridView_detailList.DataSource = adjItems;
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVItemID", typeof(int)));
+            iTable.Columns.Add(new DataColumn("itemDescription", typeof(string)));
+            iTable.Columns.Add(new DataColumn("quantity", typeof(int)));
+
+            foreach (AdjustmentVoucherItem i in adjItems)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVItemID"] = i.adjVItemID;
+                dr["itemDescription"] = i.Item.description;
+                dr["quantity"] = i.quantity;
+                iTable.Rows.Add(dr);
+            }
+            GridView_detailList.DataSource = iTable;
             GridView_detailList.DataBind();
         }
         protected void btn_Back_Click(object sender, EventArgs e)
@@ -105,13 +126,6 @@ namespace Team09LogicU.Pages
             adjvdao.ApproveAdjustmentVoucherStatus(adjv, supervisorID);
             List<AdjustmentVoucherItem> adjvilist = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
 
-            //List<Item> itemList = new List<Item>();
-            //for (int i = 0; i < adjvilist.Count(); i++)
-            //{
-            //    itemList.Add(new Item());
-            //    itemList[i] = itemdao.getItemByID(adjvilist[i].itemID);
-            //    itemdao.UpdateItemQtyOnHand(itemList[i].itemID, adjvilist[i].quantity);
-            //}
             itemdao.updateStockCardAndItemQuantity(adjvilist);
             
             Response.Redirect("./SS_ViewAdjustment.aspx");
@@ -126,17 +140,22 @@ namespace Team09LogicU.Pages
         protected void btn_SendToManager_Click(object sender, EventArgs e)
         {
             AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvoucherID);
-            //  adjvdao.ApproveAdjustmentVoucherStatus(adjv, mansupervisorID);
-
-
-            //adjvdao.SendtoManager(adjv, mansupervisorID);//METHOD1!!!!!!!!!!!!!!!!!!!!!!!!
-
-
 
             adjvdao.SendtoManageranother(adjv);//Method2
 
+            //send email and notification to rep 
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            string supervisorName = Session["loginName"].ToString();
+            StoreStaff manager = context.StoreStaffs.Where(x => x.role == "manager").ToList().First();
+            string managerID = manager.storeStaffID;
+            string managerName = manager.storeStaffName;
 
+            string confirmDate = DateTime.Now.ToShortDateString();
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(managerID, supervisorName + " has send an adjustment voucher!" + confirmDate, DateTime.Now);
 
+            Email email = new Email();
+            email.sendAdjustmentEmailToManager(supervisorName, managerName);
 
             Response.Redirect("./SS_ViewAdjustment.aspx");
         }

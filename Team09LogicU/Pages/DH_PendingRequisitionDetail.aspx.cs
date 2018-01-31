@@ -80,7 +80,21 @@ namespace Team09LogicU.Pages
             string remark = TextBox_Remarks.Text;
             Requisition req = reqDAO.findRequisitionByrequisitionId(reqID);
             reqDAO.updateRequisition(req, remark, "Approved");
-            Response.Redirect("./DH_ViewPendingRequisition.aspx");
+            //send feedback email and notification to employee 
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            string headID = Session["loginID"].ToString();
+            string headName = Session["loginName"].ToString();
+            string staffID = req.staffID;
+            string staffName = context.DeptStaffs.Where(x => x.staffID == staffID).Select(x => x.staffName).ToList().First();
+            string requisitionDate = req.requisitionDate.ToString();
+       
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(staffID, headName + " approved your requisition on "+ requisitionDate, DateTime.Now);
+
+            Email email = new Email();
+            email.sendFeedBackEmailToEmployee(staffName, headName, requisitionDate, "Approved");
+
+            Response.Redirect("./DH_ViewPendingRequisition.aspx");                
         }
 
         protected void Btn_Reject_Click(object sender, EventArgs e)
@@ -88,6 +102,25 @@ namespace Team09LogicU.Pages
             string remark = TextBox_Remarks.Text;
             Requisition req = reqDAO.findRequisitionByrequisitionId(reqID);
             reqDAO.updateRequisition(req, remark,"Rejected");
+            //send feedback email and notification to employee 
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            string headID = Session["loginID"].ToString();
+            string headName = Session["loginName"].ToString();
+            string staffID = req.staffID;
+            string staffName = context.DeptStaffs.Where(x => x.staffID == staffID).Select(x => x.staffName).ToList().First();
+            string requisitionDate = req.requisitionDate.ToString();
+
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(staffID, headName + " rejected your requisition on " + requisitionDate, DateTime.Now);
+
+            Email email = new Email();
+            email.sendFeedBackEmailToEmployee(staffName, headName, requisitionDate, "Rejected");
+
+            Response.Redirect("./DH_ViewPendingRequisition.aspx");
+        }
+
+        protected void Btn_Back_Click(object sender, EventArgs e)
+        {
             Response.Redirect("./DH_ViewPendingRequisition.aspx");
         }
     }

@@ -130,6 +130,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_Remarks;
         
         /// <summary>
+        /// btn_Back control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Back;
+        
+        /// <summary>
         /// button_Approve control.
         /// </summary>
         /// <remarks>
@@ -146,14 +155,5 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button button_Reject;
-        
-        /// <summary>
-        /// btn_Back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Back;
     }
 }

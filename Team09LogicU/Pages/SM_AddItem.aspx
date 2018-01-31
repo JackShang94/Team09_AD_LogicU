@@ -7,25 +7,25 @@
    
    
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-lg-10">
                         <div class="card">
                             <div class="container">
-                               <div class="col-lg-12" style="margin-top:20px;margin-bottom:20px;margin-left:-40px">
+                               <div class="col-lg-10" style="margin-top:20px;margin-bottom:20px;margin-left:-40px">
 
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Item code</label><asp:TextBox ID="TextBox_ItemNumber"  runat="server" class="form-control " Width="200px" CausesValidation="True"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="submit1" ControlToValidate="TextBox_ItemNumber" runat="server" ForeColor="#ff3300" ErrorMessage="required"></asp:RequiredFieldValidator><%-- value=""--%>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Category</label>
                                             <asp:DropDownList ID="dropdownlist_Catagory" runat="server" class="form-control" Width="200px"></asp:DropDownList>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Unit of Measure</label>
                                             <asp:DropDownList ID="dropdownlist_unitofmeasure" runat="server" class="form-control" Width="200px">
@@ -38,7 +38,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Qty on Hand </label>
 
@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>ReorderLevel </label>
 
@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Reorder Qty </label>
 
@@ -67,7 +67,7 @@
                                             <%-- value=""--%>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Description</label>
 
@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                    
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Location </label>
 
@@ -88,7 +88,7 @@
                                     </div>
                                    <br />
                                    <hr />
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Supplier1</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier1" runat="server" class="form-control" Width="200px"></asp:DropDownList>
@@ -97,7 +97,7 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ValidationGroup="submit1" ControlToValidate="TextBox_price1" runat="server" ForeColor="#ff3300" ErrorMessage="required"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Supplier2</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier2" runat="server" class="form-control" Width="200px"></asp:DropDownList>
@@ -107,7 +107,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Supplier3</label>
                                             <asp:DropDownList ID="dropdownlist_Supplier3" runat="server" class="form-control" Width="200px"></asp:DropDownList>
@@ -124,7 +124,7 @@
      
         <div class="col-lg-10" style="margin-left:20px">
             <div class="col-lg-2">
-        <asp:Button ID="Btn_Submit" runat="server" Text="Submit" ValidationGroup="submit1" CssClass="btn btn-primary btn-fill btn-wd " OnClick="Btn_Submit_Click" />
+        <asp:Button ID="Btn_Submit" runat="server" Text="Submit" ValidationGroup="submit1" CssClass="btn btn-warning btn-fill btn-wd " OnClick="Btn_Submit_Click" />
         </div>
         <div class="col-lg-2"><asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
         </div>

@@ -7,12 +7,15 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
     public partial class SS_ViewAdjustment : System.Web.UI.Page
     {
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
+        TextBox tb = new TextBox();
+        string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -54,18 +57,36 @@ namespace Team09LogicU.Pages
                 DateTime dateTo = Convert.ToDateTime(to);
                 list = adjvdao.findadjvbyStatusandDate(dateFrom, dateTo, Status);
             }
-
-            GridView_ViewAdjustmentVoucher.DataSource = list;
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVID", typeof(int)));
+            iTable.Columns.Add(new DataColumn("storeStaffID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("authorisedBy", typeof(string)));
+            iTable.Columns.Add(new DataColumn("adjDate", typeof(DateTime)));
+            iTable.Columns.Add(new DataColumn("status", typeof(string)));
+            foreach (AdjustmentVoucher i in list)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVID"] = i.adjVID;
+                dr["storeStaffID"] = i.storeStaffID;
+                dr["authorisedBy"] = i.authorisedBy;
+                dr["adjDate"] = i.adjDate;
+                dr["status"] = i.status;
+                iTable.Rows.Add(dr);
+            }
+            GridView_ViewAdjustmentVoucher.DataSource = iTable;
             GridView_ViewAdjustmentVoucher.DataBind();
         }
         protected void GridView_ViewAdjustmentVoucher_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
             {
+                tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
                 GridView_ViewAdjustmentVoucher.PageIndex = e.NewPageIndex;
-
-                TextBox tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_ViewAdjustmentVoucher.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                BindGrid();
+
+
             }
             catch
             {
@@ -94,7 +115,25 @@ namespace Team09LogicU.Pages
             string status = "pending";
             List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
             list = adjvdao.getAdjustmentVoucherList();
-            GridView_ViewAdjustmentVoucher.DataSource = list;          
+
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVID", typeof(int)));
+            iTable.Columns.Add(new DataColumn("storeStaffID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("authorisedBy", typeof(string)));
+            iTable.Columns.Add(new DataColumn("adjDate", typeof(DateTime)));
+            iTable.Columns.Add(new DataColumn("status", typeof(string)));
+            foreach (AdjustmentVoucher i in list)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVID"] = i.adjVID;
+                dr["storeStaffID"] = i.storeStaffID;
+                dr["authorisedBy"] = i.authorisedBy;
+                dr["adjDate"] = i.adjDate;
+                dr["status"] = i.status;
+                iTable.Rows.Add(dr);
+            }
+
+                GridView_ViewAdjustmentVoucher.DataSource = iTable;          
             GridView_ViewAdjustmentVoucher.DataBind();
         }
 

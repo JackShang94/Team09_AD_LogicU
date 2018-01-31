@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreClerk.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="SC_Inv_ViewInventoryList.aspx.cs" Inherits="Team09LogicU.Pages.SC_Inv_StockManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Stock Management
+    View Inventory List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
  
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-10">
                 <div class="card">
                     <div class="container">
                         
@@ -16,8 +16,11 @@
                                     <asp:DropDownList ID="DropDownList_cat" runat="server" CssClass="form-control"  AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DropDownList_cat_SelectedIndexChanged" ></asp:DropDownList>
                                 </div>
                     <div class="col-lg-10">
-                                        <asp:GridView ID="GridView_stock" runat="server" PageSize="5" OnPageIndexChanging="GridView_stock_PageIndexChanging" OnRowCommand="GridView_stock_RowCommand"  OnRowEditing="GridView_stock_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
-                                            CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView_stock_SelectedIndexChanged">
+                                        <asp:GridView ID="GridView_stock" runat="server" PageSize="5" OnPageIndexChanging="GridView_stock_PageIndexChanging"
+                                            OnRowCommand="GridView_stock_RowCommand"  OnRowEditing="GridView_stock_RowEditing"
+                                            CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " 
+                                            AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
+                                            CellPadding="4" ForeColor="#333333" GridLines="None" >
                                             <Columns>
                                                 <asp:TemplateField HeaderText="View" ItemStyle-CssClass="text-center">
                                                     <ItemTemplate>
@@ -25,9 +28,11 @@
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>
-                                            <PagerTemplate>
+                                            <HeaderStyle CssClass=" content text-uppercase  "></HeaderStyle>
+                                    <AlternatingRowStyle BackColor="White" />
+           <PagerTemplate>
         <br />
-          <div class="col-lg-12 pull-left">
+          <div class="col-lg-12 text-center">
          <div class="col-lg-1" style="width:100px">
          <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label></div>
          <div class="col-lg-1" style="width:40px">
@@ -41,11 +46,11 @@
          </div><div class="col-lg-1" style="width:40px;margin-left:-10px">
             <asp:LinkButton ID="lbnLast" runat="Server" Text="Last"  CssClass="btn btn-xs btn-success"   Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last" ></asp:LinkButton></div>
               <div class="col-lg-1" style="width:40px">
-             <asp:Button ID="Button1" CommandName="go"  CssClass="btn btn-xs btn-success"  Text="GO" runat="server" />
+             <asp:Button ID="go" CommandName="go"  CssClass="btn btn-xs btn-success"  Text="GO" runat="server" CausesValidation="false" />
          </div><br />
      </PagerTemplate>
                                         </asp:GridView>
-                                        <alternatingrowstyle backcolor="White" />
+        
                                     </div>  
                     </div>
                   

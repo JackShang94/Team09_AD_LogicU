@@ -38,28 +38,29 @@ namespace Team09LogicU.App_Code.DAO
         public List<DeptNotification> getNewDeptNotificationByID(string staffID )
         {
             List<DeptNotification> list = new List<DeptNotification>();
-            list = context.DeptNotifications.Where(x => x.staffID == staffID && x.status == "NEW").ToList();
+            list = context.DeptNotifications.OrderByDescending(x=>x.date).
+                Where(x => x.staffID == staffID && x.status == "NEW").ToList();
             return list;
         }
 
         public List<DeptNotification> getAllDeptNotificationByID(string staffID)
         {
             List<DeptNotification> list = new List<DeptNotification>();
-            list = context.DeptNotifications.Where(x => x.staffID == staffID).ToList();
+            list = context.DeptNotifications.OrderByDescending(x => x.date).Where(x => x.staffID == staffID).ToList();
             return list;
         }
 
         public List<StoreNotification> getNewStoreNotificationByID(string storeStaffID)
         {
             List<StoreNotification> list = new List<StoreNotification>();
-            list = context.StoreNotifications.Where(x => x.storeStaffID == storeStaffID && x.status == "NEW").ToList();
+            list = context.StoreNotifications.OrderByDescending(x => x.date).Where(x => x.storeStaffID == storeStaffID && x.status == "NEW").ToList();
             return list;
         }
 
         public List<StoreNotification> getAllStoreNotificationByID(string storeStaffID)
         {
             List<StoreNotification> list = new List<StoreNotification>();
-            list = context.StoreNotifications.Where(x => x.storeStaffID == storeStaffID).ToList();
+            list = context.StoreNotifications.OrderByDescending(x => x.date).Where(x => x.storeStaffID == storeStaffID).ToList();
             return list;
         }
 
