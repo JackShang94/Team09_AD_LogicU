@@ -19,6 +19,8 @@ namespace Team09LogicU.Pages
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
         ItemDAO itemdao = new ItemDAO();
         StockCardDAO stockcdao = new StockCardDAO();
+        TextBox tb = new TextBox();
+        string strPageNum = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,11 +66,13 @@ namespace Team09LogicU.Pages
         {
             try
             {
+                tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 GridView_detailList.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
                 BindData();
 
-                TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
-                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+
             }
             catch
             {
@@ -95,9 +99,9 @@ namespace Team09LogicU.Pages
         {
             List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
             DataTable iTable = new DataTable("itemTable");
-            iTable.Columns.Add(new DataColumn("adjVItemID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("adjVItemID", typeof(int)));
             iTable.Columns.Add(new DataColumn("itemDescription", typeof(string)));
-            iTable.Columns.Add(new DataColumn("quantity", typeof(string)));
+            iTable.Columns.Add(new DataColumn("quantity", typeof(int)));
 
             foreach (AdjustmentVoucherItem i in adjItems)
             {
