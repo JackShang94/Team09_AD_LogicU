@@ -33,15 +33,18 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<CollectionPointInformation> list = new List<CollectionPointInformation>();
 
-            //var m = from p in context.CollectionPoints
-            //        join q in context.Departments on p.collectionPointID equals q.collectionPointID
-            //        join r in context.Disbursements on q.deptID equals r.deptID
-            //        where r.status == "Awaiting Delivery"
-            //        select p.description;
+            //var result = from es in context.HoursWorked
+            //             join ts in context.TimeSheet on es.Employee equals ts.Employee
+            //             join ed in context.EmployeeDetailed on es.Employee equals ed.Employee
+            //             group ts by new { es.Name, ed.Date } into g
+            //             select new
+            //             {
+            //                 Name = g.Key.Name,
+            //                 FirstDate = g.Key.Date,
+            //                 HoursWorked = g.Sum(e => e.LaborTime),
+            //             };
 
-            //var s = from c in context.CollectionPoints
-            //        group c by c.description  as 
-                    
+
 
             return list;
         }
