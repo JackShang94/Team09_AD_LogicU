@@ -17,7 +17,12 @@ namespace Team09LogicU.Pages
             string loginID = Session["loginID"].ToString();
             NotificationDAO nDAO = new NotificationDAO();
             List<StoreNotification> nList = nDAO.getAllStoreNotificationByID(loginID);
-            List<StoreNotification> nNewList = nDAO.getNewStoreNotificationByID(loginID);
+            notice_Repeater.DataSource = nList;
+            notice_Repeater.DataBind();
+            foreach (StoreNotification item in nList)
+            {
+                nDAO.setStoreNotificationStatusAsOld(item.notificationID);
+            }
         }
     }
 }

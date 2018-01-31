@@ -373,7 +373,4 @@
 
       ga('create', 'UA-46172202-1', 'auto');
       ga('send', 'pageview');
-
-    </script>
-
 </html>

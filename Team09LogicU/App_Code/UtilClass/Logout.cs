@@ -14,6 +14,7 @@ namespace Team09LogicU.App_Code.UtilClass
             HttpContext.Current.Session["loginID"] = "";
             HttpContext.Current.Session["loginRole"] = "";
             HttpContext.Current.Session["loginName"] = "";
+            HttpContext.Current.Session.Abandon();
             HttpContext.Current.Response.Redirect("login.aspx");
         }
     }

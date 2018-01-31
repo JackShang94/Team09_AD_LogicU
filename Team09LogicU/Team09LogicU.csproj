@@ -114,6 +114,7 @@
     <Content Include="AndroidServices\DisbursementListService.svc" />
     <Content Include="AndroidServices\DisbursementListItemService.svc" />
     <Content Include="AndroidServices\ItemService.svc" />
+    <Content Include="AndroidServices\LoginService.svc" />
     <Content Include="AndroidServices\RetrievalFormItemService.svc" />
     <Content Include="AndroidServices\RetrievalFormService.svc" />
     <Content Include="AndroidServices\StoreStaffService.svc" />
@@ -369,11 +370,15 @@
     <Compile Include="AndroidServices\IDisbursementListService.cs" />
     <Compile Include="AndroidServices\IDisbursementListItemService.cs" />
     <Compile Include="AndroidServices\IItemService.cs" />
+    <Compile Include="AndroidServices\ILoginService.cs" />
     <Compile Include="AndroidServices\IRetrievalFormItemService.cs" />
     <Compile Include="AndroidServices\IRetrievalFormService.cs" />
     <Compile Include="AndroidServices\IStoreStaffService.cs" />
     <Compile Include="AndroidServices\ItemService.svc.cs">
       <DependentUpon>ItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\LoginService.svc.cs">
+      <DependentUpon>LoginService.svc</DependentUpon>
     </Compile>
     <Compile Include="AndroidServices\RetrievalFormItemService.svc.cs">
       <DependentUpon>RetrievalFormItemService.svc</DependentUpon>
@@ -730,6 +735,7 @@
     <Compile Include="Pages\SC_PurchaseOrderHistoryDetail.aspx.designer.cs">
       <DependentUpon>SC_PurchaseOrderHistoryDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs" />
     <Compile Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.cs">
       <DependentUpon>SC_RO_DisbursementListHistory_ViewDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

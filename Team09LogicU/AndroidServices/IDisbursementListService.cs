@@ -29,11 +29,28 @@ namespace Team09LogicU.AndroidServices
         List<WCFDisbursementCart> getDisbursementItemByDisID(string disID);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/Disbursement/update", Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        void updateDisbursementItemByItemID(WCFDisbursementCart discart);
+        [WebInvoke(UriTemplate = "/Disbursement/{disID}/update", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        void updateDisbursementItemByItemID(cartList_JSON cartList_json,string disID);
 
     }
+    [DataContract]
+    public class cartList_JSON
+    {
+        private List<WCFDisbursementCart> discartList;
+        [DataMember(Name = "discartList")]
+        public List<WCFDisbursementCart> DiscartList
+        {
+            get
+            {
+                return discartList;
+            }
 
+            set
+            {
+                discartList = value;
+            }
+        }
+    }
     [DataContract]
     public class WCFDisbursement
     {
@@ -123,7 +140,7 @@ namespace Team09LogicU.AndroidServices
             this.expected = expected;
             this.actual = actual;
         }
-        [DataMember]
+        [DataMember(Name ="itemID")]
         public string ItemID
         {
             get
@@ -136,7 +153,7 @@ namespace Team09LogicU.AndroidServices
                 itemID = value;
             }
         }
-        [DataMember]
+        [DataMember(Name= "itemDescription")]
         public string ItemDescription
         {
             get
@@ -149,7 +166,7 @@ namespace Team09LogicU.AndroidServices
                 itemDescription = value;
             }
         }
-        [DataMember]
+        [DataMember(Name = "expected")]
         public int Expected
         {
             get
@@ -162,7 +179,7 @@ namespace Team09LogicU.AndroidServices
                 expected = value;
             }
         }
-        [DataMember]
+        [DataMember(Name = "actual")]
         public int Actual
         {
             get
