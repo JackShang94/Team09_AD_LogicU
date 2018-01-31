@@ -11,19 +11,68 @@ namespace Team09LogicU.App_Code.DAO
     {
         SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();
 
-        //add new delegate
-        public void delegateToStaff(string newHeadId, DateTime startDate, DateTime endDate)
+        public void terminateDelegate(Models.Delegate delegateItem)
         {
-            Models.Delegate d = new Models.Delegate();
-            DeptStaff staff = context.DeptStaffs.Where(x => x.staffID == newHeadId).First();
+            if (delegateItem.status == "active")
+            {
+                delegateItem.status = "cancelled";
+            }
+            else
+            {
+                delegateItem.status = "terminated";
 
-            d.staffID = newHeadId;
-            d.startDate = startDate;
-            d.endDate = endDate;
-            d.status = "active";
-            context.Delegates.Add(d);
+                string currentHeadID = delegateItem.DeptStaff.Department.headStaffID;
+                DeptStaff currendHead = context.DeptStaffs.Where(x => x.staffID == currentHeadID).First();
+                currendHead.role = "outOfOfficeHead";
+
+                DeptStaff employee = context.DeptStaffs.Where(x => x.staffID == delegateItem.staffID).ToList().First();
+                employee.role = "emp";
+            }
             context.SaveChanges();
+        }
+        public void addDelegate(string selectedStaff, DateTime startDate,DateTime endDate)
+        {
+            Models.Delegate delegateItem = new Models.Delegate();
+            delegateItem.staffID = selectedStaff;
+            delegateItem.startDate = startDate;
+            delegateItem.endDate = endDate;
+            delegateItem.status = "active";
 
+            context.Delegates.Add(delegateItem);
+            context.SaveChanges();
+        }
+
+        public void updateDelegateStatus(List<Models.Delegate> delegateList, DateTime operationDate)
+        {
+            foreach (Models.Delegate item in delegateList)
+            {
+                if (item.endDate < operationDate && item.status != "cancelled"&&item.status != "terminated" && item.status != "expired")//expired
+                {
+                    item.status = "expired";
+
+                    string currentHeadID = item.DeptStaff.Department.headStaffID;
+                    DeptStaff currendHead = context.DeptStaffs.Where(x => x.staffID == currentHeadID).First();
+                    currendHead.role = "head";
+
+                    DeptStaff employee = context.DeptStaffs.Where(x => x.staffID == item.staffID).ToList().First();
+                    employee.role = "emp";
+                }
+                else
+                {
+                    if (item.startDate<= operationDate && item.endDate >= operationDate && item.status != "cancelled" && item.status != "terminated" && item.status != "expired")//between delegate days
+                    {
+                        item.status = "On delegation";
+
+                        string currentHeadID = item.DeptStaff.Department.headStaffID;
+                        DeptStaff currendHead = context.DeptStaffs.Where(x => x.staffID == currentHeadID).First();
+                        currendHead.role = "outOfOfficeHead";
+
+                        DeptStaff employee = context.DeptStaffs.Where(x => x.staffID == item.staffID).ToList().First();
+                        employee.role = "delegateHead";
+                    }
+                }
+            }
+            context.SaveChanges();
         }
         //search for all delegates for this department(for viewing delegate history)
         public List<Models.Delegate> findDelegatesByDepartment(string departmentID)
@@ -44,58 +93,5 @@ namespace Team09LogicU.App_Code.DAO
             return d;
         }
 
-        //update delegation status according to time
-        public void updateStatusAndStaffRoleByDate(DateTime today)
-        {
-            List<Models.Delegate> dList = context.Delegates.ToList();
-            foreach (Models.Delegate d in dList)
-            {
-                //when the delegation starts
-                if (d.status == "active" && today >= d.startDate)
-                {
-                    d.status = "On delegation";
-                    d.DeptStaff.role = "delegateHead";
-                    string currentHeadID = d.DeptStaff.Department.headStaffID;
-                    DeptStaff currendHead = context.DeptStaffs.Where(x => x.staffID == currentHeadID).First();
-                    currendHead.role = "outOfOfficeHead";
-                }
-                //when the delegation comes to end
-                else if (d.status == "On delegation" && today > d.endDate)
-                {
-                    d.status = "expired";
-                    d.DeptStaff.role = "emp";
-
-                    string currentHeadID = d.DeptStaff.Department.headStaffID;
-                    DeptStaff currendHead = context.DeptStaffs.Where(x => x.staffID == currentHeadID).First();
-                    currendHead.role = "head";
-                }
-            }
-            context.SaveChanges();
-        }
-
-        //change delegation status when the head manipulates
-        public void cancelDelegation(int delegateID)
-        {
-            String LoginID = (string)HttpContext.Current.Session["loginID"];
-            Models.Delegate d = context.Delegates.Where(x => x.delegateID == delegateID).First();
-            //terminate the delegation that has started
-            if (d.status == "On delegation")
-            {
-                d.status = "terminated";
-                d.DeptStaff.role = "emp";
-                //string currentHeadID = d.DeptStaff.Department.headStaffID;
-                //DeptStaff currendHead = context.DeptStaffs.Where(x => x.staffID == currentHeadID).First();
-                //currendHead.role = "head";
-
-                DeptStaff sdsd = context.DeptStaffs.Where(x => x.staffID == LoginID).First();
-                sdsd.role = "head";
-            }
-            //cancel the delegation that has not started
-            if (d.status == "active")
-            {
-                d.status = "cancelled";
-            }
-            context.SaveChanges();
-        }
     }
 }
