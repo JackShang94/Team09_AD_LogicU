@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Team09LogicU.AndroidServices.LoginService" CodeBehind="LoginService.svc.cs" %>
