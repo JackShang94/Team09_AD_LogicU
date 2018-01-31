@@ -21,5 +21,10 @@ namespace Team09LogicU.pages
             notice_Repeater.DataSource = nList;
             notice_Repeater.DataBind();
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,28 +12,26 @@ Notification
                             <div class="content">
                                 <div class="panel-group" id="accordion">
                                     <asp:Repeater ID="notice_Repeater"   runat="server" ViewStateMode="Enabled" EnableViewState="False">
-                                         <HeaderTemplate>
-                                        </HeaderTemplate>
+                                        
                                          <ItemTemplate>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-target="#collapseOne" href="#" data-toggle="collapse">
+                                                <a data-target="#<%# Eval("notificationID") %>" href="#" data-toggle="collapse" >
                                                     <%# Eval("date") %>
-
-                                                    <b class="caret"></b>
+                                                   
+                                                    <b class="caret" onclick="setDeptNotificationStatusAsOld()"></b>
                                                 </a>
                                             </h4>
                                         </div>
-                                        <div id="collapseOne" class="panel-collapse collapse">
+                                        <div id="<%# Eval("notificationID") %>" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <%# Eval("message") %>
                                                </div>
                                         </div>
                                     </div>
                                              </ItemTemplate>
-                                         <FooterTemplate>
-                                        </FooterTemplate>
+                                        
                                     </asp:Repeater>
                                 </div>
                             </div>

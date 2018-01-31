@@ -143,7 +143,13 @@
                         </ul>
                     </div>
                 </li>
-
+                 <li>
+                    <a  href="SM_Notification.aspx">
+                        <i class="pe-7s-volume"></i>
+                        <p>Notification
+                        </p>
+                    </a>         
+                </li>
                
                <li>
                     <a data-toggle="collapse" href="#ManageSupplier">

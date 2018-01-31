@@ -134,7 +134,13 @@
                     </a>        
                 </li>
 
-             
+              <li>
+                    <a  href="SS_Notification.aspx">
+                        <i class="pe-7s-volume"></i>
+                        <p>Notification
+                        </p>
+                    </a>         
+                </li>
          
             </ul>
     	</div>
