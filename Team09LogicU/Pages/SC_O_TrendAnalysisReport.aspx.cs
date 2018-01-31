@@ -18,6 +18,12 @@ namespace Team09LogicU.Pages
          "['Platinum', 21.45, 'color: #e5e4e2' ]"+ 
       "]";
             chartData.InnerHtml = "<script>var chart1Data =" + data + ";</script>";
+
+
+           
+
+
         }
+
     }
 }

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.pages
 {
@@ -14,7 +15,9 @@ namespace Team09LogicU.pages
     {
         //public List<cart> lcart;
         //public List<Item> lcatalogue;
+        List<Item> li;
         public string staffID;
+        PagedDataSource pds = new PagedDataSource();
         public void updateCart(List<cart> lc)
         {
             Session["cart"] = lc;
@@ -23,9 +26,13 @@ namespace Team09LogicU.pages
         }
         public void updateCatalogue(List<Item> li)
         {
+
             catalogueRepeater.DataSource = li;
             catalogueRepeater.DataBind();
         }
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -63,7 +70,8 @@ namespace Team09LogicU.pages
                
                 /******************************Loading Catalogue List********************************/
                 ItemDAO idao = new ItemDAO();
-                List<Item> li = idao.getItemList();
+               // List<Item> li = idao.getItemList();
+                 li = idao.getItemList();
                 updateCatalogue(li);//when model is being used,cannot get from it;
 
         }
