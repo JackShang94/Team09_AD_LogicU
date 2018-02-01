@@ -49,7 +49,7 @@
                                                     <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
                                                     <asp:TemplateField HeaderText="Action" ShowHeader="False">
                                                         <ItemTemplate>
-                                                            <asp:LinkButton ID="LinkButton_View" runat="server" CausesValidation="False" CommandName="Select" Text="View" OnClick="LinkButton_View_Click"></asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton_View" runat="server" CssClass="btn btn-xs btn-primary" CausesValidation="False" CommandName="Select" Text="View" OnClick="LinkButton_View_Click"></asp:LinkButton>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

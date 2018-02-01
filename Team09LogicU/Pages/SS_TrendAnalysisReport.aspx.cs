@@ -17,26 +17,19 @@ namespace Team09LogicU.Pages
         DateTime loginDate = DateTime.Now;
         string deptName;
         string deptid;
-        string barChartData;
-        string tableChartData;
+        
+        string dataChart;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-      //      string data = "[" +
-      //   "['Element', 'Density']," +
-      //   "['Copper', 8.94], " +
-      //   "['Silver', 10.49], " +
-      //   "['Platinum', 21.45]" +
-      //"]";
-
-      //      chartData.InnerHtml = "<script>var chart1Data =" + data + ";</script>";
+     
             if (!IsPostBack)
             {
                 BindDropdownlist();
                 deptName = dept_dropList.SelectedItem.Text;
                 deptid = dpd.findDepartmentIdByName(deptName);
-                barChartData = getBarChartDataByDeptID(deptid);
-                tableChartData = barChartData;
+                dataChart = getBarChartDataByDeptID(deptid);
+                chartData.InnerHtml = "<script>var chartData =" + dataChart + ";</script>";
             }
         }
 
@@ -58,8 +51,9 @@ namespace Team09LogicU.Pages
         {
             deptName = dept_dropList.SelectedItem.Text;
             deptid = dpd.findDepartmentIdByName(deptName);
-            barChartData = getBarChartDataByDeptID(deptid);
-            tableChartData = barChartData;
+            dataChart = getBarChartDataByDeptID(deptid);
+            chartData.InnerHtml = "<script>var chartData =" + dataChart + ";</script>";
+
         }
 
         protected void BindDropdownlist()

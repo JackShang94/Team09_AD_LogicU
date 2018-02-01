@@ -31,13 +31,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.DropDownList dept_dropList;
         
         /// <summary>
-        /// btnSearch control.
+        /// btnPrint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Button btnPrint;
         
         /// <summary>
         /// chartData control.
@@ -58,13 +58,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrintContent;
         
         /// <summary>
-        /// div1 control.
+        /// div2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div2;
         
         /// <summary>
         /// title_ control.
@@ -83,14 +83,5 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date_;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
