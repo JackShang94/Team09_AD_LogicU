@@ -27,7 +27,12 @@ namespace Team09LogicU.App_Code.DAO
         //find staff by name
         public DeptStaff findStaffByName(string staffName)
         {
-            return context.DeptStaffs.Where(x => x.staffName == staffName).First();
+            var temp = context.DeptStaffs.Where(x => x.staffName == staffName);
+            if (temp == null)
+            {
+                return new DeptStaff();
+            }
+            return temp.First();
         }
 
         //find staff by role
@@ -81,7 +86,22 @@ namespace Team09LogicU.App_Code.DAO
 
         public string getRoleByStaffID(string staffID)
         {
-            return context.DeptStaffs.Where(x => x.staffID == staffID).Select(y => y.role).ToList().First().ToString();
+            var temp = context.DeptStaffs.Where(x => x.staffID == staffID).Select(y => y.role);
+            if (temp == null)
+            {
+                return "";
+            }
+            return temp.First().ToString();
+        }
+        //used in disbursementList WCF
+        public string getDeptIDByStaffID(string staffID)
+        {
+            var temp =context.DeptStaffs.Where(x => x.staffID == staffID).Select(y => y.deptID);
+            if (temp == null)
+            {
+                return "";
+            }
+            return temp.First().ToString();
         }
     }
 }

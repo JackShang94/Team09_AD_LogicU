@@ -23,6 +23,9 @@ namespace Team09LogicU.AndroidServices
         [OperationContract]
         [WebGet(UriTemplate = "/Disbursement?deptID={deptID}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFDisbursement> getDisbursementByDeptID(string deptID);
+        [OperationContract]
+        [WebGet(UriTemplate = "/DisbursementByrepID?repID={repID}", ResponseFormat = WebMessageFormat.Json)]
+        List<WCFDisbursement> getDisbursementByRepID(string repID);
 
         [OperationContract]
         [WebGet(UriTemplate = "/Disbursement/{disID}", ResponseFormat = WebMessageFormat.Json)]

@@ -50,6 +50,13 @@ namespace Team09LogicU.AndroidServices
 
             return ldis_wcf;
         }
+        public List<WCFDisbursement> getDisbursementByRepID(string repID)
+        {
+            
+            DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
+            string deptID = deptStaffDAO.getDeptIDByStaffID(repID);
+            return getDisbursementByDeptID(deptID);
+        }
         public List<WCFDisbursementCart> getDisbursementItemByDisID(string disID_s)
         {
             int disID = Convert.ToInt32(disID_s);
