@@ -19,6 +19,7 @@ namespace Team09LogicU.Pages
         PurchaseOrderDAO PoDAO = new PurchaseOrderDAO();
         PurchaseOrderItemDAO POItemDAO = new PurchaseOrderItemDAO();
         PurchaseOrder po = new PurchaseOrder();
+        ReorderReportDAO reportDAO = new ReorderReportDAO();
         List<int> poIDlist;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,6 +72,10 @@ namespace Team09LogicU.Pages
                 GridView_ReorderReport.DataBind();
                 btnGenerate.Visible = true;
                 lblDisplay2.Visible = true;
+                //////////////google chart data
+                string columnChartData = reportDAO.getGoogleColumnChartData(monthlyItemList);
+                string tableChartData = reportDAO.getGoogleTableChartData(monthlyItemList);  
+                // chartData.InnerHtml = "<script>var chart1Data =" + data + ";</script>";
             }
             else
             {

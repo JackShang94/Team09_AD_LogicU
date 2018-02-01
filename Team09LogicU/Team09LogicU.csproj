@@ -405,6 +405,7 @@
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderItemDAO.cs" />
+    <Compile Include="App_Code\DAO\ReorderReportDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
     <Compile Include="App_Code\DAO\RetrievalDAO.cs" />
@@ -430,7 +431,6 @@
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
     <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
     <Compile Include="App_Code\UtilClass\TrendAnalysis.cs" />
-    <Compile Include="App_Code\UtilClass\Validation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
