@@ -28,7 +28,17 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.CollectionPoints.Where(x => x.description == description).First();
         }
-
+        public String getCollectionPointNameByID(string ID)
+        {
+            CollectionPoint c = new CollectionPoint();
+            List<CollectionPoint> list = new List<CollectionPoint>();
+            list = context.CollectionPoints.Where(x => x.collectionPointID == ID).ToList();
+            if (list.Count > 0)
+            {
+                c = list.First();
+            }
+            return c.description;
+        }
         public List<CollectionPointInformation> getCollectionPointInformation()
         {
             List<CollectionPointInformation> list = new List<CollectionPointInformation>();
