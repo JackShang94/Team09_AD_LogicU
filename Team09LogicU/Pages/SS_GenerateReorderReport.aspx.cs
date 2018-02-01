@@ -23,6 +23,7 @@ namespace Team09LogicU.Pages
         List<int> poIDlist;
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
         protected void btnView_Click(object sender, EventArgs e)
         {
@@ -41,6 +42,7 @@ namespace Team09LogicU.Pages
                 {
                     PurchaseOrderItemList.AddRange(POItemDAO.findPOItembypoID(poIDlist[i]));
                 }
+
 
                 List<MonthlyReorderItem> monthlyItemList = new List<MonthlyReorderItem>();
                 decimal total = 0;
@@ -62,11 +64,15 @@ namespace Team09LogicU.Pages
                 {
                     total = monthlyItemList[i].TotalAmount + total;
                 }
+
+
                 //////////////google chart data
                 string columnChartData = reportDAO.getGoogleColumnChartData(monthlyItemList);
                 string tableChartData = reportDAO.getGoogleTableChartData(monthlyItemList);
-                chartData.InnerHtml = "<script>var chart1Data =" + columnChartData + ";</script>";
-                chartData.InnerHtml = "<script>var chart2Data =" + tableChartData + ";</script>";
+
+ 
+
+                chartData.InnerHtml = "<script>var columnChartData =" + columnChartData + " ; var tableChartData = " + tableChartData + ";</script>";
             }
             else
             {
