@@ -739,7 +739,6 @@
     <Compile Include="Pages\SC_PurchaseOrderHistoryDetail.aspx.designer.cs">
       <DependentUpon>SC_PurchaseOrderHistoryDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs" />
     <Compile Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.cs">
       <DependentUpon>SC_RO_DisbursementListHistory_ViewDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
