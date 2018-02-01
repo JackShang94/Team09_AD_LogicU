@@ -18,8 +18,8 @@
                                   <asp:Label ID="LabelTXTStaffid" CssClass="category" runat="server" Text="Store Staff: "></asp:Label>  
                                   <asp:Label ID="Label_StoreStafID" CssClass="h6" runat="server"></asp:Label></div>
                                  <div class=" col-lg-4" style=" margin-top:20px">
-                                  <asp:Label ID="LabeltxtAutBy" CssClass="category" runat="server" Text="Authorised By: "></asp:Label>  
-                                  <asp:Label ID="Label_Authorisedby" CssClass="h6" runat="server"></asp:Label></div>
+                                  <asp:Label ID="LabeltxtAutBy" style=" display:block;" CssClass="category" runat="server" Text="Authorised By: "></asp:Label>  
+                                  <asp:Label ID="Label_Authorisedby" style=" display:block;" CssClass="h6" runat="server"></asp:Label></div>
                                 <div class=" col-lg-4" style=" margin-top:20px">
                                  <asp:Label ID="LabeltxtadjvDate" CssClass="category" runat="server" Text="Request Date: "></asp:Label>
                                  <asp:Label ID="lblDate" CssClass="h6" runat="server"></asp:Label> 
