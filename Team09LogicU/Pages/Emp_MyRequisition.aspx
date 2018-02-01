@@ -26,10 +26,10 @@
 													</asp:TemplateField>--%>
 													<asp:BoundField DataField="requisitionID" headerText="RequisitionID" Visible="false"/>
 													<asp:BoundField DataField="requisitionDate" headerText="RequisitionDate"/>
-													<asp:BoundField DataField="approvedDate" headerText="ApprovedDate" ConvertEmptyStringToNull="true"/>
+												<%--	<asp:BoundField DataField="approvedDate" headerText="ApprovedDate" ConvertEmptyStringToNull="true"/>--%>
 													<asp:BoundField DataField="status" headerText ="status"/>
 												
-													<asp:TemplateField >
+													 <asp:TemplateField HeaderText="Action" >
 														<ItemTemplate>
                                                            
 																<asp:LinkButton ID="viewReqDetailBtn" runat="server" CssClass="btn btn-xs btn-warning"  Text="Edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ></asp:LinkButton>
