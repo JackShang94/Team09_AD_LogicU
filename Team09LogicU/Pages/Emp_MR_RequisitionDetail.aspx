@@ -3,15 +3,13 @@
 Requisition Detail
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-	<div class="col-md-12">
-                        <div class="card">
-								
-								
-									<asp:Button  runat="server" ID="addBtn" Text="add" EnableViewState="False" />
+	<div class="row">
+                        <div class="col-lg-10">
+							<div class="card">
 									<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 									<asp:UpdatePanel ID="reqDetailUpdatePanel" runat="server" UpdateMode="Always">
 										<ContentTemplate>
-												<asp:gridview id="requisitionItemListGridView" runat="server" allowpaging="True" allowsorting="true"  autogeneratecolumns="False" datakeynames="reqItemID" CssClass="table" OnRowDataBound="requisitionItemListGridView_RowDataBound"  OnRowCommand="requisitionItemListGridView_RowCommand" OnRowCancelingEdit="requisitionItemListGridView_RowCancelingEdit" OnRowUpdating="requisitionItemListGridView_RowUpdating" OnRowEditing="requisitionItemListGridView_RowEditing" OnRowDeleting="requisitionItemListGridView_RowDeleting" EnableViewState="False">
+												<asp:gridview id="requisitionItemListGridView"  runat="server" allowpaging="True" allowsorting="true"  autogeneratecolumns="False" datakeynames="reqItemID" CssClass="table" OnRowDataBound="requisitionItemListGridView_RowDataBound"  OnRowCommand="requisitionItemListGridView_RowCommand" OnRowCancelingEdit="requisitionItemListGridView_RowCancelingEdit" OnRowUpdating="requisitionItemListGridView_RowUpdating" OnRowEditing="requisitionItemListGridView_RowEditing" OnRowDeleting="requisitionItemListGridView_RowDeleting" EnableViewState="False">
 														<columns>
 															<asp:TemplateField>
 																<ItemTemplate>
@@ -39,20 +37,20 @@ Requisition Detail
 																	<asp:Label ID="reqQty" runat="server" Text='<%#Eval("requisitionQty" )%>' ></asp:Label>
 																</ItemTemplate>
 																<EditItemTemplate>
-																	<asp:TextBox runat="server" ID="reqQtyTextBox" Text='<%#Eval("requisitionQty") %>'></asp:TextBox>
+																	<asp:TextBox runat="server" CssClass="form-control" Width="50%" ID="reqQtyTextBox" Text='<%#Eval("requisitionQty") %>'></asp:TextBox>
 																	<asp:RegularExpressionValidator runat="server" ControlToValidate="reqQtyTextBox" ValidationExpression="^[0-9]*[1-9][0-9]*$" ErrorMessage="Invalid Input!!!"></asp:RegularExpressionValidator>
 																</EditItemTemplate>
 															</asp:TemplateField>
 															<%--<asp:BoundField DataField="requisitionQty" HeaderText="requisitionQty" ItemStyle-Width="100px"  />--%>
 															
-															<asp:TemplateField>
+														<asp:TemplateField HeaderText="Action" >
 																 <EditItemTemplate>
-																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>'  ></asp:LinkButton><!-- -->
-																	<asp:LinkButton ID="reqDetailCancel" runat="server" CommandName="Cancel" Text="Cancel" CommandArgument='<%#Eval("reqItemID") %>'></asp:LinkButton>
+																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" CssClass="btn btn-xs btn-danger" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>'  ></asp:LinkButton><!-- -->
+																	<asp:LinkButton ID="reqDetailCancel" runat="server" CommandName="Cancel" CssClass="btn btn-xs btn-default" Text="Cancel" CommandArgument='<%#Eval("reqItemID") %>'></asp:LinkButton>
 															   </EditItemTemplate>
 																<ItemTemplate>
-																	<asp:LinkButton ID="reqDetailEdit" runat="server"  CommandName="edit" CommandArgument='<%#Eval("reqItemID") %>' EnableViewState="False"><i class="fa fa-edit"></i></asp:LinkButton>
-																	<asp:LinkButton ID="reqDetailDelete" runat="server"  CommandName="delete" CommandArgument='<%#Eval("reqItemID") %>' EnableViewState="False"> <i class="fa fa-remove "></i></asp:LinkButton>
+																	<asp:LinkButton ID="reqDetailEdit" runat="server" CssClass="btn btn-xs btn-warning"  CommandName="edit" CommandArgument='<%#Eval("reqItemID") %>' EnableViewState="False" Text="Edit"></asp:LinkButton>
+																	<asp:LinkButton ID="reqDetailDelete" ForeColor="Red"  runat="server"  CommandName="delete" CommandArgument='<%#Eval("reqItemID") %>' EnableViewState="False"> <i class="fa fa-remove "></i></asp:LinkButton>
 																	
 																</ItemTemplate>
 															</asp:TemplateField>
@@ -61,12 +59,13 @@ Requisition Detail
 												</asp:gridview>
 											</ContentTemplate>
 										</asp:UpdatePanel>
-									<asp:LinkButton ID="backToReqBtn" runat="server" OnClick="backToReqBtn_Click">Back</asp:LinkButton>
-									<%--<asp:Button ID="reSubmitReqBtn" runat="server" Text="Update" OnClick="reSubmitReqBtn_Click" />--%>
+                                </div></div></div>
+									<div class="col-lg-4"><asp:Button  runat="server" ID="addBtn" Text="Add" CssClass="btn btn-wd btn-primary btn-fill" EnableViewState="False" />
+    <asp:LinkButton ID="backToReqBtn"  runat="server" CssClass="btn btn-wd btn-default" OnClick="backToReqBtn_Click">Back</asp:LinkButton></div>
+								
 									
 							
 								
-						</div>
-		</div>
+		
 
 </asp:Content>

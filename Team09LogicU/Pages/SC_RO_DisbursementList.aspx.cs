@@ -19,7 +19,6 @@ namespace Team09LogicU.pages
         
         protected void BindDropdownlist()
         {
-            //dpd = new DepartmentDAO();
             deptDropDownList.DataSource = dpd.findAllDepartmentName();
             deptDropDownList.DataBind();
         }
@@ -41,7 +40,7 @@ namespace Team09LogicU.pages
             disburseItemGridView.DataSource = disburseItems;
             disburseItemGridView.DataBind();
         }
-        //int disID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -63,16 +62,12 @@ namespace Team09LogicU.pages
                 disburseBindGrid();
                 ViewState["disburseID"] = 0;
                 ViewState["originQty"] = 0;
-                //Button3.Visible = false;
             }
             else
             {
-                //disID = Convert.ToInt32(Session["disburseID"]);
                 deptName = deptDropDownList.SelectedItem.Text;
                 deptid = dpd.findDepartmentIdByName(deptName);
                 collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
-                //disburseBindGrid();
-               // disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
             }
         }
        
@@ -80,13 +75,11 @@ namespace Team09LogicU.pages
         protected void deptDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             deptName = deptDropDownList.SelectedItem.Text;
-            //dpd = new DepartmentDAO();
             deptid = dpd.findDepartmentIdByName(deptName);
             collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(deptid);
             disburseGridView.SelectedIndex = -1;//initialize the selected index
-                                                /****************this is for QRcode******************/
-                                                //  Button3.Visible = false;//
-            Button3.Enabled = false;
+            /****************this is for QRcode******************/
+            ConfirmBtn.Enabled = false;
 
             /****************end***********************************/
             disburseBindGrid();
@@ -96,11 +89,9 @@ namespace Team09LogicU.pages
             disburseItemUpdatePanel.Update();
         }
         protected void disburseGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Button3.Visible = true;        
-            Button3.Enabled = true;
+        { 
+            ConfirmBtn.Enabled = true;
 
-            //int index = disburseGridView.SelectedRow.RowIndex;
             Label s = disburseGridView.SelectedRow.FindControl("disburseIDLabel") as Label;
             string a = s.Text;
             int disburseID = Convert.ToInt32(a);
@@ -109,9 +100,6 @@ namespace Team09LogicU.pages
 
             disburseItemBindGrid(disburseID);
             disburseItemUpdatePanel.Update();
-
-
-            //disburList.getDisbursementItemByDisID(disburseID);
 
         }
         protected void disburseItemGridView_RowEditing(object sender, GridViewEditEventArgs e)
@@ -177,13 +165,13 @@ namespace Team09LogicU.pages
         protected void Button3_Click(object sender, EventArgs e)
         {
             int disburseID = Convert.ToInt32(ViewState["disburseID"]);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('u r generate the Disbursement " + disburseID + " ?')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('you are generate the Disbursement " + disburseID + " ?')", true);
             //here should send message box yes or no
 
             DisbursementDAO disDAO = new DisbursementDAO();
             
             //disburList
-            Button3.Enabled = false;
+            ConfirmBtn.Enabled = false;
             disDAO.updateDisbursementStatus(Convert.ToInt32(ViewState["disburseID"]), "Completed");
             disburseGridView.SelectedIndex = -1;
             disburseBindGrid();
@@ -191,6 +179,16 @@ namespace Team09LogicU.pages
             disburseItemGridView.DataSource = null;
             disburseItemGridView.DataBind();
 
+            //send email and notification to rep 
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            string repID = context.Departments.Where(x => x.deptID == deptid).Select(x => x.repStaffID).ToList().First();
+            string repName = context.DeptStaffs.Where(x => x.staffID == repID).Select(x => x.staffName).ToList().First();
+            string confirmDate = DateTime.Now.ToShortDateString();
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(repID, "Disbursement "+ disburseID+" is confirmed on "+ confirmDate, DateTime.Now);
+
+            Email email = new Email();
+            email.sendConfirmedDisbursementEmailToRep(repName, confirmDate, disburseID.ToString());
 
 
         }

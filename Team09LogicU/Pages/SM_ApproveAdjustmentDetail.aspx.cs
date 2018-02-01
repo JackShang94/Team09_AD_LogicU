@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
@@ -17,26 +18,31 @@ namespace Team09LogicU.Pages
         ItemDAO itemdao = new ItemDAO();
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
-       
+        TextBox tb = new TextBox();
+        string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             adjvID = Int32.Parse(Request.QueryString["adjvID"]);
             managerID = (string)Session["loginID"];
 
             AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
-            
 
+            string staffName = adjv.StoreStaff.storeStaffName;
             string authorisedby = adjv.authorisedBy;
             string status = adjv.status;
             DateTime adjvDate = adjv.adjDate;
-
+            //if (authorisedby == "")
+            //{
+            //    LabeltxtAutBy.Style.Value = " display:none;";
+            //    Label_Authorisedby.Style.Value = " display:none;";
+            //}
             if (adjv.status != "PendingForManager")
             {
                 TextBox_Remarks.Style.Value= " display:none;";
                 button_Reject.Style.Value = " display:none;";
                 button_Approve.Style.Value = " display:none;";
             }
-            Label_StoreStafID.Text = managerID;
+            Label_StoreStafID.Text = staffName;
             lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
             lblAdjvID.Text = Convert.ToString(adjvID); ;
             Label_Authorisedby.Text = authorisedby;
@@ -47,11 +53,13 @@ namespace Team09LogicU.Pages
         {
             try
             {
+                tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 GridView_detailList.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
                 BindData();
 
-                TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
-                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+
             }
             catch
             {
@@ -77,7 +85,21 @@ namespace Team09LogicU.Pages
         public void BindData()
         {
             List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
-            GridView_detailList.DataSource = adjItems;
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("adjVItemID", typeof(int)));
+            iTable.Columns.Add(new DataColumn("itemDescription", typeof(string)));
+            iTable.Columns.Add(new DataColumn("quantity", typeof(int)));
+
+            foreach (AdjustmentVoucherItem i in adjItems)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["adjVItemID"] = i.adjVItemID;
+                dr["itemDescription"] = i.Item.description;
+                dr["quantity"] = i.quantity;
+                iTable.Rows.Add(dr);
+            }
+           
+            GridView_detailList.DataSource = iTable;
             GridView_detailList.DataBind();
         }
         protected void btn_Back_Click(object sender, EventArgs e)

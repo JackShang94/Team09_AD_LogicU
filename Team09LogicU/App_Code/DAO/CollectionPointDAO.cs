@@ -33,16 +33,13 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<CollectionPointInformation> list = new List<CollectionPointInformation>();
 
-            //var m = from p in context.CollectionPoints
-            //        join q in context.Departments on p.collectionPointID equals q.collectionPointID
-            //        join r in context.Disbursements on q.deptID equals r.deptID
-            //        where r.status == "Awaiting Delivery"
-            //        select p.description;
-
-            //var s = from c in context.CollectionPoints
-            //        group c by c.description  as 
-                    
-
+            var result = from ds in context.Disbursements
+                         join dp in context.Departments on ds.deptID equals dp.deptID
+                         join cp in context.CollectionPoints on dp.collectionPointID equals cp.collectionPointID
+                         select cp.description;
+            //string sql = "select * from IntegralInfo where convert(nvarchar,getdate(),23)='{0}' and status=1 and userinfoid='{1}'";
+            //sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd"), uid);
+            //var IntegralInfoObj = context.Database.SqlQuery<IntegralInfo>(sql).FirstOrDefault();
             return list;
         }
         public void updatecollection(string storestaffID,string description)

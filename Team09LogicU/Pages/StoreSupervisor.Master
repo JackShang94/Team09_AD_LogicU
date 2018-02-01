@@ -75,7 +75,7 @@
 
 <form id="form1" runat="server">
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="../picture/full-screen-image-3.jpg">
+    <div class="sidebar" data-color="blue" data-image="../picture/full-screen-image-3.jpg">
         <!--
 
             Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
@@ -85,7 +85,7 @@
 
         <div class="logo">
             <a href="#" class="logo-text">
-                Store Supplier
+                Store Supervisor
             </a>
         </div>
 		<div class="logo logo-mini">
@@ -134,7 +134,28 @@
                     </a>        
                 </li>
 
-             
+              <li>
+                    <a  href="SS_Notification.aspx">
+                        <i class="pe-7s-volume"></i>
+                        <p>Notification
+                        </p>
+                    </a>         
+                </li>
+                  <li>
+                    <a data-toggle="collapse" href="#otherExamples">
+                        <i class="pe-7s-box2"></i>
+                        <p>Generate Report 
+                           <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="otherExamples">
+                        <ul class="nav">
+                            <li><a href="SS_GenerateReorderReport.aspx">Reorder Report</a></li>
+                             <li><a href="SS_TrendAnalysisReport.aspx">Trend Analysis Report</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
          
             </ul>
     	</div>
@@ -193,18 +214,16 @@
                                     </a>
                                 </li>
                             <li>
-                                    <a href="SS_AssignClerk.aspx.aspx">
+                                    <a href="SS_AssignClerk.aspx">
                                         <i class="pe-7s-users"></i>Assign Clerk
                                     </a>
                                 </li>
                             
                                 <li class="divider"></li>
                                 
-                                <li>
-                                    <a href="login.aspx" class="text-danger">
-                                        <i class="pe-7s-close-circle"></i>
-                                        Log out
-                                    </a>
+                               <li>
+                                   <asp:LinkButton ID="LinkButton2" CssClass="text-danger" runat="server" OnClick="Logout_Click"><i class="pe-7s-close-circle"></i>Logout </asp:LinkButton>
+                                   
                                 </li>
                             </ul>
                         </li>

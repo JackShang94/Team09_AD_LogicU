@@ -13,15 +13,6 @@ namespace Team09LogicU.Pages {
     public partial class Emp_MR_RequisitionDetail {
         
         /// <summary>
-        /// addBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addBtn;
-        
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView requisitionItemListGridView;
+        
+        /// <summary>
+        /// addBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addBtn;
         
         /// <summary>
         /// backToReqBtn control.

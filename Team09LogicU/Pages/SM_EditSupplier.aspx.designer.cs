@@ -13,15 +13,6 @@ namespace Team09LogicU.Pages {
     public partial class SM_EditSupplier {
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// TextBox_SupplierCode control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_Phone;
         
         /// <summary>
+        /// text_box_phone_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_phone_alert;
+        
+        /// <summary>
         /// TextBox_Fax control.
         /// </summary>
         /// <remarks>
@@ -74,6 +74,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Fax;
+        
+        /// <summary>
+        /// text_box_fax_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_fax_alert;
         
         /// <summary>
         /// TextBox_Address control.

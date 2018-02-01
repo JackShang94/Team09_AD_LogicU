@@ -3,4 +3,39 @@
 Notification
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Notification</h4>
+                                <p class="category">Please check the information in time</p>
+                            </div>
+                            <div class="content">
+                                <div class="panel-group" id="accordion">
+                                    <asp:Repeater ID="notice_Repeater"   runat="server" ViewStateMode="Enabled" EnableViewState="False">
+                                        
+                                         <ItemTemplate>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-target="#<%# Eval("notificationID") %>" href="#" data-toggle="collapse" >
+                                                    <%# Eval("date") %>
+                                                   
+                                                    <b class="caret" onclick="setDeptNotificationStatusAsOld()"></b>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="<%# Eval("notificationID") %>" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <%# Eval("message") %>
+                                               </div>
+                                        </div>
+                                    </div>
+                                             </ItemTemplate>
+                                        
+                                    </asp:Repeater>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 </asp:Content>

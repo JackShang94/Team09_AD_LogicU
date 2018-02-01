@@ -13,8 +13,8 @@
                                     <div class="pull-left search" style="width:75%">
                                     <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
-                                    <div class="pull-right" style="width:20%">
-                                     <asp:Button ID="item_searchBtn" runat="server" Width="100%" Text="Search"  CssClass="btn btn-default" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
+                                    <div class="pull-right" >
+                                     <asp:Button ID="item_searchBtn" runat="server"  Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
                                     </div>
                                 </div>
                             </div>
@@ -25,18 +25,19 @@
 
                         <asp:UpdatePanel ID="catalogueUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True" EnableViewState="True">
                             <ContentTemplate>
-                                    <asp:Repeater ID="catalogueRepeater" runat="server" OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled" EnableViewState="False">
+                                    <asp:Repeater ID="catalogueRepeater"  runat="server"  OnItemCommand="catalogueRepeater_ItemCommand" ViewStateMode="Enabled" EnableViewState="False">
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <div class="col-sm-8 col-lg-4">
                                                 <div class="card card-user">
-                                                    <div class="image" style="height:150px">
-                                                        <img src="../picture/full-screen-image-3.jpg" />
+                                                    <div class="image" style="height:150px" >
+                                                        <img src="../picture/<%# Eval("itemID") %>.jpg" />
                                                     </div>
                                                     <div style="margin-top:20px">
                                                             <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                                    <asp:Label ID="descLabel" runat="server" Text='<%# Eval("description") %>'></asp:Label>     
+                                                                    <asp:Label ID="descLabel" runat="server" Text='<%# Eval("description") %>'></asp:Label>   
+                                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>    
                                                             </p> 
 															<p class="description text-center " style="margin-left:10px;margin-right:10px"> 
                                                                     <asp:Label ID="unitLabel" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>     
@@ -56,17 +57,20 @@
                                             </div>
                                         </ItemTemplate>
                                         <FooterTemplate>
+                                           
                                         </FooterTemplate>
                                     </asp:Repeater>
+                                
                                 </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
                          <!----------------------------------Cart---------------------------------------------------------->
-                        <div class="col-lg-4">
-                         <div class="card">
+              
+                        <div class="col-lg-3">
+                         <div class="card" style="position:fixed;right:2%;width:25%">
                            <div class="text-center">
                                <div class ="content">
-                                   <asp:Button ID="Submit" runat="server" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
+                                   <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
                                </div>
                                <div class="content">
                                    
@@ -76,7 +80,7 @@
                                                 <HeaderTemplate>
 													   <table class="table">
 																				<tr class="category">
-																				<td></td>
+																				
                                     											<td>Description</td>
                                     											<td>Amount</td>
 																				<td class="text-right">Action</td>
@@ -84,15 +88,17 @@
                                                    </HeaderTemplate>
                                                    <ItemTemplate>
                                                                         <tr>
-                                                                            <td></td>
-                                    	                                    <td>   <%#Eval("description") %></td>
-                                    	                                    <td class="text-center" style="width:30%">
+                                                                            
+                                    	                                    <td style=" margin-bottom:-10px">   <%#Eval("description") %>
+                                                                                <br /><asp:RegularExpressionValidator runat="server" ForeColor="Red" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                    	                                    </td>
+                                    	                                    <td class="text-center" style="width:15%">
                                                                                 <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                                    
                                                                                 </asp:TextBox>
-                                                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                                                                
                                     	                                    </td>
-                                                                            <td class="td-actions text-right" style="">
-                                                                                <asp:LinkButton ID="cart_deleteButton" runat="server" Text="delete"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>
+                                                                            <td class="td-actions text-right" >
+                                                                                <asp:LinkButton ID="cart_deleteButton" runat="server"  ForeColor="Red"  CssClass=" fa fa-times"  OnClick="cart_deleteBtn_Click"  CommandName="delete" CommandArgument='<%# Eval("itemID") %>' ></asp:LinkButton>
                                                                                 <%--<i class="fa fa-times"></i>--%>
                                                                             </td>
                                                                         </tr>

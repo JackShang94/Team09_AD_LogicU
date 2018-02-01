@@ -13,13 +13,13 @@ namespace Team09LogicU.Pages {
     public partial class SC_GenerateReorderReport {
         
         /// <summary>
-        /// lblDisplay1 control.
+        /// Labeltxtadjv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDisplay1;
+        protected global::System.Web.UI.WebControls.Label Labeltxtadjv;
         
         /// <summary>
         /// txtMonth control.
@@ -31,48 +31,66 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtMonth;
         
         /// <summary>
-        /// btnView control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnView;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// GridView_ReorderReport control.
+        /// chartData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_ReorderReport;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartData;
         
         /// <summary>
-        /// lblDisplay2 control.
+        /// PrintContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDisplay2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrintContent;
         
         /// <summary>
-        /// lblTotal control.
+        /// div1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
         
         /// <summary>
-        /// btnGenerate control.
+        /// title_ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerate;
+        protected global::System.Web.UI.WebControls.Label title_;
+        
+        /// <summary>
+        /// date_ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label date_;
+        
+        /// <summary>
+        /// btnPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrint;
     }
 }

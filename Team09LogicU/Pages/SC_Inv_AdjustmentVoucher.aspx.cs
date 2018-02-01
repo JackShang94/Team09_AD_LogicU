@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.Data;
 
 namespace Team09LogicU.Pages
 {
@@ -26,7 +27,23 @@ namespace Team09LogicU.Pages
         }
         public void updateCatalogue(List<Item> li)
         {
-            GridView_CatalogList.DataSource = li;
+            DataTable iTable = new DataTable("itemTable");
+            iTable.Columns.Add(new DataColumn("itemID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("categoryID", typeof(string)));
+            iTable.Columns.Add(new DataColumn("description", typeof(string)));
+            iTable.Columns.Add(new DataColumn("unitOfMeasure", typeof(string)));
+          
+            foreach (Item i in li)
+            {
+                DataRow dr = iTable.NewRow();
+                dr["itemID"] = i.itemID;
+                dr["categoryID"] = i.categoryID;
+                dr["description"] = i.description;
+                dr["unitOfMeasure"] = i.unitOfMeasure;
+            
+                iTable.Rows.Add(dr);
+            }
+            GridView_CatalogList.DataSource = iTable;
             GridView_CatalogList.DataBind();
         }
 
@@ -91,16 +108,6 @@ namespace Team09LogicU.Pages
 
                 updateCart(lac);
                 ItemDAO idao = new ItemDAO();
-
-                //string sText = textbox_Search.Text.ToString();
-                //if (string.IsNullOrWhiteSpace(sText))
-                //{
-                //    updateCatalogue(idao.getItemList());
-                //}
-                //else
-                //{
-                //    updateCatalogue(idao.getItemByDesc(sText));
-                //}
             }
         }
 
@@ -125,45 +132,8 @@ namespace Team09LogicU.Pages
         }
         protected void UpdateGridviewByDropdownList()
         {
-            //    ItemDAO idao = new ItemDAO();
-            //    string sText = DropDownList_cat.ToString();
-            //    if (sText == "--All--")
-            //    {
-            //        updateCatalogue(idao.getItemList());//all items
-            //    }
-            //    else
-            //    {
-            //        itemList=(idao.getItemByCategory(sText));//items with specific CAT
-            //        updateCatalogue(itemList);
-            //    }
-
             updateGV();
-            }
-
-
-                //protected void BindGrid()
-                //{
-                //    List<Item> itemlist = new List<Item>();
-                //    itemlist = itemDAO.getItemList();
-                //    GridView_CatalogList.DataSource = itemlist;
-                //    GridView_CatalogList.DataBind();
-                //}
-
-
-                //protected void btnSearch_Click(object sender, EventArgs e)
-                //{
-
-                //ItemDAO idao = new ItemDAO();
-                //string sText = textbox_Search.Text.ToString();
-                //    if (string.IsNullOrWhiteSpace(sText))
-                //    {
-                //        updateCatalogue(idao.getItemList());
-                //        return;
-                //    }
-                //    /******************SearchByItemID!!!!*******************************/
-                //    updateCatalogue(idao.getItemByDesc(sText));
-                //}
-
+        }               
 
        protected void Submit_Click(object sender, EventArgs e)
         {
@@ -173,7 +143,6 @@ namespace Team09LogicU.Pages
             lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
             if (lac.Count > 0)
             {
-
                 int num = 0;
                 foreach (Control i in cartRepeater.Items)//get Quantity
                 {
@@ -191,6 +160,21 @@ namespace Team09LogicU.Pages
                 adjvdao.addAdjustmentVoucher(name, lac);
                 lac = new List<AdjustmentVouchercart>();//clear the cart session
                 Session["adjvcart"] = lac;
+
+                //send email and notification to rep 
+                SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+                string clerkName = Session["loginName"].ToString();
+                StoreStaff supervisor = context.StoreStaffs.Where(x => x.role == "supervisor").ToList().First();
+                string supervisorID = supervisor.storeStaffID;
+                string supervisorName = supervisor.storeStaffName;
+
+                string confirmDate = DateTime.Now.ToShortDateString();
+                NotificationDAO nDAO = new NotificationDAO();
+                nDAO.addDeptNotification(supervisorID, clerkName+" has send an adjustment voucher!" + confirmDate, DateTime.Now);
+
+                Email email = new Email();
+                email.sendAdjustmentEmailToSupervisor(clerkName,supervisorName);
+
                 HttpContext.Current.Response.Redirect("SC_ViewAdjustmentVoucher.aspx");
             }
             else
@@ -341,16 +325,13 @@ namespace Team09LogicU.Pages
             ItemDAO idao = new ItemDAO();
             string sText = DropDownList_cat.Text.ToString();
             if (sText == "--All--")
-            {
-                //this.lcatalogue = id.getItemList();
-                updateCatalogue(idao.getItemList());
-                //catalogueUpdatePanel.Update();
+            {             
+                updateCatalogue(idao.getItemList());           
             }
             else
             {
                 updateCatalogue(idao.getItemByCategory(sText));
             }
-            //catalogueUpdatePanel.Update();
         }
         protected void cart_qtyTextBox_TextChanged(object sender, EventArgs e)
             {

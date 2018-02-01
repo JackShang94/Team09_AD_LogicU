@@ -115,6 +115,7 @@
     <Content Include="AndroidServices\DisbursementListService.svc" />
     <Content Include="AndroidServices\DisbursementListItemService.svc" />
     <Content Include="AndroidServices\ItemService.svc" />
+    <Content Include="AndroidServices\LoginService.svc" />
     <Content Include="AndroidServices\RetrievalFormItemService.svc" />
     <Content Include="AndroidServices\RetrievalFormService.svc" />
     <Content Include="AndroidServices\StoreStaffService.svc" />
@@ -136,6 +137,7 @@
     <Content Include="js\chartist.min.js" />
     <Content Include="js\demo.js" />
     <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\googlechart.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery-jvectormap.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -178,7 +180,6 @@
     <Content Include="Pages\SC_Notification.aspx" />
     <Content Include="Pages\SC_O_InventoryStatusReport.aspx" />
     <Content Include="Pages\SC_O_SOA.aspx" />
-    <Content Include="Pages\SC_O_SupplierList.aspx" />
     <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PurchaseOrderHistoryDetail.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx" />
@@ -199,10 +200,12 @@
     <Content Include="Pages\SM_Notification.aspx" />
     <Content Include="Pages\SM_SearchItem.aspx" />
     <Content Include="Pages\SM_SearchSupplier.aspx" />
+    <Content Include="Pages\SM_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SM_ViewSupplierDetail.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
+    <Content Include="Pages\SS_GenerateReorderReport.aspx" />
     <Content Include="Pages\SS_Notification.aspx" />
-    <Content Include="Pages\SS_SendAdjustmenttoManager.aspx" />
+    <Content Include="Pages\SS_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SS_ViewAdjustment.aspx" />
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
@@ -259,14 +262,88 @@
     <Content Include="picture\blog-3.jpg" />
     <Content Include="picture\blog-4.jpg" />
     <Content Include="picture\br.png" />
+    <Content Include="picture\C001.jpg" />
+    <Content Include="picture\C002.jpg" />
+    <Content Include="picture\C003.jpg" />
+    <Content Include="picture\C004.jpg" />
+    <Content Include="picture\C005.jpg" />
     <Content Include="picture\de.png" />
     <Content Include="picture\default-avatar.png" />
+    <Content Include="picture\E001.jpg" />
+    <Content Include="picture\E002.jpg" />
+    <Content Include="picture\E003.jpg" />
+    <Content Include="picture\E004.jpg" />
+    <Content Include="picture\E005.jpg" />
+    <Content Include="picture\E006.jpg" />
+    <Content Include="picture\E007.jpg" />
+    <Content Include="picture\E008.jpg" />
+    <Content Include="picture\E020.jpg" />
+    <Content Include="picture\E021.jpg" />
+    <Content Include="picture\E030.jpg" />
+    <Content Include="picture\E031.jpg" />
+    <Content Include="picture\E032.jpg" />
+    <Content Include="picture\E033.jpg" />
+    <Content Include="picture\E034.jpg" />
+    <Content Include="picture\E035.jpg" />
+    <Content Include="picture\E036.jpg" />
     <Content Include="picture\full-screen-image-1.jpg" />
     <Content Include="picture\full-screen-image-2.jpg" />
     <Content Include="picture\full-screen-image-3.jpg" />
     <Content Include="picture\full-screen-image-4.jpg" />
     <Content Include="picture\gb.png" />
+    <Content Include="picture\H011.jpg" />
+    <Content Include="picture\H012.jpg" />
+    <Content Include="picture\H013.jpg" />
+    <Content Include="picture\H014.jpg" />
+    <Content Include="picture\H031.jpg" />
+    <Content Include="picture\H032.jpg" />
+    <Content Include="picture\H033.jpg" />
+    <Content Include="picture\P010.jpg" />
+    <Content Include="picture\P011.jpg" />
+    <Content Include="picture\P012.jpg" />
+    <Content Include="picture\P013.jpg" />
+    <Content Include="picture\P014.jpg" />
+    <Content Include="picture\P015.jpg" />
+    <Content Include="picture\P020.jpg" />
+    <Content Include="picture\P021.jpg" />
+    <Content Include="picture\P030.jpg" />
+    <Content Include="picture\P031.jpg" />
+    <Content Include="picture\P032.jpg" />
+    <Content Include="picture\P033.jpg" />
+    <Content Include="picture\P034.jpg" />
+    <Content Include="picture\P035.jpg" />
+    <Content Include="picture\P036.jpg" />
+    <Content Include="picture\P037.jpg" />
+    <Content Include="picture\P038.jpg" />
+    <Content Include="picture\P039.jpg" />
+    <Content Include="picture\P040.jpg" />
+    <Content Include="picture\P041.jpg" />
+    <Content Include="picture\P042.jpg" />
+    <Content Include="picture\P043.jpg" />
+    <Content Include="picture\P044.jpg" />
+    <Content Include="picture\P045.jpg" />
+    <Content Include="picture\P046.jpg" />
+    <Content Include="picture\R001.jpg" />
+    <Content Include="picture\R002.jpg" />
     <Content Include="picture\ro.png" />
+    <Content Include="picture\S010.jpg" />
+    <Content Include="picture\S011.jpg" />
+    <Content Include="picture\S012.jpg" />
+    <Content Include="picture\S020.jpg" />
+    <Content Include="picture\S021.jpg" />
+    <Content Include="picture\S022.jpg" />
+    <Content Include="picture\S023.jpg" />
+    <Content Include="picture\S040.jpg" />
+    <Content Include="picture\S041.jpg" />
+    <Content Include="picture\T001.jpg" />
+    <Content Include="picture\T002.jpg" />
+    <Content Include="picture\T003.jpg" />
+    <Content Include="picture\T020.jpg" />
+    <Content Include="picture\T021.jpg" />
+    <Content Include="picture\T022.jpg" />
+    <Content Include="picture\T023.jpg" />
+    <Content Include="picture\T024.jpg" />
+    <Content Include="picture\T025.jpg" />
     <Content Include="picture\us.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -301,11 +378,15 @@
     <Compile Include="AndroidServices\IDisbursementListService.cs" />
     <Compile Include="AndroidServices\IDisbursementListItemService.cs" />
     <Compile Include="AndroidServices\IItemService.cs" />
+    <Compile Include="AndroidServices\ILoginService.cs" />
     <Compile Include="AndroidServices\IRetrievalFormItemService.cs" />
     <Compile Include="AndroidServices\IRetrievalFormService.cs" />
     <Compile Include="AndroidServices\IStoreStaffService.cs" />
     <Compile Include="AndroidServices\ItemService.svc.cs">
       <DependentUpon>ItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidServices\LoginService.svc.cs">
+      <DependentUpon>LoginService.svc</DependentUpon>
     </Compile>
     <Compile Include="AndroidServices\RetrievalFormItemService.svc.cs">
       <DependentUpon>RetrievalFormItemService.svc</DependentUpon>
@@ -332,6 +413,7 @@
     <Compile Include="App_Code\DAO\OutstandingItemDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderDAO.cs" />
     <Compile Include="App_Code\DAO\PurchaseOrderItemDAO.cs" />
+    <Compile Include="App_Code\DAO\ReorderReportDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
     <Compile Include="App_Code\DAO\RetrievalDAO.cs" />
@@ -357,7 +439,6 @@
     <Compile Include="App_Code\UtilClass\RequisitionByStaffCart.cs" />
     <Compile Include="App_Code\UtilClass\RetrievalFormItem.cs" />
     <Compile Include="App_Code\UtilClass\TrendAnalysis.cs" />
-    <Compile Include="App_Code\UtilClass\Validation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -648,13 +729,6 @@
     <Compile Include="Pages\SC_O_SOA.aspx.designer.cs">
       <DependentUpon>SC_O_SOA.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_O_SupplierList.aspx.cs">
-      <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\SC_O_SupplierList.aspx.designer.cs">
-      <DependentUpon>SC_O_SupplierList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.cs">
       <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -669,6 +743,7 @@
     <Compile Include="Pages\SC_PurchaseOrderHistoryDetail.aspx.designer.cs">
       <DependentUpon>SC_PurchaseOrderHistoryDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs" />
     <Compile Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.cs">
       <DependentUpon>SC_RO_DisbursementListHistory_ViewDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -816,6 +891,13 @@
     <Compile Include="Pages\SM_SearchSupplier.aspx.designer.cs">
       <DependentUpon>SM_SearchSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SM_TrendAnalysisReport.aspx.cs">
+      <DependentUpon>SM_TrendAnalysisReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_TrendAnalysisReport.aspx.designer.cs">
+      <DependentUpon>SM_TrendAnalysisReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SM_ViewSupplierDetail.aspx.cs">
       <DependentUpon>SM_ViewSupplierDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -830,6 +912,13 @@
     <Compile Include="Pages\SS_AssignClerk.aspx.designer.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SS_GenerateReorderReport.aspx.cs">
+      <DependentUpon>SS_GenerateReorderReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_GenerateReorderReport.aspx.designer.cs">
+      <DependentUpon>SS_GenerateReorderReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SS_Notification.aspx.cs">
       <DependentUpon>SS_Notification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -837,12 +926,12 @@
     <Compile Include="Pages\SS_Notification.aspx.designer.cs">
       <DependentUpon>SS_Notification.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SS_SendAdjustmenttoManager.aspx.cs">
-      <DependentUpon>SS_SendAdjustmenttoManager.aspx</DependentUpon>
+    <Compile Include="Pages\SS_TrendAnalysisReport.aspx.cs">
+      <DependentUpon>SS_TrendAnalysisReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\SS_SendAdjustmenttoManager.aspx.designer.cs">
-      <DependentUpon>SS_SendAdjustmenttoManager.aspx</DependentUpon>
+    <Compile Include="Pages\SS_TrendAnalysisReport.aspx.designer.cs">
+      <DependentUpon>SS_TrendAnalysisReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SS_ViewAdjustment.aspx.cs">
       <DependentUpon>SS_ViewAdjustment.aspx</DependentUpon>

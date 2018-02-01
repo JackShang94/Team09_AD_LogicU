@@ -10,16 +10,6 @@ namespace Team09LogicU.App_Code.UtilClass
     public class BreakdownByDepartment
     {
 
-/* Unmerged change from project 'Team09LogicU'
-Before:
-        public string DeptID;
-        public int Needed;
-        public int Actual;
-After:
-        private string deptID;
-        private int needed;
-        private int actual;
-*/
         private string deptID;
         private int needed;
         private int actual;
@@ -82,7 +72,7 @@ After:
         private string location;
         private int needed;
         private int actual;
-        private List<BreakdownByDepartment> breakList;
+        private List<BreakdownByDepartment> breakdownByDepartmentList;
 
         public string ItemID
         {
@@ -149,21 +139,21 @@ After:
             }
         }
 
-        public List<BreakdownByDepartment> BreakList
+        public List<BreakdownByDepartment> BreakdownByDepartmentList
         {
             get
             {
-                return breakList;
+                return breakdownByDepartmentList;
             }
 
             set
             {
-                breakList = value;
+                breakdownByDepartmentList = value;
             }
         }
 
         public RetrievalFormItem() {
-            BreakList = new List<BreakdownByDepartment>();
+            BreakdownByDepartmentList = new List<BreakdownByDepartment>();
         }
 
         public RetrievalFormItem(string itemID, string itemDescription, string location, int needed, int actual, List<BreakdownByDepartment> breakList)
@@ -173,7 +163,7 @@ After:
             this.location = location;
             this.needed = needed;
             this.actual = actual;
-            this.breakList = breakList;
+            this.breakdownByDepartmentList = breakList;
         }
     }
 }
