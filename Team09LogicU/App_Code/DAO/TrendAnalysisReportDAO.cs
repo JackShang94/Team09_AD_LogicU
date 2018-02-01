@@ -119,6 +119,7 @@ namespace Team09LogicU.App_Code.DAO
             dList = context.Disbursements.Where(x => x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed"&&x.deptID==deptID).ToList();
             return dList;
         }
+
         public List<Disbursement> getPast1MonthDisbursementListByDept(string deptID,DateTime dateTime)
         {
             DateTime startDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-1);
@@ -127,6 +128,7 @@ namespace Team09LogicU.App_Code.DAO
             dList = context.Disbursements.Where(x => x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed" && x.deptID == deptID).ToList();
             return dList;
         }
+
         public List<Disbursement> getPast2MonthDisbursementListByDept(string deptID, DateTime dateTime)
         {
             DateTime startDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-2);
@@ -135,5 +137,6 @@ namespace Team09LogicU.App_Code.DAO
             dList = context.Disbursements.Where(x => x.disburseDate >= startDate && x.disburseDate< endDate && x.status == "Completed" && x.deptID == deptID).ToList();
             return dList;
         }
+
     }
 }
