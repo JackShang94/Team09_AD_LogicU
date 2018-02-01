@@ -205,13 +205,6 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
-        //******************************************************Method 02 I am a SQL master**********************************************************//
-        //select distinct itemID,sum(requisitionQty)  from RequisitionItem
-        //where requisitionID in(
-        //select requisitionID from Requisition
-        //where status='Approved' and and approvedDate <= '2018-1-21'  )
-        //group by itemID
-
         public void ConfirmRetrieval(List<RetrievalFormItem> result, DateTime date)
         {
             saveRetrieval(result);
@@ -232,7 +225,6 @@ namespace Team09LogicU.App_Code.DAO
             saveOutstanding(outlist);
 
             updateStockCardAndItemQuantity(result);
-
 
         }
 
@@ -342,9 +334,10 @@ namespace Team09LogicU.App_Code.DAO
 
         private void saveRetrieval(List<RetrievalFormItem> reflist )
         {
-            if (reflist.Count>0)
+            Retrieval r;
+            if (reflist.Count()>0)
             {
-                Retrieval r = new Retrieval();
+                r = new Retrieval();
                 r.retrievalDate = DateTime.Now;
                 context.Retrievals.Add(r);
                 foreach (RetrievalFormItem refitem in reflist)
