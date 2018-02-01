@@ -12,8 +12,7 @@
                                  <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
                                   <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%"  TextMode="Date"></asp:TextBox></div>
                                  <div  class=" col-lg-4 " style="margin:40px 0 20px 0">
-                                 <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd "  OnClientClick="return Print();"  />    
-                                
+                                 <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="btnView_Click"  />    
                                  <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
                                  </div>
                              </div></div></div></div>
@@ -41,8 +40,8 @@
         function drawChart() {
 
             // Create the data table.
-            var data = google.visualization.arrayToDataTable(chart1Data);
-
+            var columnChartData = google.visualization.arrayToDataTable(columnChartData);
+            var tableChartData = google.visualization.arrayToDataTable(tableChartData);
             // Set chart options
             var options = {
                 'title': 'How Much Pizza I Ate Last Night',
@@ -52,9 +51,9 @@
 
             // Instantiate and draw our chart, passing in some options.
             var chart1 = new google.visualization.BarChart(document.getElementById('chart1'));
-            chart1.draw(data, options);
+            chart1.draw(columnChartData, options);
             var chart2 = new google.visualization.Table(document.getElementById('chart2'));
-            chart2.draw(data, { showRowNumber: true, width: 400, height: 300 });
+            chart2.draw(tableChartData, { showRowNumber: true, width: 400, height: 300 });
         }
     </script>
 
