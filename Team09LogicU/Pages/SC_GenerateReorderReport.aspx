@@ -5,49 +5,77 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <div class="row" >
-           <div class="col-lg-10">
-                <div class="card">
-                    <div class=" container">
-        
-            <div class="col-lg-3" style="margin-top: 20px;margin-bottom:20px">
-                <asp:Label ID="lblDisplay1" runat="server" Text=" Please select the month" CssClass="category"></asp:Label>
-                
-                <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%"  TextMode="Date"></asp:TextBox>
-
-            </div>
-            <div class="col-lg-3 pull-right" style="margin-top:40px;margin-bottom:20px;margin-right:20px">
-            <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd " OnClick="btnView_Click" />
-            </div>
-           <div class="col-lg-10 text-center" id="PrintContent"  runat="server">
+     <script src="../js/googlechart.js"></script>
+     <div class="row"> 
+                    <div class="col-lg-10">
+                        <div class="card">
+                             <div class=" container" >
+                             <div  class=" col-lg-3" style="margin:20px 0 20px 0">
+                                 <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Select Time: "></asp:Label>
+                                  <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%"  TextMode="Date"></asp:TextBox></div>
+                                 <div  class=" col-lg-4 pull-right" style="margin:40px 0 20px 0">
+                                 <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="btnView_Click"  />    
+                                 </div>
+                             </div></div></div></div>
+     
+    <p runat="server" id="chartData"></p>
+    <div id="PrintContent" runat="server">
+      
+     <div class="col-lg-10 text-center" id="div1"  runat="server">
                <asp:Label ID="title_" CssClass="h4" runat="server" Text="Reorder Report"></asp:Label><br />
                 <asp:Label ID="date_" CssClass=" category" runat="server">Date: <%=txtMonth.Text %></asp:Label>
-            <asp:GridView ID="GridView_ReorderReport" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Item">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:BoundField DataField="poID" HeaderText="PO ID" />
-                    <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
-                    <asp:TemplateField HeaderText="Item ID" Visible="True">
-                        <ItemTemplate>
-                            <asp:Label ID="lblItemID" runat="server" Text='<%# Bind("itemID") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="description" HeaderText="Description" />
-                    <asp:BoundField DataField="orderQty" HeaderText="Order Quantity" />
-                    <asp:BoundField DataField="price" HeaderText="Price" />
-                    <asp:BoundField DataField="totalAmount" HeaderText="Total Amount" />
-                </Columns>
-                <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
-            </asp:GridView>
-           <div class="col-lg-10 text-center" style="margin:20px 0 20px 0">
-                <asp:Label ID="lblDisplay2" runat="server" Text="Total: " CssClass="h5" Visible="False"></asp:Label>
-                <asp:Label ID="lblTotal" runat="server" CssClass="h5"></asp:Label>
-               </div></div></div>
-                    </div></div></div>
-    <div class="col-lg-10">
-                <asp:Button ID="btnGenerate" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();" Visible="False" />
-       </div>
-        <script language="javascript" type="text/javascript">
+    </div>
+        <div class="col-lg-5" style="margin-top:10px;margin-right:10px">
+    <div id="chart1"></div></div>
+        <div class="col-lg-5" style="margin-top:10px">
+    <div id="chart2"></div></div></div> 
+    <div class="col-lg-10 text-center" style="margin-top:20px" >
+    <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
+                 </div>                
+   
+
+    <script>
+        console.log(columnChartData);
+        console.log(tableChartData);
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.load('current', { packages: ['corechart', 'bar'] });
+        
+
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            // Create the data table.
+            console.log('Array:columnChartData：');
+            console.log(columnChartData)
+            var columnChartData_drawData = google.visualization.arrayToDataTable(columnChartData);
+            console.log('Array:tableChartData：');
+            console.log(tableChartData);
+            var tableChartData_drawData = google.visualization.arrayToDataTable(tableChartData);
+            console.log('Array done');
+            // Set chart options
+            var options = {
+                'title': 'Reorder Report',
+                'width': 520,
+                'height': 400
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart1 = new google.visualization.BarChart(document.getElementById('chart1'));
+            chart1.draw(columnChartData_drawData, options);
+            var chart2 = new google.visualization.Table(document.getElementById('chart2'));
+            chart2.draw(tableChartData_drawData, { showRowNumber: true, width: 600, height: 400, title: 'Reorder Report' });
+        }
+    </script>
+
+
+     <script type="text/javascript">
 function Print() { 
 var pc = document.getElementById("<%=PrintContent.ClientID%>"); 
 var pw = window.open('', '', 'width=1000,height=800'); 

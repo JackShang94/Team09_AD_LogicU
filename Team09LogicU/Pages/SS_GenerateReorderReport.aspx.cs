@@ -23,6 +23,7 @@ namespace Team09LogicU.Pages
         List<int> poIDlist;
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
         protected void btnView_Click(object sender, EventArgs e)
         {
@@ -68,8 +69,10 @@ namespace Team09LogicU.Pages
                 //////////////google chart data
                 string columnChartData = reportDAO.getGoogleColumnChartData(monthlyItemList);
                 string tableChartData = reportDAO.getGoogleTableChartData(monthlyItemList);
-                chartData.InnerHtml = "<script>var columnChartData =" + columnChartData + ";</script>";
-                chartData.InnerHtml = "<script>var tableChartData =" + tableChartData + ";</script>";
+
+ 
+
+                chartData.InnerHtml = "<script>var columnChartData =" + columnChartData + " ; var tableChartData = " + tableChartData + ";</script>";
             }
             else
             {

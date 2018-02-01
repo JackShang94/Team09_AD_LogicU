@@ -9,11 +9,10 @@ Trend Analysis Report
                         <div class="card">
                              <div class=" container" >
                              <div  class=" col-lg-3" style="margin:20px 0 20px 0">
-                                 <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
-                                  <asp:DropDownList ID="dept_dropList" CssClass="form-control" Width="100%"   runat="server"></asp:DropDownList></div>
-                                 <div  class=" col-lg-4 " style="margin:40px 0 20px 0">
-                                 <asp:Button ID="btnSearch" runat="server" Text="Select Dep" CssClass="btn btn-warning btn-fill btn-wd "  OnClientClick="return Print();"  />    
-                                
+                                 <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Choose Department: "></asp:Label>
+                                  <asp:DropDownList ID="dept_dropList" CssClass="form-control" Width="100%"   runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                             </div>
+                                 <div  class=" col-lg-4 " style="margin:40px 0 20px 0">                                                        
                                  <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
                                  </div>
                              </div></div></div></div>
