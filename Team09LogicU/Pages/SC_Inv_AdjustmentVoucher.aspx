@@ -73,7 +73,7 @@ Submit Adjustment Voucher
                          <div class="card">
                            <div class="text-center" >
                                <div class="col-lg-3" style="margin:20px 30% 20px 30%" >
-                                   <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
+                                   <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" ValidationGroup="submit1" Text="Checkout"  OnClientClick="if(!notEmpty()) return false;" OnClick="Submit_Click" EnableViewState="False" />
                               </div>
                                    
                                     <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit" EnableViewState="False">
@@ -96,7 +96,8 @@ Submit Adjustment Voucher
                                     	                                    <td class="text-left" style="width:15%">
                                                                                 <asp:TextBox ID="cart_qtyTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Qty") %>' >                                                                              
                                                                                 </asp:TextBox> </td>
-                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>  
+                                                <asp:RegularExpressionValidator ID="text_box_qty_alert" runat="server" ForeColor="Red"  ValidationGroup="submit1"  ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+<%--                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>  --%>
                                                                              <td class="text-right" style="width:50%">
                                                                               <asp:TextBox ID="cart_recordTextBox" runat="server"  CssClass=" form-control"  Text='<%#Eval("Record") %>' >
                                                                                     
@@ -122,4 +123,24 @@ Submit Adjustment Voucher
                         
                      </div>  
                           </div>     
+      <script type="text/javascript">
+        $().ready(function(){
+
+            $('#registerFormValidation').validate();
+            $('#loginFormValidation').validate();
+            $('#allInputsFormValidation').validate();
+            });
+            function notEmpty() {
+                var not_empty = true;
+                
+                if (!$('#cart_qtyTextBox').val()) {
+                    $('#text_box_qty_alert').text('Input can not be empty.').css('visibility', 'visible');
+                }
+                if (!$('#cart_qtyTextBox').val() ) {                  
+                    not_empty = false;                       
+                }
+                //console.log(not_empty)
+                return not_empty;
+            }
+    </script>
 </asp:Content>

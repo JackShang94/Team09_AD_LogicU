@@ -22,16 +22,11 @@ namespace Team09LogicU.AndroidServices
         [OperationContract]
         [WebGet(UriTemplate = "/RetrievalFormItem/get", ResponseFormat = WebMessageFormat.Json)]
         List<RetrievalFormItemData> findRetrievalFormItemDate();
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/RetrievalFormItem/post/update", Method = "POST", BodyStyle=WebMessageBodyStyle.Wrapped, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        void updateRetrievalFormItemData(List<RetrievalFormItemData> datalist, DateTime date);
     }
 
     [DataContract]
     public class RetrievalFormItemData
     {
-        public RetrievalFormItemData() { }
 
         [DataMember]
         public string itemID { get; set; }
@@ -48,10 +43,28 @@ namespace Team09LogicU.AndroidServices
         [DataMember]
         public int itemActual { get; set; }
 
-        [DataMember]
-        public List<BreakdownByDepartment> breakList { get; set; }
 
-        public static RetrievalFormItemData Make(string itemID, string description, string itemLocation, int itemNeeded, int itemActual, List<BreakdownByDepartment> breakList )
+        private List<BreakdownByDepartmentData> breakdownByDepartmentListData;
+        [DataMember(Name = "breakdownByDepartmentListData")]
+        public List<BreakdownByDepartmentData> BreakdownByDepartmentListData
+        {
+            get
+            {
+                return breakdownByDepartmentListData;
+            }
+
+            set
+            {
+                breakdownByDepartmentListData = value;
+            }
+
+        }
+        public RetrievalFormItemData()
+        {
+            
+        }
+
+        public static RetrievalFormItemData Make(string itemID, string description, string itemLocation, int itemNeeded, int itemActual, List<BreakdownByDepartmentData> breakdownByDepartmentListData)
         {
             RetrievalFormItemData data = new RetrievalFormItemData();
             data.itemID = itemID;
@@ -59,10 +72,30 @@ namespace Team09LogicU.AndroidServices
             data.itemLocation = itemLocation;
             data.itemNeeded = itemNeeded;
             data.itemActual = itemActual;
-            data.breakList = breakList;
+            data.breakdownByDepartmentListData = breakdownByDepartmentListData;
 
             return data;
         }
 
     }
+
+    [DataContract]
+    public class BreakdownByDepartmentData
+    {
+        public BreakdownByDepartmentData() { }
+
+        [DataMember]
+        public string deptID { get; set; }
+
+        [DataMember]
+        public int needed { get; set; }
+
+        [DataMember]
+        public int actual { get; set; }
+    }
+
 }
+
+
+
+

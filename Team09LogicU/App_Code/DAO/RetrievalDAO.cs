@@ -55,7 +55,7 @@ namespace Team09LogicU.App_Code.DAO
                                 refitem.Needed = refitem.Needed + reqitem.requisitionQty;
                                 refitem.Actual = refitem.Needed;
                                 IsNewDepartment = true;//reset bool for every new item
-                                foreach (BreakdownByDepartment dept in refitem.BreakList)
+                                foreach (BreakdownByDepartment dept in refitem.BreakdownByDepartmentList)
                                 {                                 
                                     if (dept.DeptID == req.deptID)// not a new department for BreakdownByDepartment
                                     {
@@ -71,7 +71,7 @@ namespace Team09LogicU.App_Code.DAO
                                     b.DeptID = req.deptID;
                                     b.Needed = reqitem.requisitionQty;
                                     b.Actual = b.Needed;
-                                    refitem.BreakList.Add(b);
+                                    refitem.BreakdownByDepartmentList.Add(b);
                                 }
                                 break;
                             }                       
@@ -89,7 +89,7 @@ namespace Team09LogicU.App_Code.DAO
                             b.DeptID = req.deptID;
                             b.Needed = reqitem.requisitionQty;
                             b.Actual = b.Needed;
-                            r.BreakList.Add(b);
+                            r.BreakdownByDepartmentList.Add(b);
                             
                             refl.Add(r);
                         }
@@ -121,7 +121,7 @@ namespace Team09LogicU.App_Code.DAO
                                 refitem.Needed = refitem.Needed + outitem.expectedQty;
                                 refitem.Actual = refitem.Needed;
                                 IsNewDepartment = true;//reset bool for every new item
-                                foreach (BreakdownByDepartment dept in refitem.BreakList)
+                                foreach (BreakdownByDepartment dept in refitem.BreakdownByDepartmentList)
                                 {
                                     if (dept.DeptID == outreq.deptID)// not a new department for BreakdownByDepartment
                                     {
@@ -137,7 +137,7 @@ namespace Team09LogicU.App_Code.DAO
                                     b.DeptID = outreq.deptID;
                                     b.Needed = outitem.expectedQty;
                                     b.Actual = b.Needed;
-                                    refitem.BreakList.Add(b);
+                                    refitem.BreakdownByDepartmentList.Add(b);
                                 }
                                 break;
                             }
@@ -155,7 +155,7 @@ namespace Team09LogicU.App_Code.DAO
                             b.DeptID = outreq.deptID;
                             b.Needed = outitem.expectedQty;
                             b.Actual = b.Needed;
-                            r.BreakList.Add(b);
+                            r.BreakdownByDepartmentList.Add(b);
 
                             refl.Add(r);
                         }
@@ -205,13 +205,6 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
-        //******************************************************Method 02 I am a SQL master**********************************************************//
-        //select distinct itemID,sum(requisitionQty)  from RequisitionItem
-        //where requisitionID in(
-        //select requisitionID from Requisition
-        //where status='Approved' and and approvedDate <= '2018-1-21'  )
-        //group by itemID
-
         public void ConfirmRetrieval(List<RetrievalFormItem> result, DateTime date)
         {
             saveRetrieval(result);
@@ -233,14 +226,13 @@ namespace Team09LogicU.App_Code.DAO
 
             updateStockCardAndItemQuantity(result);
 
-
         }
 
         private void updateStockCardAndItemQuantity(List<RetrievalFormItem> reflist)
         {
             foreach (RetrievalFormItem refitem in reflist)
             {
-                foreach (BreakdownByDepartment breakitem in refitem.BreakList)
+                foreach (BreakdownByDepartment breakitem in refitem.BreakdownByDepartmentList)
                 {
                     //update item quantity
                     Item item;
@@ -342,9 +334,10 @@ namespace Team09LogicU.App_Code.DAO
 
         private void saveRetrieval(List<RetrievalFormItem> reflist )
         {
-            if (reflist.Count>0)
+            Retrieval r;
+            if (reflist.Count()>0)
             {
-                Retrieval r = new Retrieval();
+                r = new Retrieval();
                 r.retrievalDate = DateTime.Now;
                 context.Retrievals.Add(r);
                 foreach (RetrievalFormItem refitem in reflist)
@@ -382,7 +375,7 @@ namespace Team09LogicU.App_Code.DAO
             List<Disbursement> dislist = new List<Disbursement>();
             foreach (RetrievalFormItem refitem in reflist)
             {
-                foreach (BreakdownByDepartment breaklist in refitem.BreakList)
+                foreach (BreakdownByDepartment breaklist in refitem.BreakdownByDepartmentList)
                 {
                     IsNewDepartment = true;//reset boolean
                     foreach (Disbursement dept in dislist)

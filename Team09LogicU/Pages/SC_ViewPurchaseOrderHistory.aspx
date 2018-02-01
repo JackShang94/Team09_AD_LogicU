@@ -12,13 +12,13 @@
                         
                             <div class="col-lg-3" style="margin-top: 20px">
                                 <asp:label id="lblFrom" runat="server" text=" From:" cssclass="category"></asp:label>
-                                <asp:textbox id="txtFrom" runat="server" cssclass="form-control " TextMode="Month" ></asp:textbox>
+                                <asp:textbox id="txtFrom" runat="server" cssclass="form-control " TextMode="Date" ></asp:textbox>
                                 <br>
                             </div>
                             <div class="col-lg-3" style="margin-top: 20px">
                                 <asp:label id="lblTo" runat="server" text=" To:" cssclass="category"></asp:label>
                                 <br>
-                                <asp:textbox id="txtTo" runat="server" cssclass="form-control" TextMode="Month"></asp:textbox>
+                                <asp:textbox id="txtTo" runat="server" cssclass="form-control" TextMode="Date"></asp:textbox>
                                 <br>
                             </div>
                             <div class="col-lg-6" style="margin-top: 20px">

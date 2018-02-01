@@ -58,13 +58,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_qty;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// text_box_qty_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_qty_alert;
         
         /// <summary>
         /// TextBox_ReorderLevel control.
@@ -76,13 +76,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_ReorderLevel;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// text_box_level_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_level_alert;
         
         /// <summary>
         /// TextBox_ReorderQty control.
@@ -94,13 +94,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_ReorderQty;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// text_box_reorderqty_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_reorderqty_alert;
         
         /// <summary>
         /// TextBox_Description control.
@@ -157,13 +157,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_price1;
         
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// text_box_Supplier1_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_Supplier1_alert;
         
         /// <summary>
         /// dropdownlist_Supplier2 control.
@@ -184,13 +184,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_price2;
         
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// text_box_Supplier2_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_Supplier2_alert;
         
         /// <summary>
         /// dropdownlist_Supplier3 control.
@@ -211,13 +211,13 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_price3;
         
         /// <summary>
-        /// RequiredFieldValidator9 control.
+        /// text_box_Supplier3_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_Supplier3_alert;
         
         /// <summary>
         /// Btn_Submit control.

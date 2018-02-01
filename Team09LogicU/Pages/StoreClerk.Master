@@ -189,7 +189,6 @@
                     <div class="collapse" id="otherExamples">
                         <ul class="nav">
                             <li><a href="SC_GenerateReorderReport.aspx">Reorder Report</a></li>
-                            <li><a href="SC_O_TrendAnalysisReport.aspx">Trend Analysis Report</a></li>
                              <li><a href="SC_O_SOA.aspx">SOA Report</a></li>
                              <li><a href="SC_O_InventoryStatusReport.aspx">Inventory Status Report</a></li>
 
@@ -268,11 +267,8 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="#" class="text-danger">
-                                        <i class="pe-7s-close-circle">
-                                           <asp:LinkButton ID="LinkButton2" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></i> 
-                                        
-                                    </a>
+                                   <asp:LinkButton ID="LinkButton2" CssClass="text-danger" runat="server" OnClick="Logout_Click"><i class="pe-7s-close-circle"></i>Logout </asp:LinkButton>
+                                   
                                 </li>
                             </ul>
                         </li>
@@ -373,7 +369,4 @@
 
       ga('create', 'UA-46172202-1', 'auto');
       ga('send', 'pageview');
-
-    </script>
-
 </html>

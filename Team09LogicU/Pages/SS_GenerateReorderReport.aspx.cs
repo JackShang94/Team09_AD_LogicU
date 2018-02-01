@@ -10,7 +10,7 @@ using Team09LogicU.App_Code.UtilClass;
 
 namespace Team09LogicU.Pages
 {
-    public partial class SC_GenerateReorderReport : System.Web.UI.Page
+    public partial class SS_GenerateReorderReport : System.Web.UI.Page
     {
         StoreStaffDAO storeStaffDAO = new StoreStaffDAO();
         ItemDAO itemDAO = new ItemDAO();
@@ -70,7 +70,7 @@ namespace Team09LogicU.Pages
                 string columnChartData = reportDAO.getGoogleColumnChartData(monthlyItemList);
                 string tableChartData = reportDAO.getGoogleTableChartData(monthlyItemList);
 
-
+ 
 
                 chartData.InnerHtml = "<script>var columnChartData =" + columnChartData + " ; var tableChartData = " + tableChartData + ";</script>";
             }
