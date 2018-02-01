@@ -16,8 +16,8 @@ namespace Team09LogicU.AndroidServices
     {
         [OperationContract]
         
-        [WebInvoke(UriTemplate = "/Login?section={section}", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        int Login(WCFAccount wcf_account,string section);
+        [WebInvoke(UriTemplate = "/Login", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        string Login(WCFAccount wcf_account);
     }
     [DataContract]
     public class AccountList
