@@ -69,7 +69,7 @@ namespace Team09LogicU.pages
 
             breakdownGridView.Visible = true;
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
-            breakdownGridView.DataSource = lrfi[index].BreakList;
+            breakdownGridView.DataSource = lrfi[index].BreakdownByDepartmentList;
             breakdownGridView.DataBind();
             breakdownUpdatePanel.Update();
         }
@@ -82,7 +82,7 @@ namespace Team09LogicU.pages
             List<RetrievalFormItem> lrfi = new List<RetrievalFormItem>();
             lrfi = (List<RetrievalFormItem>) ViewState["lrfi"];
             string itemID = ViewState["itemID"].ToString();
-            breakdownGridView.DataSource = lrfi.First(x => x.ItemID == itemID).BreakList;
+            breakdownGridView.DataSource = lrfi.First(x => x.ItemID == itemID).BreakdownByDepartmentList;
             breakdownGridView.DataBind();
 
         }
@@ -97,7 +97,7 @@ namespace Team09LogicU.pages
             string itemID = ViewState["itemID"].ToString();
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>) ViewState["lrfi"];
             int sum=0;
-            var x = lrfi[0].BreakList;
+            var x = lrfi[0].BreakdownByDepartmentList;
 
             /**********************To find out the editing row and save it to lrfi**********************/
             for (int i=0;i<lrfi.Count;i++)
@@ -105,15 +105,15 @@ namespace Team09LogicU.pages
                 if (lrfi[i].ItemID == itemID)
                 {
                    
-                    for (int j=0;j<lrfi[i].BreakList.Count;j++)
+                    for (int j=0;j<lrfi[i].BreakdownByDepartmentList.Count;j++)
                     {
-                        if (lrfi[i].BreakList[j].DeptID == deptID)
+                        if (lrfi[i].BreakdownByDepartmentList[j].DeptID == deptID)
                         {
-                            lrfi[i].BreakList[j].Actual = a;
+                            lrfi[i].BreakdownByDepartmentList[j].Actual = a;
                             
-                            x = lrfi[i].BreakList;
+                            x = lrfi[i].BreakdownByDepartmentList;
                         }
-                        sum += lrfi[i].BreakList[j].Actual;
+                        sum += lrfi[i].BreakdownByDepartmentList[j].Actual;
                     }
                     lrfi[i].Actual = sum;
                     break;
@@ -137,7 +137,7 @@ namespace Team09LogicU.pages
             int a = e.RowIndex;
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
             string itemID = ViewState["itemID"].ToString();        
-            breakdownGridView.DataSource= lrfi.First(x=>x.ItemID==itemID).BreakList;
+            breakdownGridView.DataSource= lrfi.First(x=>x.ItemID==itemID).BreakdownByDepartmentList;
             breakdownGridView.DataBind();
         }
 

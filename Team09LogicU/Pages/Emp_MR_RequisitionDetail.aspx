@@ -43,7 +43,7 @@ Requisition Detail
 															</asp:TemplateField>
 															<%--<asp:BoundField DataField="requisitionQty" HeaderText="requisitionQty" ItemStyle-Width="100px"  />--%>
 															
-															<asp:TemplateField>
+														<asp:TemplateField HeaderText="Action" >
 																 <EditItemTemplate>
 																	 <asp:LinkButton ID="reqDetailUpdate" runat="server" CssClass="btn btn-xs btn-danger" Text="update"  CommandName="Update" CommandArgument='<%#Eval("reqItemID") %>'  ></asp:LinkButton><!-- -->
 																	<asp:LinkButton ID="reqDetailCancel" runat="server" CommandName="Cancel" CssClass="btn btn-xs btn-default" Text="Cancel" CommandArgument='<%#Eval("reqItemID") %>'></asp:LinkButton>

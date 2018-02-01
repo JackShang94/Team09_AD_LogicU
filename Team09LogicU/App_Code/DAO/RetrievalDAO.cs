@@ -55,7 +55,7 @@ namespace Team09LogicU.App_Code.DAO
                                 refitem.Needed = refitem.Needed + reqitem.requisitionQty;
                                 refitem.Actual = refitem.Needed;
                                 IsNewDepartment = true;//reset bool for every new item
-                                foreach (BreakdownByDepartment dept in refitem.BreakList)
+                                foreach (BreakdownByDepartment dept in refitem.BreakdownByDepartmentList)
                                 {                                 
                                     if (dept.DeptID == req.deptID)// not a new department for BreakdownByDepartment
                                     {
@@ -71,7 +71,7 @@ namespace Team09LogicU.App_Code.DAO
                                     b.DeptID = req.deptID;
                                     b.Needed = reqitem.requisitionQty;
                                     b.Actual = b.Needed;
-                                    refitem.BreakList.Add(b);
+                                    refitem.BreakdownByDepartmentList.Add(b);
                                 }
                                 break;
                             }                       
@@ -89,7 +89,7 @@ namespace Team09LogicU.App_Code.DAO
                             b.DeptID = req.deptID;
                             b.Needed = reqitem.requisitionQty;
                             b.Actual = b.Needed;
-                            r.BreakList.Add(b);
+                            r.BreakdownByDepartmentList.Add(b);
                             
                             refl.Add(r);
                         }
@@ -121,7 +121,7 @@ namespace Team09LogicU.App_Code.DAO
                                 refitem.Needed = refitem.Needed + outitem.expectedQty;
                                 refitem.Actual = refitem.Needed;
                                 IsNewDepartment = true;//reset bool for every new item
-                                foreach (BreakdownByDepartment dept in refitem.BreakList)
+                                foreach (BreakdownByDepartment dept in refitem.BreakdownByDepartmentList)
                                 {
                                     if (dept.DeptID == outreq.deptID)// not a new department for BreakdownByDepartment
                                     {
@@ -137,7 +137,7 @@ namespace Team09LogicU.App_Code.DAO
                                     b.DeptID = outreq.deptID;
                                     b.Needed = outitem.expectedQty;
                                     b.Actual = b.Needed;
-                                    refitem.BreakList.Add(b);
+                                    refitem.BreakdownByDepartmentList.Add(b);
                                 }
                                 break;
                             }
@@ -155,7 +155,7 @@ namespace Team09LogicU.App_Code.DAO
                             b.DeptID = outreq.deptID;
                             b.Needed = outitem.expectedQty;
                             b.Actual = b.Needed;
-                            r.BreakList.Add(b);
+                            r.BreakdownByDepartmentList.Add(b);
 
                             refl.Add(r);
                         }
@@ -240,7 +240,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             foreach (RetrievalFormItem refitem in reflist)
             {
-                foreach (BreakdownByDepartment breakitem in refitem.BreakList)
+                foreach (BreakdownByDepartment breakitem in refitem.BreakdownByDepartmentList)
                 {
                     //update item quantity
                     Item item;
@@ -382,7 +382,7 @@ namespace Team09LogicU.App_Code.DAO
             List<Disbursement> dislist = new List<Disbursement>();
             foreach (RetrievalFormItem refitem in reflist)
             {
-                foreach (BreakdownByDepartment breaklist in refitem.BreakList)
+                foreach (BreakdownByDepartment breaklist in refitem.BreakdownByDepartmentList)
                 {
                     IsNewDepartment = true;//reset boolean
                     foreach (Disbursement dept in dislist)
