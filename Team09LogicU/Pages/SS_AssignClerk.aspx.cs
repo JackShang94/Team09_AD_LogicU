@@ -13,7 +13,7 @@ namespace Team09LogicU.Pages
     public partial class SS_AssignClerk : System.Web.UI.Page
     {
         CollectionPointDAO collectionDAO = new CollectionPointDAO();
-        StoreStaffDAO storeStaffDAO = new StoreStaffDAO();
+        StoreStaffDAO storeStaffDAO = new StoreStaffDAO();//
         protected void Page_Load(object sender, EventArgs e)
         {
 
