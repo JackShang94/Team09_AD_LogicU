@@ -108,6 +108,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AndroidServices\AdjustedmentCartItemService.svc" />
     <Content Include="AndroidServices\AdjustmentVoucherItemService.svc" />
     <Content Include="AndroidServices\AdjustmentVoucherService.svc" />
     <Content Include="AndroidServices\DeptStaffService.svc" />
@@ -275,6 +276,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidServices\AdjustedmentCartItemService.svc.cs">
+      <DependentUpon>AdjustedmentCartItemService.svc</DependentUpon>
+    </Compile>
     <Compile Include="AndroidServices\AdjustmentVoucherItemService.svc.cs">
       <DependentUpon>AdjustmentVoucherItemService.svc</DependentUpon>
     </Compile>
@@ -290,6 +294,7 @@
     <Compile Include="AndroidServices\DisbursementListItemService.svc.cs">
       <DependentUpon>DisbursementListItemService.svc</DependentUpon>
     </Compile>
+    <Compile Include="AndroidServices\IAdjustedmentCartItemService.cs" />
     <Compile Include="AndroidServices\IAdjustmentVoucherItemService.cs" />
     <Compile Include="AndroidServices\IAdjustmentVoucherService.cs" />
     <Compile Include="AndroidServices\IDeptStaffService.cs" />

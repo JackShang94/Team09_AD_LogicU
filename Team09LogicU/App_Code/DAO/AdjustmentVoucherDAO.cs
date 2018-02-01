@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.Models;
+using System.Web.SessionState;
 
 namespace Team09LogicU.App_Code.DAO
 {
-    public class AdjustmentVoucherDAO
+    public class AdjustmentVoucherDAO: System.Web.SessionState.IRequiresSessionState
     {
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
         public List<AdjustmentVoucher> getAdjustmentVoucherList()
@@ -68,7 +69,8 @@ namespace Team09LogicU.App_Code.DAO
 
         public void addAdjustmentVoucher(string storestaffID, List<AdjustmentVouchercart> list)
         {
-            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();    
+            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
+            adjvoucher.storeStaffID = (string)System.Web.HttpContext.Current.Session["loginID"];
             adjvoucher.storeStaffID = storestaffID;
             adjvoucher.adjDate = DateTime.Now;
             adjvoucher.status = "pending";
@@ -89,7 +91,31 @@ namespace Team09LogicU.App_Code.DAO
                 context.AdjustmentVoucherItems.Add(adjvi);
             }
             context.SaveChanges();
+        }
 
+        public void addAdjV(List<AdjustmentVouchercart> list)
+        {
+            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
+            adjvoucher.storeStaffID = (string)System.Web.HttpContext.Current.Session["loginID"];
+            adjvoucher.adjDate = DateTime.Now;
+            adjvoucher.status = "pending";
+            adjvoucher.authorisedBy = "";
+            context.AdjustmentVouchers.Add(adjvoucher);
+      
+            int adjvID = adjvoucher.adjVID;
+            /*************Then Add ADJVItems******************/
+            AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+
+            foreach (AdjustmentVouchercart cartitem in list)
+            {
+                AdjustmentVoucherItem adjvi = new AdjustmentVoucherItem();
+                adjvi.adjVID = adjvoucher.adjVID;
+                adjvi.itemID = cartitem.ItemID;
+                adjvi.quantity = cartitem.Qty;
+                adjvi.record = cartitem.Record;
+                context.AdjustmentVoucherItems.Add(adjvi);
+            }
+            context.SaveChanges();
         }
         public void ApproveAdjustmentVoucherStatus(AdjustmentVoucher adjv, string managerID)
         {

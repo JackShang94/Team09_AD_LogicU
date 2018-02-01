@@ -38,6 +38,10 @@ namespace Team09LogicU
             {
                 Session["cart"] = new List<cart>();
             }
+            if (Session["AdjVouchercart"] == null)
+            {
+                Session["AdjVouchercart"] = new List<AdjustmentVouchercart>();
+            }
 
         }
 
