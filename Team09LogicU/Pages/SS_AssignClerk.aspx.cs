@@ -13,7 +13,8 @@ namespace Team09LogicU.Pages
     public partial class SS_AssignClerk : System.Web.UI.Page
     {
         CollectionPointDAO collectionDAO = new CollectionPointDAO();
-        StoreStaffDAO storeStaffDAO = new StoreStaffDAO();//
+        StoreStaffDAO storeStaffDAO = new StoreStaffDAO();
+        DisbursementDAO disDAO = new DisbursementDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,6 +23,14 @@ namespace Team09LogicU.Pages
                 this.BindDDL();
                
             }
+
+        }
+
+        protected void BindGrid()
+        {
+            List<Disbursement> disList = new List<Disbursement>();
+            disList = disDAO.getAllAwaitingDisbursement();
+
 
         }
 
@@ -39,51 +48,35 @@ namespace Team09LogicU.Pages
                     staff.Add(s.storeStaffID); 
             }
            
-            //for (int i = storestafflist.Count - 1; i >= 0; i--)
-            //{
-            //    StoreStaff ss;
-            //    ss =storestafflist[i];
-            //    string staffrole =ss.role ;
-            //    if (staffrole != "clerk")
-            //    {
-            //        storestafflist.RemoveAt(i);
-            //    }
-            //}
 
             dropdownlist1.Items.Clear();
                 dropdownlist1.DataSource = staff;
                 dropdownlist1.AppendDataBoundItems = true;
-                //dropdownlist1.Items.Insert(0, new ListItem("---Select StoreStaff---"));
                 dropdownlist1.DataBind();
            
             dropdownlist2.Items.Clear();
                 dropdownlist2.DataSource = staff;
                 dropdownlist2.AppendDataBoundItems = true;
-                //dropdownlist2.Items.Insert(0, new ListItem("---Select StoreStaff---"));
                 dropdownlist2.DataBind();
            
             dropdownlist3.Items.Clear();
                 dropdownlist3.DataSource = staff;
                 dropdownlist3.AppendDataBoundItems = true;
-                //dropdownlist3.Items.Insert(0, new ListItem("---Select StoreStaff---"));
                 dropdownlist3.DataBind();
           
             dropdownlist4.Items.Clear();
                 dropdownlist4.DataSource = staff;
                 dropdownlist4.AppendDataBoundItems = true;
-                //dropdownlist4.Items.Insert(0, new ListItem("---Select StoreStaff---"));
                 dropdownlist4.DataBind();
            
             dropdownlist5.Items.Clear();
                 dropdownlist5.DataSource = staff;
                 dropdownlist5.AppendDataBoundItems = true;
-                //dropdownlist5.Items.Insert(0, new ListItem("---Select StoreStaff---"));
                 dropdownlist5.DataBind();
            
             dropdownlist6.Items.Clear();
                 dropdownlist6.DataSource = staff;
                 dropdownlist6.AppendDataBoundItems = true;
-                //dropdownlist6.Items.Insert(0, new ListItem("---Select StoreStaff---"));
                 dropdownlist6.DataBind();
                 foreach (CollectionPoint c in collectionlist)
                 {
@@ -112,11 +105,6 @@ namespace Team09LogicU.Pages
                 collectionDAO.updatecollection(dropdownlist6.Text, Label_CollectionPoint6.Text);
             }
         }
-
-        //protected void Btn_Back_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
 
     }

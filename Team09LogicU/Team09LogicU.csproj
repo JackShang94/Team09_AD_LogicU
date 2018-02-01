@@ -418,6 +418,7 @@
     <Compile Include="App_Code\DAO\SupplierItemDAO.cs" />
     <Compile Include="App_Code\DAO\TrendAnalysisReportDAO.cs" />
     <Compile Include="App_Code\UtilClass\AdjustmentVouchercart.cs" />
+    <Compile Include="App_Code\UtilClass\AssignClerkGridView.cs" />
     <Compile Include="App_Code\UtilClass\cart.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\DisbursementCart.cs" />
