@@ -213,7 +213,7 @@ namespace Team09LogicU.App_Code.DAO
 
             saveDisbursement(dislist);
 
-            sendEmailToRep(dislist);
+            //sendEmailToRep(dislist);
 
             List<Requisition> reqlist2 = getRetrievedRequisitionList(date);
             List<Outstanding> outlist2 = getOutStandingList(date);

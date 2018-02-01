@@ -14,6 +14,7 @@ namespace Team09LogicU.pages
     {
         
         DepartmentDAO dpd=new DepartmentDAO();
+        DisbursementDAO disDAO = new DisbursementDAO();
         string deptName;
         string deptid;
         
@@ -27,8 +28,6 @@ namespace Team09LogicU.pages
         {
             deptName = deptDropDownList.SelectedItem.Text;
             deptid = dpd.findDepartmentIdByName(deptName);
-            DisbursementDAO disDAO = new DisbursementDAO();
-            
             disburseGridView.DataSource= disDAO.getAwaitingDisbursementListByDeptID(deptid);
             disburseGridView.DataBind();
         }
@@ -80,7 +79,7 @@ namespace Team09LogicU.pages
             disburseGridView.SelectedIndex = -1;//initialize the selected index
             /****************this is for QRcode******************/
             ConfirmBtn.Enabled = false;
-
+            NotifyButton.Enabled = false;
             /****************end***********************************/
             disburseBindGrid();
             
@@ -91,7 +90,7 @@ namespace Team09LogicU.pages
         protected void disburseGridView_SelectedIndexChanged(object sender, EventArgs e)
         { 
             ConfirmBtn.Enabled = true;
-
+            NotifyButton.Enabled = true;
             Label s = disburseGridView.SelectedRow.FindControl("disburseIDLabel") as Label;
             string a = s.Text;
             int disburseID = Convert.ToInt32(a);
@@ -196,6 +195,28 @@ namespace Team09LogicU.pages
         protected void disburseItemGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
     
+        }
+
+        protected void NotifyButton_Click(object sender, EventArgs e)
+        {
+            NotifyButton.Enabled = false ;
+            //send email and notification to rep 
+            Label s = disburseGridView.SelectedRow.FindControl("disburseIDLabel") as Label;
+            string a = s.Text;
+            int disburseID = Convert.ToInt32(a);
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            Disbursement disbursement = disDAO.getDisbursmentbyId(disburseID);
+            string deptid = disbursement.deptID;
+            string repID = context.Departments.Where(x => x.deptID == deptid).Select(x => x.repStaffID).ToList().First();
+            string repName = context.DeptStaffs.Where(x => x.staffID == repID).Select(x => x.staffName).ToList().First();
+            string disbursementDate = disbursement.disburseDate.ToShortDateString();
+            string collectionPointID = context.Departments.Where(x => x.deptID == deptid).Select(x => x.collectionPointID).ToList().First();
+            string collectionPoint = context.CollectionPoints.Where(x => x.collectionPointID == collectionPointID).Select(x => x.description).ToList().First();
+            NotificationDAO nDAO = new NotificationDAO();
+            nDAO.addDeptNotification(repID, "Disbursement " + disbursement.disbursementID + " is confirmed on " + disbursementDate, DateTime.Now);
+
+            Email email = new Email();
+            email.sendDisbursementEmailToRep(repName, disbursementDate, collectionPoint);
         }
     }
 }
