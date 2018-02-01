@@ -25,7 +25,7 @@ namespace Team09LogicU.App_Code.DAO
             "['Order Date', 'ItemID','Descroption','Order Quantity','Price','Total Amount'],";
             foreach (MonthlyReorderItem item in monthlyItemList)
             {
-                TableChartdata = TableChartdata + "['" + item.OrderDate + "','" +item.Description+"',"+item.OrderQty+","+item.Price+","+ item.TotalAmount + "],";
+                TableChartdata = TableChartdata + "['" + item.OrderDate + "','" + item.ItemID+"','" + item.Description+"',"+item.OrderQty+","+item.Price+","+ item.TotalAmount + "],";
             }
             return TableChartdata = TableChartdata + "]";
         }

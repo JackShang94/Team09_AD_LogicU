@@ -5,26 +5,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
       <script src="../js/googlechart.js"></script>
      <div class="row"> 
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <div class="card">
                              <div class=" container" >
                              <div  class=" col-lg-3" style="margin:20px 0 20px 0">
                                  <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
                                   <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%"  TextMode="Date"></asp:TextBox></div>
-                                 <div  class=" col-lg-4 " style="margin:40px 0 20px 0">
+                                 <div  class=" col-lg-4 pull-right" style="margin:40px 0 20px 0">
                                  <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="btnView_Click"  />    
-                                 <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
                                  </div>
                              </div></div></div></div>
      
     <p runat="server" id="chartData"></p>
-    <div id="PrintContent"  runat="server">
-        <div class="col-lg-4">
-    <div id="chart1"></div></div>
-        <div class="col-lg-4">
-    <div id="chart2"></div></div>
+    <div id="PrintContent" runat="server">
+      
+     <div class="col-lg-10 text-center" id="div1"  runat="server">
+               <asp:Label ID="title_" CssClass="h4" runat="server" Text="Reorder Report"></asp:Label><br />
+                <asp:Label ID="date_" CssClass=" category" runat="server">Date: <%=txtMonth.Text %></asp:Label>
     </div>
+        <div class="col-lg-5" style="margin-top:10px;margin-right:10px">
+    <div id="chart1"></div></div>
+        <div class="col-lg-5" style="margin-top:10px">
+    <div id="chart2"></div></div></div> 
+    <div class="col-lg-10 text-center" style="margin-top:20px" >
+    <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
+                 </div>                
+   
+
     <script>
+        console.log(columnChartData);
+        console.log(tableChartData);
         // Load the Visualization API and the corechart package.
         google.charts.load('current', { 'packages': ['table'] });
         google.charts.load('current', { packages: ['corechart', 'bar'] });
@@ -40,20 +50,25 @@
         function drawChart() {
 
             // Create the data table.
-            var columnChartData = google.visualization.arrayToDataTable(columnChartData);
-            var tableChartData = google.visualization.arrayToDataTable(tableChartData);
+            console.log('Array:columnChartData：');
+            console.log(columnChartData)
+            var columnChartData_drawData = google.visualization.arrayToDataTable(columnChartData);
+            console.log('Array:tableChartData：');
+            console.log(tableChartData);
+            var tableChartData_drawData = google.visualization.arrayToDataTable(tableChartData);
+            console.log('Array done');
             // Set chart options
             var options = {
-                'title': 'How Much Pizza I Ate Last Night',
-                'width': 400,
-                'height': 300
+                'title': 'Reorder Report',
+                'width': 520,
+                'height': 400
             };
 
             // Instantiate and draw our chart, passing in some options.
             var chart1 = new google.visualization.BarChart(document.getElementById('chart1'));
-            chart1.draw(columnChartData, options);
+            chart1.draw(columnChartData_drawData, options);
             var chart2 = new google.visualization.Table(document.getElementById('chart2'));
-            chart2.draw(tableChartData, { showRowNumber: true, width: 400, height: 300 });
+            chart2.draw(tableChartData_drawData, { showRowNumber: true, width: 600, height: 400, title: 'Reorder Report' });
         }
     </script>
 

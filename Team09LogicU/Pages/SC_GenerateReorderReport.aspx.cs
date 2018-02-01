@@ -23,8 +23,7 @@ namespace Team09LogicU.Pages
         List<int> poIDlist;
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnGenerate.Visible = false;
-            lblDisplay2.Visible = false;
+
         }
         protected void btnView_Click(object sender, EventArgs e)
         {
@@ -66,29 +65,19 @@ namespace Team09LogicU.Pages
                     total = monthlyItemList[i].TotalAmount + total;
                 }
 
-                lblTotal.Text = Convert.ToString(total);
 
-                GridView_ReorderReport.DataSource = monthlyItemList;
-                GridView_ReorderReport.DataBind();
-                btnGenerate.Visible = true;
-                lblDisplay2.Visible = true;
                 //////////////google chart data
                 string columnChartData = reportDAO.getGoogleColumnChartData(monthlyItemList);
-                string tableChartData = reportDAO.getGoogleTableChartData(monthlyItemList);  
-                // chartData.InnerHtml = "<script>var chart1Data =" + data + ";</script>";
+                string tableChartData = reportDAO.getGoogleTableChartData(monthlyItemList);
+
+
+
+                chartData.InnerHtml = "<script>var columnChartData =" + columnChartData + " ; var tableChartData = " + tableChartData + ";</script>";
             }
             else
             {
-                lblTotal.Text = "";
-                GridView_ReorderReport.DataSource = null;
-                GridView_ReorderReport.DataBind();
                 ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please select the month！');</script>");
             }
-        }
-
-        protected void btnGenerate_Click(object sender, EventArgs e)
-        {
-
         }
 
     }
