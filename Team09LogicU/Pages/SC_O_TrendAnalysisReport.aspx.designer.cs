@@ -13,6 +13,15 @@ namespace Team09LogicU.Pages {
     public partial class SC_O_TrendAnalysisReport {
         
         /// <summary>
+        /// btnGenerate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerate;
+        
+        /// <summary>
         /// chartData control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartData;
+        
+        /// <summary>
+        /// PrintContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrintContent;
     }
 }
