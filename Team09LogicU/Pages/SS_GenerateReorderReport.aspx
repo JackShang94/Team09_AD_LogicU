@@ -9,7 +9,7 @@
                         <div class="card">
                              <div class=" container" >
                              <div  class=" col-lg-3" style="margin:20px 0 20px 0">
-                                 <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
+                                 <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Select Time: "></asp:Label>
                                   <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%"  TextMode="Date"></asp:TextBox></div>
                                  <div  class=" col-lg-4 pull-right" style="margin:40px 0 20px 0">
                                  <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="btnView_Click"  />    
