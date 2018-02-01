@@ -206,11 +206,9 @@
                             
                                 <li class="divider"></li>
                                 
-                                <li>
-                                    <a href="login.aspx" class="text-danger">
-                                        <i class="pe-7s-close-circle"></i>
-                                        Log out
-                                    </a>
+                               <li>
+                                   <asp:LinkButton ID="LinkButton2" CssClass="text-danger" runat="server" OnClick="Logout_Click"><i class="pe-7s-close-circle"></i>Logout </asp:LinkButton>
+                                   
                                 </li>
                             </ul>
                         </li>

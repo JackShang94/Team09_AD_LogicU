@@ -268,11 +268,8 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="#" class="text-danger">
-                                        <i class="pe-7s-close-circle">
-                                           <asp:LinkButton ID="LinkButton2" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></i> 
-                                        
-                                    </a>
+                                   <asp:LinkButton ID="LinkButton2" CssClass="text-danger" runat="server" OnClick="Logout_Click"><i class="pe-7s-close-circle"></i>Logout </asp:LinkButton>
+                                   
                                 </li>
                             </ul>
                         </li>
