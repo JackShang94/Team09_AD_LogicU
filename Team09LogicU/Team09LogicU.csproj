@@ -199,9 +199,12 @@
     <Content Include="Pages\SM_Notification.aspx" />
     <Content Include="Pages\SM_SearchItem.aspx" />
     <Content Include="Pages\SM_SearchSupplier.aspx" />
+    <Content Include="Pages\SM_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SM_ViewSupplierDetail.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
+    <Content Include="Pages\SS_GenerateReorderReport.aspx" />
     <Content Include="Pages\SS_Notification.aspx" />
+    <Content Include="Pages\SS_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SS_ViewAdjustment.aspx" />
     <Content Include="Pages\SS_ViewAdjustmentDetail.aspx" />
     <Content Include="Pages\StoreClerk.Master" />
@@ -883,6 +886,13 @@
     <Compile Include="Pages\SM_SearchSupplier.aspx.designer.cs">
       <DependentUpon>SM_SearchSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SM_TrendAnalysisReport.aspx.cs">
+      <DependentUpon>SM_TrendAnalysisReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_TrendAnalysisReport.aspx.designer.cs">
+      <DependentUpon>SM_TrendAnalysisReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SM_ViewSupplierDetail.aspx.cs">
       <DependentUpon>SM_ViewSupplierDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -897,12 +907,26 @@
     <Compile Include="Pages\SS_AssignClerk.aspx.designer.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SS_GenerateReorderReport.aspx.cs">
+      <DependentUpon>SS_GenerateReorderReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_GenerateReorderReport.aspx.designer.cs">
+      <DependentUpon>SS_GenerateReorderReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SS_Notification.aspx.cs">
       <DependentUpon>SS_Notification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\SS_Notification.aspx.designer.cs">
       <DependentUpon>SS_Notification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SS_TrendAnalysisReport.aspx.cs">
+      <DependentUpon>SS_TrendAnalysisReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_TrendAnalysisReport.aspx.designer.cs">
+      <DependentUpon>SS_TrendAnalysisReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SS_ViewAdjustment.aspx.cs">
       <DependentUpon>SS_ViewAdjustment.aspx</DependentUpon>

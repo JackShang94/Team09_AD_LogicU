@@ -189,7 +189,6 @@
                     <div class="collapse" id="otherExamples">
                         <ul class="nav">
                             <li><a href="SC_GenerateReorderReport.aspx">Reorder Report</a></li>
-                            <li><a href="SC_O_TrendAnalysisReport.aspx">Trend Analysis Report</a></li>
                              <li><a href="SC_O_SOA.aspx">SOA Report</a></li>
                              <li><a href="SC_O_InventoryStatusReport.aspx">Inventory Status Report</a></li>
 

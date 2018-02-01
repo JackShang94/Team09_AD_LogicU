@@ -166,6 +166,13 @@
                         </ul>
                     </div>
                 </li>
+                 <li>
+                    <a  href="SM_TrendAnalysisReport.aspx">
+                        <i class="pe-7s-box2"></i>
+                        <p>Trend Analysis Report
+                        </p>
+                    </a>         
+                </li>
          
             </ul>
     	</div>
@@ -204,7 +211,6 @@
                                     <asp:Label ID="notificationNum" runat="server" Text=" "></asp:Label></span>
                                 <p class="hidden-md hidden-lg">
     								Notifications
-    								
     							</p>
                             </a>
                         </li>
