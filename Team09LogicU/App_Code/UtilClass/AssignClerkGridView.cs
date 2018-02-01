@@ -10,6 +10,7 @@ namespace Team09LogicU.App_Code.UtilClass
 
         private string collectionPointName;
         private string deptID;
+        private string status;
        
         public AssignClerkGridView()
         {
@@ -37,6 +38,19 @@ namespace Team09LogicU.App_Code.UtilClass
             set
             {
                 deptID = value;
+            }
+        }
+
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+
+            set
+            {
+                status = value;
             }
         }
     }

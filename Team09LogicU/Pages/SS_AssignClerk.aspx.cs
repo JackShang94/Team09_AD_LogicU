@@ -15,11 +15,15 @@ namespace Team09LogicU.Pages
         CollectionPointDAO collectionDAO = new CollectionPointDAO();
         StoreStaffDAO storeStaffDAO = new StoreStaffDAO();
         DisbursementDAO disDAO = new DisbursementDAO();
+        DepartmentDAO dDAO = new DepartmentDAO();
+        CollectionPointDAO cDAO = new CollectionPointDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!IsPostBack)
             {
+
+                this.BindGrid();
                 this.BindDDL();
                
             }
@@ -31,7 +35,22 @@ namespace Team09LogicU.Pages
             List<Disbursement> disList = new List<Disbursement>();
             disList = disDAO.getAllAwaitingDisbursement();
 
+            List<AssignClerkGridView> list = new List<AssignClerkGridView>();
 
+            for (int i = 0; i < disList.Count(); i++)
+            {
+                list.Add(new AssignClerkGridView());
+
+                list[i].CollectionPointName = dDAO.getCollectionPointbyDepartmentId(disList[i].deptID);
+
+                list[i].DeptID = disList[i].deptID;
+
+                list[i].Status = disList[i].status;
+
+            }
+
+            GridView_AssignClerk.DataSource = list;
+            GridView_AssignClerk.DataBind();
         }
 
         protected void BindDDL()

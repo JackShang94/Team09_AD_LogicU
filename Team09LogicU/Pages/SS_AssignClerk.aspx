@@ -12,7 +12,32 @@
                 <div class=" container">
                     <div class="col-lg-10" style="margin-top: 20px; margin-bottom: 20px">
                         <asp:Label ID="Label3" runat="server" CssClass="h5" Text=" Category:"></asp:Label>
-                        <asp:GridView ID="GridView_AssignClerk" CssClass="table table-striped  table-hover" runat="server" ShowHeaderWhenEmpty="true" HeaderStyle-CssClass="text-uppercase" EmptyDataText="there is no information!"></asp:GridView>
+                        <asp:GridView ID="GridView_AssignClerk" CssClass="table table-striped  table-hover" runat="server" ShowHeaderWhenEmpty="false" HeaderStyle-CssClass="text-uppercase" EmptyDataText="There is no disbursement list now!" AutoGenerateColumns="False">
+
+                            <Columns>
+                                <asp:TemplateField HeaderText="Collection Point Name" SortExpression="SortedAscendingHeaderStyle">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("collectionPointName") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Department">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("deptID") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("status") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                            </Columns>
+
+                            <HeaderStyle CssClass=" content text-uppercase  " />
+
+                        </asp:GridView>
                     </div>
                 </div>
             </div>
