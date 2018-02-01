@@ -4,8 +4,11 @@ Trend Analysis Report
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <script src="../js/googlechart.js"></script>
+     <asp:Button ID="btnGenerate" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
     <p runat="server" id="chartData"></p>
+    <div id="PrintContent"  runat="server">
     <div id="chart1"></div>
+    </div>
     <script>
         // Load the Visualization API and the corechart package.
         google.charts.load('current', { 'packages': ['corechart'] });
@@ -24,8 +27,8 @@ Trend Analysis Report
             // Set chart options
             var options = {
                 'title': 'How Much Pizza I Ate Last Night',
-                'width': 400,
-                'height': 300
+                'width': 800,
+                'height': 600
             };
 
             // Instantiate and draw our chart, passing in some options.
@@ -33,4 +36,14 @@ Trend Analysis Report
             chart.draw(data, options);
         }
     </script>
+     <script type="text/javascript">
+function Print() { 
+var pc = document.getElementById("<%=PrintContent.ClientID%>"); 
+var pw = window.open('', '', 'width=1000,height=800'); 
+pw.document.write(pc.innerHTML); 
+pw.document.close(); 
+setTimeout(function () { pw.print(); }, 500); 
+return false; 
+} 
+</script>
 </asp:Content>
