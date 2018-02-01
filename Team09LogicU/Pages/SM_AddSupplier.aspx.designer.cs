@@ -22,6 +22,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_SupplierCode;
         
         /// <summary>
+        /// text_box_suppliercode_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_suppliercode_alert;
+        
+        /// <summary>
         /// TextBox_SupplierName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBox_Phone;
         
         /// <summary>
+        /// text_box_phone_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_phone_alert;
+        
+        /// <summary>
         /// TextBox_Fax control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Fax;
+        
+        /// <summary>
+        /// text_box_fax_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator text_box_fax_alert;
         
         /// <summary>
         /// TextBox_Address control.
