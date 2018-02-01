@@ -15,6 +15,8 @@ namespace Team09LogicU.Pages
         ItemDAO itemDAO = new ItemDAO();
         StockCardDAO stockCardDAO = new StockCardDAO();
         string TableData;
+        TextBox tb = new TextBox();
+        string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -47,6 +49,44 @@ namespace Team09LogicU.Pages
                 data = data + "['" + item.date + "'," + item.balance + "],";
             }
             return data = data + "]";
+        }
+
+        protected void InventoryStatusGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                
+                tb = (TextBox)InventoryStatusGridView.BottomPagerRow.FindControl("inPageNum");
+                InventoryStatusGridView.PageIndex = e.NewPageIndex;
+                tb.Text = (InventoryStatusGridView.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+               BindGridView();
+
+
+            }
+            catch
+            {
+            }
+        }
+
+        protected void InventoryStatusGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "go")
+            {
+                tb = (TextBox)InventoryStatusGridView.BottomPagerRow.FindControl("inPageNum");
+
+            }
+
+            try
+            {
+
+                int num = Int32.Parse(tb.Text);
+                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                InventoryStatusGridView_PageIndexChanging(null, ea);
+            }
+            catch
+            {
+            }
         }
     }
 }

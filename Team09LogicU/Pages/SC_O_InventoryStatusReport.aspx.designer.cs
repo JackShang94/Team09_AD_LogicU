@@ -13,6 +13,15 @@ namespace Team09LogicU.Pages {
     public partial class SC_O_InventoryStatusReport {
         
         /// <summary>
+        /// chartData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartData;
+        
+        /// <summary>
         /// InventoryStatusGridView control.
         /// </summary>
         /// <remarks>
@@ -22,12 +31,30 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.WebControls.GridView InventoryStatusGridView;
         
         /// <summary>
-        /// chartData control.
+        /// PrintContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartData;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrintContent;
+        
+        /// <summary>
+        /// title_ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label title_;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
