@@ -7,6 +7,7 @@ using System.Text;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
+using System.IO;
 
 namespace Team09LogicU.AndroidServices
 {
@@ -30,27 +31,22 @@ namespace Team09LogicU.AndroidServices
             for (int i = 0; i < list.Count(); i++)
             {
                 DataList.Add(new RetrievalFormItemData());
-                DataList[i] = RetrievalFormItemData.Make(list[i].ItemID,list[i].ItemDescription,list[i].Location,list[i].Needed,list[i].Actual, list[i].BreakdownByDepartmentList);
+
+                List<BreakdownByDepartment> breaklist = list[i].BreakdownByDepartmentList;
+                List<BreakdownByDepartmentData> breakDataList = new List<BreakdownByDepartmentData>();
+                for (int j = 0; j < breaklist.Count(); j++)
+                {
+                    breakDataList.Add(new BreakdownByDepartmentData());
+                    breakDataList[j].deptID = breaklist[j].DeptID;
+                    breakDataList[j].needed = breaklist[j].Needed;
+                    breakDataList[j].actual = breaklist[j].Actual;
+
+                }
+
+                DataList[i] = RetrievalFormItemData.Make(list[i].ItemID,list[i].ItemDescription,list[i].Location,list[i].Needed,list[i].Actual, breakDataList);
             }
 
             return DataList;
-        }
-
-        public void updateRetrievalFormItemData(List<RetrievalFormItemData> datalist)
-        {
-            List<RetrievalFormItem> list = new List<RetrievalFormItem>();
-            for (int i = 0; i < datalist.Count(); i++)
-            {
-                list.Add(new RetrievalFormItem());
-                list[i].ItemID = datalist[i].itemID;
-                list[i].ItemDescription = datalist[i].itemDescription;
-                list[i].Location = datalist[i].itemLocation;
-                list[i].Needed = datalist[i].itemNeeded;
-                list[i].Actual = datalist[i].itemActual;
-                list[i].BreakdownByDepartmentList = datalist[i].breakdownByDepartmentList;
-            }
-            DateTime date = DateTime.Now;
-            reDAO.ConfirmRetrieval(list, date);
         }
 
     }
