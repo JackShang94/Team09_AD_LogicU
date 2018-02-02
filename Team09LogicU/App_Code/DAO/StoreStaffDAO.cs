@@ -14,7 +14,14 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.StoreStaffs.Where(x => x.storeStaffID == storeStaffID).First();
         }
-        public List<StoreStaff> getallStoreStaff()
+
+        public string getStoreStaffIDbyName(string name)
+        {
+            StoreStaff s = context.StoreStaffs.Where(x => x.storeStaffName == name).First();
+            return s.storeStaffID;
+        }
+
+        public List<StoreStaff> getStallStoreStaff()
         {
             return context.StoreStaffs.ToList();
         }
