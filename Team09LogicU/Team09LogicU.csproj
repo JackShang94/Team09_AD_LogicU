@@ -410,6 +410,7 @@
     <Compile Include="App_Code\DAO\AdjustmentVoucherItemDAO.cs" />
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
     <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
+    <Compile Include="App_Code\DAO\DashBoardDAO.cs" />
     <Compile Include="App_Code\DAO\DelegateDAO.cs" />
     <Compile Include="App_Code\DAO\DepartmentDAO.cs" />
     <Compile Include="App_Code\DAO\DeptStaffDAO.cs" />
