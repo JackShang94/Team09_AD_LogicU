@@ -266,6 +266,7 @@
     <Content Include="picture\C003.jpg" />
     <Content Include="picture\C004.jpg" />
     <Content Include="picture\C005.jpg" />
+    <Content Include="picture\C006.jpg" />
     <Content Include="picture\de.png" />
     <Content Include="picture\default-avatar.png" />
     <Content Include="picture\E001.jpg" />
@@ -285,6 +286,16 @@
     <Content Include="picture\E034.jpg" />
     <Content Include="picture\E035.jpg" />
     <Content Include="picture\E036.jpg" />
+    <Content Include="picture\F020.jpg" />
+    <Content Include="picture\F021.jpg" />
+    <Content Include="picture\F022.jpg" />
+    <Content Include="picture\F023.jpg" />
+    <Content Include="picture\F024.jpg" />
+    <Content Include="picture\F031.jpg" />
+    <Content Include="picture\F032.jpg" />
+    <Content Include="picture\F033.jpg" />
+    <Content Include="picture\F034.jpg" />
+    <Content Include="picture\F035.jpg" />
     <Content Include="picture\full-screen-image-1.jpg" />
     <Content Include="picture\full-screen-image-2.jpg" />
     <Content Include="picture\full-screen-image-3.jpg" />
@@ -334,6 +345,8 @@
     <Content Include="picture\S023.jpg" />
     <Content Include="picture\S040.jpg" />
     <Content Include="picture\S041.jpg" />
+    <Content Include="picture\S100.jpg" />
+    <Content Include="picture\S101.jpg" />
     <Content Include="picture\T001.jpg" />
     <Content Include="picture\T002.jpg" />
     <Content Include="picture\T003.jpg" />
@@ -343,6 +356,7 @@
     <Content Include="picture\T023.jpg" />
     <Content Include="picture\T024.jpg" />
     <Content Include="picture\T025.jpg" />
+    <Content Include="picture\T100.jpg" />
     <Content Include="picture\us.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -412,6 +426,7 @@
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
     <Compile Include="App_Code\DAO\RetrievalDAO.cs" />
+    <Compile Include="App_Code\DAO\SOADAO.cs" />
     <Compile Include="App_Code\DAO\StockCardDAO.cs" />
     <Compile Include="App_Code\DAO\SupplierDAO.cs" />
     <Compile Include="App_Code\DAO\StoreStaffDAO.cs" />

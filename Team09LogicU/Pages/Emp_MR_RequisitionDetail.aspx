@@ -60,7 +60,7 @@ Requisition Detail
 											</ContentTemplate>
 										</asp:UpdatePanel>
                                 </div></div></div>
-									<div class="col-lg-4"><asp:Button  runat="server" ID="addBtn" Text="Add" CssClass="btn btn-wd btn-primary btn-fill" EnableViewState="False" />
+									<div class="col-lg-4"><asp:Button  runat="server" ID="reSubmit" Text="Resubmit" CssClass="btn btn-wd btn-primary btn-fill" EnableViewState="False" />
     <asp:LinkButton ID="backToReqBtn"  runat="server" CssClass="btn btn-wd btn-default" OnClick="backToReqBtn_Click">Back</asp:LinkButton></div>
 								
 									
