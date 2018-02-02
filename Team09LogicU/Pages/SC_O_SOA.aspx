@@ -73,8 +73,12 @@
                 </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Label ID="Label1" runat="server" Text=" TotalPrice : $" CssClass="category" ></asp:Label>
-                    <asp:Label ID="TotalPrice" runat="server" Text="0"></asp:Label>
+                    <div class="col-lg-10 text-center " style="margin:20px 0 20px 0">
+                        <asp:Label ID="Label2" runat="server" CssClass=" category" >Department:<%=ddlDepartment.SelectedValue %> </asp:Label><br />
+                        <asp:Label ID="Label3" runat="server" CssClass="category" >Print Date:<%=DateTime.Now.ToShortDateString() %></asp:Label>
+                        <br />
+                    <asp:Label ID="Label1" runat="server" Text=" TotalPrice : $" CssClass="h5 text-uppercase" ></asp:Label>
+                  <asp:Label ID="TotalPrice" runat="server" CssClass="h5" Text="0"></asp:Label></div>
                 </div>
             </div>
         </div>
