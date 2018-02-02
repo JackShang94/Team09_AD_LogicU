@@ -99,7 +99,7 @@
 
             <div class="user">
                 <div class="photo">
-                    <img src="../picture/default-avatar.png" />
+                  <img id="img"  runat="server" src="" />
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
