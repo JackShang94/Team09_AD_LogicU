@@ -13,6 +13,15 @@ namespace Team09LogicU.Pages {
     public partial class SS_AssignClerk {
         
         /// <summary>
+        /// GridView_AssignClerk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView_AssignClerk;
+        
+        /// <summary>
         /// Label_CollectionPoint1 control.
         /// </summary>
         /// <remarks>

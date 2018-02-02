@@ -34,6 +34,10 @@ namespace Team09LogicU.App_Code.DAO
             }
             return temp.First();
         }
+        public DeptStaff findStaffByStaffID(string staffId)
+        {
+            return context.DeptStaffs.Where(x => x.staffID == staffId).First();
+        }
 
         //find staff by role
         public DeptStaff findStaffByRole(string role)

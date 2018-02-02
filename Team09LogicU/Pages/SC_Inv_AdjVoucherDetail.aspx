@@ -8,27 +8,27 @@
                     <div class="col-lg-10">
                         <div class="card">
                              <div class=" container">
-                             <div  class=" col-lg-4" style="margin-top:20px">
+                             <div  class=" col-lg-3" style="margin-top:20px">
                                  <asp:Label ID="Labeltxtadjv" CssClass=" category" runat="server" Text="Adjustment Voucher ID: "></asp:Label>
-                                 <br /><asp:Label ID="lblAdjvID" CssClass="h6" runat="server"></asp:Label> 
+                                 <asp:Label ID="lblAdjvID" CssClass="h6" runat="server"></asp:Label> 
                                  </div>
-                              <div class=" col-lg-4" style=" margin-top:20px">
+                              <div class=" col-lg-3" style=" margin-top:20px">
                                   <asp:Label ID="LabelTXTStaffid" CssClass="category" runat="server" Text="Store Staff: "></asp:Label>  
-                                 <br /><asp:Label ID="Label1" CssClass="h6" runat="server"></asp:Label> 
+                                 <asp:Label ID="Label1" CssClass="h6" runat="server"></asp:Label> 
                                   <asp:Label ID="Label_StoreStafID" CssClass="h6" runat="server"></asp:Label></div>
-                                 <div class=" col-lg-4" style=" margin-top:20px">
+                                 <div class=" col-lg-6" style=" margin-top:20px">
                                   <asp:Label ID="LabeltxtAutBy" CssClass="category" runat="server" Text="Authorised By: "></asp:Label>  
-                                 <br /><asp:Label ID="Label2" CssClass="h6" runat="server"></asp:Label> 
+                                 <asp:Label ID="Label2" CssClass="h6" runat="server"></asp:Label> 
                                   <asp:Label ID="Label_Authorisedby" CssClass="h6" runat="server"></asp:Label></div>
                                 
-                                 <div  class=" col-lg-4" style="margin-top:20px;margin-bottom:20px">
+                                 <div  class=" col-lg-3" style="margin-top:20px;margin-bottom:20px">
                                  <asp:Label ID="LabeltxtadjvDate" CssClass="category" runat="server" Text="Request Date: "></asp:Label>
-                                 <br /><asp:Label ID="Label3" CssClass="h6" runat="server"></asp:Label> 
+                                 <asp:Label ID="Label3" CssClass="h6" runat="server"></asp:Label> 
                                  <asp:Label ID="lblDate" CssClass="h6" runat="server"></asp:Label> 
                                  </div>
-                                 <div class=" col-lg-4" style="margin-top:20px;margin-bottom:20px" >
+                                 <div class=" col-lg-6" style="margin-top:20px;margin-bottom:20px" >
                                   <asp:Label ID="Labeltxtstatus" CssClass="category" runat="server" Text="Status: "></asp:Label>  
-                                 <br /><asp:Label ID="Label4" CssClass="h6" runat="server"></asp:Label> 
+                                 <asp:Label ID="Label4" CssClass="h6" runat="server"></asp:Label> 
                                   <asp:Label ID="lblStatus" CssClass="h6" runat="server"></asp:Label></div>
 
                                  </div></div></div></div>
