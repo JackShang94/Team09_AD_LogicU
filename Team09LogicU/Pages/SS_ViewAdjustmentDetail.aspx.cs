@@ -99,16 +99,16 @@ namespace Team09LogicU.Pages
         {
             List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
             DataTable iTable = new DataTable("itemTable");
-            iTable.Columns.Add(new DataColumn("adjVItemID", typeof(int)));
-            iTable.Columns.Add(new DataColumn("itemDescription", typeof(string)));
-            iTable.Columns.Add(new DataColumn("quantity", typeof(int)));
+            iTable.Columns.Add(new DataColumn("ID", typeof(int)));
+            iTable.Columns.Add(new DataColumn("Item Description", typeof(string)));
+            iTable.Columns.Add(new DataColumn("Quantity", typeof(int)));
 
             foreach (AdjustmentVoucherItem i in adjItems)
             {
                 DataRow dr = iTable.NewRow();
-                dr["adjVItemID"] = i.adjVItemID;
-                dr["itemDescription"] = i.Item.description;
-                dr["quantity"] = i.quantity;
+                dr["ID"] = i.adjVItemID;
+                dr["Item Description"] = i.Item.description;
+                dr["Quantity"] = i.quantity;
                 iTable.Rows.Add(dr);
             }
             GridView_detailList.DataSource = iTable;
