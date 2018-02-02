@@ -22,7 +22,7 @@ namespace Team09LogicU.App_Code.DAO
         public string getGoogleTableChartData(List<MonthlyReorderItem> monthlyItemList)
         {
             string TableChartdata = "[" +
-            "['Order Date', 'ItemID','Descroption','Order Quantity','Price','Total Amount'],";
+            "['Order Date', 'Item ID','Description','Order Quantity','Price','Total Amount'],";
             foreach (MonthlyReorderItem item in monthlyItemList)
             {
                 TableChartdata = TableChartdata + "['" + item.OrderDate + "','" + item.ItemID+"','" + item.Description+"',"+item.OrderQty+","+item.Price+","+ item.TotalAmount + "],";

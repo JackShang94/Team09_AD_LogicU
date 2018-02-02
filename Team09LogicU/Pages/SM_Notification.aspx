@@ -7,7 +7,6 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Notification</h4>
-                                <p class="category">Please check the information in time</p>
                             </div>
                             <div class="content">
                                 <div class="panel-group" id="accordion">

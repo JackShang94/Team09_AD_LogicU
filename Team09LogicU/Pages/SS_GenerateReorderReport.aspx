@@ -1,36 +1,44 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreSupervisor.Master" AutoEventWireup="true" CodeBehind="SS_GenerateReorderReport.aspx.cs" Inherits="Team09LogicU.Pages.SS_GenerateReorderReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  Reorder Report
+    Reorder Report
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-      <script src="../js/googlechart.js"></script>
-     <div class="row"> 
-                    <div class="col-lg-10">
-                        <div class="card">
-                             <div class=" container" >
-                             <div  class=" col-lg-3" style="margin:20px 0 20px 0">
-                                 <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Select Time: "></asp:Label>
-                                  <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%"  TextMode="Date"></asp:TextBox></div>
-                                 <div  class=" col-lg-4 pull-right" style="margin:40px 0 20px 0">
-                                 <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="btnView_Click"  />    
-                                 </div>
-                             </div></div></div></div>
-     
+    <script src="../js/googlechart.js"></script>
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class=" container">
+                    <div class=" col-lg-3" style="margin: 20px 0 20px 0">
+                        <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Select Time: "></asp:Label>
+                        <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%" TextMode="Date"></asp:TextBox>
+                    </div>
+                    <div class=" col-lg-4 pull-right" style="margin: 40px 0 20px 0">
+                        <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd " OnClick="btnView_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <p runat="server" id="chartData"></p>
     <div id="PrintContent" runat="server">
-      
-     <div class="col-lg-10 text-center" id="div1"  runat="server">
-               <asp:Label ID="title_" CssClass="h4" runat="server" Text="Reorder Report"></asp:Label><br />
-                <asp:Label ID="date_" CssClass=" category" runat="server">Date: <%=txtMonth.Text %></asp:Label>
+
+        <div class="col-lg-10 text-center" id="div1" runat="server">
+            <asp:Label ID="title_" CssClass="h4" runat="server" Text="Reorder Report"></asp:Label><br />
+            <asp:Label ID="date_" CssClass=" category" runat="server">Date: <%=txtMonth.Text %></asp:Label>
+        </div>
+        <div class="col-lg-5" style="margin-top: 10px; margin-right: 10px">
+            <div id="chart1"></div>
+        </div>
+        <div class="col-lg-5" style="margin-top: 10px">
+            <div id="chart2"></div>
+        </div>
     </div>
-        <div class="col-lg-5" style="margin-top:10px;margin-right:10px">
-    <div id="chart1"></div></div>
-        <div class="col-lg-5" style="margin-top:10px">
-    <div id="chart2"></div></div></div> 
-    <div class="col-lg-10 text-center" style="margin-top:20px" >
-    <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd "  OnClientClick="return Print();"  />    
-                 </div>                
-   
+    <div class="col-lg-10 text-center" style="margin-top: 20px">
+        <asp:Button ID="btnPrint" runat="server" Text="Print Report" CssClass="btn btn-primary btn-fill btn-wd " OnClientClick="return Print();" />
+    </div>
+
 
     <script>
         console.log(columnChartData);
@@ -38,7 +46,7 @@
         // Load the Visualization API and the corechart package.
         google.charts.load('current', { 'packages': ['table'] });
         google.charts.load('current', { packages: ['corechart', 'bar'] });
-        
+
 
 
         // Set a callback to run when the Google Visualization API is loaded.
@@ -73,14 +81,14 @@
     </script>
 
 
-     <script type="text/javascript">
-function Print() { 
-var pc = document.getElementById("<%=PrintContent.ClientID%>"); 
-var pw = window.open('', '', 'width=1000,height=800'); 
-pw.document.write(pc.innerHTML); 
-pw.document.close(); 
-setTimeout(function () { pw.print(); }, 500); 
-return false; 
-} 
-</script>
+    <script type="text/javascript">
+        function Print() {
+            var pc = document.getElementById("<%=PrintContent.ClientID%>");
+    var pw = window.open('', '', 'width=1000,height=800');
+    pw.document.write(pc.innerHTML);
+    pw.document.close();
+    setTimeout(function () { pw.print(); }, 500);
+    return false;
+}
+    </script>
 </asp:Content>
