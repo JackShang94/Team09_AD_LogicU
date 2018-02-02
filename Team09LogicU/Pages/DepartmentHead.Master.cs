@@ -15,6 +15,8 @@ namespace Team09LogicU.pages
         {
             Label1.Text = Session["loginName"].ToString();
             string loginID = Session["loginID"].ToString();
+            string loginRole = Session["loginRole"].ToString();
+            img.Src = "../picture/" + loginID + ".jpg";
             NotificationDAO nDAO = new NotificationDAO();
             var deptNotifications = nDAO.getNewDeptNotificationByID(loginID);
             notificationNum.Text = deptNotifications.Count.ToString();

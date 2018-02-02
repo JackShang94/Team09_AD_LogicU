@@ -52,6 +52,7 @@
     <meta property="og:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful." />
     <meta property="og:site_name" content="Creative Tim" />
 
+    <!--My CSS-->
 
     <!-- Bootstrap core CSS     -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -99,7 +100,7 @@
 
             <div class="user">
                 <div class="photo">
-                    <img src="../picture/default-avatar.png" />
+                  <img id="img"  runat="server" src="" />
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
