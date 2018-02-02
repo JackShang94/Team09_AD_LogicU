@@ -6,25 +6,34 @@ using System.ServiceModel;
 using System.Text;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
+using Team09LogicU.App_Code.UtilClass;
 namespace Team09LogicU.AndroidServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "LoginService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select LoginService.svc or LoginService.svc.cs at the Solution Explorer and start debugging.
     public class LoginService : ILoginService
     {
-        public int Login(WCFAccount wcf_account,string section)
+        SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+        public string Login(WCFAccount wcf_account)
         {
+            LoginDAO loginDAO = new LoginDAO();
             string email = wcf_account.Email;
-            string passsword = wcf_account.Password;
-            string role = wcf_account.Role;
-            if (section == "dept")
+            string password = wcf_account.Password;
+            string role = "";
+            string hashString = new Encrypt().encryptString(password);
+            string[] result = loginDAO.getUser(email);
+            if (hashString == result[2])
             {
-                
-            }else if (section == "store")
+                role = result[0]+"&"+result[1];//result[0] is loginID,result[1] is role
+            }else if (result[0] != "")//user not exists
+            {
+
+            }else//invalid password
             {
 
             }
-            return 0;
+
+            return role;
         }
     }
 }

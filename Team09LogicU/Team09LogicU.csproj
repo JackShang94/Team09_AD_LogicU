@@ -171,6 +171,7 @@
     <Content Include="Pages\Emp_MR_RequisitionDetail.aspx" />
     <Content Include="Pages\Emp_Rep_DisbursementHistory_ViewDetail.aspx" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
+    <Content Include="Pages\SC_dashboard.aspx" />
     <Content Include="Pages\SC_GenerateReorderReport.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_AdjVoucherDetail.aspx" />
@@ -180,7 +181,6 @@
     <Content Include="Pages\SC_Notification.aspx" />
     <Content Include="Pages\SC_O_InventoryStatusReport.aspx" />
     <Content Include="Pages\SC_O_SOA.aspx" />
-    <Content Include="Pages\SC_O_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SC_PurchaseOrderHistoryDetail.aspx" />
     <Content Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx" />
     <Content Include="Pages\SC_ShowPurchaseOrder.aspx" />
@@ -221,6 +221,7 @@
     <Content Include="fonts\pe-icon-7-stroke.ttf" />
     <Content Include="fonts\pe-icon-7-stroke.woff" />
     <Content Include="fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\Team09LogicU.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -267,6 +268,10 @@
     <Content Include="picture\C003.jpg" />
     <Content Include="picture\C004.jpg" />
     <Content Include="picture\C005.jpg" />
+    <Content Include="picture\C006.jpg" />
+    <Content Include="picture\clerk001.jpg" />
+    <Content Include="picture\clerk002.jpg" />
+    <Content Include="picture\clerk003.jpg" />
     <Content Include="picture\de.png" />
     <Content Include="picture\default-avatar.png" />
     <Content Include="picture\E001.jpg" />
@@ -286,6 +291,26 @@
     <Content Include="picture\E034.jpg" />
     <Content Include="picture\E035.jpg" />
     <Content Include="picture\E036.jpg" />
+    <Content Include="picture\emp001.jpg" />
+    <Content Include="picture\emp002.jpg" />
+    <Content Include="picture\emp003.jpg" />
+    <Content Include="picture\emp004.jpg" />
+    <Content Include="picture\emp005.jpg" />
+    <Content Include="picture\emp006.jpg" />
+    <Content Include="picture\emp007.jpg" />
+    <Content Include="picture\emp008.jpg" />
+    <Content Include="picture\emp009.jpg" />
+    <Content Include="picture\emp010.jpg" />
+    <Content Include="picture\F020.jpg" />
+    <Content Include="picture\F021.jpg" />
+    <Content Include="picture\F022.jpg" />
+    <Content Include="picture\F023.jpg" />
+    <Content Include="picture\F024.jpg" />
+    <Content Include="picture\F031.jpg" />
+    <Content Include="picture\F032.jpg" />
+    <Content Include="picture\F033.jpg" />
+    <Content Include="picture\F034.jpg" />
+    <Content Include="picture\F035.jpg" />
     <Content Include="picture\full-screen-image-1.jpg" />
     <Content Include="picture\full-screen-image-2.jpg" />
     <Content Include="picture\full-screen-image-3.jpg" />
@@ -298,6 +323,12 @@
     <Content Include="picture\H031.jpg" />
     <Content Include="picture\H032.jpg" />
     <Content Include="picture\H033.jpg" />
+    <Content Include="picture\head001.jpg" />
+    <Content Include="picture\head002.jpg" />
+    <Content Include="picture\head003.jpg" />
+    <Content Include="picture\head004.jpg" />
+    <Content Include="picture\head005.jpg" />
+    <Content Include="picture\manager001.jpg" />
     <Content Include="picture\P010.jpg" />
     <Content Include="picture\P011.jpg" />
     <Content Include="picture\P012.jpg" />
@@ -335,6 +366,9 @@
     <Content Include="picture\S023.jpg" />
     <Content Include="picture\S040.jpg" />
     <Content Include="picture\S041.jpg" />
+    <Content Include="picture\S100.jpg" />
+    <Content Include="picture\S101.jpg" />
+    <Content Include="picture\supervisor001.jpg" />
     <Content Include="picture\T001.jpg" />
     <Content Include="picture\T002.jpg" />
     <Content Include="picture\T003.jpg" />
@@ -344,6 +378,7 @@
     <Content Include="picture\T023.jpg" />
     <Content Include="picture\T024.jpg" />
     <Content Include="picture\T025.jpg" />
+    <Content Include="picture\T100.jpg" />
     <Content Include="picture\us.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -401,6 +436,7 @@
     <Compile Include="App_Code\DAO\AdjustmentVoucherItemDAO.cs" />
     <Compile Include="App_Code\DAO\CategoryDAO.cs" />
     <Compile Include="App_Code\DAO\CollectionPointDAO.cs" />
+    <Compile Include="App_Code\DAO\DashBoardDAO.cs" />
     <Compile Include="App_Code\DAO\DelegateDAO.cs" />
     <Compile Include="App_Code\DAO\DepartmentDAO.cs" />
     <Compile Include="App_Code\DAO\DeptStaffDAO.cs" />
@@ -417,11 +453,14 @@
     <Compile Include="App_Code\DAO\RequisitionDAO.cs" />
     <Compile Include="App_Code\DAO\RequisitionItemDAO.cs" />
     <Compile Include="App_Code\DAO\RetrievalDAO.cs" />
+    <Compile Include="App_Code\DAO\SOADAO.cs" />
     <Compile Include="App_Code\DAO\StockCardDAO.cs" />
     <Compile Include="App_Code\DAO\SupplierDAO.cs" />
     <Compile Include="App_Code\DAO\StoreStaffDAO.cs" />
     <Compile Include="App_Code\DAO\SupplierItemDAO.cs" />
+    <Compile Include="App_Code\DAO\TrendAnalysisReportDAO.cs" />
     <Compile Include="App_Code\UtilClass\AdjustmentVouchercart.cs" />
+    <Compile Include="App_Code\UtilClass\AssignClerkGridView.cs" />
     <Compile Include="App_Code\UtilClass\cart.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\DisbursementCart.cs" />
@@ -666,6 +705,13 @@
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SC_dashboard.aspx.cs">
+      <DependentUpon>SC_dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SC_dashboard.aspx.designer.cs">
+      <DependentUpon>SC_dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SC_GenerateReorderReport.aspx.cs">
       <DependentUpon>SC_GenerateReorderReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -729,13 +775,6 @@
     <Compile Include="Pages\SC_O_SOA.aspx.designer.cs">
       <DependentUpon>SC_O_SOA.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.cs">
-      <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\SC_O_TrendAnalysisReport.aspx.designer.cs">
-      <DependentUpon>SC_O_TrendAnalysisReport.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\SC_PurchaseOrderHistoryDetail.aspx.cs">
       <DependentUpon>SC_PurchaseOrderHistoryDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -743,7 +782,6 @@
     <Compile Include="Pages\SC_PurchaseOrderHistoryDetail.aspx.designer.cs">
       <DependentUpon>SC_PurchaseOrderHistoryDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SC_ReorderHistory.aspx.designer.cs" />
     <Compile Include="Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.cs">
       <DependentUpon>SC_RO_DisbursementListHistory_ViewDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

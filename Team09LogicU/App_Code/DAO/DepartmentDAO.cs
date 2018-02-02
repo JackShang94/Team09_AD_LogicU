@@ -49,8 +49,6 @@ namespace Team09LogicU.App_Code.DAO
         }
         public string getCollectionPointbyDepartmentId(string depId)
         {
-            //string collectionPointId=context.Departments.Where(x => x.deptID == depId).Select(x => x.collectionPointID).First().ToString();
-            //string collectionPoint = context.CollectionPoints.Where(x => x.collectionPointID == collectionPointId).Select(x => x.description).First().ToString();
             string collectionPoint = context.Departments.Where(x => x.deptID == depId).Select(x => x.CollectionPoint.description).First().ToString();
             return collectionPoint;
         }

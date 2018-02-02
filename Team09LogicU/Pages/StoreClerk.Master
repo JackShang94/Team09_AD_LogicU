@@ -95,7 +95,7 @@
 
             <div class="user">
                 <div class="photo">
-                    <img src="../picture/default-avatar.png" />
+                  <img id="img"  runat="server" src="" />
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -188,7 +188,7 @@
                     </a>
                     <div class="collapse" id="otherExamples">
                         <ul class="nav">
-                            <li><a href="SC_GenerateReorderReport.aspx">Reorder Report</a></li>
+                           
                              <li><a href="SC_O_SOA.aspx">SOA Report</a></li>
                              <li><a href="SC_O_InventoryStatusReport.aspx">Inventory Status Report</a></li>
 

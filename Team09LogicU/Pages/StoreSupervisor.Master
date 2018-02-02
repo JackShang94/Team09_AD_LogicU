@@ -98,7 +98,7 @@
 
             <div class="user">
                 <div class="photo">
-                    <img src="../picture/default-avatar.png" />
+                  <img id="img"  runat="server" src="" />
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -128,7 +128,7 @@
 
                             <li>
                     <a href="SS_AssignClerk.aspx">
-                        <i class="pe-7s-home"></i>
+                        <i class="pe-7s-users"></i>
                         <p>Assign Clerk
                         </p>
                     </a>        

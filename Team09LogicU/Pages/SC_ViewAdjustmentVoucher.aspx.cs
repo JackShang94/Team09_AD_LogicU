@@ -18,17 +18,22 @@ namespace Team09LogicU.Pages
         {
             if (!IsPostBack)
             {
-               
-               // string status = "pending";
+                string clerkID = (string)Session["loginID"];
+                adjvlist = adjvdao.getAdjustmentVoucherListByStaffID(clerkID);
+                // string status = "pending";
                 //this.BindGrid();
-                this.showItemInfo();
+                updateGV();
             }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            
-            List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
+
+            updateGV();
+        }
+        protected void  updateGV()
+        {
+            adjvlist = new List<AdjustmentVoucher>();
             string Status = DropDownList_cat.Text;
             string clerkID = (string)Session["loginID"];
 
@@ -37,37 +42,35 @@ namespace Team09LogicU.Pages
 
             if ((from == "" || to == "") && Status == "--All--")
             {
-                list = adjvdao.getAdjustmentVoucherListByStaffID(clerkID);
+                adjvlist = adjvdao.getAdjustmentVoucherListByStaffID(clerkID);
             }
 
             if (Status == "--All--" && (from != "" && to != ""))
             {
                 DateTime dateFrom = Convert.ToDateTime(from);
                 DateTime dateTo = Convert.ToDateTime(to);
-                list = adjvdao.findadjvbyDateandStaffID(dateFrom, dateTo, clerkID);
+                adjvlist = adjvdao.findadjvbyDateandStaffID(dateFrom, dateTo, clerkID);
             }
 
 
             if ((from == "" || to == "") && Status != "--All--")
             {
-                list = adjvdao.getadjvByStaffIDandStatus(clerkID,Status);
+                adjvlist = adjvdao.getadjvByStaffIDandStatus(clerkID, Status);
             }
             if (from != "" && to != "" && Status != "--All--")
             {
                 DateTime dateFrom = Convert.ToDateTime(from);
                 DateTime dateTo = Convert.ToDateTime(to);
-                list = adjvdao.findadjvbyStatusandDateStaffID(dateFrom, dateTo, Status,clerkID);
+                adjvlist = adjvdao.findadjvbyStatusandDateStaffID(dateFrom, dateTo, Status, clerkID);
             }
-            if (list.Count == 0)
+            if (adjvlist.Count == 0)
             {
                 ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'There is no adjustment voucher!');</script>");
             }
-           
-                GridView_ViewAdjustmentVoucher.DataSource = list;
-                GridView_ViewAdjustmentVoucher.DataBind();
-            
-        }
+            showItemInfo(adjvlist);
 
+
+        }
 
         public void dropDownList_bindCatInfo()
         {
@@ -98,13 +101,10 @@ namespace Team09LogicU.Pages
         //    GridView_ViewAdjustmentVoucher.DataBind();
            
         //}
-        public void showItemInfo()
-        {
-            string clerkID = (string)Session["loginID"];
-            adjvlist = adjvdao.getAdjustmentVoucherListByStaffID(clerkID);
+        public void showItemInfo(List<AdjustmentVoucher> adjvlist)
+        { 
             GridView_ViewAdjustmentVoucher.DataSource = adjvlist;
-            GridView_ViewAdjustmentVoucher.DataBind();
-           
+            GridView_ViewAdjustmentVoucher.DataBind();   
 
         }
             protected void GridView_ViewAdjustmentVoucher_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -112,9 +112,9 @@ namespace Team09LogicU.Pages
             try
             {
                 GridView_ViewAdjustmentVoucher.PageIndex = e.NewPageIndex;
-
                 TextBox tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_ViewAdjustmentVoucher.PageIndex + 1).ToString();
+                updateGV();
             }
             catch
             {

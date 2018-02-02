@@ -100,10 +100,6 @@ namespace Team09LogicU.Pages
         {
             if (e.CommandName == "edit")
             {
-                //int reqItemID = Int32.Parse(e.CommandArgument.ToString());
-                //GridViewRow gRow = (GridViewRow) (((LinkButton)e.CommandSource).NamingContainer );//get row index
-                //TextBox t =(TextBox)gRow.FindControl("editQty");
-                //t.ReadOnly = false;
 
             }
             else if (e.CommandName == "delete")
@@ -158,15 +154,10 @@ namespace Team09LogicU.Pages
             Control i = row.Cells[4].Controls[1];//get the quantity control( another way.............)
             TextBox t = (TextBox)i;
             string a = t.Text;
-            RequisitionItemDAO ridao = new RequisitionItemDAO();
-            //string a = e.NewValues["requisitionQty"].ToString();//Here it cannt get changed value if using custom template???
+            RequisitionItemDAO ridao = new RequisitionItemDAO();         
 
             int reqItemQty = Int32.Parse(a);
-            //if (reqItemQty < 0)
-            //{
-                
-            //    return;
-            //}
+
             ridao.updateItemQty(this.reqItemID, reqItemQty);
             requisitionItemListGridView.EditIndex = -1;
             initPendingDataGrid();
@@ -181,7 +172,41 @@ namespace Team09LogicU.Pages
             initPendingDataGrid();
         }
 
-   
+        protected void reSubmit_Click(object sender, EventArgs e)
+        {
+            SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+            RequisitionDAO rdao = new RequisitionDAO();
+
+            Requisition newRequisition = new Requisition();
+            Requisition oldRequisition = rdao.findRequisitionByrequisitionId(reqID);
+            if (oldRequisition.status != "pending")
+            {
+                newRequisition.staffID = oldRequisition.staffID;
+                newRequisition.deptID = oldRequisition.deptID;
+                newRequisition.requisitionDate = DateTime.Now;
+                newRequisition.status = "pending";
+
+                context.Requisitions.Add(newRequisition);
+
+                var oldRequisitionItemsList = oldRequisition.RequisitionItems;
+                foreach (RequisitionItem item in oldRequisitionItemsList)
+                {
+                    RequisitionItem newItem = new RequisitionItem();
+                    newItem.requisitionID = newRequisition.requisitionID;
+                    newItem.itemID = item.itemID;
+                    newItem.requisitionQty = item.requisitionQty;
+
+                    context.RequisitionItems.Add(newItem);
+                }
+                context.SaveChanges();
+                Response.Redirect("Emp_MyRequisition.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Warning', 'You can not resubmit a pending requisition！');</script>");
+            }
+
+        }
     }
     
 }

@@ -24,7 +24,7 @@ namespace Team09LogicU.AndroidServices
         public List<WCFStoreStaff> List()
         {
             List<WCFStoreStaff> wcfStoreStaffList = new List<WCFStoreStaff>();
-            List<StoreStaff> slist =sDAO.getallStoreStaff();
+            List<StoreStaff> slist =sDAO.getStallStoreStaff();
             foreach (StoreStaff s in slist)
             {
                 wcfStoreStaffList.Add(new WCFStoreStaff(s.storeStaffID, s.storeStaffName, s.role, s.email, s.phone, s.password));

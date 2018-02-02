@@ -16,12 +16,12 @@
                                                  
                                                     <asp:BoundField DataField="deptID" HeaderText="Department Code:" />
                                                     <asp:BoundField DataField="deptName" HeaderText="Department Name:" />
-                                                    <asp:BoundField DataField="contactStaffID" HeaderText="Contact Name:" />
+                                                    <asp:BoundField DataField="staffName" HeaderText="Contact Name:" />
                                                     <asp:BoundField DataField="phone" HeaderText="Telephone No.:" />
                                                     <asp:BoundField DataField="fax" HeaderText="Fax No.:" />
-                                                    <asp:BoundField DataField="headStaffID" HeaderText="Head's Name.:" />
+                                                    <asp:BoundField DataField="headName" HeaderText="Head's Name.:" />
                                                     <asp:BoundField DataField="collectionPointID" HeaderText="Collection Point:" />
-                                                    <asp:BoundField DataField="repStaffID" HeaderText="Representative Name:" />
+                                                    <asp:BoundField DataField="reqName" HeaderText="Representative Name:" />
                                                     
                                                 </Columns>
                                                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>

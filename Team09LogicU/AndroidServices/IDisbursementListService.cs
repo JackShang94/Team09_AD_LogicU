@@ -23,6 +23,9 @@ namespace Team09LogicU.AndroidServices
         [OperationContract]
         [WebGet(UriTemplate = "/Disbursement?deptID={deptID}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFDisbursement> getDisbursementByDeptID(string deptID);
+        [OperationContract]
+        [WebGet(UriTemplate = "/DisbursementByrepID?repID={repID}", ResponseFormat = WebMessageFormat.Json)]
+        List<WCFDisbursement> getDisbursementByRepID(string repID);
 
         [OperationContract]
         [WebGet(UriTemplate = "/Disbursement/{disID}", ResponseFormat = WebMessageFormat.Json)]
@@ -30,8 +33,10 @@ namespace Team09LogicU.AndroidServices
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/Disbursement/{disID}/update", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        void updateDisbursementItemByItemID(cartList_JSON cartList_json,string disID);
-
+        int updateDisbursementItemByItemID(cartList_JSON cartList_json,string disID);
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/Disbursement/{disID}/confirm", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        int confirmDisbursement(string disID);
     }
     [DataContract]
     public class cartList_JSON

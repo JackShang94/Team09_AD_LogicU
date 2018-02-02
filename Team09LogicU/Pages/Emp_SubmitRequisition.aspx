@@ -37,7 +37,7 @@
                                                     <div style="margin-top:20px">
                                                             <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
                                                                     <asp:Label ID="descLabel" runat="server" Text='<%# Eval("description") %>'></asp:Label>   
-                                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>    
+                                                                  
                                                             </p> 
 															<p class="description text-center " style="margin-left:10px;margin-right:10px"> 
                                                                     <asp:Label ID="unitLabel" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>     
