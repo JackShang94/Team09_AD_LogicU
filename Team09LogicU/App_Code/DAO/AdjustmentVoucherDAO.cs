@@ -174,7 +174,7 @@ namespace Team09LogicU.App_Code.DAO
                 if (itemlist.Count > 0)// not null
                 {
                     supplieritem = itemlist.First();
-                    if (supplieritem.price >= 2)
+                    if (supplieritem.price >= 250)
                     {
                         stop = 1;
                         break;
