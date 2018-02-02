@@ -10,14 +10,30 @@ namespace Team09LogicU.AndroidServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IAdjustedmentCartItemService" in both code and config file together.
     [ServiceContract]
-    public interface IAdjustedmentCartItemService
+    public interface IAdjustmentCartItemService
     {
         [OperationContract]
-        [WebInvoke(UriTemplate = "/ADJV/post/addAdj", Method = "POST", RequestFormat = WebMessageFormat.Json,
-          ResponseFormat = WebMessageFormat.Json)]
-        void addAdjVoucher(List<WCFAdjustmentVoucherCartItem> cartList);
+        [WebInvoke(UriTemplate = "/ADJV/post/addAdj/{staffID}", Method = "POST", RequestFormat = WebMessageFormat.Json,
+          ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        int addAdjVoucher(WCFCart_Json cartList,string staffID);
     }
 
+
+    [DataContract]
+    public class WCFCart_Json
+    {
+        List<WCFAdjustmentVoucherCartItem> cartList;
+        [DataMember(Name = "cartList")]
+        public List<WCFAdjustmentVoucherCartItem> CartList
+        {
+            get { return cartList; }
+            set
+            {
+                cartList = value;
+            }
+        }
+
+    }
     [DataContract]
     public class WCFAdjustmentVoucherCartItem
     {
@@ -34,20 +50,20 @@ namespace Team09LogicU.AndroidServices
             return adjItem;
         }
 
-        [DataMember]
+        [DataMember(Name = "QtyAdjusted")]
         public int Qty
         {
             get { return qty; }
             set { qty = value; }
         }
-        [DataMember]
+        [DataMember(Name = "ItemID")]
         public string ItemID
         {
             get { return itemID; }
             set { itemID = value; }
         }
 
-        [DataMember]
+        [DataMember(Name = "Record")]
         public string Record
         {
             get { return record; }

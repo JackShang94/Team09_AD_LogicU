@@ -12,22 +12,30 @@ namespace Team09LogicU.AndroidServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AdjustedmentCartItemService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select AdjustedmentCartItemService.svc or AdjustedmentCartItemService.svc.cs at the Solution Explorer and start debugging.
-    public class AdjustedmentCartItemService : IAdjustedmentCartItemService
+    public class AdjustmentCartItemService : IAdjustmentCartItemService
     {
-        public void addAdjVoucher(List<WCFAdjustmentVoucherCartItem> cartList)
+        public int addAdjVoucher(WCFCart_Json cartList,string staffID)
         {
             AdjustmentVoucherDAO adjDAO = new AdjustmentVoucherDAO();
             List<AdjustmentVouchercart> adjItemCart = new List<AdjustmentVouchercart>();
-            foreach (WCFAdjustmentVoucherCartItem wcfCI in cartList)
+            List<WCFAdjustmentVoucherCartItem> adjVItemList = cartList.CartList;
+            foreach (WCFAdjustmentVoucherCartItem wcfCI in adjVItemList)
             {
                 AdjustmentVouchercart cartItem = new AdjustmentVouchercart();
                 cartItem.ItemID = wcfCI.ItemID;
                 cartItem.Qty = wcfCI.Qty;
                 cartItem.Record = wcfCI.Record;
-
                 adjItemCart.Add(cartItem);
             }
-            adjDAO.addAdjV(adjItemCart);
+            try
+            {
+                adjDAO.addAdjustmentVoucher(staffID, adjItemCart);
+            }catch(Exception e)
+            {
+                return 0;
+            }
+            
+            return 1;
         }
     }
 }
