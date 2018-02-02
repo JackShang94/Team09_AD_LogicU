@@ -19,23 +19,17 @@ namespace Team09LogicU.Pages
         CollectionPointDAO cDAO = new CollectionPointDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
-
                 this.BindGrid();
                 this.BindDDL();
-
-            }
-
+            }      
         }
 
         protected void BindGrid()
         {
             List<Disbursement> disList = new List<Disbursement>();
             disList = disDAO.getAllAwaitingDisbursement();
-
-
 
             List<AssignClerkGridView> list = new List<AssignClerkGridView>();
 
@@ -97,7 +91,7 @@ namespace Team09LogicU.Pages
         {
             string supervisor = (string)Session["loginID"];
             List<CollectionPoint> collectionlist = collectionDAO.getAllCollectionPoint();
-            List<StoreStaff> storestafflist = storeStaffDAO.getallStoreStaff();
+            List<StoreStaff> storestafflist = storeStaffDAO.getStallStoreStaff();
             List<string> staff = new List<string>();
             List<string> collection = new List<string>();
 
@@ -212,12 +206,19 @@ namespace Team09LogicU.Pages
                     dropdownlist3.Text != "---Select Clerk for this time---" && dropdownlist4.Text != "---Select Clerk for this time---" &&
                     dropdownlist5.Text != "---Select Clerk for this time---" && dropdownlist6.Text != "---Select Clerk for this time---")
                 {
-                    collectionDAO.updatecollection(dropdownlist1.Text, Label_CollectionPoint1.Text);
-                    collectionDAO.updatecollection(dropdownlist2.Text, Label_CollectionPoint2.Text);
-                    collectionDAO.updatecollection(dropdownlist3.Text, Label_CollectionPoint3.Text);
-                    collectionDAO.updatecollection(dropdownlist4.Text, Label_CollectionPoint4.Text);
-                    collectionDAO.updatecollection(dropdownlist5.Text, Label_CollectionPoint5.Text);
-                    collectionDAO.updatecollection(dropdownlist6.Text, Label_CollectionPoint6.Text);
+                    string staff1 = storeStaffDAO.getStoreStaffIDbyName(dropdownlist1.Text);
+                    string staff2 = storeStaffDAO.getStoreStaffIDbyName(dropdownlist2.Text);
+                    string staff3 = storeStaffDAO.getStoreStaffIDbyName(dropdownlist3.Text);
+                    string staff4 = storeStaffDAO.getStoreStaffIDbyName(dropdownlist4.Text);
+                    string staff5 = storeStaffDAO.getStoreStaffIDbyName(dropdownlist5.Text);
+                    string staff6 = storeStaffDAO.getStoreStaffIDbyName(dropdownlist6.Text);
+
+                    collectionDAO.updatecollection(staff1, Label_CollectionPoint1.Text);
+                    collectionDAO.updatecollection(staff2, Label_CollectionPoint2.Text);
+                    collectionDAO.updatecollection(staff3, Label_CollectionPoint3.Text);
+                    collectionDAO.updatecollection(staff4, Label_CollectionPoint4.Text);
+                    collectionDAO.updatecollection(staff5, Label_CollectionPoint5.Text);
+                    collectionDAO.updatecollection(staff6, Label_CollectionPoint6.Text);
                 }
                 else
                 {
