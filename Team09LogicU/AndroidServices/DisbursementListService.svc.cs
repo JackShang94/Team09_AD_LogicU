@@ -71,7 +71,7 @@ namespace Team09LogicU.AndroidServices
             }
             return ldiscart_wcf;
         }
-        public void updateDisbursementItemByItemID(cartList_JSON cart_JSON,string disID)
+        public int updateDisbursementItemByItemID(cartList_JSON cart_JSON,string disID)
         {
             List<WCFDisbursementCart> cart_wcf = cart_JSON.DiscartList;
             //string disID = "9";
@@ -90,13 +90,31 @@ namespace Team09LogicU.AndroidServices
                         }
                     }
                 }
-                context.SaveChanges();
-
+                int result = context.SaveChanges();
+                if (result > 0)
+                {
+                    return 1;
+                }
             }
-            return;
+            return 0 ;
                 //List<DisbursementItem> ldisitem = disitemDAO.getDisbursementItemsByDisbursementId(Convert.ToInt32(disID));
+        }
 
-
+        public int confirmDisbursement(string disID_string)
+        {
+            int disID = Int32.Parse(disID_string);
+            DisbursementDAO disDAO = new DisbursementDAO();
+            try
+            {
+                disDAO.updateDisbursementStatus(disID, "Completed");
+                return 1;
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
+            
+           
         }
     }
 }
