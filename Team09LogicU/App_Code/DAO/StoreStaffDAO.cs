@@ -18,6 +18,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.StoreStaffs.ToList();
         }
+
         public StoreStaff getstorestaffbyrole(string role)
         {
             return context.StoreStaffs.Find(role);
