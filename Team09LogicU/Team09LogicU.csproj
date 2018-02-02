@@ -295,6 +295,7 @@
     <Content Include="picture\emp004.jpg" />
     <Content Include="picture\emp005.jpg" />
     <Content Include="picture\emp006.jpg" />
+    <Content Include="picture\emp007.jpg" />
     <Content Include="picture\emp008.jpg" />
     <Content Include="picture\emp009.jpg" />
     <Content Include="picture\emp010.jpg" />
@@ -321,7 +322,9 @@
     <Content Include="picture\H032.jpg" />
     <Content Include="picture\H033.jpg" />
     <Content Include="picture\head001.jpg" />
+    <Content Include="picture\head002.jpg" />
     <Content Include="picture\head003.jpg" />
+    <Content Include="picture\head004.jpg" />
     <Content Include="picture\head005.jpg" />
     <Content Include="picture\manager001.jpg" />
     <Content Include="picture\P010.jpg" />
