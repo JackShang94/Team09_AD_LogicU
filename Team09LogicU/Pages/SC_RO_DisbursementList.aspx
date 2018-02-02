@@ -93,7 +93,7 @@
                                 <asp:Button ID="ConfirmBtn" runat="server" CssClass="btn btn-warning btn-wd btn-fill " Text="Confirm" OnClick="Button3_Click" Enabled="False" />
                             </div>
                             <div class="col-lg-10" style="margin-bottom: 20px; margin-top: 20px">
-                                <asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-fill btn-wd" Text="Send Email" OnClick="NotifyButton_Click" Enabled="False"/>
+                                <asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-fill btn-wd" Text="Send Email" OnClick="NotifyButton_Click" Enabled="False" />
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -104,7 +104,7 @@
                         <asp:Button ID="QRcodeButton" runat="server" CssClass="btn  btn-primary  btn-wd " Text="Generate QR Code" />
                     </div>
                     <div class="col-lg-2 " style="margin-left: 5%">
-                        <asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="view History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx" />
+                        <asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="View History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx" />
                     </div>
                 </div>
 
