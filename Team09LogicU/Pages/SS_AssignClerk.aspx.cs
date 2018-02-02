@@ -54,28 +54,39 @@ namespace Team09LogicU.Pages
                 if (list[i].CollectionPointName.Contains(collectionlist[0].description))
                 {
                     dropdownlist1.Enabled = true;
-                   
+                    dropdownlist1.BackColor = System.Drawing.Color.White;
                 }
+
                 if (list[i].CollectionPointName.Contains(collectionlist[1].description))
                 {
                     dropdownlist2.Enabled = true;
+                    dropdownlist2.BackColor = System.Drawing.Color.White;
                 }
+
                 if (list[i].CollectionPointName.Contains(collectionlist[2].description))
                 {
                     dropdownlist3.Enabled = true;
+                    dropdownlist3.BackColor = System.Drawing.Color.White;
                 }
+
                 if (list[i].CollectionPointName.Contains(collectionlist[3].description))
                 {
                     dropdownlist4.Enabled = true;
+                    dropdownlist4.BackColor = System.Drawing.Color.White;
                 }
+
                 if (list[i].CollectionPointName.Contains(collectionlist[4].description))
                 {
                     dropdownlist5.Enabled = true;
+                    dropdownlist5.BackColor = System.Drawing.Color.White;
                 }
+
                 if (list[i].CollectionPointName.Contains(collectionlist[5].description))
                 {
                     dropdownlist6.Enabled = true;
+                    dropdownlist6.BackColor = System.Drawing.Color.White;
                 }
+
             }
 
             GridView_AssignClerk.DataSource = list;
