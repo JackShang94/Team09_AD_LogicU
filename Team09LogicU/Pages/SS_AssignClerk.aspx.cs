@@ -33,13 +33,25 @@ namespace Team09LogicU.Pages
 
             List<AssignClerkGridView> list = new List<AssignClerkGridView>();
 
-            for (int i = 0; i < disList.Count(); i++)
+            for (int i=0; i<disList.Count();i++)
             {
                 list.Add(new AssignClerkGridView());
-
                 list[i].CollectionPointName = dDAO.getCollectionPointbyDepartmentId(disList[i].deptID);
                 list[i].DeptID = disList[i].deptID;
                 list[i].Status = disList[i].status;
+
+                if (i > 0)
+                {
+                    for (int j = 0; j < list.Count-1; j++)
+                    {
+                        if (list[i].DeptID == list[j].DeptID)
+                        {
+                            list.RemoveAt(j);
+                            disList.RemoveAt(j);
+                            i--;
+                        }
+                    }
+                }
             }
 
             List<CollectionPoint> collectionlist = collectionDAO.getAllCollectionPoint();
