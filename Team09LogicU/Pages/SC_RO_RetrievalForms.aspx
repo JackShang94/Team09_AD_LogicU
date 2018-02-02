@@ -7,16 +7,17 @@ Retrieval Forms
            <div class="col-lg-8">
                 <div class="card">
                     <div class="container ">
-                        <div class="col-lg-8" style="margin:20px 0px 20px 5px">
-		<label class="category text-uppercase">Following are the Retrievals before : </label><asp:Label runat="server" ID="dateLablel" CssClass="h6" Text=""> </asp:Label>
-                            <div class="col-lg-3 pull-right " style="margin-right:-20px"  >
-		<asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill"   runat="server"  Text="confirm" OnClick="confirmBtn_Click"/></div></div> 
+                        <div class="col-lg-8" style="margin:20px 0px 20px 0px">
+		<label class="category text-uppercase">Following are the Retrievals before : </label>
+                            <asp:Label runat="server" ID="dateLablel" CssClass="h6" Text=""> </asp:Label></div> 
+                            <div class="col-lg-8 " style="margin:0px 0px 20px 0px" >
+		<asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill"   runat="server"  Text="confirm" OnClick="confirmBtn_Click"/></div>
         
 <div class="col-lg-8">
 		<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 		<asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
 			<ContentTemplate>
-				<asp:GridView ID="retrievalGridView" style="margin:0px 0px 20px 0px" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
+				<asp:GridView ID="retrievalGridView" style="margin:0px 0px 20px 0px" Width="85%" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" runat="server" OnRowDataBound="retrievalGridView_RowDataBound"  AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged"  EmptyDataText="There is no information"
 				 SelectedRowStyle-BackColor="#eef2fd">
 					<columns>
 						<asp:TemplateField>
@@ -65,7 +66,7 @@ Retrieval Forms
                 <div class="card">
                     <div class="container ">
                         <div class="col-lg-4" style="margin:20px 0px 20px 0px">
-				<asp:GridView ID="breakdownGridView" EmptyDataText="There is no information" CssClass="table table-striped table-hover"  HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
+				<asp:GridView ID="breakdownGridView" EmptyDataText="There is no information" Width="85%" CssClass="table table-striped table-hover"  HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
 					<Columns>
 						<asp:TemplateField HeaderText="Dept name">
 							<ItemTemplate>
