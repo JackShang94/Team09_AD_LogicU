@@ -1,0 +1,1268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Team09LogicU.AndroidServices.AdjustmentVoucherItemService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAEAAAAQA=</HashCode>
+      <FileName>AndroidServices\AdjustmentVoucherItemService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.AdjustmentVoucherService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAQAAAAAAAAAEAAAE=</HashCode>
+      <FileName>AndroidServices\AdjustmentVoucherService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.DeptStaffService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>AndroidServices\DeptStaffService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.DisbursementListItemService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\DisbursementListItemService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.DisbursementListService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAEAQAAAAAAAEAAAAAAIBAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\DisbursementListService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFAdjustmentVoucherItem" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAEAAAAAACAAAAEgAAABAAAgAAAAIAAAAAAAAIAFAA=</HashCode>
+      <FileName>AndroidServices\IAdjustmentVoucherItemService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFAdjustmentVoucher" Collapsed="true">
+    <Position X="5.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQACIAEAEgAAABEAAAABAAAAAAAAAAAAAAAEAIAABA=</HashCode>
+      <FileName>AndroidServices\IAdjustmentVoucherService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFDeptStaff" Collapsed="true">
+    <Position X="11" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAABAAAAIEAAACAAAIAgAAAAA=</HashCode>
+      <FileName>AndroidServices\IDeptStaffService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.cartList_JSON" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>AndroidServices\IDisbursementListService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFDisbursement" Collapsed="true">
+    <Position X="12.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAUACAABAAAAAAAQAAQAEAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>AndroidServices\IDisbursementListService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFDisbursementCart" Collapsed="true">
+    <Position X="14.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAABAgAAAQAAAAAACEAAAAhAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\IDisbursementListService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFDept" Collapsed="true">
+    <Position X="9.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQgAAQAIAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\IDisbursementListService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFItem" Collapsed="true">
+    <Position X="16.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAACAACgAgBAoAIAQAACAAAAgAAAAIAAAAIAACA=</HashCode>
+      <FileName>AndroidServices\IItemService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.AccountList" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\ILoginService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFAccount" Collapsed="true">
+    <Position X="4" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAgEAAAABAAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>AndroidServices\ILoginService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.RetrievalFormItemData" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAACABAAAAAAEAAAAAAAAAAAAggAAAAIAAAA=</HashCode>
+      <FileName>AndroidServices\IRetrievalFormItemService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.BreakdownByDepartmentData" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAEEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\IRetrievalFormItemService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.RetrievalFormData" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\IRetrievalFormService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.WCFStoreStaff" Collapsed="true">
+    <Position X="18" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAEAAAAAgAAAAABAAAAAAAAAgAAAAAgAAAAA=</HashCode>
+      <FileName>AndroidServices\IStoreStaffService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.ItemService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACEAAAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>AndroidServices\ItemService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.LoginService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>AndroidServices\LoginService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.RetrievalFormItemService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAABAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>AndroidServices\RetrievalFormItemService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.RetrievalFormService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>AndroidServices\RetrievalFormService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.Service1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>AndroidServices\Service1.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.AndroidServices.StoreStaffService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>AndroidServices\StoreStaffService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.AdjustmentVoucherDAO" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADQQAAEAAAAEAAAgAgAAAAAiIEAAAAAAAAAABQACQ=</HashCode>
+      <FileName>App_Code\DAO\AdjustmentVoucherDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.AdjustmentVoucherItemDAO" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>App_Code\DAO\AdjustmentVoucherItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.CategoryDAO" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>App_Code\DAO\CategoryDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.CollectionPointInformation" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\CollectionPointDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.CollectionPointDAO" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAABAAGA=</HashCode>
+      <FileName>App_Code\DAO\CollectionPointDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.PieChartData" Collapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\DashBoardDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DeptRepChartData" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>App_Code\DAO\DashBoardDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.OutstandingChartData" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABACAAABACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\DashBoardDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DashBoardDAO" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAgAAAAAAAhAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\DashBoardDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DelegateDAO" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAgAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\DelegateDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DepartmentDAO" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAACAAAAAAgAAAAAQEAAAAAAAAgAAAgAAAAA=</HashCode>
+      <FileName>App_Code\DAO\DepartmentDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DeptStaffDAO" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiBAAAAAACAAAAAAAMQIAAEAAAAAAAAQAAgACAAAA=</HashCode>
+      <FileName>App_Code\DAO\DeptStaffDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DisbursementDAO" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgCAAAAAAAAEAAAAAAgEAAAAAQAIAAAAggSEQIAAI=</HashCode>
+      <FileName>App_Code\DAO\DisbursementDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.DisbursementItemDAO" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\DisbursementItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.ItemDAO" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEAAAAIgAAAAACAQABAAIAEAAQCAgIAAAACACA=</HashCode>
+      <FileName>App_Code\DAO\ItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.LoginDAO" Collapsed="true">
+    <Position X="19.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAIEAABAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>App_Code\DAO\LoginDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.NotificationDAO" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAABAAAAAACAAgAAAAAAAAAIAAAAIAAIIAA=</HashCode>
+      <FileName>App_Code\DAO\NotificationDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.OutstandingDAO" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAEAAAAEABAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\OutstandingDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.OutstandingItemDAO" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACDAAAAABAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\OutstandingItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.PurchaseOrderDAO" Collapsed="true">
+    <Position X="21.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAACAAAAAQAAAAEAAgAAAAAAAIAAIgAABAAAAAQ=</HashCode>
+      <FileName>App_Code\DAO\PurchaseOrderDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.PurchaseOrderItemDAO" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\PurchaseOrderItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.ReorderReportDAO" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\ReorderReportDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.RequisitionDAO" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAgAAAEAEAAAAAgAoCAAIgDAAAAADiAAIAAhAAA=</HashCode>
+      <FileName>App_Code\DAO\RequisitionDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.RequisitionItemDAO" Collapsed="true">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAEAEQQaAAAAAAAAAAAAAAgAAABAAAAA=</HashCode>
+      <FileName>App_Code\DAO\RequisitionItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.RetrievalDAO" Collapsed="true">
+    <Position X="21.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAABCAASAQAACAAAEAAQgACEAAQAAAAAAAAAAII=</HashCode>
+      <FileName>App_Code\DAO\RetrievalDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.SOAItems" Collapsed="true">
+    <Position X="7.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABICAAAAAAAAAAABAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>App_Code\DAO\SOADAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.SOADAO" Collapsed="true">
+    <Position X="5.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\SOADAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.StockCardDAO" Collapsed="true">
+    <Position X="21.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAAAAAQAAAgAAAAAAAEAAAAA=</HashCode>
+      <FileName>App_Code\DAO\StockCardDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.StoreStaffDAO" Collapsed="true">
+    <Position X="7.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAACAAAAAAAAAIgCAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\StoreStaffDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.SupplierDAO" Collapsed="true">
+    <Position X="14.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAACAAAAAAAAAACAAAAAIAIAACAAAAAAACAA=</HashCode>
+      <FileName>App_Code\DAO\SupplierDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.SupplierItemDAO" Collapsed="true">
+    <Position X="18" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBAIAAAACAAAAAAAAAAAAABAAAAAAAAAAkAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\SupplierItemDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.TrendAnalysisItem" Collapsed="true">
+    <Position X="0.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DAO\TrendAnalysisReportDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.DAO.TrendAnalysisReportDAO" Collapsed="true">
+    <Position X="2.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAgAAAAAAAAAAIAAAAAAAAABA=</HashCode>
+      <FileName>App_Code\DAO\TrendAnalysisReportDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.AdjustmentVouchercart" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACAAAAAgAAAAAQAgAAEAIAAAAAAAAAABAA=</HashCode>
+      <FileName>App_Code\UtilClass\AdjustmentVouchercart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.AssignClerkGridView" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAEAAAAAAAAAAAAAAQAAAAEAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\AssignClerkGridView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.cart" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACgAAAAoAAAAAQAgAAEAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.DBEntities" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAADAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\DBEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.DisbursementCart" Collapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAABAgAAAQAAAAAACEAAAAhAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\DisbursementCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.Email" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAACAggAAAAAAAAAAAAgAAAAAAAEAAAAAIAAABAAA=</HashCode>
+      <FileName>App_Code\UtilClass\Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.Encrypt" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\Encrypt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.ItemCart" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAgAAAAIAAAAAAAAAAAAACAAAAAgAAAACA=</HashCode>
+      <FileName>App_Code\UtilClass\ItemCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.LogicUExceptions" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\LogicUExceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.Logout" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\Logout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.MonthlyReorderItem" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABAAAAAQCwAAAAsAAAAAgAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\MonthlyReorderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.OutstandingCart" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACgAQAAoQEAAAEAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\OutstandingCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.POItem" Collapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQCwAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\POItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.ReorderCart" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAIAAgACAA=</HashCode>
+      <FileName>App_Code\UtilClass\ReorderCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.ReorderItem" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABIAAgAQCgAgBAoAIAQAAAAAIAgAAAAKAAAAAAACA=</HashCode>
+      <FileName>App_Code\UtilClass\ReorderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.ReqItems_custom" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACgAAAAoAAAEAAAAAAEAARABAAAUAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\ReqItems_custom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.RequisitionByStaffCart" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAAAAAAAAgQAAAAEAAAAAAAAIAAAACAA=</HashCode>
+      <FileName>App_Code\UtilClass\RequisitionByStaffCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.BreakdownByDepartment" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAEAAAQAAAAEEAAAABAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\RetrievalFormItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.RetrievalFormItem" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAQAAgAMAAAACAAACFAAAAhQAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\RetrievalFormItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.App_Code.UtilClass.TrendAnalysis" Collapsed="true">
+    <Position X="21.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\UtilClass\TrendAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Global" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAAECIBQAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.SA45_Team09_LogicUEntities" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAICAAGBAAEhiIFFACACQQAAEAgMEIAEAAAAEAAAAAA=</HashCode>
+      <FileName>Models\SA45_Team09_LogicUEntities.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.AdjustmentVoucher" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACIAAAEAAAAAFAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdjustmentVoucher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.AdjustmentVoucherItem" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACAAAAEAAAAAQAEAAAAAACAAAAAAAAAEAA=</HashCode>
+      <FileName>Models\AdjustmentVoucherItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Category" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACgAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.CollectionPoint" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAQAAAAICAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CollectionPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Delegate" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAAAAAAACAAAAAAAAAEAAACCAAAAAAAAAA=</HashCode>
+      <FileName>Models\Delegate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Department" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAQgAEAAAAAAAAAQAAFAAMgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.DeptNotification" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAAAAACAAAAAQAAACA=</HashCode>
+      <FileName>Models\DeptNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.DeptStaff" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAABAAEAIMAAAGAAAIAgAAAAA=</HashCode>
+      <FileName>Models\DeptStaff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Disbursement" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQEAAAAAEAAAAAAIAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Disbursement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.DisbursementItem" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAQACAAAAAAAAAAAAEAIAAgAAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\DisbursementItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Item" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAACAAAGAggBFIAAAAAACAAgAAAAAAIAAAAAACCA=</HashCode>
+      <FileName>Models\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Outstanding" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAEEAAAAAAAAAAAIAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Outstanding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.OutstandingItem" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GQAAAAAAAECAAAAAAAAAAAAEAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\OutstandingItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.PurchaseOrder" Collapsed="true">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAiAAAA=</HashCode>
+      <FileName>Models\PurchaseOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.PurchaseOrderItem" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAABAAAAAAEAAAAAACAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\PurchaseOrderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Requisition" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCgAAAAAAAAAAAAAAAgAAAAAEEAAACCAAAAAAAABA=</HashCode>
+      <FileName>Models\Requisition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.RequisitionItem" Collapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAgAAEAAAMAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\RequisitionItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Retrieval" Collapsed="true">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Retrieval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.RetrievalItem" Collapsed="true">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAACAAAAAAAAAACAEAIABBAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RetrievalItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.StockCard" Collapsed="true">
+    <Position X="19.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACAAAACAAAAAAAMAAAAAACAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\StockCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.StoreNotification" Collapsed="true">
+    <Position X="4" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAACA=</HashCode>
+      <FileName>Models\StoreNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.StoreStaff" Collapsed="true">
+    <Position X="5.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAAAEAAEAAAABgAAAAARAAAAAAAAAgAAAAAgAAAAA=</HashCode>
+      <FileName>Models\StoreStaff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.Supplier" Collapsed="true">
+    <Position X="12.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAgAAAAACAAAAAAAAAAAAoAgIAgAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.SupplierItem" Collapsed="true">
+    <Position X="16.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAgAACAAIAAAAAAAAAEAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Models\SupplierItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Models.sysdiagram" Collapsed="true">
+    <Position X="19.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\sysdiagram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.DepartmentHead" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAAAAAAgAIABIAIAAAAAAAAAAAMAAgA=</HashCode>
+      <FileName>Pages\DepartmentHead.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.DH_ChangeDepartmentRepresentative" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAgCAAQAABIAAAAAAgBCAAAAAAAAAMAAAAMAEAA=</HashCode>
+      <FileName>Pages\DH_ChangeDepartmentRepresentative.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.DH_DelegateHeadRole" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKEAEBBAAABUAAAYAEAICAUAEAQgEAEAAAAKAAgA=</HashCode>
+      <FileName>Pages\DH_DelegateHeadRole.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.DH_History" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAMBAAADgAAAAAAAACACAgAACgAAAAAaIAAAI=</HashCode>
+      <FileName>Pages\DH_History.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.DH_Notification" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\DH_Notification.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.DH_ViewPendingRequisition" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAADCAAAAAAAAAAAAEAAAAAAAAAYIAgAA=</HashCode>
+      <FileName>Pages\DH_ViewPendingRequisition.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Emp_MyRequisition" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIEEICABABIBAAAAEAAAAGQFAAgAAGAAEAUAIAAAE=</HashCode>
+      <FileName>Pages\Emp_MyRequisition.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Emp_Notification" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\Emp_Notification.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Emp_Rep_RequisitionHistory" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAACAAAAABAAAAAAAABiAAAAAAAAAEACQIIAAAA=</HashCode>
+      <FileName>Pages\Emp_Rep_DisbursementHistory.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Emp_Rep_SelectCollection" Collapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACEAAAABAEAACEIABCAAAAAAAAAEABAAICAAA=</HashCode>
+      <FileName>Pages\Emp_Rep_SelectCollection.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Emp_Representative" Collapsed="true">
+    <Position X="21.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\Emp_Representative.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Emp_SubmitRequisition" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAACAAAAAAAgAgAAAQRAADACAEGEAAACAAAAAcIAAAQ=</HashCode>
+      <FileName>Pages\Emp_SubmitRequisition.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.Employee" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAAAAAAgAIABIAIAAAAAAAAAAAMAAgA=</HashCode>
+      <FileName>Pages\Employee.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.login" Collapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAgAAAAAAAAAAAAAAgAIAAQQABAAAEQAAIAAAA=</HashCode>
+      <FileName>Pages\login.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.SC_RO_DisbursementList" Collapsed="true">
+    <Position X="9.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkEAAAAAEASAiAAFAAACEEAAAQEAEABABAQDAAIOAIc=</HashCode>
+      <FileName>Pages\SC_RO_DisbursementList.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.SC_RO_OutstandingRequisition" Collapsed="true">
+    <Position X="14.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAABBBgAAAAAAAAEAgAAAAAABAQAYAAAIAAAA=</HashCode>
+      <FileName>Pages\SC_RO_OutstandingRequisition.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.SC_RO_RetrievalForms" Collapsed="true">
+    <Position X="16.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgAAAAEgAAAJABAAIAAlAAAAAAIABAAAAEEQIAAAA=</HashCode>
+      <FileName>Pages\SC_RO_RetrievalForms.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.StoreClerk" Collapsed="true">
+    <Position X="0.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAAAAAAgAIABIAIAAAAAAAAAAAMAAgA=</HashCode>
+      <FileName>Pages\StoreClerk.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.pages.welcome2" Collapsed="true">
+    <Position X="19.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\welcome.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.DH_PendingRequisitionDetail" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABFECAAAAAIAJAIAAAAABCAAAAAsACEBAAAARIAAAA=</HashCode>
+      <FileName>Pages\DH_PendingRequisitionDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.DH_RequisitionHistoryDetail" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABFEGAAAAAIAJAIAAAAAAAAAAAANAAEAAAAARIAAAA=</HashCode>
+      <FileName>Pages\DH_RequisitionHistoryDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.Emp_MR_RequisitionDetail" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEgAAAAAQAAAAAAQAASEABAAIAABABAAAAEoIIAwA=</HashCode>
+      <FileName>Pages\Emp_MR_RequisitionDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.Emp_Rep_DisbursementHistory_ViewDetail" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAACAQAAABAAAAAAAIBiAAAEAABCAEAAAAIAAAA=</HashCode>
+      <FileName>Pages\Emp_Rep_DisbursementHistory_ViewDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.Emp_SR_CheckOut" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\Emp_SR_CheckOut.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_dashboard" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAIEAgQgAAAAABAAhAAAAAABjBABAQAAIMAAAI=</HashCode>
+      <FileName>Pages\SC_dashboard.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_GenerateReorderReport" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEIAIQAgAEAAAAEBAAJECAAAACBAADABAAAIAAAI=</HashCode>
+      <FileName>Pages\SC_GenerateReorderReport.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_Inv_AdjustmentVoucher" Collapsed="true">
+    <Position X="16.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCACAABAEBAAAhCBAARAAHACAAA0AAAKgAAAAUIAAAA=</HashCode>
+      <FileName>Pages\SC_Inv_AdjustmentVoucher.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_Inv_AdjVoucherDetail" Collapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAAEAAJAIAAAAYABEAAAAAAIEEUJAQQABIAAAA=</HashCode>
+      <FileName>Pages\SC_Inv_AdjVoucherDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_Inv_ManageReorder" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKABAAAEAAEBACAAIGAACEACAAAACAAACAAAAAIAAAI=</HashCode>
+      <FileName>Pages\SC_Inv_ManageReorder.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_Inv_StockCardDetail" Collapsed="true">
+    <Position X="21.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAgAAEAGAABQAAAAAAAQAAAAAIAIAIAQAEAIACAA=</HashCode>
+      <FileName>Pages\SC_Inv_StockCardDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_Inv_StockManagement" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgAAABAEBAAABihAAAAgAACAAAgAAAIAQAAAAIABAA=</HashCode>
+      <FileName>Pages\SC_Inv_ViewInventoryList.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_Notification" Collapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\SC_Notification.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_O_InventoryStatusReport" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMIAEBYBAAABAAAABAAAkCAAgAAAAAAAAAAAIAIAA=</HashCode>
+      <FileName>Pages\SC_O_InventoryStatusReport.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_O_SOA" Collapsed="true">
+    <Position X="5.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAEAAAoAAAAAIAAAkAACAwQBDgAAQAACIIABI=</HashCode>
+      <FileName>Pages\SC_O_SOA.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_PurchaseOrderHistoryDetail" Collapsed="true">
+    <Position X="7.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EyAAEAAABAAAAAIAQEAAAIEiAAAgGBBACAAAACoAAQI=</HashCode>
+      <FileName>Pages\SC_PurchaseOrderHistoryDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_RO_DisbursementListHistory" Collapsed="true">
+    <Position X="11" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kgAAAgAAEBQAgAAAAAgAAkAgABIEAAAAAAAAMgIAAAA=</HashCode>
+      <FileName>Pages\SC_RO_DisbursementListHistory.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_RO_DisbursementListHistory_ViewDetail" Collapsed="true">
+    <Position X="12.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAQAAAAAAAAAACAIAAAg=</HashCode>
+      <FileName>Pages\SC_RO_DisbursementListHistory_ViewDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_ShowPurchaseOrder" Collapsed="true">
+    <Position X="18" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAEAAAIACAAAACABACgAAAAIAIAI=</HashCode>
+      <FileName>Pages\SC_ShowPurchaseOrder.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_ViewAdjustmentVoucher" Collapsed="true">
+    <Position X="19.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCgAwAAAEAAAAAAAAAQAAAAAAAAgAACgAAAAAKMAAAI=</HashCode>
+      <FileName>Pages\SC_ViewAdjustmentVoucher.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_ViewCatalog" Collapsed="true">
+    <Position X="21.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAABAAADAAAAAAAAACAAAQAAAogAAAAAIAAAI=</HashCode>
+      <FileName>Pages\SC_ViewCatalog.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_ViewDepartment" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAACAAAAAAAAAEAABAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\SC_ViewDepartment.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_ViewPurchaseOrderHistory" Collapsed="true">
+    <Position X="2.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEAAAgAAAACAAhEAAAAACAAAgCACgCAAAAKIIIAI=</HashCode>
+      <FileName>Pages\SC_ViewPurchaseOrderHistory.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SC_ViewReorderList" Collapsed="true">
+    <Position X="4" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACCAAgAAAAAAAAEQBEAAAEACkAAACAEACAAAAEIAAAI=</HashCode>
+      <FileName>Pages\SC_ViewReorderList.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_AddCatalog" Collapsed="true">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCABAAAAAAAAAAAAAAAIAAAAAAAAAIgAAA=</HashCode>
+      <FileName>Pages\SM_AddCatalog.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_AddItem" Collapsed="true">
+    <Position X="9.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EiBAACAAAGGApgBAAAAAIAYCAAgIIABITYBJAFIBIgI=</HashCode>
+      <FileName>Pages\SM_AddItem.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_AddSupplier" Collapsed="true">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gADAQEAAQICBKCAAAAAAAgACAAIAoAAgAIAAEEJAAgA=</HashCode>
+      <FileName>Pages\SM_AddSupplier.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_ApproveAdjustment" Collapsed="true">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgAAAEBAAADAABAQAAAAAAAAgAACgQAAAAKMAAAI=</HashCode>
+      <FileName>Pages\SM_ApproveAdjustment.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_ApproveAdjustmentDetail" Collapsed="true">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEACAABAJAJAAAAZABAAACABEgEEUJAQQABIAgAA=</HashCode>
+      <FileName>Pages\SM_ApproveAdjustmentDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_EditItem" Collapsed="true">
+    <Position X="16.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FABAACEAAGGApgRACAAAIAQCAAgAIABIbQBBABIhIAI=</HashCode>
+      <FileName>Pages\SM_EditItem.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_EditSupplier" Collapsed="true">
+    <Position X="18" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAEAgQICAKCAABAAAAgACAAIAoAAgAIAAEEJCAAA=</HashCode>
+      <FileName>Pages\SM_EditSupplier.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_Notification" Collapsed="true">
+    <Position X="19.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\SM_Notification.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_SearchItem" Collapsed="true">
+    <Position X="21.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAACBEAABAAAhBBAACDAAAAAEAAAAAAgAIAAAg=</HashCode>
+      <FileName>Pages\SM_SearchItem.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_SearchSupplier" Collapsed="true">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAgAAAAACAAgAACQABACAAAIEAAA=</HashCode>
+      <FileName>Pages\SM_SearchSupplier.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_TrendAnalysisReport" Collapsed="true">
+    <Position X="2.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAIQAgAgAAAAABAABEAAAAABBBABAQAAAIAAAI=</HashCode>
+      <FileName>Pages\SM_TrendAnalysisReport.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SM_ViewSupplierDetail" Collapsed="true">
+    <Position X="4" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAACAAAIAAACAAQIAAAAAIAAAAAAAIIIAAAA=</HashCode>
+      <FileName>Pages\SM_ViewSupplierDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SS_AssignClerk" Collapsed="true">
+    <Position X="9.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>HwAAAAAAAAQAACAAAEAEAAAiAAAAAACABCCAAAIAfoA=</HashCode>
+      <FileName>Pages\SS_AssignClerk.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SS_GenerateReorderReport" Collapsed="true">
+    <Position X="11" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEIAIQAgAEAAAAEBAAJECAAAACBAADABAAAIAAAI=</HashCode>
+      <FileName>Pages\SS_GenerateReorderReport.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SS_Notification" Collapsed="true">
+    <Position X="12.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pages\SS_Notification.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SS_TrendAnalysisReport" Collapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAIQAgAgAAAAABAABEAAAAABBBABAQAAAIAAAI=</HashCode>
+      <FileName>Pages\SS_TrendAnalysisReport.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SS_ViewAdjustment" Collapsed="true">
+    <Position X="16.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgAAAEBAAADAABAQAAAAAAAAgAACgQAAAAKMAAAI=</HashCode>
+      <FileName>Pages\SS_ViewAdjustment.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.SS_ViewAdjustmentDetail" Collapsed="true">
+    <Position X="18" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAQEACAABAJAZAAAAZAAAAAAABEgEUUJCQQABMAgAA=</HashCode>
+      <FileName>Pages\SS_ViewAdjustmentDetail.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.StoreManager" Collapsed="true">
+    <Position X="2.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAAAAAAgAIABIAIAAAAAAAAAAAMAAgA=</HashCode>
+      <FileName>Pages\StoreManager.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Team09LogicU.Pages.StoreSupervisor" Collapsed="true">
+    <Position X="11" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAAAAAAgAIABIAIAAAAAAAAAAAMAAgA=</HashCode>
+      <FileName>Pages\StoreSupervisor.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Team09LogicU.AndroidServices.IAdjustmentVoucherItemService" Collapsed="true">
+    <Position X="0.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>AndroidServices\IAdjustmentVoucherItemService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IAdjustmentVoucherService" Collapsed="true">
+    <Position X="2.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAQAAAAAAAAAAAAAE=</HashCode>
+      <FileName>AndroidServices\IAdjustmentVoucherService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IDeptStaffService" Collapsed="true">
+    <Position X="4" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>AndroidServices\IDeptStaffService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IDisbursementListItemService">
+    <Position X="5.75" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\IDisbursementListItemService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IDisbursementListService" Collapsed="true">
+    <Position X="7.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAEAQAAAAAAAEAAAAAAIBAAAAAAAAAAAA=</HashCode>
+      <FileName>AndroidServices\IDisbursementListService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IItemService" Collapsed="true">
+    <Position X="9.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>AndroidServices\IItemService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.ILoginService" Collapsed="true">
+    <Position X="11" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>AndroidServices\ILoginService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IRetrievalFormItemService" Collapsed="true">
+    <Position X="12.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>AndroidServices\IRetrievalFormItemService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IRetrievalFormService" Collapsed="true">
+    <Position X="14.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>AndroidServices\IRetrievalFormService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IService1" Collapsed="true">
+    <Position X="16.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>AndroidServices\IService1.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Team09LogicU.AndroidServices.IStoreStaffService" Collapsed="true">
+    <Position X="18" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>AndroidServices\IStoreStaffService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
