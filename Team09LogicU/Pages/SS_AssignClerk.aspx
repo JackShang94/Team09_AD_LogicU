@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
+    <script src="../js/window.js"></script>
+    <script src="../js/jquery-1.7.1.min.js"></script>
+    <link href="../css/window.css" rel="stylesheet" />
 
 
     <div class="row">
@@ -11,7 +13,7 @@
             <div class="card">
                 <div class=" container">
                     <div class="col-lg-10" style="margin-top: 20px; margin-bottom: 20px">
-                        <asp:Label ID="Label3" runat="server" CssClass="h5" Text=" Category:"></asp:Label>
+                      
                         <asp:GridView ID="GridView_AssignClerk" CssClass="table table-striped  table-hover" runat="server" ShowHeaderWhenEmpty="false" HeaderStyle-CssClass="text-uppercase" EmptyDataText="There is no disbursement list now!" AutoGenerateColumns="False">
 
                             <Columns>
@@ -50,35 +52,35 @@
                     <div class="col-lg-4" style="margin: 20px 0 20px 0">
                         <asp:Label ID="Label_CollectionPoint1" CssClass="category" runat="server"></asp:Label>
 
-                        <asp:DropDownList ID="dropdownlist1" runat="server" class="form-control" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="dropdownlist1" runat="server" Width="65%" class="form-control" Enabled="False" BackColor="#CCCCCC"></asp:DropDownList>
                     </div>
 
 
                     <div class="col-lg-4" style="margin: 20px 0 20px 0">
-                        <asp:Label ID="Label_CollectionPoint2" CssClass="category" runat="server"></asp:Label>
+                        <asp:Label ID="Label_CollectionPoint2" CssClass="category" runat="server" Enabled="True"></asp:Label>
 
-                        <asp:DropDownList ID="dropdownlist2" runat="server" class="form-control" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="dropdownlist2" runat="server" class="form-control"  Width="65%"   Enabled="False" BackColor="#CCCCCC"></asp:DropDownList>
 
                     </div>
                     <div class="col-lg-4" style="margin: 20px 0 20px 0">
 
-                        <asp:Label ID="Label_CollectionPoint3" CssClass="category" runat="server"></asp:Label>
+                        <asp:Label ID="Label_CollectionPoint3" CssClass="category" runat="server" Enabled="True"></asp:Label>
 
-                        <asp:DropDownList ID="dropdownlist3" runat="server" class="form-control" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="dropdownlist3" runat="server" class="form-control"  Width="65%"  Enabled="False" BackColor="#CCCCCC"></asp:DropDownList>
 
                     </div>
 
                     <div class="col-lg-4" style="margin: 20px 0 20px 0">
                         <asp:Label ID="Label_CollectionPoint4" CssClass="category" runat="server"></asp:Label>
 
-                        <asp:DropDownList ID="dropdownlist4" runat="server" class="form-control" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="dropdownlist4" runat="server" class="form-control"  Width="65%"  Enabled="False" BackColor="#CCCCCC" ></asp:DropDownList>
                     </div>
                     <div class="col-lg-4" style="margin: 20px 0 20px 0">
 
                         <asp:Label ID="Label_CollectionPoint5" CssClass="category" runat="server"></asp:Label>
 
 
-                        <asp:DropDownList ID="dropdownlist5" runat="server" class="form-control" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="dropdownlist5" runat="server" class="form-control"  Width="65%"  Enabled="False" BackColor="#CCCCCC"></asp:DropDownList>
 
                     </div>
                     <div class="col-lg-4" style="margin: 20px 0 20px 0">
@@ -86,7 +88,7 @@
                         <asp:Label ID="Label_CollectionPoint6" CssClass="category" runat="server"></asp:Label>
 
 
-                        <asp:DropDownList ID="dropdownlist6" runat="server" class="form-control" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="dropdownlist6" runat="server" class="form-control"  Width="65%"   Enabled="False" BackColor="#CCCCCC"></asp:DropDownList>
                     </div>
                 </div>
             </div>
