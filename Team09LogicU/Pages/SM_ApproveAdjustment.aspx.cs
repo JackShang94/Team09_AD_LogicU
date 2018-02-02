@@ -14,6 +14,7 @@ namespace Team09LogicU.Pages
 {
     public partial class SM_ApproveAdjustment : System.Web.UI.Page
     {
+        StoreStaffDAO sDAO = new StoreStaffDAO();
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         TextBox tb = new TextBox();
         string strPageNum = "";
@@ -30,7 +31,30 @@ namespace Team09LogicU.Pages
         {
 
             List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
-            string Status = ddlStatus.Text;
+            string Status = "";
+            if (ddlStatus.Text == "---All---")
+            {
+                Status = "all";
+            }
+
+            if (ddlStatus.Text == "Pending(Supervisor)")
+            {
+                Status = "pending";
+            }
+
+            if (ddlStatus.Text == "Approved")
+            {
+                Status = "Approved";
+            }
+
+            if (ddlStatus.Text == "Rejected")
+            {
+                Status = "Rejected";
+            }
+            if (ddlStatus.Text == "Pending(Manager)")
+            {
+                Status = "PendingForManager";
+            }
 
 
             string from = txtFrom.Text;
@@ -69,8 +93,8 @@ namespace Team09LogicU.Pages
             {
                 DataRow dr = iTable.NewRow();
                 dr["adjVID"] = i.adjVID;
-                dr["storeStaffID"] = i.storeStaffID;
-                dr["authorisedBy"] = i.authorisedBy;
+                dr["storeStaffID"] = sDAO.getStoreStaffNameByID(i.storeStaffID);
+                dr["authorisedBy"] = sDAO.getStoreStaffNameByID(i.authorisedBy);
                 dr["adjDate"] = i.adjDate;
                 dr["status"] = i.status;
                 iTable.Rows.Add(dr);
@@ -129,8 +153,8 @@ namespace Team09LogicU.Pages
             {
                 DataRow dr = iTable.NewRow();
                 dr["adjVID"] = i.adjVID;
-                dr["storeStaffID"] = i.storeStaffID;
-                dr["authorisedBy"] = i.authorisedBy;
+                dr["storeStaffID"] = sDAO.getStoreStaffNameByID(i.storeStaffID);
+                dr["authorisedBy"] = sDAO.getStoreStaffNameByID(i.authorisedBy);
                 dr["adjDate"] = i.adjDate;
                 dr["status"] = i.status;
                 iTable.Rows.Add(dr);
