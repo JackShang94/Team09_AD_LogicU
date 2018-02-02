@@ -150,9 +150,18 @@ namespace Team09LogicU.Pages
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
                     TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
                     lac[num].ItemID = deletebtn.CommandArgument.ToString();
+                    if (cartqty.Text.ToString() == null)
+                    {
+                        ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input quanqtity！');</script>");
+                        break;
+                    }
                     lac[num].Qty = Int32.Parse(cartqty.Text.ToString());
-                    lac[num].Record = cartrecord.Text;
-                 
+                    if (lac[num].Qty % 1 != 0)
+                    {
+                        ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
+                        break;
+                    }
+                    lac[num].Record = cartrecord.Text; 
                     num++;
                 }
 
@@ -201,6 +210,10 @@ namespace Team09LogicU.Pages
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                     TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
                     string a = cartqty.Text;
+                    if (a == null)
+                    {
+                        a = "1";
+                    }
                     string b = cartrecord.Text;
                     foreach (var k in lac)
                     {

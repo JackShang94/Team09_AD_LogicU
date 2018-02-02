@@ -97,6 +97,7 @@
 
                                             <td>ItemID</td>
                                             <td>Amount</td>
+                                            <td> </td>
                                             <td>Record</td>
                                             <td class="text-right">Action</td>
                                         </tr>
@@ -108,9 +109,10 @@
                                         <td class="text-left" style="width: 15%">
                                             <asp:TextBox ID="cart_qtyTextBox" runat="server" CssClass=" form-control" Text='<%#Eval("Qty") %>'>                                                                              
                                             </asp:TextBox>
-                                        </td>
-                                        <asp:RegularExpressionValidator ID="text_box_qty_alert" ClientIDMode="Static" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
-                                        <%--                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>  --%>
+                                        </td> <td class="text-left" style="width:55%">
+                                        <asp:RegularExpressionValidator ID="text_box_qty_alert" ClientIDMode="Static" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid"></asp:RegularExpressionValidator>
+                                       </td>
+                                            <%--                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>  --%>
                                         <td class="text-right" style="width: 50%">
                                             <asp:TextBox ID="cart_recordTextBox" runat="server" CssClass=" form-control" Text='<%#Eval("Record") %>'>
                                                                                     
