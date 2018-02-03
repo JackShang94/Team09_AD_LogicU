@@ -34,11 +34,15 @@ namespace Team09LogicU.Pages
 
         protected void Btn_Submit_Click(object sender, EventArgs e)
         {
-            if (TextBox_SupplierCode.Text != "")
+            if ((TextBox_SupplierCode.Text.Trim() == "")||(TextBox_GSTRegistrationNo.Text.Trim() == "")||(TextBox_SupplierName.Text.Trim() == "")||(TextBox_ContactName.Text.Trim() == "")||(TextBox_Address.Text.Trim() == "")||(TextBox_Fax.Text.Trim() == "")||(TextBox_Phone.Text.Trim() == ""))
             {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Invalid input!');</script>");
+
+            }
+            else {
                 supplierCode = TextBox_SupplierCode.Text;
                 supplierName = TextBox_SupplierName.Text;
-                gstRegistrationNo = TextBox_ContactName.Text;
+                gstRegistrationNo = TextBox_GSTRegistrationNo.Text;
                 address = TextBox_Address.Text;
                 fax = TextBox_Fax.Text;
                 phone = TextBox_Phone.Text;
@@ -47,15 +51,16 @@ namespace Team09LogicU.Pages
                 try
                 {
                     supplierDAO.addSupplier(supplierCode, supplierName, gstRegistrationNo, address, fax, phone, contactName);
+                    Response.Write("<script>alert('Successfully submitted!')</script>");
+                    Response.Redirect("SM_SearchSupplier.aspx");
                 }
                 catch
                 {
-                    Response.Write("<script>alert('Supplier Code already exists!')</script>");
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Supplier Code already exists');</script>");
                 }
-                Response.Write("<script>alert('Successfully submitted!')</script>");
-                Response.Redirect("SM_SearchSupplier.aspx");
-            }
-            else { Response.Write("<script>alert('Supplier code can't be empty!')</script>"); }
+               
+               
+               }
 
 
         }

@@ -51,6 +51,13 @@ namespace Team09LogicU.Pages
 
         protected void Btn_Submit_Click(object sender, EventArgs e)
         {
+            if ( (TextBox_GSTRegistrationNo.Text.Trim() == "")  || (TextBox_ContactName.Text.Trim() == "") || (TextBox_Address.Text.Trim() == "") || (TextBox_Fax.Text.Trim() == "") || (TextBox_Phone.Text.Trim() == ""))
+            {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Invalid input!');</script>");
+
+            }
+            else
+            {
                 contactName = TextBox_ContactName.Text;
                 fax = TextBox_Fax.Text;
                 gstNO = TextBox_GSTRegistrationNo.Text;
@@ -60,10 +67,9 @@ namespace Team09LogicU.Pages
                 sDAO.updateSupplier(supplierID, gstNO, address, fax, phone, contactName);
 
                 Response.Write("<script>alert('Successfully submitted!')</script>");
-                Response.Redirect("SM_SearchSupplier.aspx"); 
-
-            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Submitted!')", true);
-
+                Response.Redirect("SM_SearchSupplier.aspx");
+            }
+          
         }
 
         protected void Btn_Back_Click(object sender, EventArgs e)

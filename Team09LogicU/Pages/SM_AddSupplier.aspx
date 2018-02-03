@@ -18,7 +18,7 @@
 
                                 <asp:TextBox ID="TextBox_SupplierCode" runat="server" Text="" class="form-control " Width="200px"></asp:TextBox>
                                 <%-- value=""--%>
-                                <asp:RegularExpressionValidator ID="text_box_suppliercode_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_Phone" ValidationExpression="[A-Z]+$" ErrorMessage="Invalid phone nmber!!"></asp:RegularExpressionValidator>
+                                <asp:RequiredFieldValidator  ValidationGroup="submit1" ControlToValidate="TextBox_SupplierCode" runat="server" ForeColor="#ff3300" ErrorMessage="required"></asp:RequiredFieldValidator>
                             </div>
                         </div>
 
@@ -58,7 +58,7 @@
 
                                 <asp:TextBox ID="TextBox_Phone" runat="server" Text="" class="form-control " Width="200px"></asp:TextBox>
                                 <%-- value=""--%>
-                                <asp:RegularExpressionValidator ID="text_box_phone_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_Phone" ValidationExpression="^(\([0-9]+\))?[0-9]{7,8}$" ErrorMessage="Invalid phone nmber!!"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="text_box_phone_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_Phone" ValidationExpression="^(\([0-9]+\))?[0-9]{7,8}$" ErrorMessage="Invalid phone number!!"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -92,7 +92,7 @@
 
     <div class="col-lg-10" style="margin-left: 20px">
         <div class="col-lg-2">
-            <asp:Button ID="Btn_Submit" runat="server" Text="Submit" CssClass="btn btn-warning btn-fill btn-wd " OnClientClick="if(!notEmpty()) return false;" OnClick="Btn_Submit_Click" />
+            <asp:Button ID="Btn_Submit" runat="server" Text="Submit" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="Btn_Submit_Click" />
         </div>
         <div class="col-lg-2">
             <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
@@ -109,16 +109,14 @@
         });
         function notEmpty() {
             var not_empty = true;
-            if (!$('#TextBox_SupplierCode').val()) {
-                $('#text_box_suppliercode_alert').text('Input can not be empty.').css('visibility', 'visible');
-            }
+          
             if (!$('#TextBox_Phone').val()) {
-                $('#text_box_level_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_phone_alert').text('Input can not be empty.').css('visibility', 'visible');
             }
             if (!$('#TextBox_Fax').val()) {
-                $('#text_box_reorderqty_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_fax_alert').text('Input can not be empty.').css('visibility', 'visible');
             }
-            if (!$('#text_box_phone_alert').val() || !$('#text_box_fax_alert').val() || !$('#text_box_suppliercode_alert').val()) {
+            if (!$('#text_box_phone_alert').val() || !$('#text_box_fax_alert').val() ) {
                 not_empty = false;
             }
             //console.log(not_empty)
