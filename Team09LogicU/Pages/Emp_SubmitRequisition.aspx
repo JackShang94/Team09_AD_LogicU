@@ -11,7 +11,7 @@
                             <div class="content" >
                                 <div class=" form-group" style="height:25px; width:100%">
                                     <div class="pull-left search" style="width:75%">
-                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
+                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" PlaceHolder="Search By Item Description"></asp:TextBox>
                                     </div>
                                     <div class="pull-right" >
                                      <asp:Button ID="item_searchBtn" runat="server"  Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
