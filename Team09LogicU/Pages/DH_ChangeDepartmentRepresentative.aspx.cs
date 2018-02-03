@@ -51,10 +51,6 @@ namespace Team09LogicU.pages
         }
 
 
-
-
-
-
         public void DisplayCurrentRep(string logInDept)
         {
             /*Display current rep*/
