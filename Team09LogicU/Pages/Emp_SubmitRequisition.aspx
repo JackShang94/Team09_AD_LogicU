@@ -3,20 +3,23 @@
  Submit Requisition
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <style type="text/css"> 
+
+#test{min-height:150px;overflow-y:auto;max-height:450px;} 
+</style> 
     
          <div class="row">
-                   
-                    <div class="col-md-8 container-fluid">
-                        <div class="card">
-                            <div class="content" >
-                                <div class=" form-group" style="height:25px; width:100%">
-                                    <div class="pull-left search" style="width:75%">
-                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
-                                    </div>
-                                    <div class="pull-right" >
-                                     <asp:Button ID="item_searchBtn" runat="server"  Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
-                                    </div>
-                                </div>
+                    <div class="col-lg-8">
+                        <div class="card" >
+                            <div class=" container" >
+                                <div class=" col-lg-5" style="margin:20px 0 20px 0" >
+                                   
+                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" Width="90%" ></asp:TextBox>
+                                   
+                                     </div> <div class=" col-lg-2" style="margin:20px 0 20px 0" >
+                                     <asp:Button ID="item_searchBtn" runat="server"  Text="Search" Width="40%"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
+                                   
+                               </div>
                             </div>
                         </div>
                         <asp:ScriptManager ID="viewCatalogueScriptManager" runat="server">
@@ -29,28 +32,25 @@
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <div class="col-sm-8 col-lg-4">
-                                                <div class="card card-user">
+                                            <div class=" col-lg-4">
+                                                <div class="card card-user" style="height:280px">
                                                     <div class="image" style="height:150px" >
                                                         <img src="../picture/<%# Eval("itemID") %>.jpg" />
                                                     </div>
                                                     <div style="margin-top:20px">
-                                                            <p class="description text-center " style="margin-left:10px;margin-right:10px"> 
+                                                            <div class="description text-center " style="margin-left:10px;margin-right:10px"> 
                                                                     <asp:Label ID="descLabel" runat="server" Text='<%# Eval("description") %>'></asp:Label>   
                                                                   
-                                                            </p> 
-															<p class="description text-center " style="margin-left:10px;margin-right:10px"> 
-                                                                    <asp:Label ID="unitLabel" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>     
-                                                            </p> 
+                                                          
+                                                                    <asp:Label ID="unitLabel" runat="server" CssClass="category" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>     
+                                                            </div> 
                                                             <hr>
                                                             <div class="text-center" style="margin-bottom:20px">
                                                                 <p >
                                
                                                                 </p>
                                                                 <asp:Button ID="addBtn" CssClass="btn btn-primary btn-fill"  runat="server" Text="Add"  Onclick="addBtn_Click" CommandName="add"  CommandArgument='<%# Eval("itemID")+"&"+Eval("description") %>'  ClientIDMode="AutoID" ViewStateMode="Enabled" EnableViewState="False" UseSubmitBehavior="false" /><!--CommandName="add" -->
-                                                                <p>
-                                                                    <br />
-                                                                </p>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
@@ -72,7 +72,7 @@
                                <div class ="content">
                                    <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
                                </div>
-                               <div class="content">
+                               <div class="content" id="test">
                                    
                                     <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit" EnableViewState="False">
                                         <ContentTemplate>
