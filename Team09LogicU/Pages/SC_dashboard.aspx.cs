@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Team09LogicU.App_Code.DAO;
 using Team09LogicU.App_Code.UtilClass;
 
+using Team09LogicU.Models;
+
 namespace Team09LogicU.Pages
 {
     public partial class SC_dashboard : System.Web.UI.Page
@@ -37,6 +39,15 @@ namespace Team09LogicU.Pages
 
 
 
+            }
+            string loginID = Session["loginID"].ToString();
+            NotificationDAO nDAO = new NotificationDAO();
+            List<StoreNotification> nList = nDAO.getAllStoreNotificationByID(loginID);
+            notice_Repeater.DataSource = nList;
+            notice_Repeater.DataBind();
+            foreach (StoreNotification item in nList)
+            {
+                nDAO.setStoreNotificationStatusAsOld(item.notificationID);
             }
             deptName = dept_dropList.SelectedItem.Text;
             deptid = dpd.findDepartmentIdByName(deptName);
