@@ -17,9 +17,7 @@ namespace Team09LogicU.AndroidServices
         [OperationContract]
         [WebGet(UriTemplate = "/alldept", ResponseFormat = WebMessageFormat.Json)]
         List<WCFDept> getAllDept();
-        //[OperationContract]
-        //[WebGet(UriTemplate = "/Disbursement",ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json )]
-        //List<WCFDisbursement> getDisbursementByDeptID()
+        
         [OperationContract]
         [WebGet(UriTemplate = "/Disbursement?deptID={deptID}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFDisbursement> getDisbursementByDeptID(string deptID);
@@ -36,7 +34,41 @@ namespace Team09LogicU.AndroidServices
         int updateDisbursementItemByItemID(cartList_JSON cartList_json,string disID);
         [OperationContract]
         [WebInvoke(UriTemplate = "/Disbursement/{disID}/confirm", Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        int confirmDisbursement(string disID);
+        int confirmDisbursement(confirm_JSON confirm_json,string disID);
+    }
+    [DataContract]
+    public class confirm_JSON
+    {
+       
+        private string scan_date;
+        private string loginID;
+       
+        [DataMember(Name ="scan_date")]
+        public string Scan_date
+        {
+            get
+            {
+                return scan_date;
+            }
+
+            set
+            {
+                scan_date = value;
+            }
+        }
+        [DataMember(Name ="loginID")]
+        public string LoginID
+        {
+            get
+            {
+                return loginID;
+            }
+
+            set
+            {
+                loginID = value;
+            }
+        }
     }
     [DataContract]
     public class cartList_JSON

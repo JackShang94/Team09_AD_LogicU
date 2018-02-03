@@ -76,40 +76,50 @@ namespace Team09LogicU.Pages
             {
                 if (TextBox_ItemNumber.Text != "")
                 {
-                    itemID = TextBox_ItemNumber.Text;
-                    desc = TextBox_Description.Text;
-                    location = TextBox_location.Text;
-                    category = dropdownlist_Catagory.Text;
-                    reorderLevel = Convert.ToInt32(TextBox_ReorderLevel.Text);
-                    reorderQty = Convert.ToInt32(TextBox_ReorderQty.Text);
-                    uom = dropdownlist_unitofmeasure.Text;
-                    qtyOnHand = Convert.ToInt32(TextBox_qty.Text);
+                    if (FileUpload1.HasFile)
+                    {
+                        /////upload picture
+                        string fileName = TextBox_ItemNumber.Text;
+                        fileName = fileName + ".jpg";
+                        string imgPath = "picture\\" + fileName;
+                        string path = Server.MapPath("../") + imgPath;
+                        FileUpload1.SaveAs(path);
 
-                    supplierList.Add(dropdownlist_Supplier1.Text);
-                    supplierList.Add(dropdownlist_Supplier2.Text);
-                    supplierList.Add(dropdownlist_Supplier3.Text);
+                        ////add item
+                        itemID = TextBox_ItemNumber.Text;
+                        desc = TextBox_Description.Text;
+                        location = TextBox_location.Text;
+                        category = dropdownlist_Catagory.Text;
+                        reorderLevel = Convert.ToInt32(TextBox_ReorderLevel.Text);
+                        reorderQty = Convert.ToInt32(TextBox_ReorderQty.Text);
+                        uom = dropdownlist_unitofmeasure.Text;
+                        qtyOnHand = Convert.ToInt32(TextBox_qty.Text);
 
-                    priceList.Add(Convert.ToDecimal(TextBox_price1.Text));
-                    priceList.Add(Convert.ToDecimal(TextBox_price2.Text));
-                    priceList.Add(Convert.ToDecimal(TextBox_price3.Text));
+                        supplierList.Add(dropdownlist_Supplier1.Text);
+                        supplierList.Add(dropdownlist_Supplier2.Text);
+                        supplierList.Add(dropdownlist_Supplier3.Text);
 
-                    iDAO.addItem(itemID, desc, location, category, priceList, reorderLevel, reorderQty, uom, supplierList, qtyOnHand);
-                    Response.Write("<script>alert('Successfully submitted!')</script>");
-                    Response.Redirect("SM_SearchItem.aspx");
+                        priceList.Add(Convert.ToDecimal(TextBox_price1.Text));
+                        priceList.Add(Convert.ToDecimal(TextBox_price2.Text));
+                        priceList.Add(Convert.ToDecimal(TextBox_price3.Text));
+
+                        iDAO.addItem(itemID, desc, location, category, priceList, reorderLevel, reorderQty, uom, supplierList, qtyOnHand);
+                        Response.Redirect("SM_SearchItem.aspx", false);
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Item picture can not be empty!');</script>");
+                    }
                 }
                 else
-                {
-                    
-                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Item code can't be empty!');</script>");
+                {               
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Item code can not be empty!');</script>");
                 }
             }
-
             catch
             {
                 Response.Write("<script>alert('Item Code already exists!')</script>");
             }
-
-
         }
 
         protected void Btn_Back_Click(object sender, EventArgs e)

@@ -24,8 +24,7 @@ namespace Team09LogicU.Pages
         string outstandingChartData;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        {           
             if (!IsPostBack)
             {
                 /////Line Chart Data
@@ -33,19 +32,26 @@ namespace Team09LogicU.Pages
                 deptName = dept_dropList.SelectedItem.Text;
                 deptid = dpd.findDepartmentIdByName(deptName);
                 dataChart = getBarChartDataByDeptID(deptid);
-                chartData.InnerHtml = "<script>var chartData =" + dataChart + ";</script>";
 
-                ////Pie Chart Data
-                pieChartData = getPieChartData();
+               
 
-                ////DepartmentRep Table Chart Data
-                deptRepChartData = getDeptRepChartData();
-
-                ////Outstanding Chart Data
-                outstandingChartData = getOutstandingChartData(deptid);
 
 
             }
+            deptName = dept_dropList.SelectedItem.Text;
+            deptid = dpd.findDepartmentIdByName(deptName);
+            ////Pie Chart Data
+            pieChartData = getPieChartData();
+
+            ////DepartmentRep Table Chart Data
+            deptRepChartData = getDeptRepChartData();
+
+            ////Outstanding Chart Data
+            outstandingChartData = getOutstandingChartData(deptid);
+
+            chartData.InnerHtml = "<script>var dataChart =" + dataChart + "; var pieData = " +
+    pieChartData + "; var deptRepData = " + deptRepChartData +
+    "; var outstandingData = " + outstandingChartData + ";</script>";
         }
 
         protected string getOutstandingChartData(string deptid)
@@ -53,7 +59,7 @@ namespace Team09LogicU.Pages
             List<OutstandingChartData> oList = new List<OutstandingChartData>();
             oList = dashBoardDAO.getOutstandingChartData(deptid);
             string data = "[" +
-            "[Item Name','Reorder Level','Oustanding Quantity'],";
+            "['Item Name','Reorder Level','Oustanding Quantity'],";
             foreach (var item in oList)
             {
                 data = data + "['" + item.itemName + "'," + item.reorderLevel + "," + item.outstandingQty + "],";
@@ -109,9 +115,12 @@ namespace Team09LogicU.Pages
             deptid = dpd.findDepartmentIdByName(deptName);
             ////Line Chart Data
             dataChart = getBarChartDataByDeptID(deptid);
-            chartData.InnerHtml = "<script>var chartData =" + dataChart + ";</script>";
+            
             ////Outstanding Chart Data
             outstandingChartData = getOutstandingChartData(deptid);
+            chartData.InnerHtml = "<script>var dataChart =" + dataChart + "; var pieData = " +
+                    pieChartData + "; var deptRepData = " + deptRepChartData +
+                    "; var outstandingData = " + outstandingChartData + ";</script>";
 
         }
 

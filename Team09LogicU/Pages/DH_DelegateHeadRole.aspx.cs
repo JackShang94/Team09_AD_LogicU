@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Team09LogicU.Models;
 using Team09LogicU.App_Code.DAO;
+using Team09LogicU.App_Code.UtilClass;
 
 namespace Team09LogicU.pages
 {
@@ -71,6 +72,21 @@ namespace Team09LogicU.pages
                 {
                     delegateDAO.addDelegate(selectedStaffId,sDate,eDate);
                     bindData(deptID);
+
+                    //send feedback email and notification to employee 
+                    SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
+                    string headID = Session["loginID"].ToString();
+                    string headName = Session["loginName"].ToString();
+                    string staffID = selectedStaffId;
+                    string staffName = context.DeptStaffs.Where(x => x.staffID == staffID).Select(x => x.staffName).ToList().First();
+
+
+                    NotificationDAO nDAO = new NotificationDAO();
+                    nDAO.addDeptNotification(staffID, headName + " delegate you as head from "+sDate+" to "+eDate, DateTime.Now);
+
+                    Email email = new Email();
+                    email.sendDelegateEmailToEmployee(staffName,headName,sDate.ToShortDateString(),eDate.ToShortDateString());
+
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Delegated succussfully!');</script>");
                 }
                 else
