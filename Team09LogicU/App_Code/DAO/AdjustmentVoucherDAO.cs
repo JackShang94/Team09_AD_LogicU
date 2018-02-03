@@ -45,17 +45,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
                 {
-                    if ((list[i].adjDate.Year == from.Year && list[i].adjDate.Month > from.Month) ||
-                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Month < to.Month))
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].adjDate.Month == from.Month && list[i].adjDate.Day > from.Day) ||
-                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Day < to.Day))
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
@@ -75,17 +85,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
                 {
-                    if ((list[i].adjDate.Year == from.Year && list[i].adjDate.Month > from.Month) ||
-                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Month < to.Month))
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].adjDate.Month == from.Month && list[i].adjDate.Day > from.Day) ||
-                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Day < to.Day))
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
@@ -106,17 +126,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
                 {
-                    if ((list[i].adjDate.Year == from.Year && list[i].adjDate.Month > from.Month) ||
-                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Month < to.Month))
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].adjDate.Month == from.Month && list[i].adjDate.Day > from.Day) ||
-                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Day < to.Day))
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
@@ -136,17 +166,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
                 {
-                    if ((list[i].adjDate.Year == from.Year && list[i].adjDate.Month > from.Month) ||
-                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Month < to.Month))
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].adjDate.Month == from.Month && list[i].adjDate.Day > from.Day) ||
-                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Day < to.Day))
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }

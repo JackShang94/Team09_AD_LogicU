@@ -109,36 +109,40 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<Disbursement> list = model.Disbursements.Where(x => (x.status == "Completed") && (x.deptID == deptID)).ToList();
             List<Disbursement> finalList = new List<Disbursement>();
-            for (int i =0; i<list.Count();i++)
+            for (int i = 0; i < list.Count(); i++)
             {
                 if (list[i].disburseDate.Year > from.Year && list[i].disburseDate.Year < to.Year)
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if(list[i].disburseDate.Year == from.Year || list[i].disburseDate.Year == to.Year)
                 {
-                    if ((list[i].disburseDate.Year==from.Year && list[i].disburseDate.Month> from.Month) ||
-                        (list[i].disburseDate.Year == to.Year && list[i].disburseDate.Month < to.Month))
+                    if (
+                        (list[i].disburseDate.Year == from.Year && list[i].disburseDate.Year!=to.Year && list[i].disburseDate.Month > from.Month ) ||
+                        (list[i].disburseDate.Year == to.Year && list[i].disburseDate.Year != from.Year && list[i].disburseDate.Month < to.Month )||
+                        
+                        (list[i].disburseDate.Year == to.Year && list[i].disburseDate.Year == from.Year
+                        && list[i].disburseDate.Month < to.Month && list[i].disburseDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].disburseDate.Month == from.Month && list[i].disburseDate.Day > from.Day) ||
-                            (list[i].disburseDate.Month == to.Month && list[i].disburseDate.Day < to.Day))
+                        if (
+                            (list[i].disburseDate.Month == from.Month && list[i].disburseDate.Month != to.Month && list[i].disburseDate.Day > from.Day) ||
+                            (list[i].disburseDate.Month == to.Month && list[i].disburseDate.Month != from.Month && list[i].disburseDate.Day < to.Day)||
+
+                            (list[i].disburseDate.Month == to.Month && list[i].disburseDate.Month == from.Month 
+                            && list[i].disburseDate.Day < to.Day && list[i].disburseDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
                     }
                 }
-                return finalList;
-
             }
-
-            return model.Disbursements.Where(x => (x.status == "Completed") && (x.deptID == deptID)
-            &&(x.disburseDate.Year >= from.Year && x.disburseDate.Month >= from.Month && x.disburseDate.Day >= from.Day)
-            &&(x.disburseDate.Year <= to.Year && x.disburseDate.Month <= to.Month && x.disburseDate.Day <= to.Day)
-            ).ToList();
+            return finalList;
         }
         public void savingActualQty(int disID,string itemID, int actualqty)
         {
