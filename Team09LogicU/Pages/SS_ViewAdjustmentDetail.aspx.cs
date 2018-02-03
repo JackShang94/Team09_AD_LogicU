@@ -19,6 +19,7 @@ namespace Team09LogicU.Pages
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
         ItemDAO itemdao = new ItemDAO();
         StockCardDAO stockcdao = new StockCardDAO();
+        List<AdjustmentVoucherItem> adjItems;
         TextBox tb = new TextBox();
         string strPageNum = "";
 
@@ -29,7 +30,7 @@ namespace Team09LogicU.Pages
 
             AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvoucherID);
 
-            List <AdjustmentVoucherItem> adjvi =  adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
+            //List <AdjustmentVoucherItem> adjvi =  adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
 
             string authorisedby = adjv.authorisedBy;
             string status = adjv.status;
@@ -60,7 +61,7 @@ namespace Team09LogicU.Pages
             lblAdjvID.Text = Convert.ToString(adjvoucherID); ;
             Label_Authorisedby.Text = authorisedby;
             lblStatus.Text = status;
-            BindData();
+            updateGV();
         }
         protected void GridView_detailList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -70,7 +71,7 @@ namespace Team09LogicU.Pages
                 GridView_detailList.PageIndex = e.NewPageIndex;
                 tb.Text = (GridView_detailList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
-                BindData();
+                updateGV();
 
 
             }
@@ -95,9 +96,11 @@ namespace Team09LogicU.Pages
                 }
             }
         }
-        public void BindData()
+
+        protected void updateGV()
         {
-            List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
+
+            adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
             DataTable iTable = new DataTable("itemTable");
             iTable.Columns.Add(new DataColumn("ID", typeof(int)));
             iTable.Columns.Add(new DataColumn("Item Description", typeof(string)));
@@ -111,9 +114,17 @@ namespace Team09LogicU.Pages
                 dr["Quantity"] = i.quantity;
                 iTable.Rows.Add(dr);
             }
+            showItemInfo(iTable);
+        }
+
+        public void showItemInfo(DataTable iTable)
+        {
             GridView_detailList.DataSource = iTable;
             GridView_detailList.DataBind();
+
         }
+
+       
         protected void btn_Back_Click(object sender, EventArgs e)
         {
 

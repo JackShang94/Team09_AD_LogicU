@@ -16,21 +16,44 @@ namespace Team09LogicU.Pages
     {
         StoreStaffDAO sDAO = new StoreStaffDAO();
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
+        List<AdjustmentVoucher> list;
         TextBox tb = new TextBox();
         string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
-                this.BindGrid();
+                string mangerID = (string)Session["loginID"];
+                string status = "pending";
+                updateGV();
             }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            updateGV();
+        }
+        protected void GridView_ViewAdjustmentVoucher_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
+                GridView_ViewAdjustmentVoucher.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_ViewAdjustmentVoucher.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                updateGV();
 
-            List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
+
+            }
+            catch
+            {
+            }
+        }
+
+        protected void updateGV()
+        {
+
+            list = new List<AdjustmentVoucher>();
             string Status = "";
             if (ddlStatus.Text == "---All---")
             {
@@ -80,7 +103,7 @@ namespace Team09LogicU.Pages
             if (from != "" && to != "" && Status != "all")
             {
                 DateTime dateFrom = Convert.ToDateTime(from);
-                DateTime dateTo = Convert.ToDateTime(to); 
+                DateTime dateTo = Convert.ToDateTime(to);
                 list = adjvdao.findadjvbyStatusandDate(dateFrom, dateTo, Status);
             }
             DataTable iTable = new DataTable("itemTable");
@@ -99,25 +122,20 @@ namespace Team09LogicU.Pages
                 dr["status"] = i.status;
                 iTable.Rows.Add(dr);
             }
+            if (list.Count == 0)
+            {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'No pending adjustment Voucher!');</script>");
+            }
 
-            GridView_ViewAdjustmentVoucher.DataSource = iTable;
-                GridView_ViewAdjustmentVoucher.DataBind();
+
+            showItemInfo(iTable);
         }
-        protected void GridView_ViewAdjustmentVoucher_PageIndexChanging(object sender, GridViewPageEventArgs e)
+
+        public void showItemInfo(DataTable iTable)
         {
-            try
-            {
-                tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
-                GridView_ViewAdjustmentVoucher.PageIndex = e.NewPageIndex;
-                tb.Text = (GridView_ViewAdjustmentVoucher.PageIndex + 1).ToString();
-                strPageNum = tb.Text;
-                BindGrid();
+            GridView_ViewAdjustmentVoucher.DataSource = iTable;
+            GridView_ViewAdjustmentVoucher.DataBind();
 
-
-            }
-            catch
-            {
-            }
         }
 
         protected void GridView_ViewAdjustmentVoucher_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -135,37 +153,6 @@ namespace Team09LogicU.Pages
                 {
                 }
             }
-        }
-        protected void BindGrid()
-        {
-            string mangerID = (string)Session["loginID"];
-            string status = "pending";
-            List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
-            list = adjvdao.getAdjustmentVoucherList();
-
-            DataTable iTable = new DataTable("itemTable");
-            iTable.Columns.Add(new DataColumn("adjVID", typeof(int)));
-            iTable.Columns.Add(new DataColumn("storeStaffID", typeof(string)));
-            iTable.Columns.Add(new DataColumn("authorisedBy", typeof(string)));
-            iTable.Columns.Add(new DataColumn("adjDate", typeof(DateTime)));
-            iTable.Columns.Add(new DataColumn("status", typeof(string)));
-            foreach (AdjustmentVoucher i in list)
-            {
-                DataRow dr = iTable.NewRow();
-                dr["adjVID"] = i.adjVID;
-                dr["storeStaffID"] = sDAO.getStoreStaffNameByID(i.storeStaffID);
-                dr["authorisedBy"] = sDAO.getStoreStaffNameByID(i.authorisedBy);
-                dr["adjDate"] = i.adjDate;
-                dr["status"] = i.status;
-                iTable.Rows.Add(dr);
-            }
-
-            GridView_ViewAdjustmentVoucher.DataSource = iTable;
-            if (list.Count == 0)
-            {
-                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'No pending adjustment Voucher!');</script>");
-            }
-            GridView_ViewAdjustmentVoucher.DataBind();
         }
 
         protected void LinkButton_View_Click(object sender, EventArgs e)  //To Navigate to Approve ADJV Detail on clicking 'View'
