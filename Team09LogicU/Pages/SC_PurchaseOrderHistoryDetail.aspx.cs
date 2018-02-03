@@ -21,22 +21,25 @@ namespace Team09LogicU.Pages
         static int poID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            poID = Int32.Parse(Request.QueryString["poID"]);
-            if (!IsPostBack)
+            string poIDString = Request.QueryString["poID"];
+            if (poIDString != null && poIDString != "")
             {
-                po = PoDAO.findPObypoID(poID);
-                string orderStaff = po.orderBy;
-                string supName = po.Supplier.supplierName;
-                DateTime orderDate = po.orderDate;
+                poID = Int32.Parse(poIDString);
+                if (!IsPostBack)
+                {
+                    po = PoDAO.findPObypoID(poID);
+                    string orderStaff = po.orderBy;
+                    string supName = po.Supplier.supplierName;
+                    DateTime orderDate = po.orderDate;
 
-                lblpoID.Text = Convert.ToString(poID);
-                lblSupplierName.Text = supName;
-                lblOrderDate.Text = orderDate.ToString("dd/MM/yyyy");
-                lblName.Text = orderStaff;                
+                    lblpoID.Text = Convert.ToString(poID);
+                    lblSupplierName.Text = supName;
+                    lblOrderDate.Text = orderDate.ToString("dd/MM/yyyy");
+                    lblName.Text = orderStaff;
 
-                BindData();
+                    BindData();
+                }
             }
-
         }
         public void BindData()
         {
@@ -51,7 +54,7 @@ namespace Team09LogicU.Pages
                 poItemList[i].ItemID = PurchaseOrderItemList[i].itemID;
                 poItemList[i].OrderQty = PurchaseOrderItemList[i].quantity;
                 poItemList[i].Description = PurchaseOrderItemList[i].Item.description;
-                poItemList[i].Price = supItemDAO.getPriceByItemIDAndSupplierID(PurchaseOrderItemList[i].itemID,supID);
+                poItemList[i].Price = supItemDAO.getPriceByItemIDAndSupplierID(PurchaseOrderItemList[i].itemID, supID);
                 poItemList[i].TotalAmount = poItemList[i].Price * poItemList[i].OrderQty;
             }
             for (int i = 0; i < poItemList.Count(); i++)
@@ -60,7 +63,7 @@ namespace Team09LogicU.Pages
             }
 
             lblTotal.Text = Convert.ToString(total);
-            
+
             GridView_PODetail.DataSource = poItemList;
             GridView_PODetail.DataBind();
         }

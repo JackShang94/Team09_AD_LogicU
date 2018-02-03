@@ -6,6 +6,49 @@
      <script src="../js/googlechart.js"></script>
     <p runat="server" id="chartData"></p>
     <div class="row">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="container">
+               <div class="col-lg-10" style="margin:20px 0 20px 0">
+                   <asp:Label ID="title" runat="server" CssClass="h4" > Department Representative information</asp:Label>
+               </div>
+                    <div class=" col-lg-10" id="repTable" style="margin:0px 0 20px 0" ></div>
+                   </div></div>
+        </div>
+         <div class="col-lg-5">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Notification</h4>
+                            </div>
+                            <div class="content">
+                                <div class="panel-group" id="accordion">
+                                    <asp:Repeater ID="notice_Repeater"   runat="server" ViewStateMode="Enabled" EnableViewState="False">
+                                        
+                                         <ItemTemplate>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-target="#<%# Eval("notificationID") %>" href="#" data-toggle="collapse" >
+                                                    <%# Eval("date") %>
+                                                   
+                                                    <b class="caret" onclick="setDeptNotificationStatusAsOld()"></b>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="<%# Eval("notificationID") %>" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <%# Eval("message") %>
+                                               </div>
+                                        </div>
+                                    </div>
+                                             </ItemTemplate>
+                                        
+                                    </asp:Repeater>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
         <div class="col-lg-5">
             <div class="card">
                 <div class=" container"  >
@@ -13,42 +56,23 @@
                                  <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Choose Department: "></asp:Label>
                                   <asp:DropDownList ID="dept_dropList" CssClass="form-control" Width="50%"   runat="server" OnSelectedIndexChanged="deptDropDownList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                              <div class=" col-lg-5" id="chart1"></div></div>
-                  
-                    
-            </div></div>
+                     </div></div>
         </div>
    
         <div class="col-lg-5">
             <div class="card">
                 <div class=" container"  >
-                            
-                                <div class=" col-lg-6" id="piechart" style="margin:20px 0 20px 0"></div>
-                   
-                    
-            </div></div>
+                            <div class=" col-lg-6" id="piechart" style="margin:20px 0 20px 0"></div>
+                   </div></div>
         </div>
-  <div class="col-lg-5">
-            <div class="card">
-                <div class=" container"  >
-                            
-                                <div class=" col-lg-6" id="repTable" style="margin:20px 0 20px 0" ></div>
-                   
-                    
-            </div></div>
-        </div>
+  
         <div class="col-lg-5">
             <div class="card">
                 <div class=" container"  >
                              <div  class=" col-lg-6 " style="margin:20px 0 20px 0">
                                 <div class=" col-lg-6" id="outstandingChart"></div></div>
-                    
-                   
-            </div></div>
-        </div>
-
-       
-    
-    </div>
+                    </div></div>
+        </div></div>
     <script>
                // Load the Visualization API and the corechart package.
                google.charts.load('current', { 'packages': ['table'] });
@@ -78,13 +102,13 @@
                    };
                    var optionpie = {
                        'title': 'Category Pie Chart',
-                       'width': 450,
+                       'width': 400,
                        'height': 400
                    };
                    var optionTable = {
                        'title': 'Department Rep Information',
-                       'width': 450,
-                       'height': 400
+                       'width': '95%',
+                       'height': 200
                    };
                    var optionOut = {
                        'title': 'Department Rep Information',
