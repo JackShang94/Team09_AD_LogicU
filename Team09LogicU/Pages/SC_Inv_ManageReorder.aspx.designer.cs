@@ -13,6 +13,15 @@ namespace Team09LogicU.Pages {
     public partial class SC_Inv_ManageReorder {
         
         /// <summary>
+        /// LinkButton_history control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton_history;
+        
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using Team09LogicU.App_Code.UtilClass;
 using Team09LogicU.Models;
+using System.Web.SessionState;
 
 namespace Team09LogicU.App_Code.DAO
 {
-    public class AdjustmentVoucherDAO
+    public class AdjustmentVoucherDAO: System.Web.SessionState.IRequiresSessionState
     {
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
         public List<AdjustmentVoucher> getAdjustmentVoucherList()
@@ -36,28 +37,163 @@ namespace Team09LogicU.App_Code.DAO
         public List<AdjustmentVoucher> findadjvbyStatusandDate(DateTime from, DateTime to, string status)
         {
             List<AdjustmentVoucher> list = context.AdjustmentVouchers.
-                Where(x => (x.adjDate.Year >= from.Year && x.adjDate.Month >= from.Month && x.adjDate.Day >= from.Day)
-                && (x.adjDate.Year <= to.Year && x.adjDate.Month <= to.Month && x.adjDate.Day <= to.Day)
-                &&(x.status == status)).ToList<AdjustmentVoucher>();
-            return list;
+                Where(x =>(x.status == status)).ToList<AdjustmentVoucher>();
+            List<AdjustmentVoucher> finalList = new List<AdjustmentVoucher>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].adjDate.Year > from.Year && list[i].adjDate.Year < to.Year)
+                {
+                    finalList.Add(list[i]);
+                }
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
+                {
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
+                    {
+                        finalList.Add(list[i]);
+                    }
+                    else
+                    {
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
+                        {
+                            finalList.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return finalList;
         }
         public List<AdjustmentVoucher> findadjvbyStatusandDateStaffID(DateTime from, DateTime to, string status,string staffID)
         {
             List<AdjustmentVoucher> list = context.AdjustmentVouchers.
-                Where(x => (x.adjDate.Year >= from.Year && x.adjDate.Month >= from.Month && x.adjDate.Day >= from.Day)
-                && (x.adjDate.Year <= to.Year && x.adjDate.Month <= to.Month && x.adjDate.Day <= to.Day)
-                && (x.status == status) && x.storeStaffID == staffID).ToList<AdjustmentVoucher>();
-            return list;
+                Where(x =>(x.status == status) && x.storeStaffID == staffID).ToList<AdjustmentVoucher>();
+            List<AdjustmentVoucher> finalList = new List<AdjustmentVoucher>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].adjDate.Year > from.Year && list[i].adjDate.Year < to.Year)
+                {
+                    finalList.Add(list[i]);
+                }
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
+                {
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
+                    {
+                        finalList.Add(list[i]);
+                    }
+                    else
+                    {
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
+                        {
+                            finalList.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return finalList;
+
         }
 
         public List<AdjustmentVoucher> findadjvbyDate(DateTime from, DateTime to)
         {
-            return context.AdjustmentVouchers.Where(x => x.adjDate >= from && x.adjDate <= to).ToList<AdjustmentVoucher>();
+            List<AdjustmentVoucher> list = context.AdjustmentVouchers.ToList<AdjustmentVoucher>();
+            List<AdjustmentVoucher> finalList = new List<AdjustmentVoucher>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].adjDate.Year > from.Year && list[i].adjDate.Year < to.Year)
+                {
+                    finalList.Add(list[i]);
+                }
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
+                {
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
+                    {
+                        finalList.Add(list[i]);
+                    }
+                    else
+                    {
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
+                        {
+                            finalList.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return finalList;
         }
 
         public List<AdjustmentVoucher> findadjvbyDateandStaffID(DateTime from, DateTime to,string staffID)
         {
-            return context.AdjustmentVouchers.Where(x => (x.adjDate >= from && x.adjDate <= to)&&(x.storeStaffID == staffID)).ToList<AdjustmentVoucher>();
+            List<AdjustmentVoucher> list = context.AdjustmentVouchers.Where(x => (x.adjDate >= from && x.adjDate <= to)&&(x.storeStaffID == staffID)).ToList<AdjustmentVoucher>();
+            List<AdjustmentVoucher> finalList = new List<AdjustmentVoucher>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].adjDate.Year > from.Year && list[i].adjDate.Year < to.Year)
+                {
+                    finalList.Add(list[i]);
+                }
+                else if (list[i].adjDate.Year == from.Year || list[i].adjDate.Year == to.Year)
+                {
+                    if (
+                        (list[i].adjDate.Year == from.Year && list[i].adjDate.Year != to.Year && list[i].adjDate.Month > from.Month) ||
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year != from.Year && list[i].adjDate.Month < to.Month) ||
+
+                        (list[i].adjDate.Year == to.Year && list[i].adjDate.Year == from.Year
+                        && list[i].adjDate.Month < to.Month && list[i].adjDate.Month > from.Month)
+                        )
+                    {
+                        finalList.Add(list[i]);
+                    }
+                    else
+                    {
+                        if (
+                            (list[i].adjDate.Month == from.Month && list[i].adjDate.Month != to.Month && list[i].adjDate.Day > from.Day) ||
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month != from.Month && list[i].adjDate.Day < to.Day) ||
+
+                            (list[i].adjDate.Month == to.Month && list[i].adjDate.Month == from.Month
+                            && list[i].adjDate.Day < to.Day && list[i].adjDate.Day > from.Day)
+                            )
+                        {
+                            finalList.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return finalList;
         }
 
 
@@ -68,7 +204,8 @@ namespace Team09LogicU.App_Code.DAO
 
         public void addAdjustmentVoucher(string storestaffID, List<AdjustmentVouchercart> list)
         {
-            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();    
+            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
+            adjvoucher.storeStaffID = (string)System.Web.HttpContext.Current.Session["loginID"];
             adjvoucher.storeStaffID = storestaffID;
             adjvoucher.adjDate = DateTime.Now;
             adjvoucher.status = "pending";
@@ -89,7 +226,31 @@ namespace Team09LogicU.App_Code.DAO
                 context.AdjustmentVoucherItems.Add(adjvi);
             }
             context.SaveChanges();
+        }
 
+        public void addAdjV(List<AdjustmentVouchercart> list)
+        {
+            AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
+            adjvoucher.storeStaffID = (string)System.Web.HttpContext.Current.Session["loginID"];
+            adjvoucher.adjDate = DateTime.Now;
+            adjvoucher.status = "pending";
+            adjvoucher.authorisedBy = "";
+            context.AdjustmentVouchers.Add(adjvoucher);
+      
+            int adjvID = adjvoucher.adjVID;
+            /*************Then Add ADJVItems******************/
+            AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+
+            foreach (AdjustmentVouchercart cartitem in list)
+            {
+                AdjustmentVoucherItem adjvi = new AdjustmentVoucherItem();
+                adjvi.adjVID = adjvoucher.adjVID;
+                adjvi.itemID = cartitem.ItemID;
+                adjvi.quantity = cartitem.Qty;
+                adjvi.record = cartitem.Record;
+                context.AdjustmentVoucherItems.Add(adjvi);
+            }
+            context.SaveChanges();
         }
         public void ApproveAdjustmentVoucherStatus(AdjustmentVoucher adjv, string managerID)
         {

@@ -34,7 +34,6 @@
                                 <br />
 
                                 <asp:TextBox ID="TextBox_qty" runat="server" class="form-control disabled" ReadOnly="true" Width="200px"></asp:TextBox>
-                                <asp:RegularExpressionValidator runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_qty" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -51,7 +50,7 @@
                             <div class="form-group">
                                 <label>Reorder Level </label>
                                 <asp:TextBox ID="TextBox_ReorderLevel" TextMode="Number" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                <asp:RegularExpressionValidator runat="server" ForeColor="Red" ID="text_box_level_alert" ValidationGroup="submit1" ControlToValidate="TextBox_ReorderLevel" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="text_box_level_alert" ValidationGroup="submit1" ControlToValidate="TextBox_ReorderLevel" runat="server" ForeColor="Red"   ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -59,7 +58,7 @@
                             <div class="form-group">
                                 <label>Reorder Quantity </label>
                                 <asp:TextBox ID="TextBox_ReorderQty" TextMode="Number" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="text_box_reorderqty_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_ReorderQty" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="text_box_reorderqty_alert" ValidationGroup="submit1" ControlToValidate="TextBox_ReorderQty" runat="server" ForeColor="Red"   ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>
 
                             </div>
                         </div>
@@ -91,7 +90,7 @@
                                 <asp:DropDownList ID="dropdownlist_Supplier1" runat="server" class="form-control" Width="200px"></asp:DropDownList>
                                 <label>Price</label>
                                 <asp:TextBox ID="TextBox_price1" number="number" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="text_box_Supplier1_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_price1" ValidationExpression="^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="text_box_Supplier1_alert" ValidationGroup="submit1" ControlToValidate="TextBox_price1" runat="server" ForeColor="Red"   ValidationExpression="^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$" ErrorMessage="Invalid!!"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -100,7 +99,7 @@
                                 <asp:DropDownList ID="dropdownlist_Supplier2" runat="server" class="form-control" Width="200px"></asp:DropDownList>
                                 <label>Price</label>
                                 <asp:TextBox ID="TextBox_price2" runat="server" class="form-control " Width="200px"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="text_box_Supplier2_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_price2" ValidationExpression="^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="text_box_Supplier2_alert" ValidationGroup="submit1" ControlToValidate="TextBox_price2" runat="server" ForeColor="Red"   ValidationExpression="^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -110,7 +109,7 @@
                                 <asp:DropDownList ID="dropdownlist_Supplier3" runat="server" class="form-control" Width="200px"></asp:DropDownList>
                                 <label>Price</label>
                                 <asp:TextBox ID="TextBox_price3" runat="server" class="form-control" Width="200px"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="text_box_Supplier3_alert" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="TextBox_price3" ValidationExpression="^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="text_box_Supplier3_alert" ValidationGroup="submit1" ControlToValidate="TextBox_price3" runat="server" ForeColor="Red"   ValidationExpression="^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -120,8 +119,8 @@
         </div>
     </div>
 
-    <asp:Button ID="Btn_Update" runat="server" Text="Update" ValidationGroup="submit1" CssClass="btn btn-primary btn-fill btn-wd " OnClientClick="if(!notEmpty()) return false;" OnClick="Btn_Update_Click" />
-    <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Update_Click" />
+    <asp:Button ID="Btn_Update" runat="server" Text="Update" ValidationGroup="submit1" CssClass="btn btn-primary btn-fill btn-wd "   OnClick="Btn_Update_Click" />
+    <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
     <script type="text/javascript">
         $().ready(function () {
 
@@ -134,19 +133,19 @@
             var not_empty = true;
 
             if (!$('#TextBox_ReorderLevel').val()) {
-                $('#text_box_level_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_level_alert').text('Invalid!').css('visibility', 'visible');
             }
             if (!$('#TextBox_ReorderQty').val()) {
-                $('#text_box_reorderqty_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_reorderqty_alert').text('Invalid!').css('visibility', 'visible');
             }
             if (!$('#TextBox_price1').val()) {
-                $('#text_box_Supplier1_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_Supplier1_alert').text('Invalid!').css('visibility', 'visible');
             }
             if (!$('#TextBox_price2').val()) {
-                $('#text_box_Supplier2_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_Supplier2_alert').text('Invalid!').css('visibility', 'visible');
             }
             if (!$('#TextBox_price3').val()) {
-                $('#text_box_Supplier3_alert').text('Input can not be empty.').css('visibility', 'visible');
+                $('#text_box_Supplier3_alert').text('Invalid!').css('visibility', 'visible');
             }
             if (!$('#TextBox_ReorderLevel').val() || !$('#TextBox_ReorderQty').val() || !$('#TextBox_price1').val() || !$('#TextBox_price2').val() || !$('#TextBox_price3').val()) {
                 not_empty = false;

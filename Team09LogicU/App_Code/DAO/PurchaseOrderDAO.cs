@@ -36,10 +36,44 @@ namespace Team09LogicU.App_Code.DAO
 
         public List<PurchaseOrder> findPOByDate(DateTime from, DateTime to)
         {
-            List<PurchaseOrder> list = m.PurchaseOrders.
-                Where(x => (x.orderDate.Year >= from.Year) && (x.orderDate.Month >= from.Month) && (x.orderDate.Day >= from.Day)
-                && (x.orderDate.Year <= to.Year) && (x.orderDate.Month <= to.Month) && (x.orderDate.Day <= to.Day)).ToList<PurchaseOrder>();
-            return list;
+            List<PurchaseOrder> list = m.PurchaseOrders.ToList<PurchaseOrder>();
+
+            List<PurchaseOrder> finalList = new List<PurchaseOrder>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].orderDate.Year > from.Year && list[i].orderDate.Year < to.Year)
+                {
+                    finalList.Add(list[i]);
+                }
+                else if (list[i].orderDate.Year == from.Year || list[i].orderDate.Year == to.Year)
+                {
+                    if (
+                        (list[i].orderDate.Year == from.Year && list[i].orderDate.Year != to.Year && list[i].orderDate.Month > from.Month) ||
+                        (list[i].orderDate.Year == to.Year && list[i].orderDate.Year != from.Year && list[i].orderDate.Month < to.Month) ||
+
+                        (list[i].orderDate.Year == to.Year && list[i].orderDate.Year == from.Year
+                        && list[i].orderDate.Month < to.Month && list[i].orderDate.Month > from.Month)
+                        )
+                    {
+                        finalList.Add(list[i]);
+                    }
+                    else
+                    {
+                        if (
+                            (list[i].orderDate.Month == from.Month && list[i].orderDate.Month != to.Month && list[i].orderDate.Day > from.Day) ||
+                            (list[i].orderDate.Month == to.Month && list[i].orderDate.Month != from.Month && list[i].orderDate.Day < to.Day) ||
+
+                            (list[i].orderDate.Month == to.Month && list[i].orderDate.Month == from.Month
+                            && list[i].orderDate.Day < to.Day && list[i].orderDate.Day > from.Day)
+                            )
+                        {
+                            finalList.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return finalList;
+
         }
 
         public List<PurchaseOrder> findPOBySupplierID(string supID)
@@ -52,10 +86,43 @@ namespace Team09LogicU.App_Code.DAO
         public List<PurchaseOrder> findPOByDateAndSupID(DateTime from, DateTime to, string supID)
         {
             List<PurchaseOrder> list = m.PurchaseOrders.
-                Where(x => (x.orderDate.Year >= from.Year) && (x.orderDate.Month >= from.Month) && (x.orderDate.Day >= from.Day)
-                && (x.orderDate.Year <= to.Year) && (x.orderDate.Month <= to.Month) && (x.orderDate.Day <= to.Day) && x.supplierID == supID)
+                Where(x =>x.supplierID == supID)
                 .ToList<PurchaseOrder>();
-            return list;
+            List<PurchaseOrder> finalList = new List<PurchaseOrder>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].orderDate.Year > from.Year && list[i].orderDate.Year < to.Year)
+                {
+                    finalList.Add(list[i]);
+                }
+                else if (list[i].orderDate.Year == from.Year || list[i].orderDate.Year == to.Year)
+                {
+                    if (
+                        (list[i].orderDate.Year == from.Year && list[i].orderDate.Year != to.Year && list[i].orderDate.Month > from.Month) ||
+                        (list[i].orderDate.Year == to.Year && list[i].orderDate.Year != from.Year && list[i].orderDate.Month < to.Month) ||
+
+                        (list[i].orderDate.Year == to.Year && list[i].orderDate.Year == from.Year
+                        && list[i].orderDate.Month < to.Month && list[i].orderDate.Month > from.Month)
+                        )
+                    {
+                        finalList.Add(list[i]);
+                    }
+                    else
+                    {
+                        if (
+                            (list[i].orderDate.Month == from.Month && list[i].orderDate.Month != to.Month && list[i].orderDate.Day > from.Day) ||
+                            (list[i].orderDate.Month == to.Month && list[i].orderDate.Month != from.Month && list[i].orderDate.Day < to.Day) ||
+
+                            (list[i].orderDate.Month == to.Month && list[i].orderDate.Month == from.Month
+                            && list[i].orderDate.Day < to.Day && list[i].orderDate.Day > from.Day)
+                            )
+                        {
+                            finalList.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return finalList;
         }
 
         public List<int> findPOIDbyMonth(DateTime time)

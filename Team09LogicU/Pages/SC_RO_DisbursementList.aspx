@@ -100,9 +100,7 @@
                 </div>
 
                 <div class="col-lg-10" style="margin-top: 20px">
-                    <div class="col-lg-2 " style="margin-left: 4%">
-                        <asp:Button ID="QRcodeButton" runat="server" CssClass="btn  btn-primary  btn-wd " Text="Generate QR Code" />
-                    </div>
+                    
                     <div class="col-lg-2 " style="margin-left: 5%">
                         <asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="View History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx" />
                     </div>
