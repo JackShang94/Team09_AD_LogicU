@@ -115,6 +115,13 @@
             </div>
 
             <ul class="nav">
+                  <li>
+                    <a  href="SC_dashboard.aspx">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard
+                        </p>
+                    </a>         
+                </li>
                
                 <li>
                     <a data-toggle="collapse" href="#roExamples">

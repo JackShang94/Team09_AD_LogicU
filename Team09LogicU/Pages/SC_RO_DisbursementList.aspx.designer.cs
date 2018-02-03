@@ -112,15 +112,6 @@ namespace Team09LogicU.pages {
         protected global::System.Web.UI.WebControls.Button NotifyButton;
         
         /// <summary>
-        /// QRcodeButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button QRcodeButton;
-        
-        /// <summary>
         /// viewHisBtn control.
         /// </summary>
         /// <remarks>
