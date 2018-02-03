@@ -135,17 +135,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].RequisitionDate.Year == from.Year || list[i].RequisitionDate.Year == to.Year)
                 {
-                    if ((list[i].RequisitionDate.Year == from.Year && list[i].RequisitionDate.Month > from.Month) ||
-                        (list[i].RequisitionDate.Year == to.Year && list[i].RequisitionDate.Month < to.Month))
+                    if (
+                        (list[i].RequisitionDate.Year == from.Year && list[i].RequisitionDate.Year != to.Year && list[i].RequisitionDate.Month > from.Month) ||
+                        (list[i].RequisitionDate.Year == to.Year && list[i].RequisitionDate.Year != from.Year && list[i].RequisitionDate.Month < to.Month) ||
+
+                        (list[i].RequisitionDate.Year == to.Year && list[i].RequisitionDate.Year == from.Year
+                        && list[i].RequisitionDate.Month < to.Month && list[i].RequisitionDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].RequisitionDate.Month == from.Month && list[i].RequisitionDate.Day > from.Day) ||
-                            (list[i].RequisitionDate.Month == to.Month && list[i].RequisitionDate.Day < to.Day))
+                        if (
+                            (list[i].RequisitionDate.Month == from.Month && list[i].RequisitionDate.Month != to.Month && list[i].RequisitionDate.Day > from.Day) ||
+                            (list[i].RequisitionDate.Month == to.Month && list[i].RequisitionDate.Month != from.Month && list[i].RequisitionDate.Day < to.Day) ||
+
+                            (list[i].RequisitionDate.Month == to.Month && list[i].RequisitionDate.Month == from.Month
+                            && list[i].RequisitionDate.Day < to.Day && list[i].RequisitionDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
@@ -169,17 +179,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].RequisitionDate.Year == from.Year || list[i].RequisitionDate.Year == to.Year)
                 {
-                    if ((list[i].RequisitionDate.Year == from.Year && list[i].RequisitionDate.Month > from.Month) ||
-                        (list[i].RequisitionDate.Year == to.Year && list[i].RequisitionDate.Month < to.Month))
+                    if (
+                        (list[i].RequisitionDate.Year == from.Year && list[i].RequisitionDate.Year != to.Year && list[i].RequisitionDate.Month > from.Month) ||
+                        (list[i].RequisitionDate.Year == to.Year && list[i].RequisitionDate.Year != from.Year && list[i].RequisitionDate.Month < to.Month) ||
+
+                        (list[i].RequisitionDate.Year == to.Year && list[i].RequisitionDate.Year == from.Year
+                        && list[i].RequisitionDate.Month < to.Month && list[i].RequisitionDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].RequisitionDate.Month == from.Month && list[i].RequisitionDate.Day > from.Day) ||
-                            (list[i].RequisitionDate.Month == to.Month && list[i].RequisitionDate.Day < to.Day))
+                        if (
+                            (list[i].RequisitionDate.Month == from.Month && list[i].RequisitionDate.Month != to.Month && list[i].RequisitionDate.Day > from.Day) ||
+                            (list[i].RequisitionDate.Month == to.Month && list[i].RequisitionDate.Month != from.Month && list[i].RequisitionDate.Day < to.Day) ||
+
+                            (list[i].RequisitionDate.Month == to.Month && list[i].RequisitionDate.Month == from.Month
+                            && list[i].RequisitionDate.Day < to.Day && list[i].RequisitionDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
@@ -200,17 +220,27 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     finalList.Add(list[i]);
                 }
-                else
+                else if (list[i].requisitionDate.Year == from.Year || list[i].requisitionDate.Year == to.Year)
                 {
-                    if ((list[i].requisitionDate.Year == from.Year && list[i].requisitionDate.Month > from.Month) ||
-                        (list[i].requisitionDate.Year == to.Year && list[i].requisitionDate.Month < to.Month))
+                    if (
+                        (list[i].requisitionDate.Year == from.Year && list[i].requisitionDate.Year != to.Year && list[i].requisitionDate.Month > from.Month) ||
+                        (list[i].requisitionDate.Year == to.Year && list[i].requisitionDate.Year != from.Year && list[i].requisitionDate.Month < to.Month) ||
+
+                        (list[i].requisitionDate.Year == to.Year && list[i].requisitionDate.Year == from.Year
+                        && list[i].requisitionDate.Month < to.Month && list[i].requisitionDate.Month > from.Month)
+                        )
                     {
                         finalList.Add(list[i]);
                     }
                     else
                     {
-                        if ((list[i].requisitionDate.Month == from.Month && list[i].requisitionDate.Day > from.Day) ||
-                            (list[i].requisitionDate.Month == to.Month && list[i].requisitionDate.Day < to.Day))
+                        if (
+                            (list[i].requisitionDate.Month == from.Month && list[i].requisitionDate.Month != to.Month && list[i].requisitionDate.Day > from.Day) ||
+                            (list[i].requisitionDate.Month == to.Month && list[i].requisitionDate.Month != from.Month && list[i].requisitionDate.Day < to.Day) ||
+
+                            (list[i].requisitionDate.Month == to.Month && list[i].requisitionDate.Month == from.Month
+                            && list[i].requisitionDate.Day < to.Day && list[i].requisitionDate.Day > from.Day)
+                            )
                         {
                             finalList.Add(list[i]);
                         }
