@@ -7,17 +7,17 @@
 	
 		
             <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-12">
                             <div class="card">
                                     <div class=" container" >
 								<asp:ScriptManager ID="myReqScriptManager" runat="server"></asp:ScriptManager>
 							<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
-										<div class=" col-md-10" style="margin-top:20px">
+										<div class=" col-lg-12" style="margin-top:20px">
 											<h4 class=" panel-title">Pending Requisition</h4>
 										</div>
-                                    <div class="col-md-10" style="margin-bottom:20px" >
-										<asp:GridView ID="requisitionListGridView" HeaderStyle-BackColor="#e8e8e8" runat="server" AllowPaging="True" HeaderStyle-CssClass=" content text-uppercase "  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
+                                    <div class="col-lg-12" style="margin-bottom:20px" >
+										<asp:GridView ID="requisitionListGridView"  Width="80%" HeaderStyle-BackColor="#e8e8e8" runat="server" AllowPaging="True" HeaderStyle-CssClass=" content text-uppercase "  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
 												<columns>
 													<%--<asp:TemplateField>
 														<ItemTemplate>
@@ -46,7 +46,7 @@
 								</asp:UpdatePanel></div>
 							</div></div></div>
             <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-12">
 							<div class="card">
 								 <div class=" container" >
 								<asp:UpdatePanel ID="reqHisUpdatePanel" runat="server">
@@ -59,8 +59,8 @@
                                              <div class="col-md-10" style="margin-top:20px"><asp:Button ID="searchButton" CssClass="btn btn-primary btn-wd btn-fill" runat="server" Text="Search" OnClick="searchButton_Click" EnableViewState="False" /></div>
 											
 										
-										 <div class="col-md-10" style="margin-bottom:20px;margin-top:20px" >
-										<asp:GridView ID="requisitionHistoryGridView" HeaderStyle-BackColor="#e8e8e8"  runat="server" AllowPaging="True" AllowSorting="true" 
+										 <div class="col-lg-12" style="margin-bottom:20px;margin-top:20px" >
+										<asp:GridView ID="requisitionHistoryGridView" Width="80%" HeaderStyle-BackColor="#e8e8e8"  runat="server" AllowPaging="True" AllowSorting="true" 
                                             AutoGenerateColumns="false"  DataKeyNames="requisitionID"  CssClass="table table-striped table-hover" HeaderStyle-CssClass=" content text-uppercase  "
                                          OnPageIndexChanging="requisitionHistoryGridView_PageIndexChanging" PageSize="5"  OnRowCommand="requisitionHistoryGridView_RowCommand"
                                             EmptyDataText="There is no history" CellPadding="4"  GridLines="None">
