@@ -8,7 +8,7 @@
     <script src="../js/jquery-1.7.1.min.js"></script>
     <link href="../css/window.css" rel="stylesheet" />
         <div class="row">
-           <div class="col-lg-10">
+           <div class="col-lg-12">
                 <div class="card">
                     <div class=" container">
                         <div class="col-lg-10">
@@ -28,8 +28,8 @@
                                     
                             </div></div>
                            
-                                        <div class="col-lg-10" style="margin-bottom:20px">
-                                            <asp:GridView ID="GridView_ReqHistory" runat="server" PageSize="3" AllowPaging="true" OnPageIndexChanging="GridView_ReqHistory_PageIndexChanging" OnRowCommand="GridView_ReqHistory_RowCommand" CssClass="table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Requisitions history record">
+                                        <div class="col-lg-12" style="margin-bottom:20px">
+                                            <asp:GridView ID="GridView_ReqHistory" runat="server" PageSize="3"  AllowPaging="true" Width="85%" OnPageIndexChanging="GridView_ReqHistory_PageIndexChanging" OnRowCommand="GridView_ReqHistory_RowCommand" CssClass="table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Requisitions history record">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Requisition ID" Visible="False">
