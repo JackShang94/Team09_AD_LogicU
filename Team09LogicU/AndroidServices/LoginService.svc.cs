@@ -15,17 +15,30 @@ namespace Team09LogicU.AndroidServices
     {
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
         public string Login(WCFAccount wcf_account)
-        {
+        {//only accept Dept rep and Store clerk
             LoginDAO loginDAO = new LoginDAO();
+            DeptStaffDAO deptStaffDAO = new DeptStaffDAO();
             string email = wcf_account.Email;
             string password = wcf_account.Password;
-            string role = "";
+            string info = "";
             string hashString = new Encrypt().encryptString(password);
             string[] result = loginDAO.getUser(email);
+            string deptID = "";
             if (hashString == result[2])
             {
-                role = result[0]+"&"+result[1];//result[0] is loginID,result[1] is role
-            }else if (result[0] != "")//user not exists
+                if (result[1] == "rep")//its department
+                {
+                    deptID = deptStaffDAO.getDeptIDByStaffID(result[0]);
+
+                }
+                else if (result[1] == "clerk")//its store
+                {
+                    
+                }
+
+                info = result[0] + "&" + result[1] + "&" + deptID;//result[0] is loginID,result[1] is role
+            }
+            else if (result[0] != "")//user not exists
             {
 
             }else//invalid password
@@ -33,7 +46,7 @@ namespace Team09LogicU.AndroidServices
 
             }
 
-            return role;
+            return info;
         }
     }
 }

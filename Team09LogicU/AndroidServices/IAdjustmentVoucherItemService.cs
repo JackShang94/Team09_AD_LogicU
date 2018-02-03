@@ -16,6 +16,7 @@ namespace Team09LogicU.AndroidServices
         [WebGet(UriTemplate = "/AdjItem/{adjID}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFAdjustmentVoucherItem> findAdjItemListByAdjID(string adjID);
 
+      
         [OperationContract]
         [WebInvoke(UriTemplate = "/AdjItem/post/addAdjItem", Method = "POST", RequestFormat = WebMessageFormat.Json,
           ResponseFormat = WebMessageFormat.Json)]

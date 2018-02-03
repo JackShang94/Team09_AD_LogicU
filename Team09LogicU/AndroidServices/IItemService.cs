@@ -15,11 +15,11 @@ namespace Team09LogicU.AndroidServices
     public interface IItemService
     {
         [OperationContract]
-        [WebGet(UriTemplate = "/Item", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/Items", ResponseFormat = WebMessageFormat.Json)]
         List<WCFItem> findAll();
 
         [OperationContract]
-        [WebGet(UriTemplate = "/Item/{cat}", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/Items/{keyword}", ResponseFormat = WebMessageFormat.Json)]
         List<WCFItem> findItemBySearch(string keyword);
 
         [OperationContract]

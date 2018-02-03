@@ -98,7 +98,6 @@ namespace Team09LogicU.App_Code.DAO
             return i;
         }
 
-
         public void UpdateItemQtyOnHand(string itemID, int qty)
         {
             List<Item> list = m.Items.Where(x => x.itemID == itemID).ToList<Item>();
@@ -115,7 +114,6 @@ namespace Team09LogicU.App_Code.DAO
         {
             foreach (AdjustmentVoucherItem breakitem in adjlist)
             {
-               
                     //update item quantity
                     Item item;
                     List<Item> itemlist = m.Items.Where(x => x.itemID == breakitem.itemID).ToList();

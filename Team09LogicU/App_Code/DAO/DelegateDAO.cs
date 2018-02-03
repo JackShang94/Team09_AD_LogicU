@@ -77,7 +77,7 @@ namespace Team09LogicU.App_Code.DAO
         //search for all delegates for this department(for viewing delegate history)
         public List<Models.Delegate> findDelegatesByDepartment(string departmentID)
         {
-            List<Models.Delegate> delegateList = context.Delegates.Where(x => x.DeptStaff.deptID == departmentID).ToList();
+            List<Models.Delegate> delegateList = context.Delegates.Where(x => x.DeptStaff.deptID == departmentID).OrderByDescending(x=>x.delegateID).ToList();
             return delegateList;
         }
 

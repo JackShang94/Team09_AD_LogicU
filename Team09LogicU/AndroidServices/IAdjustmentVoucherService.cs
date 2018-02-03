@@ -9,13 +9,14 @@ using System.ServiceModel.Web;
 namespace Team09LogicU.AndroidServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IAdjustmentVoucherService" in both code and config file together.
+
     [ServiceContract]
     public interface IAdjustmentVoucherService
     {
         [OperationContract]
         [WebInvoke(UriTemplate = "/Adj/post/addAdj", Method = "POST", RequestFormat = WebMessageFormat.Json,
           ResponseFormat = WebMessageFormat.Json)]
-        void addAdjVoucher(WCFAdjustmentVoucher wcfAdj);
+        void addAdjVoucher(List<WCFAdjustmentVoucherItem> adjVItemList);
 
         [OperationContract]
         [WebGet(UriTemplate = "/Adj", ResponseFormat = WebMessageFormat.Json)]

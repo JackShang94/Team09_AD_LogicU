@@ -90,19 +90,27 @@ namespace Team09LogicU.AndroidServices
                         }
                     }
                 }
-                int result = context.SaveChanges();
-                if (result > 0)
+                try
                 {
+                    context.SaveChanges();
                     return 1;
                 }
+                catch(Exception e)
+                {
+                    return 0;
+                }
+                
+             
             }
-            return 0 ;
+            
                 //List<DisbursementItem> ldisitem = disitemDAO.getDisbursementItemsByDisbursementId(Convert.ToInt32(disID));
         }
 
-        public int confirmDisbursement(string disID_string)
+        public int confirmDisbursement(confirm_JSON confirm_json,string disID_url)
         {
-            int disID = Int32.Parse(disID_string);
+            int disID = Int32.Parse(disID_url);
+            string date_s = confirm_json.Scan_date;//put here in case
+            string staffID = confirm_json.LoginID;
             DisbursementDAO disDAO = new DisbursementDAO();
             try
             {

@@ -24,7 +24,7 @@
                                             <Columns>
                                                 <asp:TemplateField HeaderText="View" ItemStyle-CssClass="text-center">
                                                     <ItemTemplate>
-                                                        <asp:LinkButton ID="View" Text="View" runat="server" CssClass="btn btn-default btn-xs" CommandName="Edit" OnClientClick="Edit?"></asp:LinkButton>
+                                                        <asp:LinkButton ID="View" Text="Stock Card" runat="server" CssClass="btn btn-default btn-xs" CommandName="Edit" OnClientClick="Edit?"></asp:LinkButton>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>
