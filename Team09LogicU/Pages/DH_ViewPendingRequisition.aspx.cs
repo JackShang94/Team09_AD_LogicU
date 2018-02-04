@@ -28,9 +28,10 @@ namespace Team09LogicU.pages
             try
             {
                 GridView_PendingReqList.PageIndex = e.NewPageIndex;
-      
+                    
                 TextBox tb = (TextBox)GridView_PendingReqList.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_PendingReqList.PageIndex + 1).ToString();
+                BindGrid();
             }
             catch
             {
