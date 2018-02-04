@@ -127,6 +127,7 @@ namespace Team09LogicU.pages
                 disburseItemGridView.EditIndex = -1;
                 disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
                 disburseItemGridView.DataBind();
+                //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'The quantity you entered cannot larger than needed amount!！');</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('The quantity you entered cannot larger than needed amount!')", true);
                 return;
             }
