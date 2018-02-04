@@ -14,6 +14,7 @@ namespace Team09LogicU.pages
         public List<Requisition> lr;
         public string staffID;
         const int FixedRowCount = 4;
+        public List<Requisition> lr_h;
         TextBox tb = new TextBox();
         string strPageNum = "";
 
@@ -35,33 +36,16 @@ namespace Team09LogicU.pages
 
                 string name = Session["loginID"].ToString();
 
-                lr_h = rdao.getRequisitionByStaffID(name);
-
-                for (int i = lr_h.Count - 1; i >= 0; i--)
-                {
-                    if (lr_h[i].status == "pending")
-                    {
-                        lr.Add(lr_h[i]);
-                        lr_h.RemoveAt(i);
-                    }
-                }
-                /**************send pending list*******************/
-                requisitionListGridView.DataSource = lr;
-                requisitionListGridView.DataBind();
-
-
+               
+               
                 /***************send history************************/
-                ShowRequisition();
+                updateGV();
+                tb.Text = strPageNum;
             }
-            tb.Text = strPageNum;
+            
         }
 
-        public void ShowRequisition()
-        {
-            RequisitionDAO rdao = new RequisitionDAO();
-            requisitionHistoryGridView.DataSource = rdao.getRequisitionByStaffID(Session["loginID"].ToString());
-            requisitionHistoryGridView.DataBind();
-        }
+
 
         protected void requisitionListGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -112,16 +96,31 @@ namespace Team09LogicU.pages
 
         protected void updateGV()
         {
+
+           
+            /**************send pending list*******************/
+            
             RequisitionDAO rdao = new RequisitionDAO();
+            string name = Session["loginID"].ToString();
+            lr = new List<Requisition>();//to store the pending 
             if ((fromDate.Text == "") && (toDate.Text == ""))
             {
-                requisitionHistoryGridView.DataSource = rdao.getRequisitionByStaffID(Session["loginID"].ToString());
-                requisitionHistoryGridView.DataBind();
+                lr_h = rdao.getRequisitionByStaffID(name);
+
+                for (int i = lr_h.Count - 1; i >= 0; i--)
+                {
+                    if (lr_h[i].status == "pending")
+                    {
+                        lr.Add(lr_h[i]);
+                        lr_h.RemoveAt(i);
+                    }
+                }
             }
             else
             {
                 if ((fromDate.Text == "") || (toDate.Text == ""))
                 {
+                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Plz Enter correct date range!');</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
                     return;
                 }
@@ -129,17 +128,35 @@ namespace Team09LogicU.pages
                 DateTime to = Convert.ToDateTime(toDate.Text);
                 if (DateTime.Compare(from, to) > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('start Date should be greater than end Date')", true);
+                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Start Date should be greater than end Date！');</script>");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('Start Date should be greater than end Date')", true);
                     return;
                 }
                 if ((fromDate.Text != "") && (toDate.Text != ""))
                 {
-                    requisitionHistoryGridView.DataSource = rdao.findRequisitionByDateIndividual(from, to, Session["loginID"].ToString());
-                    requisitionHistoryGridView.DataBind();
+                    lr_h = rdao.findRequisitionByDateIndividual(from, to, name);
+
+                    for (int i = lr_h.Count - 1; i >= 0; i--)
+                    {
+                        if (lr_h[i].status == "pending")
+                        {
+                            lr.Add(lr_h[i]);
+                            lr_h.RemoveAt(i);
+                        }
+                    }
                 }
 
             }
+            requisitionListGridView.DataSource = lr;
+            requisitionListGridView.DataBind();
+            ShowRequisition(lr_h);
 
+        }
+        public void ShowRequisition(List<Requisition> lr_h)
+        {
+
+            requisitionHistoryGridView.DataSource = lr_h;
+            requisitionHistoryGridView.DataBind();
         }
 
         protected void requisitionHistoryGridView_RowCommand(object sender, GridViewCommandEventArgs e)
