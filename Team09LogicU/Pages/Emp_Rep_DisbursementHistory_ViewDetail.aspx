@@ -12,12 +12,12 @@
                                 <Columns>
                                     <asp:TemplateField HeaderText="ItemID" Visible="True">
                                         <ItemTemplate>
-                                            <asp:Label ID="disItemID" runat="server" Text='<%# Bind("ItemID") %>'></asp:Label>
+                                            <asp:Label ID="disItemID" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="ItemDescription" HeaderText="Description" />
-                                    <asp:BoundField DataField="Expectedc" HeaderText="Expected Quantity" />
-                                    <asp:BoundField DataField="Actual" HeaderText="Actual Quantity" />
+                                    <asp:BoundField DataField="description" HeaderText="Description" />
+                                    <asp:BoundField DataField="expected" HeaderText="Expected Quantity" />
+                                    <asp:BoundField DataField="actual" HeaderText="Actual Quantity" />
                                 </Columns>
                                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                             </asp:GridView>
