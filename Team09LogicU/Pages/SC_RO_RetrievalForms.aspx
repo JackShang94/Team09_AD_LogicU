@@ -89,7 +89,7 @@
                                                 <asp:Label runat="server" ID="actualLabel" Text='<%#Eval("actual") %>'></asp:Label>
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:TextBox runat="server" ID="actualTextBox" CssClass="form-control" Width="50%" Text='<%#Eval("actual") %>'></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="actualTextBox" CssClass="form-control" Width="70%" Text='<%#Eval("actual") %>'></asp:TextBox>
                                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="actualTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid quantity!!"></asp:RegularExpressionValidator>
                                             </EditItemTemplate>
                                         </asp:TemplateField>

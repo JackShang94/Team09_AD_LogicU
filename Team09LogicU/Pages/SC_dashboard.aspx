@@ -5,16 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <script src="../js/googlechart.js"></script>
     <p runat="server" id="chartData"></p>
-    <div class="row">
-        <div class="col-lg-10">
-            <div class="card">
-                <div class="container">
-               <div class="col-lg-10" style="margin:20px 0 20px 0">
-                   <asp:Label ID="title" runat="server" CssClass="h4" > Department Representative information</asp:Label>
-               </div>
-                    <div class=" col-lg-10" id="repTable" style="margin:0px 0 20px 0" ></div>
-                   </div></div>
-        </div>
+    <div class="row"> 
          <div class="col-lg-5">
                         <div class="card">
                             <div class="header">
@@ -58,6 +49,16 @@
                              <div class=" col-lg-5" id="chart1"></div></div>
                      </div></div>
         </div>
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="container">
+               <div class="col-lg-10" style="margin:20px 0 20px 0">
+                   <asp:Label ID="title" runat="server" CssClass="h4" > Department Representative information</asp:Label>
+               </div>
+                    <div class=" col-lg-10" id="repTable" style="margin:0px 0 20px 0" ></div>
+                   </div></div>
+        </div>
+       
    
         <div class="col-lg-5">
             <div class="card">
@@ -103,7 +104,7 @@
                    var optionpie = {
                        'title': 'Category Pie Chart',
                        'width': 400,
-                       'height': 400
+                       'height': 300
                    };
                    var optionTable = {
                        'title': 'Department Rep Information',
@@ -111,7 +112,7 @@
                        'height': 200
                    };
                    var optionOut = {
-                       'title': 'Department Rep Information',
+                       'title': 'Outstanding BarChart',
                        'width': 400,
                        'height': 300
                    };

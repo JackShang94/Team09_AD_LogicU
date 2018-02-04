@@ -24,7 +24,7 @@
                             </div>
                             <p>
                                 <asp:GridView ID="GridView_ItemStock" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " 
-                                    EmptyDataText="No Stock Card Record." AllowPaging="True" AutoGenerateColumns="false" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                    EmptyDataText="No Stock Card Record."  AutoGenerateColumns="false" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
 
 
                                      <Columns>

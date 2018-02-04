@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
             <div class="card">
                 <div class=" container">
 
@@ -22,7 +22,7 @@
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <%--<asp:LinkButton ID="viewHisButton" runat="server">View Disbursement List History</asp:LinkButton>--%>
-                                <asp:GridView ID="outstandingGridView" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false" EmptyDataText="There is no outstanding requisitions">
+                                <asp:GridView ID="outstandingGridView" Width="90%" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false" EmptyDataText="There is no outstanding requisitions">
                                     <Columns>
                                         <asp:BoundField DataField="itemDesc" HeaderText="item" />
                                         <asp:BoundField DataField="unit" HeaderText="unit" />

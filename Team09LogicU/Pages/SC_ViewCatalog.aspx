@@ -9,10 +9,10 @@
            <div class="col-lg-10">
                 <div class="card">
                     <div class=" container">
-                            <div class="col-lg-8" style="margin:20px 0 20px 0">
-                            <asp:TextBox ID="TextBox_Search" runat="server" CssClass="form-control" ></asp:TextBox></div>
+                            <div class="col-lg-7" style="margin:20px 0 20px 0">
+                            <asp:TextBox ID="TextBox_Search" Width="90%" runat="server" CssClass="form-control" ></asp:TextBox></div>
 <%--                           <asp:DropDownList ID="ddlCategory" runat="server" Width=300px CssClass="form-control"></asp:DropDownList><br>--%>
-                           <div class="col-lg-2" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-warning btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
+                           <div class="col-lg-1" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-warning btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
                         </div></div></div>
       
            <div class="col-lg-10">
@@ -40,7 +40,7 @@
                                                 <PagerTemplate>
                                 <br />
                                 <div class="col-lg-12 ">
-                                    <div class="col-lg-3 " style="width:18%">
+                                    <div class="col-lg-3 " style="width:19%">
                                      <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
                                      <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>
                                     <asp:LinkButton ID="lbnPrev" runat="server" Text="<<" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"></asp:LinkButton>
