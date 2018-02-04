@@ -14,7 +14,7 @@
                             <div class=" container" >
                                 <div class=" col-lg-5" style="margin:20px 0 20px 0" >
                                    
-                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" Width="90%" ></asp:TextBox>
+                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" Width="90%" placeholder =" Search by Description"></asp:TextBox>
                                    
                                      </div> <div class=" col-lg-2" style="margin:20px 0 20px 0" >
                                      <asp:Button ID="item_searchBtn" runat="server" PlaceHolder="Search By Item Description"  Text="Search" Width="40%"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />

@@ -27,12 +27,12 @@ Requisition Detail
 																	<asp:Label ID="desc" runat="server" Text='<%#Eval("desc" )%>' ></asp:Label>
 																</ItemTemplate>
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="Unit">
+															<asp:TemplateField HeaderText="Unit of Measure">
 																	<ItemTemplate>
 																		<asp:Label ID="unit" runat="server" Text='<%#Eval("unit" )%>' ></asp:Label>
 																	</ItemTemplate>
 															</asp:TemplateField>
-															<asp:TemplateField HeaderText="requisitionQuantity">
+															<asp:TemplateField HeaderText="Quantity">
 																<ItemTemplate>
 																	<asp:Label ID="reqQty" runat="server" Text='<%#Eval("requisitionQty" )%>' ></asp:Label>
 																</ItemTemplate>
