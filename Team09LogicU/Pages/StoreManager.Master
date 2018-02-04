@@ -123,14 +123,14 @@
                 <li>
                     <a href="SM_ApproveAdjustment.aspx">
                         <i class="pe-7s-home"></i>
-                        <p>Approve Adjustment
+                        <p>View Adjustment
                         </p>
                     </a>        
                 </li>         
                  <li>
                     <a  href="SM_SearchItem.aspx">
                         <i class="pe-7s-server"></i>
-                        <p>ManageCatalog
+                        <p>Manage Catalog
                         </p>
                     </a>         
                 </li>
@@ -210,19 +210,19 @@
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
                                     <a href="SM_ApproveAdjustment.aspx">
-                                        <i class="pe-7s-home"></i>Approve Adjustment
+                                        <i class="pe-7s-home"></i>View Adjustment
                                     </a>
                                 </li>
                             <li>
                                     <a href="SM_SearchItem.aspx">
-                                        <i class="pe-7s-users"></i>Search Item
+                                        <i class="pe-7s-server"></i>Manage Catalog
                                     </a>
                                 </li>
                               
                                
                                      <li>
                                     <a href="SM_SearchSupplier.aspx">
-                                        <i class="pe-7s-note2"></i>Search Supplier
+                                        <i class="pe-7s-users"></i>Manage Supplier
                                     </a>
                                 </li>
                                     

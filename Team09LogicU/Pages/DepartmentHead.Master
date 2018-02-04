@@ -141,7 +141,7 @@
                  <li>
                     <a  href="DH_History.aspx">
                         <i class="pe-7s-note2"></i>
-                        <p>Employee Requisition History
+                        <p>Requisition History
                         </p>
                     </a>         
                 </li>
@@ -220,7 +220,7 @@
                                 </li>
                                 <li>
                                     <a href="DH_History.aspx">
-                                        <i class="pe-7s-note2"></i>Employee Requisition History
+                                        <i class="pe-7s-note2"></i>Requisition History
                                     </a>
                                 </li>
                                 <li class="divider"></li>
@@ -254,7 +254,8 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
-                    2018 <a href="https://github.com/JackShang94/Team09_AD_LogicU">Team9</a>,all rights reserved by team09                </p>
+                    2018 <a href="https://github.com/JackShang94/Team09_AD_LogicU">Team9</a>,all rights reserved by team09
+                </p>
             </div>
         </footer>
 
