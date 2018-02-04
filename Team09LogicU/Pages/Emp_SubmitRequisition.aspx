@@ -5,19 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <style type="text/css"> 
 
-#test{min-height:150px;overflow-y:auto;max-height:450px;} 
+#test{min-height:150px;overflow-y:auto;max-height:350px;} 
 </style> 
     
          <div class="row">
                     <div class="col-lg-8">
                         <div class="card" >
                             <div class=" container" >
-                                <div class=" col-lg-5" style="margin:20px 0 20px 0" >
+                                <div class=" col-lg-4" style="margin:20px 0 20px 0" >
                                    
-                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" Width="90%" ></asp:TextBox>
+                                    <asp:TextBox ID="item_searchText" runat="server" CssClass="form-control" ></asp:TextBox>
                                    
-                                     </div> <div class=" col-lg-2" style="margin:20px 0 20px 0" >
-                                     <asp:Button ID="item_searchBtn" runat="server" PlaceHolder="Search By Item Description"  Text="Search" Width="40%"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
+                                     </div> <div class=" col-lg-1" style="margin:20px 0 20px 0" >
+                                     <asp:Button ID="item_searchBtn" runat="server" PlaceHolder="Search By Item Description"  Text="Search"  CssClass="btn btn-wd btn-primary" OnClick="item_searchBtn_Click" EnableViewState="False" ViewStateMode="Inherit" />
                                    
                                </div>
                             </div>
