@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard PRO by Creative Tim</title>
+	<title>Store Manager</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -129,7 +129,7 @@
                 </li>         
                  <li>
                     <a  href="SM_SearchItem.aspx">
-                        <i class="pe-7s-volume"></i>
+                        <i class="pe-7s-server"></i>
                         <p>ManageCatalog
                         </p>
                     </a>         
@@ -145,7 +145,7 @@
 
                  <li>
                     <a  href="SM_SearchSupplier.aspx">
-                        <i class="pe-7s-box2"></i>
+                        <i class="pe-7s-users"></i>
                         <p>Manage Supplier
                         </p>
                     </a>         

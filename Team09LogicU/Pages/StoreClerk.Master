@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!--TITLE-->
-	<title>StoreClerk_LOGIC UNIVERSITY</title>
+	<title>Store Clerk</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -82,7 +82,7 @@
 
         <div class="logo">
             <a href="#" class="logo-text">
-                StoreClerk
+                Store Clerk
             </a>
         </div>
 		<div class="logo logo-mini">
@@ -152,7 +152,6 @@
                             <li><a href="SC_Inv_ViewInventoryList.aspx">Inventory List</a></li>
                             <li><a href="SC_Inv_ManageReorder.aspx">Manage Reorder</a></li>
                             <li><a href="SC_Inv_AdjustmentVoucher.aspx">Submit Adjustment Voucher</a></li>
-                            <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
                         </ul>
                     </div>    
                 </li>
@@ -171,7 +170,7 @@
                             <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
                           <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
                             <li><a href="SC_ViewPurchaseOrderHistory.aspx">View PO History</a></li>
-                           
+                             <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
                           
                         </ul>
                     </div>    
@@ -302,7 +301,7 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
-                    2018 <a href="http://www.team9.com">Team9</a>, made with love for a better web
+                    2018 <a href="https://github.com/JackShang94/Team09_AD_LogicU">Team9</a>,all rights reserved by team09
                 </p>
             </div>
         </footer>
