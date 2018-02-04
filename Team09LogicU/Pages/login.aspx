@@ -17,12 +17,7 @@
                 <div class="form-group">
                     <asp:Label ID="message" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
-                <div class="form-group ">
-                    <label class="checkbox">
-                        <span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span>
-                        <asp:CheckBox ID="CheckBox1" runat="server" />Remember Me
-                    </label>
-                </div>
+               
             </div>
             <div class="footer text-center">
 
