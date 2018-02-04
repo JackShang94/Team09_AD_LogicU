@@ -62,10 +62,10 @@ namespace Team09LogicU.pages
                     Response.Redirect("SC_dashboard.aspx");
                     break;
                 case "manager":
-                    Response.Redirect("SM_ApproveAdjustment.aspx");
+                    Response.Redirect("SM_dashboard.aspx");
                     break;
                 case "supervisor":
-                    Response.Redirect("SS_ViewAdjustment.aspx");
+                    Response.Redirect("SS_dashboard.aspx");
                     break;
                 case "delegeteHead":
                     Response.Redirect("DH_ViewPendingRequisition.aspx");

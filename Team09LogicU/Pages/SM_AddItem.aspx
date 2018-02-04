@@ -7,7 +7,7 @@
 
 
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="container">
                     <div class="col-lg-4" style="margin-top: 20px">
@@ -121,8 +121,10 @@
                             <%--                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationExpression="^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$" ValidationGroup="submit1" ControlToValidate="TextBox_price3" runat="server" ForeColor="#ff3300" ErrorMessage="required"></asp:RequiredFieldValidator>--%>
                         </div>
                     </div>
-                    <div>
-                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="btn btn-warning btn-fill btn-wd " />
+                    <div class="col-lg-4" style="margin-bottom: 20px">
+                         <div class="form-group">
+                        <label>Upload Picture</label>
+                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass=" form-control " /></div>
                     </div>
                 </div>
 
