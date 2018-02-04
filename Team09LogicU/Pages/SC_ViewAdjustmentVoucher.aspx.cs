@@ -13,6 +13,7 @@ namespace Team09LogicU.Pages
     public partial class SC_ViewAdjustmentVoucher : System.Web.UI.Page
     {
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
+        StoreStaffDAO sDAO = new StoreStaffDAO();
         List<AdjustmentVoucher> adjvlist ;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,8 +21,6 @@ namespace Team09LogicU.Pages
             {
                 string clerkID = (string)Session["loginID"];
                 adjvlist = adjvdao.getAdjustmentVoucherListByStaffID(clerkID);
-                // string status = "pending";
-                //this.BindGrid();
                 updateGV();
             }
         }
@@ -34,7 +33,26 @@ namespace Team09LogicU.Pages
         protected void  updateGV()
         {
             adjvlist = new List<AdjustmentVoucher>();
-            string Status = DropDownList_cat.Text;
+            string Status = "--All--";
+
+            if (DropDownList_cat.Text == "Pending(Supervisor)")
+            {
+                Status = "pending";
+            }
+
+            if (DropDownList_cat.Text == "Approved")
+            {
+                Status = "Approved";
+            }
+
+            if (DropDownList_cat.Text == "Rejected")
+            {
+                Status = "Rejected";
+            }
+            if (DropDownList_cat.Text == "Pending(Manager)")
+            {
+                Status = "PendingForManager";
+            }
             string clerkID = (string)Session["loginID"];
 
             string from = txtFrom.Text;
@@ -79,31 +97,19 @@ namespace Team09LogicU.Pages
             DropDownList_cat.DataBind();
         }
 
-        //protected void DropDownList_cat_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    UpdateGridviewByDropdownList();
-        //}
-       
-        //protected void UpdateGridviewByDropdownList()
-        //{
-        //    string clerkID = (string)Session["loginID"];
-        //    if (DropDownList_cat.Text == "--All--")
-        //    {
-        //        adjvlist = adjvdao.getAdjustmentVoucherListByStaffID(clerkID);//all items
-        //    }
-        //    else
-        //    {
-        //        string status = DropDownList_cat.Text;
-        //        adjvlist = adjvdao.getadjvByStaffIDandStatus(clerkID,status);//items with specific CAT
-        //    }
-           
-        //    GridView_ViewAdjustmentVoucher.DataSource = adjvlist;
-        //    GridView_ViewAdjustmentVoucher.DataBind();
-           
-        //}
         public void showItemInfo(List<AdjustmentVoucher> adjvlist)
-        { 
-            GridView_ViewAdjustmentVoucher.DataSource = adjvlist;
+        {
+            List<AdjustmentVoucherCart> finalList = new List<AdjustmentVoucherCart>();
+            for (int i = 0; i < adjvlist.Count(); i++)
+            {
+                finalList.Add(new AdjustmentVoucherCart());
+                finalList[i].AdjvID = adjvlist[i].adjVID;
+                finalList[i].ClerkName = sDAO.getStoreStaffNameByID(adjvlist[i].storeStaffID);
+                finalList[i].Date = adjvlist[i].adjDate;
+                finalList[i].AuthorisedBy = sDAO.getStoreStaffNameByID(adjvlist[i].authorisedBy);
+                finalList[i].Status = adjvlist[i].status;
+            }
+            GridView_ViewAdjustmentVoucher.DataSource = finalList;
             GridView_ViewAdjustmentVoucher.DataBind();   
 
         }
@@ -137,13 +143,7 @@ namespace Team09LogicU.Pages
                 }
             }
         }
-        //protected void BindGrid()
-        //{
-        //    List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
-        //    list = adjvdao.getAdjustmentVoucherList();
-        //    GridView_ViewAdjustmentVoucher.DataSource = list;
-        //    GridView_ViewAdjustmentVoucher.DataBind();
-        //}
+
 
         protected void LinkButton_View_Click(object sender, EventArgs e)  //To Navigate to Approve ADJV Detail on clicking 'View'
         {

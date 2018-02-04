@@ -5,43 +5,39 @@ using System.Web;
 
 namespace Team09LogicU.App_Code.UtilClass
 {
-    public class AdjustmentVouchercart
+    public class AdjustmentVoucherCart
     {
-        private string name;
-        private string itemID;
-        private string record;
-        private int qty;
-        public AdjustmentVouchercart()
-        {
+        private int adjvID;
+        private string clerkName;
+        private string authorisedBy;
+        private DateTime date;
+        private string status;
 
-        }
-        public AdjustmentVouchercart(string name, string itemID, string record, int qty)
-        {
-            this.name = name;
-            this.itemID = itemID;
-            this.record = record;
-            this.qty = qty;
-        }
+        public AdjustmentVoucherCart()
+        { }
 
-        public string Name
+        public int AdjvID
         {
             get; set;
         }
-        public string ItemID
-        {
-            get; set;
-        }
-        public string Record
-        {
-            get; set;
-        }
-        public int Qty
+        public string ClerkName
         {
             get; set;
         }
 
+        public string AuthorisedBy
+        {
+            get; set;
+        }
 
+        public DateTime Date
+        {
+            get; set;
+        }
 
-
+        public string Status
+        {
+            get; set;
+        }
     }
 }

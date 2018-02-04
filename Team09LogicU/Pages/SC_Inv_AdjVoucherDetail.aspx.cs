@@ -16,6 +16,7 @@ namespace Team09LogicU.Pages
         static string clerkID;
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+        StoreStaffDAO sDAO = new StoreStaffDAO();
         TextBox tb = new TextBox();
         List<AdjustmentVoucherItem> adjItems;
         string strPageNum = "";
@@ -27,12 +28,11 @@ namespace Team09LogicU.Pages
                 clerkID = (string)Session["loginID"];
 
                 AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
-                //string Staff = adjv;
-                string authorisedby = adjv.authorisedBy;
+                string authorisedby = sDAO.getStoreStaffNameByID(adjv.authorisedBy);
                 string status = adjv.status;
                 DateTime adjvDate = adjv.adjDate;
 
-                Label_StoreStafID.Text = clerkID;
+                Label_StoreStafID.Text = sDAO.getStoreStaffNameByID(clerkID);
                 lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
                 lblAdjvID.Text = Convert.ToString(adjvID); ;
                 Label_Authorisedby.Text = authorisedby;
@@ -54,7 +54,6 @@ namespace Team09LogicU.Pages
                 TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_detailList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
-                //updateGV();
                 adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
 
                 GridView_detailList.DataSource = adjItems;
@@ -81,17 +80,6 @@ namespace Team09LogicU.Pages
                 }
             }
         }
-        //protected void updateGV()
-        //{
-        //    List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
-        //    BindData(adjItems);
-        //}
-        //public void BindData(List<AdjustmentVoucherItem> adjItems)
-        //{
-           
-        //    GridView_detailList.DataSource = adjItems;
-        //    GridView_detailList.DataBind();
-        //}
         protected void Btn_Back_Click(object sender, EventArgs e)
         {
            
