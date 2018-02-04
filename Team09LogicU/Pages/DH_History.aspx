@@ -14,10 +14,10 @@
                         <div class="col-lg-10">
                       <div class ="col-lg-3" style="margin-top:20px">
                        <asp:Label ID="Label1" runat="server" Text=" From:" CssClass="category" ></asp:Label>
-                        <asp:TextBox ID="txtFrom" runat="server" Width="90%" CssClass="form-control datepicker"></asp:TextBox><br>
+                        <asp:TextBox ID="txtFrom" runat="server" Width="90%" CssClass="form-control" TextMode="Date"></asp:TextBox><br>
                        </div> <div class ="col-lg-3" style="margin-top:20px">
                           <asp:Label ID="lblTo" runat="server" Text=" To:" CssClass="category"></asp:Label><br>
-                          <asp:TextBox ID="txtTo" runat="server" Width="90%" CssClass="form-control datepicker"></asp:TextBox><br>
+                          <asp:TextBox ID="txtTo" runat="server" Width="90%" CssClass="form-control" TextMode="Date"></asp:TextBox><br>
                            </div> <div class ="col-lg-6" style="margin-top:20px">
                        <asp:Label ID="Label2" runat="server" Text=" Select Name:" CssClass="category" ></asp:Label>
 

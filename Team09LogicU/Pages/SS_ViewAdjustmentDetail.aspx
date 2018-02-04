@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreSupervisor.Master" AutoEventWireup="true" CodeBehind="SS_ViewAdjustmentDetail.aspx.cs" Inherits="Team09LogicU.Pages.SS_ViewAdjustmentDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/StoreSupervisor.Master" AutoEventWireup="true" CodeBehind="SS_ViewAdjustmentDetail.aspx.cs" Inherits="Team09LogicU.Pages.SS_ViewAdjustmentDetail"   %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     View Adjustment Detail

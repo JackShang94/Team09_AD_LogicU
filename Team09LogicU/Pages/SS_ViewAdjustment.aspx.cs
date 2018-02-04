@@ -16,21 +16,63 @@ namespace Team09LogicU.Pages
     {
         StoreStaffDAO sDAO = new StoreStaffDAO();
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
+        List<AdjustmentVoucher> list;
         TextBox tb = new TextBox();
         string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                this.BindGrid();
+                string supervisorID = (string)Session["loginID"];
+                string status = "pending";
+                updateGV();
             }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
 
-            List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
-            string Status="";
+            updateGV();
+        }
+        protected void GridView_ViewAdjustmentVoucher_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
+                GridView_ViewAdjustmentVoucher.PageIndex = e.NewPageIndex;
+                tb.Text = (GridView_ViewAdjustmentVoucher.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                updateGV();
+
+
+            }
+            catch
+            {
+            }
+        }
+
+        protected void GridView_ViewAdjustmentVoucher_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "go")
+            {
+                try
+                {
+                    TextBox tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_ViewAdjustmentVoucher_PageIndexChanging(null, ea);
+                }
+                catch
+                {
+                }
+            }
+        }
+        
+        protected void updateGV()
+        {
+
+            list = adjvdao.getAdjustmentVoucherList();
+            string Status = "";
             if (ddlStatus.Text == "---All---")
             {
                 Status = "all";
@@ -50,12 +92,10 @@ namespace Team09LogicU.Pages
             {
                 Status = "Rejected";
             }
-            if (ddlStatus.Text == "Pending(Manager)") 
+            if (ddlStatus.Text == "Pending(Manager)")
             {
                 Status = "PendingForManager";
             }
-
-
             string from = txtFrom.Text;
             string to = txtTo.Text;
 
@@ -98,68 +138,15 @@ namespace Team09LogicU.Pages
                 dr["status"] = i.status;
                 iTable.Rows.Add(dr);
             }
+            showItemInfo(iTable);
+
+        }
+
+        public void showItemInfo(DataTable iTable)
+        {
             GridView_ViewAdjustmentVoucher.DataSource = iTable;
             GridView_ViewAdjustmentVoucher.DataBind();
-        }
-        protected void GridView_ViewAdjustmentVoucher_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            try
-            {
-                tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
-                GridView_ViewAdjustmentVoucher.PageIndex = e.NewPageIndex;
-                tb.Text = (GridView_ViewAdjustmentVoucher.PageIndex + 1).ToString();
-                strPageNum = tb.Text;
-                BindGrid();
 
-
-            }
-            catch
-            {
-            }
-        }
-
-        protected void GridView_ViewAdjustmentVoucher_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "go")
-            {
-                try
-                {
-                    TextBox tb = (TextBox)GridView_ViewAdjustmentVoucher.BottomPagerRow.FindControl("inPageNum");
-                    int num = Int32.Parse(tb.Text);
-                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-                    GridView_ViewAdjustmentVoucher_PageIndexChanging(null, ea);
-                }
-                catch
-                {
-                }
-            }
-        }
-        protected void BindGrid()
-        {
-            string supervisorID = (string)Session["loginID"];
-            string status = "pending";
-            List<AdjustmentVoucher> list = new List<AdjustmentVoucher>();
-            list = adjvdao.getAdjustmentVoucherList();
-
-            DataTable iTable = new DataTable("itemTable");
-            iTable.Columns.Add(new DataColumn("adjVID", typeof(int)));
-            iTable.Columns.Add(new DataColumn("storeStaffID", typeof(string)));
-            iTable.Columns.Add(new DataColumn("authorisedBy", typeof(string)));
-            iTable.Columns.Add(new DataColumn("adjDate", typeof(DateTime)));
-            iTable.Columns.Add(new DataColumn("status", typeof(string)));
-            foreach (AdjustmentVoucher i in list)
-            {
-                DataRow dr = iTable.NewRow();
-                dr["adjVID"] = i.adjVID;
-                dr["storeStaffID"] = sDAO.getStoreStaffNameByID(i.storeStaffID);
-                dr["authorisedBy"] = sDAO.getStoreStaffNameByID(i.authorisedBy);
-                dr["adjDate"] = i.adjDate;
-                dr["status"] = i.status;
-                iTable.Rows.Add(dr);
-            }
-
-                GridView_ViewAdjustmentVoucher.DataSource = iTable;          
-            GridView_ViewAdjustmentVoucher.DataBind();
         }
 
         protected void LinkButton_View_Click(object sender, EventArgs e)  //To Navigate to Approve ADJV Detail on clicking 'View'

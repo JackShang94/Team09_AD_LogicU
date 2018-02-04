@@ -74,7 +74,7 @@ namespace Team09LogicU.Pages
         {
             try
             {
-                if (TextBox_ItemNumber.Text != "")
+                if (TextBox_ItemNumber.Text.Trim() != "")
                 {
                     if (FileUpload1.HasFile)
                     {
@@ -86,25 +86,32 @@ namespace Team09LogicU.Pages
                         FileUpload1.SaveAs(path);
 
                         ////add item
-                        itemID = TextBox_ItemNumber.Text;
-                        desc = TextBox_Description.Text;
-                        location = TextBox_location.Text;
-                        category = dropdownlist_Catagory.Text;
-                        reorderLevel = Convert.ToInt32(TextBox_ReorderLevel.Text);
-                        reorderQty = Convert.ToInt32(TextBox_ReorderQty.Text);
-                        uom = dropdownlist_unitofmeasure.Text;
-                        qtyOnHand = Convert.ToInt32(TextBox_qty.Text);
+                        if ((dropdownlist_Supplier1.Text == dropdownlist_Supplier2.Text) || (dropdownlist_Supplier2.Text == dropdownlist_Supplier3.Text) || (dropdownlist_Supplier1.Text == dropdownlist_Supplier3.Text))
+                        {
+                            ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Input different prices in one supplier price!');</script>");
+                        }
+                        else
+                        {
+                            itemID = TextBox_ItemNumber.Text;
+                            desc = TextBox_Description.Text;
+                            location = TextBox_location.Text;
+                            category = dropdownlist_Catagory.Text;
+                            reorderLevel = Convert.ToInt32(TextBox_ReorderLevel.Text);
+                            reorderQty = Convert.ToInt32(TextBox_ReorderQty.Text);
+                            uom = dropdownlist_unitofmeasure.Text;
+                            qtyOnHand = Convert.ToInt32(TextBox_qty.Text);
 
-                        supplierList.Add(dropdownlist_Supplier1.Text);
-                        supplierList.Add(dropdownlist_Supplier2.Text);
-                        supplierList.Add(dropdownlist_Supplier3.Text);
+                            supplierList.Add(dropdownlist_Supplier1.Text);
+                            supplierList.Add(dropdownlist_Supplier2.Text);
+                            supplierList.Add(dropdownlist_Supplier3.Text);
 
-                        priceList.Add(Convert.ToDecimal(TextBox_price1.Text));
-                        priceList.Add(Convert.ToDecimal(TextBox_price2.Text));
-                        priceList.Add(Convert.ToDecimal(TextBox_price3.Text));
+                            priceList.Add(Convert.ToDecimal(TextBox_price1.Text));
+                            priceList.Add(Convert.ToDecimal(TextBox_price2.Text));
+                            priceList.Add(Convert.ToDecimal(TextBox_price3.Text));
 
-                        iDAO.addItem(itemID, desc, location, category, priceList, reorderLevel, reorderQty, uom, supplierList, qtyOnHand);
-                        Response.Redirect("SM_SearchItem.aspx", false);
+                            iDAO.addItem(itemID, desc, location, category, priceList, reorderLevel, reorderQty, uom, supplierList, qtyOnHand);
+                            Response.Redirect("SM_SearchItem.aspx", false);
+                        }
                     }
                     else
                     {
