@@ -22,12 +22,12 @@
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <%--<asp:LinkButton ID="viewHisButton" runat="server">View Disbursement List History</asp:LinkButton>--%>
-                                <asp:GridView ID="outstandingGridView" Width="90%" runat="server" CssClass="table table-striped table-hover " AutoGenerateColumns="false" EmptyDataText="There is no outstanding requisitions">
+                                <asp:GridView ID="outstandingGridView" Width="90%" runat="server"  HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover " AutoGenerateColumns="false" EmptyDataText="There is no outstanding requisitions">
                                     <Columns>
-                                        <asp:BoundField DataField="itemDesc" HeaderText="item" />
-                                        <asp:BoundField DataField="unit" HeaderText="unit" />
-                                        <asp:BoundField DataField="needed" HeaderText="expectedQuantity" />
-                                        <asp:BoundField DataField="disburseDate" HeaderText="DisburseDate" />
+                                        <asp:BoundField DataField="itemDesc" HeaderText="Item" />
+                                        <asp:BoundField DataField="unit" HeaderText="Unit" />
+                                        <asp:BoundField DataField="needed" HeaderText="Expected Quantity" />
+                                        <asp:BoundField DataField="disburseDate" HeaderText="Date" />
                                     </Columns>
                                 </asp:GridView>
                                 <%--	<div class="col-lg-10">
