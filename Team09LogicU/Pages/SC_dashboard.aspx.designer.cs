@@ -22,15 +22,6 @@ namespace Team09LogicU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartData;
         
         /// <summary>
-        /// title control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label title;
-        
-        /// <summary>
         /// notice_Repeater control.
         /// </summary>
         /// <remarks>
@@ -56,5 +47,14 @@ namespace Team09LogicU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dept_dropList;
+        
+        /// <summary>
+        /// title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label title;
     }
 }

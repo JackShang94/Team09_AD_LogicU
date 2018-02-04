@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="container">
 
@@ -19,9 +19,9 @@
                             </div>
 
 
-                            <div class="col-lg-10">
+                            <div class="col-lg-12">
 
-                                <asp:GridView ID="disburseGridView" runat="server" AutoGenerateColumns="false" Style="margin: 20px 0px 20px 0px" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" OnSelectedIndexChanged="disburseGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="#eef2fd">
+                                <asp:GridView ID="disburseGridView" Width="80%" runat="server" AutoGenerateColumns="false" Style="margin: 20px 0px 20px 0px" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" OnSelectedIndexChanged="disburseGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="#eef2fd">
                                     <Columns>
                                         <asp:TemplateField Visible="false">
                                             <ItemTemplate>
@@ -45,8 +45,8 @@
 
                     <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <div class="col-lg-10">
-                                <asp:GridView ID="disburseItemGridView" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " AutoGenerateColumns="False" OnRowEditing="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" OnRowCommand="disburseItemGridView_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True" EmptyDataText="There is no disbursement">
+                            <div class="col-lg-12">
+                                <asp:GridView ID="disburseItemGridView" Width="80%"  runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " AutoGenerateColumns="False" OnRowEditing="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" OnRowCommand="disburseItemGridView_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True" EmptyDataText="There is no disbursement">
                                     <Columns>
                                         <asp:TemplateField Visible="false">
                                             <ItemTemplate>
@@ -91,8 +91,7 @@
                             </div>
                             <div class="col-lg-10" style="margin-bottom: 20px; margin-top: 20px">
                                 <asp:Button ID="ConfirmBtn" runat="server" CssClass="btn btn-warning btn-wd btn-fill " Text="Confirm" OnClick="Button3_Click" Enabled="False" />
-                            </div>
-                            <div class="col-lg-10" style="margin-bottom: 20px; margin-top: 20px">
+                           
                                 <asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-fill btn-wd" Text="Send Email" OnClick="NotifyButton_Click" Enabled="False" />
                             </div>
                         </ContentTemplate>
@@ -100,10 +99,9 @@
                 </div>
 
                 <div class="col-lg-10" style="margin-top: 20px">
-                    
-                    <div class="col-lg-2 " style="margin-left: 5%">
+                   
                         <asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="View History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx" />
-                    </div>
+                   
                 </div>
 
 

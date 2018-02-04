@@ -7,9 +7,9 @@
     <script src="../js/googlechart.js"></script>
         <p runat="server" id="chartData"></p>
     <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-10">
         <div class="card">
-        <asp:GridView ID="InventoryStatusGridView" runat="server" PageSize="8" AllowPaging="true"  OnRowCommand="InventoryStatusGridView_RowCommand" OnPageIndexChanging="InventoryStatusGridView_PageIndexChanging"  AutoGenerateColumns="false"  HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" OnSelectedIndexChanged="inventoryStatusGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="#eef2fd">
+        <asp:GridView ID="InventoryStatusGridView"  runat="server" PageSize="4" AllowPaging="true"  OnRowCommand="InventoryStatusGridView_RowCommand" OnPageIndexChanging="InventoryStatusGridView_PageIndexChanging"  AutoGenerateColumns="false"  HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" OnSelectedIndexChanged="inventoryStatusGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="#eef2fd">
             <Columns>
                 <asp:TemplateField HeaderText="ItemID">
                     <ItemTemplate>
@@ -45,12 +45,12 @@
             </Columns>
              <PagerTemplate>
                                 <br />
-                                <div class="col-lg-12 ">
+                                <div class="col-lg-10">
                                     <div class="col-lg-3 " style="width:18%">
                                      <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
                                      <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>
                                     <asp:LinkButton ID="lbnPrev" runat="server" Text="<<" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"></asp:LinkButton>
-                                   </div><div class="col-lg-1" style="Width:10%"><asp:TextBox runat="server" CssClass="form-control text-center "  ID="inPageNum" Text='<%# ((GridView)Container.NamingContainer).PageIndex +1 %>'></asp:TextBox>
+                                   </div><div class="col-lg-1" style="Width:15%"><asp:TextBox runat="server" CssClass="form-control text-center "  ID="inPageNum" Text='<%# ((GridView)Container.NamingContainer).PageIndex +1 %>'></asp:TextBox>
                                     </div><div class="col-lg-3 ">
                                        <asp:LinkButton ID="lbnNext" runat="Server" Text=">>" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next"></asp:LinkButton>
                                    <asp:LinkButton ID="lbnLast" runat="Server" Text="Last" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last"></asp:LinkButton>
@@ -62,7 +62,7 @@
             </div></div>
     
     
-    <div class="col-lg-4 pull-left  "><div id="PrintContent"  runat="server">
+    <div class="col-lg-8 pull-left  "><div id="PrintContent"  runat="server">
      <asp:Label ID="title_" CssClass="h4 " runat="server" Text="Inventory Status Report"></asp:Label><br />
         
     <div id="chart1" style="margin:20px 0 20px 0"></div></div>

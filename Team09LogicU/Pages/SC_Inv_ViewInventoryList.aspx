@@ -7,7 +7,7 @@
 
  
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="container">
                         
@@ -15,8 +15,8 @@
                                     <asp:Label ID="Label3" runat="server" CssClass="category" Text=" Category:"></asp:Label>
                                     <asp:DropDownList ID="DropDownList_cat" runat="server" CssClass="form-control"  AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DropDownList_cat_SelectedIndexChanged" ></asp:DropDownList>
                                 </div>
-                    <div class="col-lg-10">
-                                        <asp:GridView ID="GridView_stock" runat="server" PageSize="5" OnPageIndexChanging="GridView_stock_PageIndexChanging"
+                    <div class="col-lg-12">
+                                        <asp:GridView ID="GridView_stock" runat="server" Width="85%" PageSize="5" OnPageIndexChanging="GridView_stock_PageIndexChanging"
                                             OnRowCommand="GridView_stock_RowCommand"  OnRowEditing="GridView_stock_RowEditing"
                                             CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " 
                                             AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
@@ -31,7 +31,7 @@
                                             <HeaderStyle CssClass=" content text-uppercase  "></HeaderStyle>
            <PagerTemplate>
                                 <br />
-                                <div class="col-lg-12 ">
+                                <div class="col-lg-12">
                                     <div class="col-lg-3 " style="width:18%">
                                      <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
                                      <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>
