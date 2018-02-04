@@ -40,7 +40,7 @@ namespace Team09LogicU
             }
             if (Session["AdjVouchercart"] == null)
             {
-                Session["AdjVouchercart"] = new List<AdjustmentVouchercart>();
+                Session["AdjVouchercart"] = new List<AdjustmentVoucherItemcart>();
             }
 
         }

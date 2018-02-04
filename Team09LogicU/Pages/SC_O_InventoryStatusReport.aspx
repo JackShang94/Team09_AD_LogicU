@@ -11,7 +11,7 @@
         <div class="card">
         <asp:GridView ID="InventoryStatusGridView"  runat="server" PageSize="4" AllowPaging="true"  OnRowCommand="InventoryStatusGridView_RowCommand" OnPageIndexChanging="InventoryStatusGridView_PageIndexChanging"  AutoGenerateColumns="false"  HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" OnSelectedIndexChanged="inventoryStatusGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="#eef2fd">
             <Columns>
-                <asp:TemplateField HeaderText="ItemID">
+                <asp:TemplateField HeaderText="Item ID">
                     <ItemTemplate>
                         <asp:Label runat="server" ID="ItemID" Text='<%#Eval("itemID") %>'></asp:Label>
                     </ItemTemplate>
@@ -31,7 +31,7 @@
                         <asp:Label runat="server" ID="Unitofmeasurement" Text='<%#Eval("unitOfMeasure") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Quantity on hand">
+                <asp:TemplateField HeaderText="Stock">
                     <ItemTemplate>
                         <asp:Label ID="Quantityonhand" runat="server" Text='<%# Eval("qtyOnHand") %>'></asp:Label>
                     </ItemTemplate>

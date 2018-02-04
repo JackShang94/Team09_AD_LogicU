@@ -19,7 +19,7 @@ namespace Team09LogicU.Pages
         public string staffID;
         TextBox tb = new TextBox();
         string strPageNum = "";
-        public void updateCart(List<AdjustmentVouchercart> lac)
+        public void updateCart(List<AdjustmentVoucherItemcart> lac)
         {
             Session["adjvcart"] = lac;
             cartRepeater.DataSource = lac;
@@ -56,7 +56,7 @@ namespace Team09LogicU.Pages
                 //this.BindGrid();
                 if (Session["adjvcart"] == null)
                 {
-                    Session["adjvcart"] = new List<AdjustmentVouchercart>();
+                    Session["adjvcart"] = new List<AdjustmentVoucherItemcart>();
                 }
                 /**********************Loading Cart List************************************/
 
@@ -75,8 +75,8 @@ namespace Team09LogicU.Pages
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
-                List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
-                List<AdjustmentVouchercart> lac_session = (List<AdjustmentVouchercart>)Session["adjvcart"];
+                List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
+                List<AdjustmentVoucherItemcart> lac_session = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
                 foreach (var i in lac_session)
                 {
                     if (i.Name == name)
@@ -102,7 +102,7 @@ namespace Team09LogicU.Pages
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
-                List<AdjustmentVouchercart> lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
+                List<AdjustmentVoucherItemcart> lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
 
 
 
@@ -139,8 +139,8 @@ namespace Team09LogicU.Pages
         {
             string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
-            List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
-            lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
+            List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
+            lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
             if (lac.Count > 0)
             {
                
@@ -180,7 +180,7 @@ namespace Team09LogicU.Pages
                 {
                     AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
                     adjvdao.addAdjustmentVoucher(name, lac);
-                    lac = new List<AdjustmentVouchercart>();//clear the cart session
+                    lac = new List<AdjustmentVoucherItemcart>();//clear the cart session
                     Session["adjvcart"] = lac;
 
                     //send email and notification to rep 
@@ -217,8 +217,8 @@ namespace Team09LogicU.Pages
             int number = 0;
             if (e.CommandName == "Add")
             {
-                List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
-                lac = (List<AdjustmentVouchercart>)Session["adjvcart"];//get cart from Session
+                List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
+                lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];//get cart from Session
                 string name = this.staffID;
                 string itemid = e.CommandArgument.ToString();
                 int alert = 0;
@@ -274,7 +274,7 @@ namespace Team09LogicU.Pages
                         return;
                     }
                     //If this item not in the cart ,then add it to the cart
-                    AdjustmentVouchercart c = new AdjustmentVouchercart
+                    AdjustmentVoucherItemcart c = new AdjustmentVoucherItemcart
                     {
                         Name = name,
                         ItemID = itemid,
@@ -317,8 +317,8 @@ namespace Team09LogicU.Pages
             LinkButton b = (LinkButton)sender;
             string info = b.CommandArgument.ToString();//itemID and requiredQuantity
 
-            List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
-            lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
+            List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
+            lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
 
 
             for (int i = cartRepeater.Items.Count - 1; i >= 0; i--)//get Quantity from the cart
@@ -348,8 +348,8 @@ namespace Team09LogicU.Pages
             {
                 string[] info = e.CommandArgument.ToString().Split('&');
                 string itemID = info[0];
-                List<AdjustmentVouchercart> lac = new List<AdjustmentVouchercart>();
-                lac = (List<AdjustmentVouchercart>)Session["adjvcart"];
+                List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
+                lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
 
                 foreach (var i in lac)
                 {
