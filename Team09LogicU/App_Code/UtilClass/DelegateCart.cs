@@ -7,7 +7,7 @@ namespace Team09LogicU.App_Code.UtilClass
 {
     public class DelegateCart
     {
-        private int delegateID;
+
         private string name;
         private DateTime startDate;
         private DateTime endDate;
@@ -16,10 +16,7 @@ namespace Team09LogicU.App_Code.UtilClass
         public DelegateCart()
         { }
 
-        public int DelegateID
-        {
-            get; set;
-        }
+
 
         public string Name
         {
