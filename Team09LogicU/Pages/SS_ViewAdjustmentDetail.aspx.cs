@@ -17,6 +17,7 @@ namespace Team09LogicU.Pages
         static string supervisorID;
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+        StoreStaffDAO sDAO = new StoreStaffDAO();
         ItemDAO itemdao = new ItemDAO();
         StockCardDAO stockcdao = new StockCardDAO();
         List<AdjustmentVoucherItem> adjItems;
@@ -34,7 +35,7 @@ namespace Team09LogicU.Pages
 
                 //List <AdjustmentVoucherItem> adjvi =  adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
 
-                string authorisedby = adjv.authorisedBy;
+                string authorisedby = sDAO.getStoreStaffNameByID(adjv.authorisedBy);
                 string status = adjv.status;
                 DateTime adjvDate = adjv.adjDate;
 
@@ -59,7 +60,7 @@ namespace Team09LogicU.Pages
                 }
 
 
-                Label_StoreStafID.Text = supervisorID;
+                Label_StoreStafID.Text = sDAO.getStoreStaffNameByID(adjv.storeStaffID);
                 lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
                 lblAdjvID.Text = Convert.ToString(adjvoucherID); ;
                 Label_Authorisedby.Text = authorisedby;
