@@ -24,15 +24,15 @@
 															<asp:Label ID="req_autoID" runat="server" ><%# Container.DataItemIndex+1 %></asp:Label>
 														</ItemTemplate>
 													</asp:TemplateField>--%>
-													<asp:BoundField DataField="requisitionID" headerText="RequisitionID" Visible="false"/>
-													<asp:BoundField DataField="requisitionDate" headerText="RequisitionDate"/>
+													<asp:BoundField DataField="requisitionID" headerText="ID" Visible="false"/>
+													<asp:BoundField DataField="requisitionDate" headerText="Date"/>
 												<%--	<asp:BoundField DataField="approvedDate" headerText="ApprovedDate" ConvertEmptyStringToNull="true"/>--%>
 													<asp:BoundField DataField="status" headerText ="status"/>
 												
 													 <asp:TemplateField HeaderText="Action" >
 														<ItemTemplate>
                                                            
-																<asp:LinkButton ID="viewReqDetailBtn" runat="server" CssClass="btn btn-xs btn-warning"  Text="Edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ></asp:LinkButton>
+																<asp:LinkButton ID="viewReqDetailBtn" runat="server" CssClass="btn btn-xs btn-warning"  Text="edit" CommandName="editview"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="editReqDetailBtn_Click" ></asp:LinkButton>
 																
 																<asp:LinkButton ID="deleteReqBtn" runat="server" ForeColor="Red" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>'  EnableViewState="False"><i class="fa fa-remove "></i></asp:LinkButton>
 														
@@ -70,10 +70,10 @@
 														<asp:Label ID="req_history_autoLabel" runat="server"><%# Container.DataItemIndex+1 %></asp:Label>
 													</ItemTemplate>
 												</asp:TemplateField>
-												<asp:BoundField DataField="requisitionID" headerText="RequisitionID" Visible="false"/>
-												<asp:BoundField DataField="requisitionDate" headerText="RequisitionDate"/>
-												<asp:BoundField DataField="approvedDate" headerText="ApprovedDate" ConvertEmptyStringToNull="true"/>
-												<asp:BoundField DataField="status" headerText ="status"/>
+												<asp:BoundField DataField="requisitionID" headerText="ID" Visible="false"/>
+												<asp:BoundField DataField="requisitionDate" headerText="Requisition Date"/>
+												<asp:BoundField DataField="approvedDate" headerText="Approved Date" ConvertEmptyStringToNull="true"/>
+												<asp:BoundField DataField="status" headerText ="Status"/>
 												<asp:TemplateField>
 													<ItemTemplate>
 															<asp:LinkButton ID="viewReqDetailBtn_h" runat="server"  Text="view" CommandName="view"  CommandArgument='<%# Eval("requisitionID") %>'  OnClick="viewReqDetailBtn_h_Click" ControlStyle-CssClass="btn btn-xs btn-primary"></asp:LinkButton>
