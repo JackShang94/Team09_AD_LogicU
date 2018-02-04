@@ -263,11 +263,6 @@
                                     <a href="SC_ViewDepartment.aspx">
                                         <i class="pe-7s-bookmarks"></i>View Info</a>
                                 </li>
-                                <li>
-                                    <a href="SC_GenerateReorderReport.aspx">
-                                        <i class="pe-7s-box2"></i>Reorder Report
-                                    </a>
-                                </li>
                                 <li class="divider">
 
                                 </li>
