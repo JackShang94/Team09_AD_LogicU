@@ -7,7 +7,7 @@
     <script src="../js/googlechart.js"></script>
         <p runat="server" id="chartData"></p>
     <div class="row">
-    <div class="col-lg-10">
+    <div class="col-lg-12">
         <div class="card">
         <asp:GridView ID="InventoryStatusGridView"  runat="server" PageSize="4" AllowPaging="true"  OnRowCommand="InventoryStatusGridView_RowCommand" OnPageIndexChanging="InventoryStatusGridView_PageIndexChanging"  AutoGenerateColumns="false"  HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" OnSelectedIndexChanged="inventoryStatusGridView_SelectedIndexChanged" EmptyDataText="There is no information" SelectedRowStyle-BackColor="#eef2fd">
             <Columns>
@@ -45,7 +45,7 @@
             </Columns>
              <PagerTemplate>
                                 <br />
-                                <div class="col-lg-10">
+                                <div class="col-lg-12">
                                     <div class="col-lg-3 " style="width:18%">
                                      <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
                                      <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>

@@ -6,7 +6,7 @@
 
       
         <div class="row">
-           <div class="col-lg-10">
+           <div class="col-lg-12">
                 <div class="card">
                     <div class=" container">
                             <div class="col-lg-7" style="margin:20px 0 20px 0">
@@ -14,8 +14,8 @@
 <%--                           <asp:DropDownList ID="ddlCategory" runat="server" Width=300px CssClass="form-control"></asp:DropDownList><br>--%>
                            <div class="col-lg-1" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-warning btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
                         </div></div></div>
-      
-           <div class="col-lg-10">
+       <div class="row">
+           <div class="col-lg-12">
                 <div class="card">
                                             <asp:GridView ID="GridView_CatalogList" runat="server" CssClass="table bootstrap-table table-hover table-striped"
                                                 HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"
@@ -54,7 +54,7 @@
                             </PagerTemplate>
                                             </asp:GridView>
 
-     </div></div></div>
+     </div></div></div></div>
                              
                                               
                     
