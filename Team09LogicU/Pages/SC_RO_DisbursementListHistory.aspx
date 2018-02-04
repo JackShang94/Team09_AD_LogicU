@@ -44,14 +44,14 @@
                                 <%#Container.DataItemIndex+1 %>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="disbursementID">
+                        <asp:TemplateField HeaderText="Disbursement ID">
                             <ItemTemplate>
                                 <asp:Label runat="server" ID="disIDLabel" Text='<%#Eval("disbursementID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:BoundField DataField="storeStaffID" HeaderText="storeStaffID" />
-                        <asp:BoundField DataField="disburseDate" HeaderText="DisburseDate" />
+                        <asp:BoundField DataField="staffName" HeaderText="Clerk Name" />
+                        <asp:BoundField DataField="date" HeaderText="Date" />
                         <asp:CommandField ShowSelectButton="true" HeaderStyle-Font-Names="Action" ControlStyle-CssClass=" text-center btn btn-xs btn-primary" ButtonType="Button" SelectText="Detail" />
                     </Columns>
                 </asp:GridView>

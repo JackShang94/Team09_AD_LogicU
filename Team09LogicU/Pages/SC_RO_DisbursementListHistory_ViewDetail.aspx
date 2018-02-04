@@ -8,7 +8,7 @@
         <div class="card">
                
                  
-		<asp:GridView ID="disburseItem_HisGridView" CssClass="table table-striped table-hover "  runat="server"></asp:GridView>
+		<asp:GridView ID="disburseItem_HisGridView" CssClass="table table-striped table-hover " HeaderStyle-CssClass="text-uppercase"  runat="server"></asp:GridView>
                         </div>
                     
                     </div></div>

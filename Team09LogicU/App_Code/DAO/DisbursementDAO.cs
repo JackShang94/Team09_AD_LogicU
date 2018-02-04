@@ -76,9 +76,9 @@ namespace Team09LogicU.App_Code.DAO
                     where d.disbursementID == disburseID
                     select new DisbursementCart
                     {
-                        ItemID = i.itemID,
-                        ItemDescription = i.description,
-                        Expectedc = di.expectedQty,
+                        ID = i.itemID,
+                        Description = i.description,
+                        Expected = di.expectedQty,
                         Actual = di.actualQty
                     };
 
