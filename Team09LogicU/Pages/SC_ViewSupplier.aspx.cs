@@ -16,7 +16,7 @@ namespace Team09LogicU.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             logInRole = (string)Session["loginRole"];
-            if (logInRole == "manager")
+            if (logInRole == "clerk")
             {
                 if (!IsPostBack)
                 {

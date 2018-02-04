@@ -21,7 +21,7 @@
                      <div class="row">
         <div class="col-lg-10">
             <div class="card">
-                        <asp:GridView ID="GridView_supplierList" runat="server" OnRowEditing="GridView_supplierList_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
+                        <asp:GridView ID="GridView_supplierList" runat="server" OnRowEditing="GridView_supplierList_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
                             CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:TemplateField HeaderText="Edit" ItemStyle-CssClass="text-center">

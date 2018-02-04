@@ -171,7 +171,7 @@
                           <li><a href="  SC_ViewCatalog.aspx">View Catalogue</a></li>
                             <li><a href="SC_ViewPurchaseOrderHistory.aspx">View PO History</a></li>
                              <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
-                          
+                           <li><a href="SC_ViewSupplier.aspx"> View Supplier</a></li>
                         </ul>
                     </div>    
                 </li>
