@@ -194,6 +194,7 @@
     <Content Include="Pages\SM_AddSupplier.aspx" />
     <Content Include="Pages\SM_ApproveAdjustment.aspx" />
     <Content Include="Pages\SM_ApproveAdjustmentDetail.aspx" />
+    <Content Include="Pages\SM_dashboard.aspx" />
     <Content Include="Pages\SM_EditItem.aspx" />
     <Content Include="Pages\SM_EditSupplier.aspx" />
     <Content Include="Pages\SM_Notification.aspx" />
@@ -202,6 +203,7 @@
     <Content Include="Pages\SM_TrendAnalysisReport.aspx" />
     <Content Include="Pages\SM_ViewSupplierDetail.aspx" />
     <Content Include="Pages\SS_AssignClerk.aspx" />
+    <Content Include="Pages\SS_dashdoard.aspx" />
     <Content Include="Pages\SS_GenerateReorderReport.aspx" />
     <Content Include="Pages\SS_Notification.aspx" />
     <Content Include="Pages\SS_TrendAnalysisReport.aspx" />
@@ -894,6 +896,13 @@
     <Compile Include="Pages\SM_ApproveAdjustmentDetail.aspx.designer.cs">
       <DependentUpon>SM_ApproveAdjustmentDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SM_dashboard.aspx.cs">
+      <DependentUpon>SM_dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SM_dashboard.aspx.designer.cs">
+      <DependentUpon>SM_dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SM_EditItem.aspx.cs">
       <DependentUpon>SM_EditItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -949,6 +958,13 @@
     </Compile>
     <Compile Include="Pages\SS_AssignClerk.aspx.designer.cs">
       <DependentUpon>SS_AssignClerk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SS_dashdoard.aspx.cs">
+      <DependentUpon>SS_dashdoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SS_dashdoard.aspx.designer.cs">
+      <DependentUpon>SS_dashdoard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SS_GenerateReorderReport.aspx.cs">
       <DependentUpon>SS_GenerateReorderReport.aspx</DependentUpon>
