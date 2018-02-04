@@ -167,7 +167,7 @@ namespace Team09LogicU.Pages
                         judge = 1;
                         break;
                     }
-                        if (lac[num].Qty % 1 != 0)
+                        if ((lac[num].Qty % 1 != 0)||(lac[num].Qty==0))
                         {
                         judge = 1;
                         //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");

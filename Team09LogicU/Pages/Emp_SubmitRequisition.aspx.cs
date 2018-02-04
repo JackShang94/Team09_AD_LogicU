@@ -124,33 +124,62 @@ namespace Team09LogicU.pages
             if (lc.Count>0)
             {
                 Dictionary<string, int> dict = new Dictionary<string, int>();
-
-
+                int judge = 0;
+                int num = 0;
                 foreach (Control i in cartRepeater.Items)//get Quantity
                 {
                     LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
                     TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
+                    if (cartqty.Text.Trim() == "")
+                    {
+                        judge = 1;
+                        //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input quanqtity！');</script>");
+                        break;
+                    }
+                    try
+                    {
+                        lc[num].Qty = Int32.Parse(cartqty.Text.ToString());
+                    }
+                    catch
+                    {
+                        judge = 1;
+                        break;
+                    }
+
+                    if ((lc[num].Qty % 1 != 0)||(lc[num].Qty<=0))
+                    {
+                        judge = 1;
+                        //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
+                        break;
+                    }
                     dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
-
+                    num++;
                 }
-                RequisitionDAO rdao = new RequisitionDAO();
-                rdao.addRequisition(name, deptID, dict);
+                if (judge == 0)
+                {
+                    RequisitionDAO rdao = new RequisitionDAO();
+                    rdao.addRequisition(name, deptID, dict);
 
-                lc = new List<cart>();//clear the cart session
-                Session["cart"] = lc;
+                    lc = new List<cart>();//clear the cart session
+                    Session["cart"] = lc;
 
-                //send email and notification to head 
-                string headID = m.Departments.Where(x => x.deptID == deptID).Select(x => x.headStaffID).ToList().First();
-                string headName = m.DeptStaffs.Where(x => x.staffID == headID).Select(x => x.staffName).ToList().First();
-                string staffName = Session["loginName"].ToString();
-                string staffID = Session["loginID"].ToString();
-                NotificationDAO nDAO = new NotificationDAO();
-                nDAO.addDeptNotification(headID,staffName+" send a new requisition!",DateTime.Now);
+                    //send email and notification to head 
+                    string headID = m.Departments.Where(x => x.deptID == deptID).Select(x => x.headStaffID).ToList().First();
+                    string headName = m.DeptStaffs.Where(x => x.staffID == headID).Select(x => x.staffName).ToList().First();
+                    string staffName = Session["loginName"].ToString();
+                    string staffID = Session["loginID"].ToString();
+                    NotificationDAO nDAO = new NotificationDAO();
+                    nDAO.addDeptNotification(headID, staffName + " send a new requisition!", DateTime.Now);
 
-                Email email = new Email();
-                email.sendNewReqEmailToHead(staffName,headName);
+                    Email email = new Email();
+                    email.sendNewReqEmailToHead(staffName, headName);
 
-                HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
+                    HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
+                }
             }
             else
             {

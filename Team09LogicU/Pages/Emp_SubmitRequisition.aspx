@@ -70,7 +70,7 @@
                          <div class="card" style="position:fixed;right:2%;width:25%">
                            <div class="text-center">
                                <div class ="content">
-                                   <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" OnClick="Submit_Click" EnableViewState="False" />
+                                   <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" Text="Checkout" ValidationGroup="submit1" OnClick="Submit_Click" EnableViewState="False" />
                                </div>
                                <div class="content" id="test">
                                    
