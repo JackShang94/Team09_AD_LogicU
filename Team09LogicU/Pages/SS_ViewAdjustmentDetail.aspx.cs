@@ -25,43 +25,47 @@ namespace Team09LogicU.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            adjvoucherID = Int32.Parse(Request.QueryString["adjVID"]);
-            supervisorID = (string)Session["loginID"];
-
-            AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvoucherID);
-
-            //List <AdjustmentVoucherItem> adjvi =  adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
-
-            string authorisedby = adjv.authorisedBy;
-            string status = adjv.status;
-            DateTime adjvDate = adjv.adjDate;
-
-          
-            if (adjv.status != "pending")
+            if (!IsPostBack)
             {
-                TextBox_Remarks.Style.Value = " display:none;";
-                button_Reject.Style.Value = " display:none;";
-                button_Approve.Style.Value = " display:none;";
+                adjvoucherID = Int32.Parse(Request.QueryString["adjVID"]);
+                supervisorID = (string)Session["loginID"];
 
-            }
-            else {
-                if (adjvdao.price(adjvoucherID) == 1)
+                AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvoucherID);
+
+                //List <AdjustmentVoucherItem> adjvi =  adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
+
+                string authorisedby = adjv.authorisedBy;
+                string status = adjv.status;
+                DateTime adjvDate = adjv.adjDate;
+
+
+                if (adjv.status != "pending")
                 {
-                    button_SendtoManager.Style.Value = " display:block;";
                     TextBox_Remarks.Style.Value = " display:none;";
                     button_Reject.Style.Value = " display:none;";
                     button_Approve.Style.Value = " display:none;";
+
                 }
-               
+                else
+                {
+                    if (adjvdao.price(adjvoucherID) == 1)
+                    {
+                        button_SendtoManager.Style.Value = " display:block;";
+                        TextBox_Remarks.Style.Value = " display:none;";
+                        button_Reject.Style.Value = " display:none;";
+                        button_Approve.Style.Value = " display:none;";
+                    }
+
+                }
+
+
+                Label_StoreStafID.Text = supervisorID;
+                lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
+                lblAdjvID.Text = Convert.ToString(adjvoucherID); ;
+                Label_Authorisedby.Text = authorisedby;
+                lblStatus.Text = status;
+                updateGV();
             }
-
-
-            Label_StoreStafID.Text = supervisorID;
-            lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
-            lblAdjvID.Text = Convert.ToString(adjvoucherID); ;
-            Label_Authorisedby.Text = authorisedby;
-            lblStatus.Text = status;
-            updateGV();
         }
         protected void GridView_detailList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
