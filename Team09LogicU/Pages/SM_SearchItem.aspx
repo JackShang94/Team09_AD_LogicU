@@ -11,7 +11,7 @@
                 <div class=" container">
                     <div class="col-lg-6" style="margin-top:20px;margin-bottom:20px">
                         
-                            <asp:TextBox ID="textbox_Search" placeholder="Search" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="textbox_Search" placeholder="Search by Item ID or Description" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-lg-1" style="margin-top:20px;margin-bottom:20px" >
                             <asp:Button ID="Button_search" runat="server"  Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="Button_search_Click" />
