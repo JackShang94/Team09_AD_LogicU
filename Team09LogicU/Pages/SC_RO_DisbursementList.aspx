@@ -51,17 +51,17 @@
                                         <asp:TemplateField Visible="false">
                                             <ItemTemplate>
 
-                                                <asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("itemID") %>'></asp:Label>
+                                                <asp:Label ID="itemIDLabel" runat="server" Text='<%#Eval("iD") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="ItemDescription" SortExpression="SortedAscendingHeaderStyle">
                                             <ItemTemplate>
-                                                <asp:Label ID="ItemDescription" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label>
+                                                <asp:Label ID="ItemDescription" runat="server" Text='<%# Eval("description") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Expected">
                                             <ItemTemplate>
-                                                <asp:Label ID="Expected" runat="server" Text='<%# Eval("expectedc") %>'></asp:Label>
+                                                <asp:Label ID="Expected" runat="server" Text='<%# Eval("expected") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Actual">
