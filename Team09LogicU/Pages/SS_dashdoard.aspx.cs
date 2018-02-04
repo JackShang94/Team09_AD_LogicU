@@ -107,8 +107,11 @@ namespace Team09LogicU.Pages
 
         protected string getBarChartDataByDeptID(string deptid)
         {
+            string month1 = loginDate.ToString("Y");
+            string month2 = loginDate.AddMonths(-1).ToString("Y");
+            string month3 = loginDate.AddMonths(-2).ToString("Y");
             string data = "[" +
-            "['Descroption','Month1','Month2','Month3'],";
+            "['Description','" + month1 + "','" + month2 + "','" + month3 + "'],";
 
             List<TrendAnalysisItem> tItemList = reportDAO.getTrendAnalysisItems(deptid, loginDate);
             foreach (TrendAnalysisItem item in tItemList)

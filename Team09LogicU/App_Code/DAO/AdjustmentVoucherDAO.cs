@@ -339,9 +339,9 @@ namespace Team09LogicU.App_Code.DAO
                 {
                     supplieritem = itemlist.First();
                     qty= Math.Abs( breakitem.quantity);
-                    unittotal = ((supplieritem.price) * qty )+ unittotal;
-                    totalprice = totalprice + unittotal;
-                    if (totalprice >= 250)
+                    unittotal = ((supplieritem.price) * qty);
+                    //totalprice = totalprice + unittotal;
+                    if (unittotal >= 250)
                     {
                         stop = 1;
                         break;
