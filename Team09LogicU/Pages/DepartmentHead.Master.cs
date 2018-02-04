@@ -13,13 +13,22 @@ namespace Team09LogicU.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["loginName"].ToString();
-            string loginID = Session["loginID"].ToString();
             string loginRole = Session["loginRole"].ToString();
-            img.Src = "../picture/" + loginID + ".jpg";
-            NotificationDAO nDAO = new NotificationDAO();
-            var deptNotifications = nDAO.getNewDeptNotificationByID(loginID);
-            notificationNum.Text = deptNotifications.Count.ToString();
+            if (loginRole == "head" || loginRole == "outOfOfficeHead"|| loginRole== "delegeteHead")
+            {
+                Label1.Text = Session["loginName"].ToString();
+                string loginID = Session["loginID"].ToString();
+                loginRole = Session["loginRole"].ToString();
+                img.Src = "../picture/" + loginID + ".jpg";
+                NotificationDAO nDAO = new NotificationDAO();
+                var deptNotifications = nDAO.getNewDeptNotificationByID(loginID);
+                notificationNum.Text = deptNotifications.Count.ToString();
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
+
         }
 
         protected void Logout_Click(object sender, EventArgs e)

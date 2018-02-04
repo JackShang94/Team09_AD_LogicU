@@ -20,7 +20,7 @@
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                         <asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
-                                <asp:GridView ID="retrievalGridView" Style="margin: 0px 0px 20px 0px" Width="85%" HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" runat="server" OnRowDataBound="retrievalGridView_RowDataBound" AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged" EmptyDataText="There is no information"
+                                <asp:GridView ID="retrievalGridView"   HeaderStyle-CssClass="text-uppercase" CssClass="table table-striped table-hover" runat="server" OnRowDataBound="retrievalGridView_RowDataBound" AutoGenerateColumns="false" OnRowCommand="retrievalGridView_RowCommand" OnSelectedIndexChanged="retrievalGridView_SelectedIndexChanged" EmptyDataText="There is no information"
                                     SelectedRowStyle-BackColor="#eef2fd">
                                     <Columns>
                                         <asp:TemplateField>
@@ -70,8 +70,7 @@
 
                 <div class="col-lg-4">
                     <div class="card">
-                        <div class="container ">
-                            <div class="col-lg-4" style="margin: 20px 0px 20px 0px">
+                       
                                 <asp:GridView ID="breakdownGridView" EmptyDataText="There is no information" Width="85%" CssClass="table table-striped table-hover" HeaderStyle-CssClass="text-uppercase" runat="server" AutoGenerateColumns="false" OnRowEditing="breakdownGridView_RowEditing" OnRowUpdating="breakdownGridView_RowUpdating" OnRowCancelingEdit="breakdownGridView_RowCancelingEdit" SelectedRowStyle-Height="100px" OnRowUpdated="breakdownGridView_RowUpdated">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Dept name">
@@ -107,9 +106,7 @@
                                 </asp:GridView>
                             </div>
                         </div>
-                    </div>
-                </div>
-                </div>
+                  
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
