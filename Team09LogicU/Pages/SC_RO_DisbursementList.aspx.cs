@@ -118,10 +118,19 @@ namespace Team09LogicU.pages
         {
             GridViewRow row = disburseItemGridView.Rows[e.RowIndex];
             int actual = Int32.Parse((row.FindControl("Actual") as TextBox).Text);
+            int expected = Int32.Parse((row.FindControl("Expected") as Label).Text);
 
 
             string itemID = (row.FindControl("itemIDLabel") as Label).Text;
-          
+            if (actual > expected)
+            {
+                disburseItemGridView.EditIndex = -1;
+                disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
+                disburseItemGridView.DataBind();
+                //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'The quantity you entered cannot larger than needed amount!！');</script>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('The quantity you entered cannot larger than needed amount!')", true);
+                return;
+            }
 
             if (Convert.ToInt32(ViewState["originQty"]) == actual)
             {

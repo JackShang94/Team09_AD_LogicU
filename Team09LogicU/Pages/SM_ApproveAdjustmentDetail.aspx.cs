@@ -18,6 +18,7 @@ namespace Team09LogicU.Pages
         ItemDAO itemdao = new ItemDAO();
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+        StoreStaffDAO sDAO = new StoreStaffDAO();
         List<AdjustmentVoucherItem> adjItems;
         TextBox tb = new TextBox();
         string strPageNum = "";
@@ -31,7 +32,7 @@ namespace Team09LogicU.Pages
                 AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
 
                 string staffName = adjv.StoreStaff.storeStaffName;
-                string authorisedby = adjv.authorisedBy;
+                string authorisedby = sDAO.getStoreStaffNameByID(adjv.authorisedBy);
                 string status = adjv.status;
                 DateTime adjvDate = adjv.adjDate;
                 //if (authorisedby == "")
