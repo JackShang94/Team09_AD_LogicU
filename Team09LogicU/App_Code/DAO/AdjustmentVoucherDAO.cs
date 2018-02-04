@@ -202,7 +202,7 @@ namespace Team09LogicU.App_Code.DAO
             return context.AdjustmentVouchers.Find(adjvID);
         }
 
-        public void addAdjustmentVoucher(string storestaffID, List<AdjustmentVouchercart> list)
+        public void addAdjustmentVoucher(string storestaffID, List<AdjustmentVoucherItemcart> list)
         {
             AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
             adjvoucher.storeStaffID = (string)System.Web.HttpContext.Current.Session["loginID"];
@@ -216,7 +216,7 @@ namespace Team09LogicU.App_Code.DAO
             /*************Then Add ADJVItems******************/
             AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
             
-            foreach ( AdjustmentVouchercart cartitem in list)
+            foreach ( AdjustmentVoucherItemcart cartitem in list)
             {
                 AdjustmentVoucherItem adjvi = new AdjustmentVoucherItem();
                 adjvi.adjVID = adjvoucher.adjVID;
@@ -228,7 +228,7 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
-        public void addAdjV(List<AdjustmentVouchercart> list)
+        public void addAdjV(List<AdjustmentVoucherItemcart> list)
         {
             AdjustmentVoucher adjvoucher = new AdjustmentVoucher();
             adjvoucher.storeStaffID = (string)System.Web.HttpContext.Current.Session["loginID"];
@@ -241,7 +241,7 @@ namespace Team09LogicU.App_Code.DAO
             /*************Then Add ADJVItems******************/
             AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
 
-            foreach (AdjustmentVouchercart cartitem in list)
+            foreach (AdjustmentVoucherItemcart cartitem in list)
             {
                 AdjustmentVoucherItem adjvi = new AdjustmentVoucherItem();
                 adjvi.adjVID = adjvoucher.adjVID;

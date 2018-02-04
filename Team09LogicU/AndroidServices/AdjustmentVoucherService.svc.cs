@@ -18,10 +18,10 @@ namespace Team09LogicU.AndroidServices
         AdjustmentVoucherDAO adjDAO = new AdjustmentVoucherDAO();
         public void addAdjVoucher(List<WCFAdjustmentVoucherItem> adjItemList)
         {
-            List<AdjustmentVouchercart> adjItemCart = new List<AdjustmentVouchercart>();
+            List<AdjustmentVoucherItemcart> adjItemCart = new List<AdjustmentVoucherItemcart>();
             foreach(WCFAdjustmentVoucherItem  wcfAI in adjItemList)
             {
-                AdjustmentVouchercart cartItem = new AdjustmentVouchercart();
+                AdjustmentVoucherItemcart cartItem = new AdjustmentVoucherItemcart();
                 cartItem.ItemID = wcfAI.ItemID;
                 cartItem.Qty = wcfAI.Qty;
                 cartItem.Record = wcfAI.Record;

@@ -17,11 +17,11 @@ namespace Team09LogicU.AndroidServices
         public int addAdjVoucher(WCFCart_Json cartList,string staffID)
         {
             AdjustmentVoucherDAO adjDAO = new AdjustmentVoucherDAO();
-            List<AdjustmentVouchercart> adjItemCart = new List<AdjustmentVouchercart>();
+            List<AdjustmentVoucherItemcart> adjItemCart = new List<AdjustmentVoucherItemcart>();
             List<WCFAdjustmentVoucherCartItem> adjVItemList = cartList.CartList;
             foreach (WCFAdjustmentVoucherCartItem wcfCI in adjVItemList)
             {
-                AdjustmentVouchercart cartItem = new AdjustmentVouchercart();
+                AdjustmentVoucherItemcart cartItem = new AdjustmentVoucherItemcart();
                 cartItem.ItemID = wcfCI.ItemID;
                 cartItem.Qty = wcfCI.Qty;
                 cartItem.Record = wcfCI.Record;
