@@ -4,7 +4,9 @@
     Disbursement List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
+    <script src="../js/window.js"></script>
+    <script src="../js/jquery-1.7.1.min.js"></script>
+    <link href="../css/window.css" rel="stylesheet" />
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -46,7 +48,7 @@
                     <asp:UpdatePanel ID="disburseItemUpdatePanel" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div class="col-lg-12">
-                                <asp:GridView ID="disburseItemGridView" Width="80%"  runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " AutoGenerateColumns="False" OnRowEditing="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" OnRowCommand="disburseItemGridView_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True" EmptyDataText="There is no disbursement">
+                                <asp:GridView ID="disburseItemGridView" Width="80%" runat="server" CssClass="table table-striped table-hover " HeaderStyle-CssClass=" content text-uppercase " AutoGenerateColumns="False" OnRowEditing="disburseItemGridView_RowEditing" OnRowUpdating="disburseItemGridView_RowUpdating" OnRowCancelingEdit="disburseItemGridView_RowCancelingEdit" OnRowCommand="disburseItemGridView_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="True" EmptyDataText="There is no disbursement">
                                     <Columns>
                                         <asp:TemplateField Visible="false">
                                             <ItemTemplate>
@@ -75,7 +77,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" CommandArgument='<%#Eval("itemID") %>' />
+                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" CommandArgument='<%#Eval("iD") %>' />
                                             </ItemTemplate>
                                             <EditItemTemplate>
                                                 <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-danger" runat="server" CommandName="Update" Text="Update" />
@@ -91,7 +93,7 @@
                             </div>
                             <div class="col-lg-10" style="margin-bottom: 20px; margin-top: 20px">
                                 <asp:Button ID="ConfirmBtn" runat="server" CssClass="btn btn-warning btn-wd btn-fill " Text="Confirm" OnClick="Button3_Click" Enabled="False" />
-                           
+
                                 <asp:Button ID="NotifyButton" runat="server" CssClass="btn btn-primary btn-fill btn-wd" Text="Send Email" OnClick="NotifyButton_Click" Enabled="False" />
                             </div>
                         </ContentTemplate>
@@ -99,9 +101,9 @@
                 </div>
 
                 <div class="col-lg-10" style="margin-top: 20px">
-                   
-                        <asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="View History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx" />
-                   
+
+                    <asp:LinkButton ID="viewHisBtn" runat="server" CssClass="btn btn-success btn-fill btn-wd " Text="View History" PostBackUrl="~/Pages/SC_RO_DisbursementListHistory.aspx" />
+
                 </div>
 
 
