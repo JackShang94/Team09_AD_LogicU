@@ -179,7 +179,7 @@ namespace Team09LogicU.Pages
 
                 string confirmDate = DateTime.Now.ToShortDateString();
                 NotificationDAO nDAO = new NotificationDAO();
-                nDAO.addDeptNotification(supervisorID, clerkName+" has send an adjustment voucher!" + confirmDate, DateTime.Now);
+                nDAO.addStoreNotification(supervisorID, clerkName+" has send an adjustment voucher!" + confirmDate, DateTime.Now);
 
                 Email email = new Email();
                 email.sendAdjustmentEmailToSupervisor(clerkName,supervisorName);

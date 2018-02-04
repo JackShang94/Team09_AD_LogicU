@@ -13,7 +13,7 @@ namespace Team09LogicU.App_Code.DAO
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
         public List<AdjustmentVoucher> getAdjustmentVoucherList()
         {
-            return context.AdjustmentVouchers.ToList();
+            return context.AdjustmentVouchers.OrderByDescending(x => x.adjVID).ToList();
         }
         public List<AdjustmentVoucher> getAdjustmentVoucherListByStaffID(string staffID)
         {
