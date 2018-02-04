@@ -119,7 +119,13 @@
             </div>
 
             <ul class="nav">
-               
+                <li>
+                    <a  href="SM_dashboard.aspx">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard
+                        </p>
+                    </a>         
+                </li>
                 <li>
                     <a href="SM_ApproveAdjustment.aspx">
                         <i class="pe-7s-home"></i>
@@ -130,7 +136,7 @@
                  <li>
                     <a  href="SM_SearchItem.aspx">
                         <i class="pe-7s-server"></i>
-                        <p>Manage Catalog
+                        <p>Manage Catalogue
                         </p>
                     </a>         
                 </li>
@@ -215,7 +221,7 @@
                                 </li>
                             <li>
                                     <a href="SM_SearchItem.aspx">
-                                        <i class="pe-7s-server"></i>Manage Catalog
+                                        <i class="pe-7s-server"></i>Manage Catalogue
                                     </a>
                                 </li>
                               

@@ -11,9 +11,9 @@
                 <div class=" container">
                     <div class=" col-lg-3" style="margin: 20px 0 20px 0">
                         <asp:Label ID="Labeltxtadjv" CssClass="category" runat="server" Text="Select Time: "></asp:Label>
-                        <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server" Width="90%" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtMonth" CssClass=" form-control" runat="server"  TextMode="Date"></asp:TextBox>
                     </div>
-                    <div class=" col-lg-4 pull-right" style="margin: 40px 0 20px 0">
+                    <div class=" col-lg-1" style="margin: 40px 0 20px 0">
                         <asp:Button ID="btnSearch" runat="server" Text="View" CssClass="btn btn-warning btn-fill btn-wd " OnClick="btnView_Click" />
                     </div>
                 </div>
@@ -28,10 +28,10 @@
             <asp:Label ID="title_" CssClass="h4" runat="server" Text="Reorder Report"></asp:Label><br />
             <asp:Label ID="date_" CssClass=" category" runat="server">Date: <%=txtMonth.Text %></asp:Label>
         </div>
-        <div class="col-lg-5" style="margin-top: 10px; margin-right: 10px">
+        <div class="col-lg-10" style="margin-top: 10px; margin-right: 10px">
             <div id="chart1"></div>
         </div>
-        <div class="col-lg-5" style="margin-top: 10px">
+        <div class="col-lg-10" style="margin-top: 10px">
             <div id="chart2"></div>
         </div>
     </div>
@@ -68,7 +68,7 @@
             // Set chart options
             var options = {
                 'title': 'Reorder Report',
-                'width': 520,
+                'width': 900,
                 'height': 400
             };
 
@@ -76,7 +76,7 @@
             var chart1 = new google.visualization.BarChart(document.getElementById('chart1'));
             chart1.draw(columnChartData_drawData, options);
             var chart2 = new google.visualization.Table(document.getElementById('chart2'));
-            chart2.draw(tableChartData_drawData, { showRowNumber: true, width: 600, height: 400, title: 'Reorder Report' });
+            chart2.draw(tableChartData_drawData, { showRowNumber: true, width: 900, height: 200, title: 'Reorder Report' });
         }
     </script>
 
