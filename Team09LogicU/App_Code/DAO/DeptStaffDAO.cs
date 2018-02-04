@@ -23,6 +23,18 @@ namespace Team09LogicU.App_Code.DAO
             return staff;
         }
 
+        public string getStaffNameByID(string ID)
+        {
+            List<DeptStaff> list = new List<DeptStaff>();
+            DeptStaff s = new DeptStaff();
+            list = context.DeptStaffs.Where(x => x.staffID == ID).ToList();
+            if (list.Count() > 0)
+            {
+                s = list.First();
+            }
+            return s.staffName;
+        }
+
 
         //find staff by name
         public DeptStaff findStaffByName(string staffName)
