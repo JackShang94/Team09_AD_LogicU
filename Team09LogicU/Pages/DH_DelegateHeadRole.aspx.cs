@@ -63,7 +63,6 @@ namespace Team09LogicU.pages
             for (int i = 0; i < dList.Count(); i++)
             {
                 finalList.Add(new DelegateCart());
-                finalList[i].DelegateID = dList[i].delegateID;
                 finalList[i].Name = deptStaffDAO.getStaffNameByID(dList[i].staffID);
                 finalList[i].StartDate = dList[i].startDate;
                 finalList[i].EndDate = dList[i].endDate;
