@@ -430,6 +430,7 @@
     <Compile Include="AndroidServices\LoginService.svc.cs">
       <DependentUpon>LoginService.svc</DependentUpon>
     </Compile>
+    <Compile Include="AndroidServices\RestAuthorizationManager .cs" />
     <Compile Include="AndroidServices\RetrievalFormItemService.svc.cs">
       <DependentUpon>RetrievalFormItemService.svc</DependentUpon>
     </Compile>

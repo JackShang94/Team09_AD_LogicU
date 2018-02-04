@@ -29,6 +29,7 @@ namespace Team09LogicU.AndroidServices
         }
         public List<WCFDisbursement> getDisbursementByDeptID(string deptID)
         {
+            
             List<WCFDisbursement> ldis_wcf = new List<WCFDisbursement>();
             DisbursementDAO disDAO = new DisbursementDAO();
 
