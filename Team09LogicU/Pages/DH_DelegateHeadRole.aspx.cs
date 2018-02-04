@@ -58,7 +58,19 @@ namespace Team09LogicU.pages
             employee_dropList.DataBind();
             //bind gridview
             dList = delegateDAO.findDelegatesByDepartment(deptID);
-            GridView_dHistory.DataSource = dList;
+
+            List<DelegateCart> finalList = new List<DelegateCart>();
+            for (int i = 0; i < dList.Count(); i++)
+            {
+                finalList.Add(new DelegateCart());
+                finalList[i].DelegateID = dList[i].delegateID;
+                finalList[i].Name = deptStaffDAO.getStaffNameByID(dList[i].staffID);
+                finalList[i].StartDate = dList[i].startDate;
+                finalList[i].EndDate = dList[i].endDate;
+                finalList[i].Status = dList[i].status;
+            }
+
+            GridView_dHistory.DataSource = finalList;
             GridView_dHistory.DataBind();
         }
         protected void submit_button_Click(object sender, EventArgs e)
