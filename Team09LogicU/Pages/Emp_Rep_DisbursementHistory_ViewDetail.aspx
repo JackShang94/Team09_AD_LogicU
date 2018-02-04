@@ -10,9 +10,9 @@
                             <asp:GridView ID="disbursementDetail" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
                                 <AlternatingRowStyle BackColor="White" />
                                 <Columns>
-                                    <asp:TemplateField HeaderText="ItemID" Visible="True">
+                                    <asp:TemplateField HeaderText="Item ID" Visible="True">
                                         <ItemTemplate>
-                                            <asp:Label ID="disItemID" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
+                                            <asp:Label ID="disItemID" runat="server" Text='<%# Eval("iD") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="description" HeaderText="Description" />
