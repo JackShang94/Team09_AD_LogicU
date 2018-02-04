@@ -224,6 +224,7 @@
     <Content Include="fonts\zn7gbfwfmp4ua6ar0hcolq.ttf" />
     <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\Team09LogicU.pubxml" />
+    <None Include="Properties\PublishProfiles\Team09_Logic.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
