@@ -327,6 +327,8 @@ namespace Team09LogicU.App_Code.DAO
             AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
             List<AdjustmentVoucherItem> adjvitemlist = adjvidao.getAdjustmentVoucherItemListByADJVID(adjVID);
             int stop = 0;
+            decimal unittotal = 0;
+            decimal totalprice = 0;
             foreach (AdjustmentVoucherItem breakitem in adjvitemlist)
             {
                 //update item quantity
@@ -335,7 +337,9 @@ namespace Team09LogicU.App_Code.DAO
                 if (itemlist.Count > 0)// not null
                 {
                     supplieritem = itemlist.First();
-                    if (supplieritem.price >= 250)
+                    unittotal = ((supplieritem.price) * (breakitem.quantity)) + unittotal;
+                    totalprice = totalprice + unittotal;
+                    if (totalprice >= 250)
                     {
                         stop = 1;
                         break;
