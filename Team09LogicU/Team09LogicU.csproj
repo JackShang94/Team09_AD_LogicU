@@ -172,7 +172,6 @@
     <Content Include="Pages\Emp_Rep_DisbursementHistory_ViewDetail.aspx" />
     <Content Include="Pages\Emp_SR_CheckOut.aspx" />
     <Content Include="Pages\SC_dashboard.aspx" />
-    <Content Include="Pages\SC_GenerateReorderReport.aspx" />
     <Content Include="Pages\SC_Inv_AdjustmentVoucher.aspx" />
     <Content Include="Pages\SC_Inv_AdjVoucherDetail.aspx" />
     <Content Include="Pages\SC_Inv_ManageReorder.aspx" />
@@ -718,13 +717,6 @@
     </Compile>
     <Compile Include="Pages\SC_dashboard.aspx.designer.cs">
       <DependentUpon>SC_dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SC_GenerateReorderReport.aspx.cs">
-      <DependentUpon>SC_GenerateReorderReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\SC_GenerateReorderReport.aspx.designer.cs">
-      <DependentUpon>SC_GenerateReorderReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SC_Inv_AdjustmentVoucher.aspx.cs">
       <DependentUpon>SC_Inv_AdjustmentVoucher.aspx</DependentUpon>
