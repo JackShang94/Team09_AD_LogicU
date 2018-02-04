@@ -14,6 +14,9 @@
                     <label>Password</label>
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </div>
+                <div class="form-group">
+                    <asp:Label ID="message" runat="server" Text="" ForeColor="Red"></asp:Label>
+                </div>
                 <div class="form-group ">
                     <label class="checkbox">
                         <span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span>
