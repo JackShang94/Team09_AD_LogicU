@@ -150,7 +150,7 @@
                     <div class="collapse" id="InvExamples">
                         <ul class="nav">
                             <li><a href="SC_Inv_ViewInventoryList.aspx">Inventory List</a></li>
-                            <li><a href="SC_Inv_ManageReorder.aspx">Manage Reorder</a></li>
+                            <li><a href="SC_Inv_ManageReorder.aspx">Submit Purchase Order</a></li>
                             <li><a href="SC_Inv_AdjustmentVoucher.aspx">Submit Adjustment Voucher</a></li>
                         </ul>
                     </div>    
@@ -168,7 +168,7 @@
                         <ul class="nav">
                      
                             <li><a href="SC_ViewDepartment.aspx">View Department</a></li>
-                          <li><a href="  SC_ViewCatalog.aspx">View Catalog</a></li>
+                          <li><a href="  SC_ViewCatalog.aspx">View Catalogue</a></li>
                             <li><a href="SC_ViewPurchaseOrderHistory.aspx">View PO History</a></li>
                              <li><a href="SC_ViewAdjustmentVoucher.aspx"> View Adjustment Voucher</a></li>
                           

@@ -30,9 +30,9 @@
                                     CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="There are no Item" AllowPaging="True"
                                     OnPageIndexChanging="GridView_CatalogList_PageIndexChanging" PageSize="5">
                                     <Columns>
-                                        <asp:BoundField DataField="itemID" HeaderText="item ID:" />
-                                        <asp:BoundField DataField="categoryID" HeaderText="categoryID:" />
-                                        <asp:BoundField DataField="description" HeaderText="description:" />
+                                        <asp:BoundField DataField="itemID" HeaderText="Item ID:" />
+                                        <asp:BoundField DataField="categoryID" HeaderText="Category ID:" />
+                                        <asp:BoundField DataField="description" HeaderText="Description:" />
                                         <asp:BoundField DataField="unitOfMeasure" HeaderText="unit Of Measure:" />
                                         <asp:TemplateField HeaderText="Action" ShowHeader="False">
                                             <ItemTemplate>
@@ -83,10 +83,10 @@
                                     <table class="table" id="cart_tb">
                                         <tr class="category">
 
-                                            <td>ItemID</td>
+                                            <td>Item ID</td>
                                             <td>Amount</td>
                                             <td></td>
-                                            <td>Record</td>
+                                            <td>Remarks</td>
                                             <td class="text-right">Action</td>
                                         </tr>
                                 </HeaderTemplate>

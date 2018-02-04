@@ -24,9 +24,9 @@ Trend Analysis Report
                <asp:Label ID="title_" CssClass="h4" runat="server" Text="Trend Analysis Report"></asp:Label><br />
                 <asp:Label ID="date_" CssClass=" category" runat="server">Dep: <%=dept_dropList.SelectedValue %></asp:Label>
     </div>
-          <div class="col-lg-5" style="margin-top:10px;margin-right:10px">
+          <div class="col-lg-10" style="margin-top:10px;margin-right:10px">
     <div id="chart1"></div></div>
-        <div class="col-lg-5" style="margin-top:10px">
+        <div class="col-lg-10" style="margin-top:10px">
     <div id="chart2"></div></div>
     </div>
     <script>
@@ -50,7 +50,7 @@ Trend Analysis Report
             // Set chart options
             var options = {
                 'title': 'Trend Analysis Report',
-                'width': 520,
+                'width': 900,
                 'height': 400
             };
 
@@ -58,7 +58,7 @@ Trend Analysis Report
             var chart1 = new google.visualization.BarChart(document.getElementById('chart1'));
             chart1.draw(data, options);
             var chart2 = new google.visualization.Table(document.getElementById('chart2'));
-            chart2.draw(data, { showRowNumber: true, width: 600, height: 400 });
+            chart2.draw(data, { showRowNumber: true, width: 900, height: 400 });
         }
     </script>
 

@@ -138,7 +138,7 @@ namespace Team09LogicU.pages
                 List<DisbursementCart> ldc = (List<DisbursementCart>)ViewState["list"];
                 foreach(var i in ldc)
                 {
-                    if (i.ItemID == itemID)
+                    if (i.ID == itemID)
                     {
                         i.Actual = actual;
                         break;

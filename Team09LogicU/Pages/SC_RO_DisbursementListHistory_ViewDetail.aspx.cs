@@ -13,8 +13,7 @@ namespace Team09LogicU.Pages
         DisbursementDAO disDAO = new DisbursementDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
+
                 string disID_url = Request.QueryString["disID"];
                 if (disID_url.ToString() == null)
                 {
@@ -24,7 +23,7 @@ namespace Team09LogicU.Pages
                 int disID = Convert.ToInt32(disID_url);
                 disburseItem_HisGridView.DataSource = disDAO.getDisbursementItemByDisID(disID);
                 disburseItem_HisGridView.DataBind();
-            //}
+
             backButton.Attributes["href"] = "javascript:history.go(-1)";
         }
 

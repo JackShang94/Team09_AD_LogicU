@@ -67,7 +67,7 @@ namespace Team09LogicU.AndroidServices
             ldc = disDAO.getDisbursementItemByDisID(disID);
             foreach(var i in ldc)
             {
-                WCFDisbursementCart wcfdiscart = new WCFDisbursementCart(i.ItemID, i.ItemDescription, i.Expectedc, i.Actual);
+                WCFDisbursementCart wcfdiscart = new WCFDisbursementCart(i.ID, i.Description, i.Expected, i.Actual);
                 ldiscart_wcf.Add(wcfdiscart);
             }
             return ldiscart_wcf;
