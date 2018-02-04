@@ -471,6 +471,7 @@
     <Compile Include="App_Code\UtilClass\cart.cs" />
     <Compile Include="App_Code\UtilClass\DBEntities.cs" />
     <Compile Include="App_Code\UtilClass\DisbursementCart.cs" />
+    <Compile Include="App_Code\UtilClass\DisbursementHistory.cs" />
     <Compile Include="App_Code\UtilClass\Email.cs" />
     <Compile Include="App_Code\UtilClass\Encrypt.cs" />
     <Compile Include="App_Code\UtilClass\ItemCart.cs" />

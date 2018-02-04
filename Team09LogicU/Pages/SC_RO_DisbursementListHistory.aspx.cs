@@ -5,13 +5,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Team09LogicU.App_Code.DAO;
+using Team09LogicU.Models;
+using Team09LogicU.App_Code.UtilClass;
 using System.Globalization;
+
 namespace Team09LogicU.Pages
 {
     public partial class SC_RO_DisbursementListHistory : System.Web.UI.Page
     {
         DepartmentDAO dDAO = new DepartmentDAO();
         DisbursementDAO disDAO = new DisbursementDAO();
+        StoreStaffDAO sDAO = new StoreStaffDAO();
         private string deptName;
         private string deptID;
         public void BindDropDownList()
@@ -22,15 +26,35 @@ namespace Team09LogicU.Pages
         }
         public void initDisbursement (string deptID)
         {
-           
-           
-            disburseHisGridView.DataSource = disDAO.getAllCompletedDisbursementBydeptID(deptID);
+
+            List<Disbursement> list = new List<Disbursement>();
+            list = disDAO.getAllCompletedDisbursementBydeptID(deptID);
+
+            List<DisbursementHistory> finalList = new List<DisbursementHistory>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                finalList.Add(new DisbursementHistory());
+                finalList[i].DisbursementID = list[i].disbursementID;
+                finalList[i].StaffName = sDAO.getStoreStaffNameByID(list[i].storeStaffID);
+                finalList[i].Date = list[i].disburseDate;
+            }
+            disburseHisGridView.DataSource = finalList;
             disburseHisGridView.DataBind();
         }
         public void postBackDisbursement(DateTime from,DateTime to,string deptID)
         {
-            
-            disburseHisGridView.DataSource= disDAO.getAllCompletedDisbursementBydeptIDandDate(from, to, deptID);
+            List<Disbursement> list = new List<Disbursement>();
+            list = disDAO.getAllCompletedDisbursementBydeptIDandDate(from, to, deptID);
+
+            List<DisbursementHistory> finalList = new List<DisbursementHistory>();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                finalList.Add(new DisbursementHistory());
+                finalList[i].DisbursementID = list[i].disbursementID;
+                finalList[i].StaffName = sDAO.getStoreStaffNameByID(list[i].storeStaffID);
+                finalList[i].Date = list[i].disburseDate;
+            }
+            disburseHisGridView.DataSource= finalList;
             disburseHisGridView.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -84,7 +108,18 @@ namespace Team09LogicU.Pages
             {
                 this.deptName = deptDropDownList.Text;
                 this.deptID = dDAO.findDepartmentIdByName(this.deptName);
-                disburseHisGridView.DataSource = disDAO.getAllCompletedDisbursementBydeptID(deptID);
+                List<Disbursement> list = new List<Disbursement>();
+                list = disDAO.getAllCompletedDisbursementBydeptID(deptID);
+
+                List<DisbursementHistory> finalList = new List<DisbursementHistory>();
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    finalList.Add(new DisbursementHistory());
+                    finalList[i].DisbursementID = list[i].disbursementID;
+                    finalList[i].StaffName = sDAO.getStoreStaffNameByID(list[i].storeStaffID);
+                    finalList[i].Date = list[i].disburseDate;
+                }
+                disburseHisGridView.DataSource = finalList;
                 disburseHisGridView.DataBind();
                 return;
             }

@@ -8,35 +8,35 @@ namespace Team09LogicU.App_Code.UtilClass
     [Serializable]
     public class DisbursementCart
     {
-        private string itemID;
-        private string itemDescription;
-        private int expectedc;
+        private string iD;
+        private string description;
+        private int expected;
         private int actual;
         
 
-        public string ItemDescription
+        public string Description
         {
             get
             {
-                return itemDescription;
+                return description;
             }
 
             set
             {
-                itemDescription = value;
+                description = value;
             }
         }
 
-        public int Expectedc
+        public int Expected
         {
             get
             {
-                return expectedc;
+                return expected;
             }
 
             set
             {
-                expectedc = value;
+                expected = value;
             }
         }
 
@@ -54,16 +54,16 @@ namespace Team09LogicU.App_Code.UtilClass
         }
 
 
-        public string ItemID
+        public string ID
         {
             get
             {
-                return itemID;
+                return iD;
             }
 
             set
             {
-                itemID = value;
+                iD = value;
             }
         }
     }

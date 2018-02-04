@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class=" container">
                             <div class="col-lg-7" style="margin:20px 0 20px 0">
-                            <asp:TextBox ID="TextBox_Search" Width="90%" runat="server" CssClass="form-control" ></asp:TextBox></div>
+                            <asp:TextBox ID="TextBox_Search" Width="90%" runat="server" CssClass="form-control" PlaceHolder ="Search by Item ID or Description "></asp:TextBox></div>
 <%--                           <asp:DropDownList ID="ddlCategory" runat="server" Width=300px CssClass="form-control"></asp:DropDownList><br>--%>
                            <div class="col-lg-1" style="margin:20px 0 20px 0"><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-warning btn-fill btn-wd" OnClick="btnSearch_Click" /></div>
                         </div></div></div>
@@ -24,14 +24,14 @@
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
                                                  
-                                                    <asp:BoundField DataField="itemID" HeaderText="item ID:" />
-                                                    <asp:BoundField DataField="categoryID" HeaderText="categoryID:" />
-                                                    <asp:BoundField DataField="location" HeaderText="location:" />
-                                                    <asp:BoundField DataField="description" HeaderText="description:" />
-                                                    <asp:BoundField DataField="reorderLevel" HeaderText="reorder Level:" />
-                                                    <asp:BoundField DataField="reorderQty" HeaderText="reorder Qty:" />
-                                                    <asp:BoundField DataField="unitOfMeasure" HeaderText="unit Of Measure:" />
-                                                    <asp:BoundField DataField="qtyOnHand" HeaderText="qtyOnHand:" />
+                                                    <asp:BoundField DataField="itemID" HeaderText="item ID" />
+                                                    <asp:BoundField DataField="categoryID" HeaderText="category ID" />
+                                                    <asp:BoundField DataField="description" HeaderText="description" />
+                                                    <asp:BoundField DataField="unitOfMeasure" HeaderText="unit Of Measure" />
+                                                    <asp:BoundField DataField="location" HeaderText="location" />
+                                                    <asp:BoundField DataField="reorderLevel" HeaderText="reorder Level" />
+                                                    <asp:BoundField DataField="reorderQty" HeaderText="reorder Quantity" />
+                                                    <asp:BoundField DataField="qtyOnHand" HeaderText="Stock" />
                                                     
                                                 </Columns>
                                                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
