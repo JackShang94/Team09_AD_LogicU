@@ -11,5 +11,19 @@ namespace Team09LogicU.App_Code.UtilClass
         {
 
         }
+
+        public bool isNullString(string checkstring)
+        {
+            bool IsNullString = false;
+            if (checkstring=="")
+            {
+                IsNullString = true;
+                return IsNullString;
+            }
+            else
+            {
+                return IsNullString;
+            }
+        }
     }
 }

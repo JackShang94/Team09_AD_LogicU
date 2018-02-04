@@ -61,7 +61,7 @@ namespace Team09LogicU.pages
                     Response.Redirect("DH_ViewPendingRequisition.aspx");
                     break;
                 case "clerk":
-                    Response.Redirect("SC_RO_RetrievalForms.aspx");
+                    Response.Redirect("SC_dashboard.aspx");
                     break;
                 case "manager":
                     Response.Redirect("SM_ApproveAdjustment.aspx");

@@ -4,13 +4,19 @@
     Manage Reorder
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-   
      <div class="row">
+            <div class="col-lg-10">
+                <asp:LinkButton ID="LinkButton_history" runat="server" text="VIEW REORDER HISTORY" BorderStyle="None" Font-Overline="False" Font-Strikeout="False" Font-Underline="True" ForeColor="#666666" Font-Bold="False" OnClick="LinkButton_history_Click"></asp:LinkButton>
+                    </div></div>
+    <br />
+      <div class="row">
             <div class="col-lg-10">
                 <div class="card">
                                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
+                                                
                                                 <asp:GridView ID="GridView_reorderList" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  "
                                                     DataKeyNames="itemID" AutoGenerateColumns="False" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDataBound="RowDataBound"
                                                     CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False">

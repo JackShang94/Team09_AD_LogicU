@@ -145,10 +145,12 @@ namespace Team09LogicU.Pages
             Session["finalReorderList"] = list;
 
             Response.Redirect("SC_ViewReorderList.aspx");
-
-
         }
 
+        protected void LinkButton_history_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SC_ViewPurchaseOrderHistory.aspx");
+        }
     }
 
 }

@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <asp:Button ID="Btn_Submit" runat="server" ValidationGroup="submit1" Text="Submit" CssClass="btn btn-warning btn-fill btn-wd " OnClientClick="if(!notEmpty()) return false;" OnClick="Btn_Submit_Click" />
+    <asp:Button ID="Btn_Submit" runat="server" ValidationGroup="submit1" Text="Submit" CssClass="btn btn-warning btn-fill btn-wd "  OnClick="Btn_Submit_Click" />
     <asp:Button ID="Btn_Back" runat="server" Text="Back" CssClass="btn btn-default  btn-fill btn-wd" OnClick="Btn_Back_Click" />
 
     <script type="text/javascript">

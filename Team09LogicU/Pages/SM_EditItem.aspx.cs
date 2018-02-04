@@ -90,29 +90,43 @@ namespace Team09LogicU.Pages
 
         protected void Btn_Update_Click(object sender, EventArgs e)
         {
-            desc = TextBox_Description.Text;
-            location = TextBox_location.Text;
-            reorderLevel = Convert.ToInt32(TextBox_ReorderLevel.Text);
-            reorderQty = Convert.ToInt32(TextBox_ReorderQty.Text);
-            uom = dropdownlist_unitofmeasure.Text;
+            if ((TextBox_ReorderLevel.Text.Trim() == "") || (TextBox_ReorderQty.Text.Trim() == "") || (TextBox_price1.Text.Trim() == "") || (TextBox_price2.Text.Trim() == "") || (TextBox_price3.Text.Trim() == ""))
+            {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Invalid input！');</script>");
+            }
+            else
+            {
+                if ((dropdownlist_Supplier1.Text == dropdownlist_Supplier2.Text) || (dropdownlist_Supplier2.Text == dropdownlist_Supplier3.Text) || (dropdownlist_Supplier1.Text == dropdownlist_Supplier3.Text))
+                {
+                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Input different prices in one supplier price!');</script>");
+                }
+               
+                else
+                {
+                    desc = TextBox_Description.Text;
+                    location = TextBox_location.Text;
+                    reorderLevel = Convert.ToInt32(TextBox_ReorderLevel.Text);
+                    reorderQty = Convert.ToInt32(TextBox_ReorderQty.Text);
+                    uom = dropdownlist_unitofmeasure.Text;
 
 
-            iDAO.updateItem(itemID, desc, location, reorderLevel, reorderQty, uom);
+                    iDAO.updateItem(itemID, desc, location, reorderLevel, reorderQty, uom);
 
-            List<string> sl = new List<string>();
-            sl.Add(dropdownlist_Supplier1.Text);
-            sl.Add(dropdownlist_Supplier2.Text);
-            sl.Add(dropdownlist_Supplier3.Text);
+                    List<string> sl = new List<string>();
+                    sl.Add(dropdownlist_Supplier1.Text);
+                    sl.Add(dropdownlist_Supplier2.Text);
+                    sl.Add(dropdownlist_Supplier3.Text);
+                    List<decimal> pl = new List<decimal>();
+                    pl.Add(Convert.ToDecimal(TextBox_price1.Text));
+                    pl.Add(Convert.ToDecimal(TextBox_price2.Text));
+                    pl.Add(Convert.ToDecimal(TextBox_price3.Text));
 
-            List<decimal> pl = new List<decimal>();
-            pl.Add(Convert.ToDecimal(TextBox_price1.Text));
-            pl.Add(Convert.ToDecimal(TextBox_price2.Text));
-            pl.Add(Convert.ToDecimal(TextBox_price3.Text));
+                    supItemDAO.updateSupplierItem(itemID, sl, pl);
 
-            supItemDAO.updateSupplierItem(itemID, sl, pl);
-
-            Response.Write("<script>alert('Submitted successfully')</script>");
-            Response.Redirect("SM_SearchItem.aspx");
+                    Response.Write("<script>alert('Submitted successfully')</script>");
+                    Response.Redirect("SM_SearchItem.aspx");
+                }
+            }
         }
 
         protected void Btn_Back_Click(object sender, EventArgs e)

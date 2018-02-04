@@ -231,6 +231,15 @@ namespace Team09LogicU.Pages
                     collectionDAO.updatecollection(staff4, Label_CollectionPoint4.Text);
                     collectionDAO.updatecollection(staff5, Label_CollectionPoint5.Text);
                     collectionDAO.updatecollection(staff6, Label_CollectionPoint6.Text);
+
+                    NotificationDAO nDAO = new NotificationDAO();
+                    string supervisorName = Session["loginName"].ToString();
+                    nDAO.addStoreNotification(staff1, supervisorName + " assigned you in collection point "+ Label_CollectionPoint1.Text, DateTime.Now);
+                    nDAO.addStoreNotification(staff2, supervisorName + " assigned you in collection point " + Label_CollectionPoint2.Text, DateTime.Now);
+                    nDAO.addStoreNotification(staff3, supervisorName + " assigned you in collection point " + Label_CollectionPoint3.Text, DateTime.Now);
+                    nDAO.addStoreNotification(staff4, supervisorName + " assigned you in collection point " + Label_CollectionPoint4.Text, DateTime.Now);
+                    nDAO.addStoreNotification(staff5, supervisorName + " assigned you in collection point " + Label_CollectionPoint5.Text, DateTime.Now);
+                    nDAO.addStoreNotification(staff6, supervisorName + " assigned you in collection point " + Label_CollectionPoint6.Text, DateTime.Now);
                 }
                 else
                 {

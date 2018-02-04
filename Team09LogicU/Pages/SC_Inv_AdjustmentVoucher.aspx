@@ -43,33 +43,21 @@
                                     <HeaderStyle CssClass=" text-uppercase  "></HeaderStyle>
                                     <AlternatingRowStyle BackColor="White" />
 
-                                    <PagerTemplate>
-                                        <br />
-
-                                        <div class="col-lg-1" style="width: 100px">
-                                            <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px">
-                                            <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px">
-                                            <asp:LinkButton ID="lbnPrev" runat="server" Text="<<" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px; height: 80px; margin-right: -5px; margin-left: -5px; margin-top: -10px">
-                                            <asp:TextBox runat="server" CssClass="form-control text-center " Width="45px" ID="inPageNum" Text='<%#(((GridView)Container.NamingContainer).PageIndex + 1)%>'></asp:TextBox>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px; margin-left: 20px">
-                                            <asp:LinkButton ID="lbnNext" runat="Server" Text=">>" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px; margin-left: -10px">
-                                            <asp:LinkButton ID="lbnLast" runat="Server" Text="Last" CssClass="btn btn-xs btn-success" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last"></asp:LinkButton>
-                                        </div>
-                                        <div class="col-lg-1" style="width: 40px">
-                                            <asp:Button ID="go" CommandName="go" CssClass="btn btn-xs btn-success" Text="GO" runat="server" CausesValidation="false" />
-                                        </div>
-                                        <br />
-
-                                    </PagerTemplate>
+                                  <PagerTemplate>
+                                <br />
+                                <div class="col-lg-12 ">
+                                    <div class="col-lg-3 " style="width:18%">
+                                     <asp:Label ID="lblPage" runat="server" Text='<%# "Page:" + (((GridView)Container.NamingContainer).PageIndex + 1)  + "/" + (((GridView)Container.NamingContainer).PageCount)  %> '></asp:Label>
+                                     <asp:LinkButton ID="lbnFirst" runat="Server" Text="First" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="First"></asp:LinkButton>
+                                    <asp:LinkButton ID="lbnPrev" runat="server" Text="<<" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != 0 %>' CommandName="Page" CommandArgument="Prev"></asp:LinkButton>
+                                   </div><div class="col-lg-1" style="Width:10%"><asp:TextBox runat="server" CssClass="form-control text-center "  ID="inPageNum" Text='<%# ((GridView)Container.NamingContainer).PageIndex +1 %>'></asp:TextBox>
+                                    </div><div class="col-lg-3 ">
+                                       <asp:LinkButton ID="lbnNext" runat="Server" Text=">>" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Next"></asp:LinkButton>
+                                   <asp:LinkButton ID="lbnLast" runat="Server" Text="Last" CssClass="btn btn-xs btn-default" Enabled='<%# ((GridView)Container.NamingContainer).PageIndex != (((GridView)Container.NamingContainer).PageCount - 1) %>' CommandName="Page" CommandArgument="Last"></asp:LinkButton>
+                                     <asp:Button ID="Button1" CommandName="go" CssClass="btn btn-xs btn-default" Text="GO" runat="server" />
+                                    </div></div>
+                                    
+                            </PagerTemplate>
                                 </asp:GridView>
 
 
@@ -85,7 +73,7 @@
             <div class="card">
                 <div class="text-center">
                     <div class="col-lg-3" style="margin: 20px 30% 20px 30%">
-                        <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" ValidationGroup="submit1" Text="Checkout" OnClientClick=" if(!cartValidate()) return false;" OnClick="Submit_Click" EnableViewState="False" />
+                        <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" ValidationGroup="submit1" Text="Checkout"  OnClick="Submit_Click" EnableViewState="False" />
                     </div>
 
                     <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit" EnableViewState="False">
@@ -110,8 +98,8 @@
                                             <asp:TextBox ID="cart_qtyTextBox" runat="server" CssClass=" form-control" Text='<%#Eval("Qty") %>'>                                                                              
                                             </asp:TextBox>
                                         </td>
-                                        <td class="text-left" style="width: 55%">
-                                            <asp:RegularExpressionValidator ID="text_box_qty_alert" ClientIDMode="Static" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid"></asp:RegularExpressionValidator>
+                                        <td class="text-left" style="width: 15%">
+                                            <asp:RegularExpressionValidator ID="text_box_qty_alert" ClientIDMode="Static" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="cart_qtyTextBox" ValidationExpression="^-?[1-9]\d*$" ErrorMessage="Invalid"></asp:RegularExpressionValidator>
                                         </td>
                                         <%--                                                                              <asp:RegularExpressionValidator runat="server" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*|0$" ErrorMessage="Invalid!"></asp:RegularExpressionValidator>  --%>
                                         <td class="text-right" style="width: 50%">

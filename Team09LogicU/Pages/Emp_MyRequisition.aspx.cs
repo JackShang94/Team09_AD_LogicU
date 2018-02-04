@@ -34,7 +34,7 @@ namespace Team09LogicU.pages
 
 
                 string name = Session["loginID"].ToString();
-                //name = "emp006";
+
                 lr_h = rdao.getRequisitionByStaffID(name);
 
                 for (int i = lr_h.Count - 1; i >= 0; i--)

@@ -16,6 +16,9 @@ namespace Team09LogicU.Pages
         static string clerkID;
         AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
         AdjustmentVoucherItemDAO adjvidao = new AdjustmentVoucherItemDAO();
+        TextBox tb = new TextBox();
+        List<AdjustmentVoucherItem> adjItems;
+        string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             adjvID = Int32.Parse(Request.QueryString["adjvID"]);
@@ -32,7 +35,10 @@ namespace Team09LogicU.Pages
             lblAdjvID.Text = Convert.ToString(adjvID); ;
             Label_Authorisedby.Text = authorisedby;
             lblStatus.Text = status;
-            BindData();
+            adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
+
+            GridView_detailList.DataSource = adjItems;
+            GridView_detailList.DataBind();
         }
 
 
@@ -44,6 +50,12 @@ namespace Team09LogicU.Pages
 
                 TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+                strPageNum = tb.Text;
+                //updateGV();
+                adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
+
+                GridView_detailList.DataSource = adjItems;
+                GridView_detailList.DataBind();
             }
             catch
             {
@@ -66,12 +78,17 @@ namespace Team09LogicU.Pages
                 }
             }
         }
-        public void BindData()
-        {
-            List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
-            GridView_detailList.DataSource = adjItems;
-            GridView_detailList.DataBind();
-        }
+        //protected void updateGV()
+        //{
+        //    List<AdjustmentVoucherItem> adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
+        //    BindData(adjItems);
+        //}
+        //public void BindData(List<AdjustmentVoucherItem> adjItems)
+        //{
+           
+        //    GridView_detailList.DataSource = adjItems;
+        //    GridView_detailList.DataBind();
+        //}
         protected void Btn_Back_Click(object sender, EventArgs e)
         {
            
