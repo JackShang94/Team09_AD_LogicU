@@ -75,7 +75,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" CommandArgument='<%#Eval("itemID") %>' />
+                                                <asp:Button ID="btnEdit" CssClass="btn btn-xs btn-default" runat="server" CommandName="Edit" Text="Edit" CommandArgument='<%#Eval("iD") %>' />
                                             </ItemTemplate>
                                             <EditItemTemplate>
                                                 <asp:Button ID="btnUpdate" CssClass="btn btn-xs btn-danger" runat="server" CommandName="Update" Text="Update" />
