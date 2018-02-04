@@ -126,24 +126,15 @@
                         <p>Approve Adjustment
                         </p>
                     </a>        
+                </li>         
+                 <li>
+                    <a  href="SM_SearchItem.aspx">
+                        <i class="pe-7s-volume"></i>
+                        <p>ManageCatalog
+                        </p>
+                    </a>         
                 </li>
 
-                <li >
-                    <a data-toggle="collapse" href="#ManageCatalog" >
-                        <i class="pe-7s-plugin"></i>
-                        <p>Manage Catalog
-                           <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse " id="ManageCatalog">
-                        <ul class="nav">
-                            <li><a href="SM_SearchItem.aspx">Search Item</a></li>
-                            <li><a href="SM_AddItem.aspx">Add Item</a></li>
-                            <li><a href="SM_AddCatalog.aspx">Add Catalog</a></li>
-                      
-                        </ul>
-                    </div>
-                </li>
                  <li>
                     <a  href="SM_Notification.aspx">
                         <i class="pe-7s-volume"></i>
@@ -151,21 +142,13 @@
                         </p>
                     </a>         
                 </li>
-               
-               <li>
-                    <a data-toggle="collapse" href="#ManageSupplier">
-                        <i class="pe-7s-plugin"></i>
+
+                 <li>
+                    <a  href="SM_SearchSupplier.aspx">
+                        <i class="pe-7s-box2"></i>
                         <p>Manage Supplier
-                           <b class="caret"></b>
                         </p>
-                    </a>
-                    <div class="collapse" id="ManageSupplier">
-                        <ul class="nav">
-                            <li><a href="SM_SearchSupplier.aspx">Search Supplier</a></li>
-                            <li><a href="SM_AddSupplier.aspx">Add Supplier</a></li>
-               
-                        </ul>
-                    </div>
+                    </a>         
                 </li>
                  <li>
                     <a  href="SM_TrendAnalysisReport.aspx">
@@ -235,26 +218,14 @@
                                         <i class="pe-7s-users"></i>Search Item
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="SM_AddItem.aspx">
-                                        <i class="pe-7s-helm"></i>Add Item
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="SM_AddCatalog.aspx">
-                                        <i class="pe-7s-note2"></i>Add Catalog
-                                    </a>
-                                </li>
+                              
+                               
                                      <li>
                                     <a href="SM_SearchSupplier.aspx">
                                         <i class="pe-7s-note2"></i>Search Supplier
                                     </a>
                                 </li>
-                                     <li>
-                                    <a href="SM_AddSupplier.aspx">
-                                        <i class="pe-7s-note2"></i>Add Supplier
-                                    </a>
-                                </li>
+                                    
                                 <li class="divider"></li>
                                 
                                <li>
@@ -286,7 +257,7 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
-                    2018 <a href="http://www.team9.com">Team9</a>, made with love for a better web
+                    2018 <a href="https://github.com/JackShang94/Team09_AD_LogicU">Team9</a>,all rights reserved by team09
                 </p>
             </div>
         </footer>
