@@ -15,8 +15,6 @@ namespace Team09LogicU.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             loginDAO = new LoginDAO();
-            CollectionPointDAO ss = new CollectionPointDAO();
-            ss.getCollectionPointInformation();
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -38,11 +36,11 @@ namespace Team09LogicU.pages
             }
             else if (result[0] == "")
             {
-                string message = "This user does not exist!";
+                 message.Text = "This user does not exist!";
             }
             else
             {
-                string message = "Invalid username or password!";
+                 message.Text = "Invalid username or password!";
             }
 
         }
