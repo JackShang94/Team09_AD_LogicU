@@ -9,14 +9,18 @@
             <div class="card">
                 <div class=" container">
                     <div class="col-lg-10">
-                        <div class="col-lg-6" style="margin-top: 20px">
+                        <div class="col-lg-6" style="margin-top: 20px;margin-bottom:20px">
                             <asp:TextBox ID="textbox_Search" runat="server" placeholder="Search" CssClass="form-control"></asp:TextBox>
                         </div>
-                        <div class="col-lg-3" style="margin-top: 20px">
-                            <asp:Button ID="Button_Search" runat="server" Width="90%" Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="Button_Search_Click" />
+                        <div class="col-lg-3" style="margin-top: 20px;margin-bottom:20px">
+                            <asp:Button ID="Button_Search" runat="server"  Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="Button_Search_Click" />
                         </div>
                     </div>
-                    <div class="col-lg-10" style="margin-top: 20px; margin-bottom: 20px">
+                    </div></div></div></div>
+
+                     <div class="row">
+        <div class="col-lg-10">
+            <div class="card">
                         <asp:GridView ID="GridView_supplierList" runat="server" OnRowEditing="GridView_supplierList_RowEditing" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
                             CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
                             <Columns>
@@ -39,20 +43,12 @@
                             <AlternatingRowStyle BackColor="White" />
                         </asp:GridView>
 
-
+                </div></div>
                     </div>
-                    <div class="col-lg-3" style="margin-bottom: 20px">
+                   
                         <asp:Button ID="Button_Add" runat="server" Text="Add New Supplier" CssClass="btn btn-warning btn-fill btn-wd " OnClick="Button_Add_Click" />
-                    </div>
+               
 
-                </div>
-                <!-- end content-->
-            </div>
-            <!--  end card  -->
-        </div>
-        <!-- end col-lg-10 -->
-    </div>
-    <!-- end row -->
-
+               
 
 </asp:Content>

@@ -6,18 +6,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-lg-10">
             <div class="card">
-                <div class="content">
-                    <div class="form-group" style="height: 25px; width: 100%">
-                        <div class="pull-left search" style="width: 75%">
+                <div class=" container">
+                    <div class="col-lg-6" style="margin-top:20px;margin-bottom:20px">
+                        
                             <asp:TextBox ID="textbox_Search" placeholder="Search" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                        <div class="pull-right" style="width: 20%">
-                            <asp:Button ID="Button_search" runat="server" Width="100%" Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="Button_search_Click" />
+                        <div class="col-lg-1" style="margin-top:20px;margin-bottom:20px" >
+                            <asp:Button ID="Button_search" runat="server"  Text="Search" CssClass="btn btn-primary btn-fill btn-wd" OnClick="Button_search_Click" />
                         </div>
 
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -26,14 +26,14 @@
 
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-12">
             <div class="card">
                 <div class=" container">
-                    <div class="col-lg-10" style="margin: 20px 0 0 -40px">
+                    <div class="col-lg-10" style="margin: 20px 0 0 0">
                         <asp:Button ID="Btn_Add" runat="server" Text="Add New Item" CssClass="btn btn-warning btn-fill btn-wd " OnClick="Btn_Add_Click" />
                     </div>
-                    <div class="col-lg-12" style="margin-top: 20px; margin-left: -40px">
-                        <asp:GridView ID="GridView_itemList" runat="server" OnRowCommand="GridView_itemList_RowCommand" OnPageIndexChanging="GridView_itemList_PageIndexChanging" PageSize="5" OnRowEditing="GridView_itemList_RowEditing"
+                    <div class="col-lg-12" style="margin-top: 20px; ">
+                        <asp:GridView ID="GridView_itemList" runat="server" Width="85%" OnRowCommand="GridView_itemList_RowCommand" OnPageIndexChanging="GridView_itemList_PageIndexChanging" PageSize="5" OnRowEditing="GridView_itemList_RowEditing"
                             CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AllowPaging="True" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit"
                             CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" EmptyDataText ="There is no record!">
                             <Columns>
