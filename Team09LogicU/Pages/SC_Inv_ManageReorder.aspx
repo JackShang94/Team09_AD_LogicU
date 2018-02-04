@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <div class="row">
             <div class="col-lg-10">
-                <asp:LinkButton ID="LinkButton_history" runat="server" text="VIEW REORDER HISTORY" BorderStyle="None" Font-Overline="False" Font-Strikeout="False" Font-Underline="True" ForeColor="#666666" Font-Bold="False" OnClick="LinkButton_history_Click"></asp:LinkButton>
+                <asp:LinkButton ID="LinkButton_history" runat="server" text="Click here to view history" BorderStyle="None" Font-Overline="False" Font-Strikeout="False" Font-Underline="True" ForeColor="#666666" Font-Bold="False" OnClick="LinkButton_history_Click"></asp:LinkButton>
                     </div></div>
     <br />
       <div class="row">
@@ -21,7 +21,7 @@
                                                     DataKeyNames="itemID" AutoGenerateColumns="False" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDataBound="RowDataBound"
                                                     CellPadding="4" ForeColor="#333333" GridLines="None" EnableViewState="False">
                                                     <Columns>
-                                                        <asp:TemplateField HeaderText="ItemID" SortExpression="SortedAscendingHeaderStyle">
+                                                        <asp:TemplateField HeaderText="Item ID" SortExpression="SortedAscendingHeaderStyle">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblItemID" runat="server" Text='<%# Eval("itemID") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -36,7 +36,7 @@
                                                                 <asp:Label ID="lblUnitOfMeasure" runat="server" Text='<%# Eval("unitOfMeasure") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Current Stock">
+                                                        <asp:TemplateField HeaderText="Stock">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblQtyOnHand" runat="server" Text='<%# Eval("qtyOnHand") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -46,12 +46,12 @@
                                                                 <asp:Label ID="lblReorderLevel" runat="server" Text='<%# Eval("reorderLevel") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Reorder Qty">
+                                                        <asp:TemplateField HeaderText="Reorder Quantity">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblReorderQty" runat="server" Text='<%# Eval("reorderQty") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Order Qty">
+                                                        <asp:TemplateField HeaderText="Order Quantity">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblOrderQty" runat="server" Text='<%# Eval("orderQty") %>'></asp:Label>
                                                             </ItemTemplate>

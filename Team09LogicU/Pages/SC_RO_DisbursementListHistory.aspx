@@ -24,7 +24,7 @@
                         <asp:DropDownList ID="deptDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
                     <div class="col-lg-10" style="margin-top: 20px; margin-bottom: 20px">
-                        <asp:Button ID="searchBtn" runat="server" Text="search" CssClass="btn btn-warning btn-wd btn-fill" OnClick="searchBtn_Click"></asp:Button>
+                        <asp:Button ID="searchBtn" runat="server" Text="Search" CssClass="btn btn-warning btn-wd btn-fill" OnClick="searchBtn_Click"></asp:Button>
                     </div>
 
                 </div>

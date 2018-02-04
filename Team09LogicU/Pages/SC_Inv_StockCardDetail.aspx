@@ -19,7 +19,7 @@
                                     <asp:Label ID="label_description" runat="server" Text=""></asp:Label>
                                 </p>
                                 <p class="category">
-                                    <asp:Label ID="label2" runat="server" Text=" Unit of mesaure:"></asp:Label>
+                                    <asp:Label ID="label2" runat="server" Text=" Unit of Mesaure:"></asp:Label>
                                     <asp:Label ID="label_measure" runat="server" Text=""></asp:Label>
                             </div>
                             <p>
@@ -31,7 +31,7 @@
                                                     <asp:BoundField DataField="date" HeaderText="date" />
                                                     <asp:BoundField DataField="quantity" HeaderText="quantity" />
                                                     <asp:BoundField DataField="balance" HeaderText="balance" />
-                                                    <asp:BoundField DataField="record" HeaderText="record" />
+                                                    <asp:BoundField DataField="record" HeaderText="Remarks" />
                                                 </Columns>
 
 
