@@ -252,7 +252,6 @@
     <Content Include="Pages\DH_ViewPendingRequisition.aspx" />
     <Content Include="Pages\Emp_MyRequisition.aspx" />
     <Content Include="Pages\Emp_Notification.aspx" />
-    <Content Include="Pages\Emp_Representative.aspx" />
     <Content Include="Pages\Emp_Rep_DisbursementHistory.aspx" />
     <Content Include="Pages\Emp_Rep_SelectCollection.aspx" />
     <Content Include="Pages\Emp_SubmitRequisition.aspx" />
@@ -667,13 +666,6 @@
     </Compile>
     <Compile Include="Pages\Emp_Notification.aspx.designer.cs">
       <DependentUpon>Emp_Notification.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Emp_Representative.aspx.cs">
-      <DependentUpon>Emp_Representative.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Emp_Representative.aspx.designer.cs">
-      <DependentUpon>Emp_Representative.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Emp_Rep_DisbursementHistory.aspx.cs">
       <DependentUpon>Emp_Rep_DisbursementHistory.aspx</DependentUpon>
