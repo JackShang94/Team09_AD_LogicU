@@ -21,24 +21,27 @@ namespace Team09LogicU.Pages
         string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            adjvID = Int32.Parse(Request.QueryString["adjvID"]);
-            clerkID = (string)Session["loginID"];
+            if (!IsPostBack)
+            {
+                adjvID = Int32.Parse(Request.QueryString["adjvID"]);
+                clerkID = (string)Session["loginID"];
 
-            AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
-            //string Staff = adjv;
-            string authorisedby = adjv.authorisedBy;
-            string status = adjv.status;
-            DateTime adjvDate = adjv.adjDate;
+                AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
+                //string Staff = adjv;
+                string authorisedby = adjv.authorisedBy;
+                string status = adjv.status;
+                DateTime adjvDate = adjv.adjDate;
 
-            Label_StoreStafID.Text = clerkID;
-            lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
-            lblAdjvID.Text = Convert.ToString(adjvID); ;
-            Label_Authorisedby.Text = authorisedby;
-            lblStatus.Text = status;
-            adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
+                Label_StoreStafID.Text = clerkID;
+                lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
+                lblAdjvID.Text = Convert.ToString(adjvID); ;
+                Label_Authorisedby.Text = authorisedby;
+                lblStatus.Text = status;
+                adjItems = adjvidao.getAdjustmentVoucherItemListByADJVID(adjvID);
 
-            GridView_detailList.DataSource = adjItems;
-            GridView_detailList.DataBind();
+                GridView_detailList.DataSource = adjItems;
+                GridView_detailList.DataBind();
+            }
         }
 
 

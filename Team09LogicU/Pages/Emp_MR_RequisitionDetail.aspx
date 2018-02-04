@@ -9,7 +9,7 @@ Requisition Detail
 									<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 									<asp:UpdatePanel ID="reqDetailUpdatePanel" runat="server" UpdateMode="Always">
 										<ContentTemplate>
-												<asp:gridview id="requisitionItemListGridView"  runat="server" allowpaging="True" allowsorting="true"  autogeneratecolumns="False" datakeynames="reqItemID" CssClass="table" OnRowDataBound="requisitionItemListGridView_RowDataBound"  OnRowCommand="requisitionItemListGridView_RowCommand" OnRowCancelingEdit="requisitionItemListGridView_RowCancelingEdit" OnRowUpdating="requisitionItemListGridView_RowUpdating" OnRowEditing="requisitionItemListGridView_RowEditing" OnRowDeleting="requisitionItemListGridView_RowDeleting" EnableViewState="False">
+												<asp:gridview id="requisitionItemListGridView"  runat="server"  allowsorting="true"  autogeneratecolumns="False" datakeynames="reqItemID" CssClass="table" OnRowDataBound="requisitionItemListGridView_RowDataBound"  OnRowCommand="requisitionItemListGridView_RowCommand" OnRowCancelingEdit="requisitionItemListGridView_RowCancelingEdit" OnRowUpdating="requisitionItemListGridView_RowUpdating" OnRowEditing="requisitionItemListGridView_RowEditing" OnRowDeleting="requisitionItemListGridView_RowDeleting" EnableViewState="False">
 														<columns>
 															<asp:TemplateField>
 																<ItemTemplate>

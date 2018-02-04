@@ -23,32 +23,35 @@ namespace Team09LogicU.Pages
         string strPageNum = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            adjvID = Int32.Parse(Request.QueryString["adjvID"]);
-            managerID = (string)Session["loginID"];
-
-            AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
-
-            string staffName = adjv.StoreStaff.storeStaffName;
-            string authorisedby = adjv.authorisedBy;
-            string status = adjv.status;
-            DateTime adjvDate = adjv.adjDate;
-            //if (authorisedby == "")
-            //{
-            //    LabeltxtAutBy.Style.Value = " display:none;";
-            //    Label_Authorisedby.Style.Value = " display:none;";
-            //}
-            if (adjv.status != "PendingForManager")
+            if (!IsPostBack)
             {
-                TextBox_Remarks.Style.Value= " display:none;";
-                button_Reject.Style.Value = " display:none;";
-                button_Approve.Style.Value = " display:none;";
+                adjvID = Int32.Parse(Request.QueryString["adjvID"]);
+                managerID = (string)Session["loginID"];
+
+                AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
+
+                string staffName = adjv.StoreStaff.storeStaffName;
+                string authorisedby = adjv.authorisedBy;
+                string status = adjv.status;
+                DateTime adjvDate = adjv.adjDate;
+                //if (authorisedby == "")
+                //{
+                //    LabeltxtAutBy.Style.Value = " display:none;";
+                //    Label_Authorisedby.Style.Value = " display:none;";
+                //}
+                if (adjv.status != "PendingForManager")
+                {
+                    TextBox_Remarks.Style.Value = " display:none;";
+                    button_Reject.Style.Value = " display:none;";
+                    button_Approve.Style.Value = " display:none;";
+                }
+                Label_StoreStafID.Text = staffName;
+                lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
+                lblAdjvID.Text = Convert.ToString(adjvID); ;
+                Label_Authorisedby.Text = authorisedby;
+                lblStatus.Text = status;
+                updateGV();
             }
-            Label_StoreStafID.Text = staffName;
-            lblDate.Text = adjvDate.ToString("dd/MM/yyyy");
-            lblAdjvID.Text = Convert.ToString(adjvID); ;
-            Label_Authorisedby.Text = authorisedby;
-            lblStatus.Text = status;
-            updateGV();
         }
         protected void GridView_detailList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

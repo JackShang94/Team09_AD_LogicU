@@ -360,6 +360,7 @@
     <Content Include="picture\P044.jpg" />
     <Content Include="picture\P045.jpg" />
     <Content Include="picture\P046.jpg" />
+    <Content Include="picture\qew.jpg" />
     <Content Include="picture\R001.jpg" />
     <Content Include="picture\R002.jpg" />
     <Content Include="picture\ro.png" />
@@ -429,6 +430,7 @@
     <Compile Include="AndroidServices\LoginService.svc.cs">
       <DependentUpon>LoginService.svc</DependentUpon>
     </Compile>
+    <Compile Include="AndroidServices\RestAuthorizationManager .cs" />
     <Compile Include="AndroidServices\RetrievalFormItemService.svc.cs">
       <DependentUpon>RetrievalFormItemService.svc</DependentUpon>
     </Compile>

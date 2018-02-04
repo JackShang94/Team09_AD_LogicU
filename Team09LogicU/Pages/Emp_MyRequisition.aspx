@@ -17,7 +17,7 @@
 											<h4 class=" panel-title">Pending Requisition</h4>
 										</div>
                                     <div class="col-lg-12" style="margin-bottom:20px" >
-										<asp:GridView ID="requisitionListGridView"  Width="80%" HeaderStyle-BackColor="#e8e8e8" runat="server" AllowPaging="True" HeaderStyle-CssClass=" content text-uppercase "  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
+										<asp:GridView ID="requisitionListGridView"  Width="80%" HeaderStyle-BackColor="#e8e8e8" runat="server"  HeaderStyle-CssClass=" content text-uppercase "  AllowSorting="true" AutoGenerateColumns="false"  DataKeyNames="requisitionID" CssClass="table table-striped table-hover" OnRowDeleting="requisitionListGridView_RowDeleting"  OnRowCommand="requisitionListGridView_RowCommand" EmptyDataText="There is no pending requisition">
 												<columns>
 													<%--<asp:TemplateField>
 														<ItemTemplate>

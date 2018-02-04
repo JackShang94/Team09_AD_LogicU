@@ -73,7 +73,7 @@
             <div class="card">
                 <div class="text-center">
                     <div class="col-lg-3" style="margin: 20px 30% 20px 30%">
-                        <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" ValidationGroup="submit1" Text="Checkout" OnClientClick=" if(!cartValidate()) return false;" OnClick="Submit_Click" EnableViewState="False" />
+                        <asp:Button ID="Submit" runat="server" CssClass="btn btn-wd btn-warning btn-fill" ValidationGroup="submit1" Text="Checkout"  OnClick="Submit_Click" EnableViewState="False" />
                     </div>
 
                     <asp:UpdatePanel ID="cartUpdatePanel" runat="server" UpdateMode="Conditional" ViewStateMode="Inherit" EnableViewState="False">
@@ -98,8 +98,8 @@
                                             <asp:TextBox ID="cart_qtyTextBox" runat="server" CssClass=" form-control" Text='<%#Eval("Qty") %>'>                                                                              
                                             </asp:TextBox>
                                         </td>
-                                        <td class="text-left" style="width: 55%">
-                                            <asp:RegularExpressionValidator ID="text_box_qty_alert" ClientIDMode="Static" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="cart_qtyTextBox" ValidationExpression="^[1-9]\d*$" ErrorMessage="Invalid"></asp:RegularExpressionValidator>
+                                        <td class="text-left" style="width: 15%">
+                                            <asp:RegularExpressionValidator ID="text_box_qty_alert" ClientIDMode="Static" runat="server" ForeColor="Red" ValidationGroup="submit1" ControlToValidate="cart_qtyTextBox" ValidationExpression="^-?[1-9]\d*$" ErrorMessage="Invalid"></asp:RegularExpressionValidator>
                                         </td>
                                       
                                         <td class="text-right" >
