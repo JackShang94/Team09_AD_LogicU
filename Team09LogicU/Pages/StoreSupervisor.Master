@@ -117,7 +117,13 @@
             </div>
 
             <ul class="nav">
-               
+                <li>
+                    <a  href="SS_dashdoard.aspx">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard
+                        </p>
+                    </a>         
+                </li>
                 <li>
                     <a href="SS_ViewAdjustment.aspx">
                         <i class="pe-7s-home"></i>

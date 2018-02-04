@@ -49,7 +49,7 @@
                              <div class=" col-lg-5" id="chart1"></div></div>
                      </div></div>
         </div>
-        <div class="col-lg-11">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="container">
                <div class="col-lg-10" style="margin:20px 0 20px 0">

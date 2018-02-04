@@ -119,7 +119,13 @@
             </div>
 
             <ul class="nav">
-               
+                <li>
+                    <a  href="SM_dashboard.aspx">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard
+                        </p>
+                    </a>         
+                </li>
                 <li>
                     <a href="SM_ApproveAdjustment.aspx">
                         <i class="pe-7s-home"></i>
