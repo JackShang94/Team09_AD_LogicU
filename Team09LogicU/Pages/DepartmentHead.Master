@@ -13,42 +13,7 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-     <!-- Canonical SEO -->
-    <link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro"/>
-
-    <!--  Social tags      -->
-    <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap dashboard, bootstrap, css3 dashboard, bootstrap admin, light bootstrap dashboard, frontend, responsive bootstrap dashboard">
-
-    <meta name="description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Light Bootstrap Dashboard PRO by Creative Tim">
-    <meta itemprop="description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-
     <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-    <!-- Twitter Card data -->
-
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="@creativetim">
-
-    <!--TITLE-->
-    <meta name="twitter:title" content="LOGIC UNIVERSITY">
-
-    <meta name="twitter:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-    <meta name="twitter:creator" content="@creativetim">
-    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-    <meta name="twitter:data1" content="Light Bootstrap Dashboard PRO by Creative Tim">
-    <meta name="twitter:label1" content="Product Type">
-    <meta name="twitter:data2" content="$29">
-    <meta name="twitter:label2" content="Price">
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="Light Bootstrap Dashboard PRO by Creative Tim" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html" />
-    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg"/>
-    <meta property="og:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful." />
-    <meta property="og:site_name" content="Creative Tim" />
 
 
     <!-- Bootstrap core CSS     -->
@@ -74,13 +39,7 @@
          <form id ="form1" runat="server">
 <div class="wrapper">
     <div class="sidebar" data-color="orange" data-image="../picture/full-screen-image-3.jpg">
-        <!--
-
-            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-            Tip 2: you can also add an image using data-image tag
-
-        -->
-
+       
         <div class="logo">
             <a href="#" class="logo-text">
                 Department Head
@@ -322,16 +281,7 @@
 	<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 	<script src="../js/demo.js"></script>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-46172202-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+    
     <script src="../js/demo.js"></script>
           <script type="text/javascript">
               $().ready(function () {
