@@ -52,6 +52,7 @@ namespace Team09LogicU.pages
 
             if (e.CommandName == "delete")
             {
+                string a = e.CommandArgument.ToString();
                 int req = Int32.Parse(e.CommandArgument.ToString());
 
                 RequisitionDAO rdao = new RequisitionDAO();
