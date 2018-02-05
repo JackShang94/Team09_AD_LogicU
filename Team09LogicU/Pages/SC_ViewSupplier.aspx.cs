@@ -36,8 +36,5 @@ namespace Team09LogicU.Pages
             GridView_supplierList.DataSource = slist;
             GridView_supplierList.DataBind();
         }
-
-
-
     }
 }

@@ -34,11 +34,6 @@ namespace Team09LogicU.Pages
                 deptName = dept_dropList.SelectedItem.Text;
                 deptid = dpd.findDepartmentIdByName(deptName);
                 dataChart = getBarChartDataByDeptID(deptid);
-
-               
-
-
-
             }
             string loginID = Session["loginID"].ToString();
             NotificationDAO nDAO = new NotificationDAO();

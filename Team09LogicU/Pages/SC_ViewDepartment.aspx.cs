@@ -17,7 +17,6 @@ namespace Team09LogicU.Pages
         DeptStaffDAO depstaffDAO = new DeptStaffDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 this.BindGrid();
@@ -39,9 +38,7 @@ namespace Team09LogicU.Pages
             iTable.Columns.Add(new DataColumn("reqName", typeof(string)));
             
             foreach (Department i in deplist)
-            {
-              
-              
+            {                           
                 DataRow dr = iTable.NewRow();
                 DeptStaff HEADSTAFF = depstaffDAO.findStaffByStaffID(i.headStaffID);
                 DeptStaff REPSTAFFID = depstaffDAO.findStaffByStaffID(i.repStaffID);

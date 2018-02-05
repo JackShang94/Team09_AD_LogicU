@@ -13,13 +13,11 @@ namespace Team09LogicU.Pages
         DisbursementDAO disDAO = new DisbursementDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
                 string disID_url = Request.QueryString["disID"];
                 if (disID_url.ToString() == null)
                 {
                     Response.Redirect("SC_RO_DisbursementListHistory.aspx");
-                }
-               
+                }              
                 int disID = Convert.ToInt32(disID_url);
                 disburseItem_HisGridView.DataSource = disDAO.getDisbursementItemByDisID(disID);
                 disburseItem_HisGridView.DataBind();

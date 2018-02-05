@@ -54,18 +54,16 @@ namespace Team09LogicU.Pages
         protected void InventoryStatusGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
-            {
-                
+            {               
                 tb = (TextBox)InventoryStatusGridView.BottomPagerRow.FindControl("inPageNum");
                 InventoryStatusGridView.PageIndex = e.NewPageIndex;
                 tb.Text = (InventoryStatusGridView.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                BindGridView();
-
-
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 
@@ -76,7 +74,6 @@ namespace Team09LogicU.Pages
                 tb = (TextBox)InventoryStatusGridView.BottomPagerRow.FindControl("inPageNum");
 
             }
-
             try
             {
 
@@ -86,6 +83,7 @@ namespace Team09LogicU.Pages
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
     }

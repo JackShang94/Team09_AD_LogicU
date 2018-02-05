@@ -44,13 +44,11 @@ namespace Team09LogicU.Pages
             }
         }
 
-
         protected void GridView_detailList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
             {
                 GridView_detailList.PageIndex = e.NewPageIndex;
-
                 TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_detailList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
@@ -61,6 +59,7 @@ namespace Team09LogicU.Pages
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 
@@ -77,12 +76,12 @@ namespace Team09LogicU.Pages
                 }
                 catch
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
                 }
             }
         }
         protected void Btn_Back_Click(object sender, EventArgs e)
-        {
-           
+        {    
             Response.Redirect("./SC_ViewAdjustmentVoucher.aspx");
         }
     }

@@ -16,9 +16,6 @@ namespace Team09LogicU.pages
         private string deptid;
         protected void outstandingBindGrid()
         {
-            //depName = ;
-            //this.deptid = dpd.findDepartmentIdByName(depName);
-
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,15 +53,10 @@ namespace Team09LogicU.pages
             Session["loc"] = loc;
             outstandingGridView.DataSource = loc;
             outstandingGridView.DataBind();
-            //UpdatePanel1.Update();
-            //collectionpointLabel.Text = dpd.getCollectionPointbyDepartmentId(this.deptid);
-
         }
 
         protected void printButton_Click(object sender, EventArgs e)
         {
-            //For print Report
-           
         }
     }
 }

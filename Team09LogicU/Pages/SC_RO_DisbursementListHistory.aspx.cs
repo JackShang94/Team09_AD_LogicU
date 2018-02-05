@@ -20,7 +20,6 @@ namespace Team09LogicU.Pages
         private string deptID;
         public void BindDropDownList()
         {
-
             deptDropDownList.DataSource = dDAO.findAllDepartmentName();
             deptDropDownList.DataBind();
         }
@@ -83,9 +82,7 @@ namespace Team09LogicU.Pages
                     fromTextBox.Text = from.ToString();
                     toTextBox.Text = to.ToString();
                     postBackDisbursement(from, to, this.deptID);
-                }
-               
-
+                }             
             }
         }
 
@@ -123,15 +120,12 @@ namespace Team09LogicU.Pages
                 disburseHisGridView.DataBind();
                 return;
             }
-
-
             DateTime from = Convert.ToDateTime(f);
             DateTime to = Convert.ToDateTime(t);
             if (DateTime.Compare(from, to) > 0){
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Please Enter correct date range')", true);
                 return;
             }
-
             this.deptName = deptDropDownList.Text;
             this.deptID = dDAO.findDepartmentIdByName(this.deptName);
             postBackDisbursement(from, to, this.deptID);

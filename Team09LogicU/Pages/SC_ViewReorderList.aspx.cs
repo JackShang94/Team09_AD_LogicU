@@ -31,10 +31,7 @@ namespace Team09LogicU.Pages
 
             if (Session["finalReorderList"] != null)
             {
-                var groupedSupplierList = list.Select(x => x.SupplierID).Distinct().ToList();
-
-                
-
+                var groupedSupplierList = list.Select(x => x.SupplierID).Distinct().ToList();              
                 for (int i = 0; i < groupedSupplierList.Count; i++)
                 {
                     reorderCart.Add(new ReorderCart());
@@ -106,8 +103,6 @@ namespace Team09LogicU.Pages
 
                     }
                 }
-
-
                 Session["finalReorderList"] = null;
                 Session["reorderList"] = null;
                 GridView_reorderListBySup.DataSource = null;

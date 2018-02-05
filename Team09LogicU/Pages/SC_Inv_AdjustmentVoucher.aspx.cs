@@ -32,7 +32,7 @@ namespace Team09LogicU.Pages
             iTable.Columns.Add(new DataColumn("categoryID", typeof(string)));
             iTable.Columns.Add(new DataColumn("description", typeof(string)));
             iTable.Columns.Add(new DataColumn("unitOfMeasure", typeof(string)));
-          
+
             foreach (Item i in li)
             {
                 DataRow dr = iTable.NewRow();
@@ -40,7 +40,7 @@ namespace Team09LogicU.Pages
                 dr["categoryID"] = i.categoryID;
                 dr["description"] = i.description;
                 dr["unitOfMeasure"] = i.unitOfMeasure;
-            
+
                 iTable.Rows.Add(dr);
             }
             GridView_CatalogList.DataSource = iTable;
@@ -49,18 +49,15 @@ namespace Team09LogicU.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-       
+
             if (!IsPostBack)
             {
                 dropDownList_bindCatInfo();
-                //this.BindGrid();
                 if (Session["adjvcart"] == null)
                 {
                     Session["adjvcart"] = new List<AdjustmentVoucherItemcart>();
                 }
                 /**********************Loading Cart List************************************/
-
-                //string name = Session["loginID"].ToString();
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
                 if (this.staffID == null)
@@ -70,7 +67,7 @@ namespace Team09LogicU.Pages
                 }
 
                 string role = Session["loginRole"].ToString();
-                if (role != "clerk" )
+                if (role != "clerk")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
@@ -97,15 +94,12 @@ namespace Team09LogicU.Pages
                 string name = Session["loginID"].ToString();
                 this.staffID = name;
                 string role = Session["loginRole"].ToString();
-                if (role != "clerk" )
+                if (role != "clerk")
                 {
                     HttpContext.Current.Response.Redirect("login.aspx");
                     return;
                 }
                 List<AdjustmentVoucherItemcart> lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
-
-
-
                 updateCart(lac);
                 ItemDAO idao = new ItemDAO();
             }
@@ -124,41 +118,35 @@ namespace Team09LogicU.Pages
 
         protected void DropDownList_cat_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             UpdateGridviewByDropdownList();
-
-
-
         }
         protected void UpdateGridviewByDropdownList()
         {
             updateGV();
-        }               
+        }
 
-       protected void Submit_Click(object sender, EventArgs e)
+        protected void Submit_Click(object sender, EventArgs e)
         {
             string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
-            
+
             lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
             if (lac.Count > 0)
             {
-               
-                    int num = 0;
-                int judge = 0; 
-                    foreach (Control i in cartRepeater.Items)//get Quantity
+                int num = 0;
+                int judge = 0;
+                foreach (Control i in cartRepeater.Items)//get Quantity
+                {
+                    LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
+                    TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
+                    TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
+                    lac[num].ItemID = deletebtn.CommandArgument.ToString();
+                    if (cartqty.Text.Trim() == "")
                     {
-                        LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
-                        TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get quantity
-                        TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
-                        lac[num].ItemID = deletebtn.CommandArgument.ToString();
-                        if (cartqty.Text.Trim() == "")
-                        {
-                            judge = 1;
-                            //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input quanqtity！');</script>");
-                            break;
-                        }
+                        judge = 1;
+                        break;
+                    }
                     try
                     {
                         lac[num].Qty = Int32.Parse(cartqty.Text.ToString());
@@ -168,24 +156,19 @@ namespace Team09LogicU.Pages
                         judge = 1;
                         break;
                     }
-                        if ((lac[num].Qty % 1 != 0)||(lac[num].Qty==0))
-                        {
+                    if ((lac[num].Qty % 1 != 0) || (lac[num].Qty == 0))
+                    {
                         judge = 1;
-                        //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
                         break;
-                        }
-                        if ((lac[num].Qty < 0) && (Math.Abs(lac[num].Qty) > itemDAO.getItemByitemID(lac[num].ItemID).First().qtyOnHand))
-                        {
-
-                            judge = 2;
-                            break;
-                        }
-                       
-
-
-                        lac[num].Record = cartrecord.Text;
-                        num++;
                     }
+                    if ((lac[num].Qty < 0) && (Math.Abs(lac[num].Qty) > itemDAO.getItemByitemID(lac[num].ItemID).First().qtyOnHand))
+                    {
+                        judge = 2;
+                        break;
+                    }
+                    lac[num].Record = cartrecord.Text;
+                    num++;
+                }
                 if (judge == 0)
                 {
                     AdjustmentVoucherDAO adjvdao = new AdjustmentVoucherDAO();
@@ -239,112 +222,98 @@ namespace Team09LogicU.Pages
                 string name = this.staffID;
                 string itemid = e.CommandArgument.ToString();
                 int alert = 0;
-                
-               
-                    foreach (Control i in cartRepeater.Items)//get Quantity from the cart
+
+                foreach (Control i in cartRepeater.Items)//get Quantity from the cart
+                {
+                    LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
+                    TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
+                    TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
+                    string a = cartqty.Text;
+                    if (a.Trim() == "")
                     {
-                        LinkButton deletebtn = i.FindControl("cart_deleteButton") as LinkButton;//get itemID
-                        TextBox cartqty = i.FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
-                        TextBox cartrecord = i.FindControl("cart_recordTextBox") as TextBox;//get record
-                        string a = cartqty.Text;
-                        if (a.Trim() == "")
-                        {
-                        //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input quanqtity！');</script>");
-                        //break;
                         a = "1";
-                        }
-                        if (lac[number].Qty % 1 != 0)
+                    }
+                    if (lac[number].Qty % 1 != 0)
+                    {
+                        ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
+                        break;
+                    }
+                    string b = cartrecord.Text;
+                    foreach (var k in lac)
+                    {
+                        if (k.ItemID == deletebtn.CommandArgument.ToString())
                         {
-                            ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
-                            break;
+                            k.Record = b;
+                            k.Qty = Int32.Parse(a);
                         }
-                        string b = cartrecord.Text;
-                        foreach (var k in lac)
-                        {
-                            if (k.ItemID == deletebtn.CommandArgument.ToString())
-                            {
-                                k.Record = b;
-                                k.Qty = Int32.Parse(a);
-                            }
 
-                        }
-                        if (deletebtn.CommandArgument.ToString() == itemid)//Just get the corresponding itemID
+                    }
+                    if (deletebtn.CommandArgument.ToString() == itemid)//Just get the corresponding itemID
+                    {
+                        foreach (var j in lac)//find in cart
                         {
-                            foreach (var j in lac)//find in cart
-                            {
 
-                                if (j.ItemID == itemid)//only for banning add repeated items
-                                {
-                                    j.Qty = Int32.Parse(a);//store current quantity into session
-                                    j.Record = b;
-                                    alert = 1;
-                                    break;
-                                }
+                            if (j.ItemID == itemid)//only for banning add repeated items
+                            {
+                                j.Qty = Int32.Parse(a);//store current quantity into session
+                                j.Record = b;
+                                alert = 1;
+                                break;
                             }
                         }
                     }
-
-                    //If this item was in the cart ,then alert!!!!
-                    if (alert == 1)
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Already in your cart')", true);
-                        return;
-                    }
-                    //If this item not in the cart ,then add it to the cart
-                    AdjustmentVoucherItemcart c = new AdjustmentVoucherItemcart
-                    {
-                        Name = name,
-                        ItemID = itemid,
-                        Qty = 1//default
-                    };
-
-                    lac.Add(c);
-                    Session["adjvcart"] = lac;
-                    cartUpdatePanel.Update();
-                    updateCart(lac);
-              
-
-                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Invalid input!!！');</script>");
-
-
                 }
 
-                if (e.CommandName == "go")
+                //If this item was in the cart ,then alert!!!!
+                if (alert == 1)
                 {
-                    tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
-
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Already in your cart')", true);
+                    return;
                 }
-
-                try
+                //If this item not in the cart ,then add it to the cart
+                AdjustmentVoucherItemcart c = new AdjustmentVoucherItemcart
                 {
+                    Name = name,
+                    ItemID = itemid,
+                    Qty = 1//default
+                };
+                lac.Add(c);
+                Session["adjvcart"] = lac;
+                cartUpdatePanel.Update();
+                updateCart(lac);
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Invalid input!!！');</script>");
+            }
 
-                    int num = Int32.Parse(tb.Text);
-                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-                    GridView_CatalogList_PageIndexChanging(null, ea);
-                }
-                catch
-                {
-                }
+            if (e.CommandName == "go")
+            {
+                tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
+            }
 
-            
+            try
+            {
+                int num = Int32.Parse(tb.Text);
+                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                GridView_CatalogList_PageIndexChanging(null, ea);
+            }
+            catch
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
+            }
         }
 
         protected void cart_deleteBtn_Click(object sender, EventArgs e)
         {
             LinkButton b = (LinkButton)sender;
             string info = b.CommandArgument.ToString();//itemID and requiredQuantity
-
             List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
             lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
-
-
             for (int i = cartRepeater.Items.Count - 1; i >= 0; i--)//get Quantity from the cart
             {
                 LinkButton deletebtn = cartRepeater.Items[i].FindControl("cart_deleteButton") as LinkButton;//get itemID
                 TextBox cartqty = cartRepeater.Items[i].FindControl("cart_qtyTextBox") as TextBox;//get currrent quantity
                 TextBox cartrecord = cartRepeater.Items[i].FindControl("cart_recordTextBox") as TextBox;//get current record
                 string a = cartqty.Text;
-                string c= cartrecord.Text;
+                string c = cartrecord.Text;
                 if (lac[i].ItemID == info)
                 {
                     lac.RemoveAt(i);
@@ -358,16 +327,15 @@ namespace Team09LogicU.Pages
             Session["adjvcart"] = lac;
             updateCart(lac);
         }
-            //cart delete
-            protected void cartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-            {
+        //cart delete
+        protected void cartRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
             if (e.CommandName == "delete")
             {
                 string[] info = e.CommandArgument.ToString().Split('&');
                 string itemID = info[0];
                 List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
                 lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
-
                 foreach (var i in lac)
                 {
                     if (i.ItemID == itemID)
@@ -375,7 +343,6 @@ namespace Team09LogicU.Pages
                         lac.Remove(i);
                     }
                 }
-
                 cartRepeater.DataSource = lac;
                 cartRepeater.DataBind();
 
@@ -384,13 +351,11 @@ namespace Team09LogicU.Pages
         protected void updateGV()
         {
             string keyword = DropDownList_cat.Text;
-
-
             ItemDAO idao = new ItemDAO();
             string sText = DropDownList_cat.Text.ToString();
             if (sText == "--All--")
-            {             
-                updateCatalogue(idao.getItemList());           
+            {
+                updateCatalogue(idao.getItemList());
             }
             else
             {
@@ -398,9 +363,9 @@ namespace Team09LogicU.Pages
             }
         }
         protected void cart_qtyTextBox_TextChanged(object sender, EventArgs e)
-            {
+        {
 
-            }
+        }
 
         protected void GridView_CatalogList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -411,11 +376,10 @@ namespace Team09LogicU.Pages
                 tb.Text = (GridView_CatalogList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 updateGV();
-
-
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
     }

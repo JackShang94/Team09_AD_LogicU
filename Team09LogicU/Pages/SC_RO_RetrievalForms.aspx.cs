@@ -144,13 +144,6 @@ namespace Team09LogicU.pages
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            //if (((List<RetrievalFormItem>)ViewState["lrfi"]).Count != 0)
-            //{
-            //    // what to confirm???? what if the lrfi change after changing 
-            //    //here it should pop up the yes or no warning instead of an alert
-            //   // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('change something')", true);
-            //}
-            
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
             if (lrfi.Count == 0)
             {

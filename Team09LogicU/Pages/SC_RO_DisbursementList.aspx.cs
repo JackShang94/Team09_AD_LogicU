@@ -127,7 +127,6 @@ namespace Team09LogicU.pages
                 disburseItemGridView.EditIndex = -1;
                 disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
                 disburseItemGridView.DataBind();
-                //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'The quantity you entered cannot larger than needed amount!！');</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('The quantity you entered cannot larger than needed amount!')", true);
                 return;
             }
@@ -141,7 +140,6 @@ namespace Team09LogicU.pages
             else
             {
                 DisbursementDAO disDAO = new DisbursementDAO();
-                //List<DisbursementCart> updateList = (List<DisbursementCart>)ViewState["list"];
                 disDAO.savingActualQty(Convert.ToInt32(ViewState["disburseID"]),itemID, actual);
                 disburseItemGridView.EditIndex = -1;
                 List<DisbursementCart> ldc = (List<DisbursementCart>)ViewState["list"];
@@ -155,7 +153,6 @@ namespace Team09LogicU.pages
                 }
                 disburseItemGridView.DataSource = (List<DisbursementCart>)ViewState["list"];
                 disburseItemGridView.DataBind();
-                //disburseUpdatePanel.Update();
             }
           
         }
@@ -163,8 +160,7 @@ namespace Team09LogicU.pages
         protected void disburseItemGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             disburseItemGridView.EditIndex = -1;
-            disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));
-            
+            disburseItemBindGrid(Convert.ToInt32(ViewState["disburseID"]));          
         }
 
 

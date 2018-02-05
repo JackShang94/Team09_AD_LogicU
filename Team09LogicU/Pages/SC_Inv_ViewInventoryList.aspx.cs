@@ -24,13 +24,10 @@ namespace Team09LogicU.Pages
             if (!IsPostBack)
             {
                 dropDownList_bindCatInfo();
-
                 itemList = itemDAO.getItemList();
                 UpdateGridviewByDropdownList();
-                //showItemInfo(itemList);
             }
             tb.Text = strPageNum;
-            //UpdateGridviewByDropdownList();
         }
 
         public void showItemInfo(List<Item> iList)
@@ -106,6 +103,7 @@ namespace Team09LogicU.Pages
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
         
@@ -117,16 +115,15 @@ namespace Team09LogicU.Pages
                 tb = (TextBox)GridView_stock.BottomPagerRow.FindControl("inPageNum");
 
             }
-
             try
             {
-
                 int num = Int32.Parse(tb.Text);
                 GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                 GridView_stock_PageIndexChanging(null, ea);
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 

@@ -20,28 +20,11 @@ namespace Team09LogicU.Pages
         {
             if (!IsPostBack)
             {
-
-                //this.BindDDL();
                 this.BindGrid();
             }
             tb.Text = strPageNum;
         }
 
-        //protected void BindDDL()
-        //{
-
-        //    //List<Category> categorylist = categoryDAO.getCategoryList();
-        //    //List<string> catalog = new List<string>();
-        //    //foreach (Category c in categorylist)
-        //    //{
-        //    //    catalog.Add(c.categoryID);
-        //    //}
-        //    //ddlCategory.Items.Clear();
-        //    //ddlCategory.DataSource = catalog;
-        //    //ddlCategory.AppendDataBoundItems = true;
-        //    ddlCategory.Items.Insert(0, new ListItem("---Select Catagory---"));
-        //    ddlCategory.DataBind();
-        //}
         protected void GridView_CatalogList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
@@ -51,11 +34,10 @@ namespace Team09LogicU.Pages
                 tb.Text = (GridView_CatalogList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 updateGV();
-
-
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
 
         }
@@ -75,7 +57,6 @@ namespace Team09LogicU.Pages
             }
             GridView_CatalogList.DataSource = list;
             GridView_CatalogList.DataBind();
-
         }
 
         protected void BindGrid()
@@ -97,18 +78,17 @@ namespace Team09LogicU.Pages
             if (e.CommandName == "go")
             {
                 tb = (TextBox)GridView_CatalogList.BottomPagerRow.FindControl("inPageNum");
-
             }
 
             try
             {
-
                 int num = Int32.Parse(tb.Text);
                 GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                 GridView_CatalogList_PageIndexChanging(null, ea);
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
     }
