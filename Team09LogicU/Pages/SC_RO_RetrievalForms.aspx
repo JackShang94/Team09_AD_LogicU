@@ -14,9 +14,11 @@
                     </div>
                     <div class="col-lg-8 " style="margin: 0px 0px 20px 0px">
                         <asp:Button ID="confirmBtn" CssClass="btn btn-wd btn-warning btn-fill" runat="server" Text="Confirm" OnClick="confirmBtn_Click" />
-                    </div>
-
-                    <div class="col-lg-8">
+                    </div></div></div>
+            </div></div>
+                     <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                         <asp:UpdatePanel ID="retrievalUpdatePanel" runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
@@ -62,8 +64,7 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-            </div>
-        </div>
+            
 
         <asp:UpdatePanel ID="breakdownUpdatePanel" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
