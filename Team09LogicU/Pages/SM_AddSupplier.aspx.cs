@@ -20,7 +20,7 @@ namespace Team09LogicU.Pages
         string fax = "";
         string phone = "";
         string contactName = "";
-
+        int phoneno,faxno;
         string logInRole;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,12 +34,25 @@ namespace Team09LogicU.Pages
 
         protected void Btn_Submit_Click(object sender, EventArgs e)
         {
+            int judge = 0;
             if ((TextBox_SupplierCode.Text.Trim() == "")||(TextBox_GSTRegistrationNo.Text.Trim() == "")||(TextBox_SupplierName.Text.Trim() == "")||(TextBox_ContactName.Text.Trim() == "")||(TextBox_Address.Text.Trim() == "")||(TextBox_Fax.Text.Trim() == "")||(TextBox_Phone.Text.Trim() == ""))
             {
                 ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Invalid input!');</script>");
 
             }
-            else {
+            try
+            {
+                faxno= Int32.Parse(TextBox_Fax.Text.ToString());
+                phoneno = Int32.Parse(TextBox_Phone.Text.ToString());
+            }
+
+            catch
+            {
+                judge = 1;
+            }
+
+            if (judge == 0)
+            {
                 supplierCode = TextBox_SupplierCode.Text;
                 supplierName = TextBox_SupplierName.Text;
                 gstRegistrationNo = TextBox_GSTRegistrationNo.Text;
@@ -58,9 +71,13 @@ namespace Team09LogicU.Pages
                 {
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Supplier Code already exists');</script>");
                 }
-               
-               
-               }
+
+
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Invalid input!');</script>");
+            }
 
 
         }
