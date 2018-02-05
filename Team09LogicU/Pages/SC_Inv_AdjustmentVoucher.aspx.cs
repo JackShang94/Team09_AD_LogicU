@@ -140,6 +140,7 @@ namespace Team09LogicU.Pages
             string name = this.staffID;
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             List<AdjustmentVoucherItemcart> lac = new List<AdjustmentVoucherItemcart>();
+            
             lac = (List<AdjustmentVoucherItemcart>)Session["adjvcart"];
             if (lac.Count > 0)
             {
@@ -173,6 +174,15 @@ namespace Team09LogicU.Pages
                         //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
                         break;
                         }
+                        if ((lac[num].Qty < 0) && (Math.Abs(lac[num].Qty) > itemDAO.getItemByitemID(lac[num].ItemID).First().qtyOnHand))
+                        {
+
+                            judge = 2;
+                            break;
+                        }
+                       
+
+
                         lac[num].Record = cartrecord.Text;
                         num++;
                     }
@@ -201,7 +211,14 @@ namespace Team09LogicU.Pages
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
+                    if (judge == 1)
+                    {
+                        ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be lower than qty on hand！');</script>");
+                    }
                 }
             }
             else
