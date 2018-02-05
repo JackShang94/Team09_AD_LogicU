@@ -28,7 +28,6 @@ namespace Team09LogicU.pages
             {
                 Response.Redirect("login.aspx");
             }
-
         }
 
         protected void Logout_Click(object sender, EventArgs e)

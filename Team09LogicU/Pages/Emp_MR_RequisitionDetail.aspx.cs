@@ -18,14 +18,13 @@ namespace Team09LogicU.Pages
         public void initPendingDataGrid()
         {
             RequisitionItemDAO ridao = new RequisitionItemDAO();
-            //List<RequisitionItem> lri = new List<RequisitionItem>();
             List<ReqItems_custom> lri = new List<ReqItems_custom>();
             lri = ridao.getRequisitionItem(this.reqID);
             this.lr_temp = lri;
             requisitionItemListGridView.DataSource = lri;
             requisitionItemListGridView.DataBind();
-
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -57,7 +56,6 @@ namespace Team09LogicU.Pages
                 }
 
                 reSubmit.Enabled = true;
-                //this.reqID = Int32.Parse(Request.QueryString["reqID"]);
                 RequisitionItemDAO ridao = new RequisitionItemDAO();
                 string status = rdao.getStatusByReqID(reqID);//get status
                 if (status ==null)//this requisition doesn't exist
@@ -68,11 +66,7 @@ namespace Team09LogicU.Pages
                     reSubmit.Enabled = false;
                 }
                 this.status = status;
-
-
-            initPendingDataGrid();
-           
-
+            initPendingDataGrid();          
     }
 
 
@@ -98,7 +92,6 @@ namespace Team09LogicU.Pages
 
         protected void backToReqBtn_Click(object sender, EventArgs e)
         {
-
             HttpContext.Current.Response.Redirect("Emp_MyRequisition.aspx");
         }
 
@@ -111,7 +104,6 @@ namespace Team09LogicU.Pages
             else if (e.CommandName == "delete")
             {
                 int reqItemID =Int32.Parse( e.CommandArgument.ToString());// reqitemID !!! not ItemID!!!!
-                //List<RequisitionItem> lri = new List<RequisitionItem>();
                 List<ReqItems_custom> lri = new List<ReqItems_custom>();
                 lri =this.lr_temp;
                 for(int i = lri.Count - 1; i >= 0; i--)
@@ -133,25 +125,20 @@ namespace Team09LogicU.Pages
                 ridao.removeItemByReqItemID(reqItemID);
                 requisitionItemListGridView.DataSource = lri;
                 requisitionItemListGridView.DataBind();
-            }else if(e.CommandName=="Update"){
-                this.reqItemID = Int32.Parse(e.CommandArgument.ToString());
-            
-            }else if (e.CommandName == "cancel")
+            }else if(e.CommandName=="Update")
             {
-
+                this.reqItemID = Int32.Parse(e.CommandArgument.ToString());           
             }
         }
       
         protected void requisitionItemListGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
-                //blank here just in case of exception
         }
         protected void requisitionItemListGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             requisitionItemListGridView.EditIndex = -1;
             initPendingDataGrid();
-
         }
 
         protected void requisitionItemListGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -167,13 +154,10 @@ namespace Team09LogicU.Pages
             ridao.updateItemQty(this.reqItemID, reqItemQty);
             requisitionItemListGridView.EditIndex = -1;
             initPendingDataGrid();
-
-
         }
 
         protected void requisitionItemListGridView_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            
+        {           
             requisitionItemListGridView.EditIndex = e.NewEditIndex;
             initPendingDataGrid();
         }

@@ -38,10 +38,6 @@ namespace Team09LogicU.Pages
                 {
                     DisplaySelectedDisbursementDetails(disID);
                 }
-                else
-                {
-
-                }
             }
         }
 

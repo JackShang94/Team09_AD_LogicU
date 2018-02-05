@@ -13,8 +13,6 @@ namespace Team09LogicU.pages
 {
     public partial class Emp_SubmitRequisition : System.Web.UI.Page
     {
-        //public List<cart> lcart;
-        //public List<Item> lcatalogue;
         List<Item> li;
         public string staffID;
         PagedDataSource pds = new PagedDataSource();
@@ -30,8 +28,6 @@ namespace Team09LogicU.pages
             catalogueRepeater.DataSource = li;
             catalogueRepeater.DataBind();
         }
-
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -70,7 +66,6 @@ namespace Team09LogicU.pages
                
                 /******************************Loading Catalogue List********************************/
                 ItemDAO idao = new ItemDAO();
-               // List<Item> li = idao.getItemList();
                  li = idao.getItemList();
                 updateCatalogue(li);//when model is being used,cannot get from it;
 
@@ -92,9 +87,6 @@ namespace Team09LogicU.pages
             }
 
         }
-
-
-
         /****************************Search Button****************************/
         protected void item_searchBtn_Click(object sender, EventArgs e)
         {
@@ -118,7 +110,6 @@ namespace Team09LogicU.pages
             SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
             ///should use DAO
             string deptID = m.DeptStaffs.Where(x => x.staffID == name).Select(y => y.deptID ).First().ToString();//supposed to be in DepartmentDAO
-            ///
             List<cart> lc = new List<cart>();
             lc =(List < cart >) Session["cart"];
             if (lc.Count>0)
@@ -133,7 +124,6 @@ namespace Team09LogicU.pages
                     if (cartqty.Text.Trim() == "")
                     {
                         judge = 1;
-                        //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input quanqtity！');</script>");
                         break;
                     }
                     try
@@ -149,7 +139,6 @@ namespace Team09LogicU.pages
                     if ((lc[num].Qty % 1 != 0)||(lc[num].Qty<=0))
                     {
                         judge = 1;
-                        //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Input must be integer！');</script>");
                         break;
                     }
                     dict.Add(deletebtn.CommandArgument.ToString(), Int32.Parse(cartqty.Text.ToString()));
@@ -270,11 +259,8 @@ namespace Team09LogicU.pages
                         lc.RemoveAt(i);
                         continue;
                     }
-                    lc[i].Qty = Int32.Parse(a);
-
-              
+                    lc[i].Qty = Int32.Parse(a);             
             }
-
             Session["cart"] = lc;
             updateCart(lc);
         }

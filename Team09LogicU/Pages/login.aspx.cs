@@ -42,7 +42,6 @@ namespace Team09LogicU.pages
             {
                  message.Text = "Invalid username or password!";
             }
-
         }
 
         protected void goToRolePage(string role)

@@ -36,13 +36,7 @@ namespace Team09LogicU.pages
                 }
                 else
                 {
-                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Notice', 'Please input condition！');{location.href='Emp_MyRequisition.aspx'}</script>");
-                    
-                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please input condition！');" +
-                    //    "var timer =null;timer=window.setTimeout(function(){location.href='Emp_MyRequisition.aspx';},5000);" +
-                    //    "</script>");
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Access Denied!', 'Access Denied!');{location.href='Emp_MyRequisition.aspx'}</script>");
-                    //Response.Redirect("Emp_MyRequisition.aspx");
                     Label1.Visible = false;
                     Label3.Visible = false;
                     lblCurrentCP.Visible = false;
@@ -55,7 +49,6 @@ namespace Team09LogicU.pages
         public void DisplayCurrentCP(string logInDept)
         {
             /*Display current collection Point*/
-
             lblCurrentCP.Text = deptDAO.findByDeptId(logInDept).CollectionPoint.description;
         }
 
@@ -71,7 +64,6 @@ namespace Team09LogicU.pages
                 avaliableDescription.Add(cp.description);
             }
            
-
             ddlCP.Items.Clear();
             ddlCP.DataSource = avaliableDescription;
             ddlCP.AppendDataBoundItems = true;
@@ -81,9 +73,7 @@ namespace Team09LogicU.pages
 
         protected void btnUpdateCP_Click(object sender, EventArgs e)
         {
-            string newCPName = ddlCP.SelectedValue;
-            
-
+            string newCPName = ddlCP.SelectedValue;         
             if (newCPName != "---Select Collection Point---")
             {
                 CollectionPoint newCP = cDAO.getCollectionPointByDescription(newCPName);
@@ -95,8 +85,6 @@ namespace Team09LogicU.pages
 
                 DisplayCurrentCP(logInDept);
             }
-
-
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Select Collection Point!')", true);

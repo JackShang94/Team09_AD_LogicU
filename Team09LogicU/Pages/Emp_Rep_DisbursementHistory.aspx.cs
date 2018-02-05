@@ -20,8 +20,7 @@ namespace Team09LogicU.pages
             {
                 logInStaffId = (string)Session["loginID"];
 
-            /*Set the role and dept from login info*/
-
+                /*Set the role and dept from login info*/
                 logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
                 logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
 
@@ -32,7 +31,6 @@ namespace Team09LogicU.pages
                 else
                 {
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Access Denied!', 'Access Denied!');{location.href='Emp_MyRequisition.aspx'}</script>");
-
                 }
             }
         }
@@ -47,7 +45,6 @@ namespace Team09LogicU.pages
 
             deptDisbursementList.DataSource = dList;
             deptDisbursementList.DataBind();
-
         }
 
         protected void LinkButton_View_Click(object sender, EventArgs e)

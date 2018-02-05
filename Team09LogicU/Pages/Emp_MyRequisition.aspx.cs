@@ -32,20 +32,13 @@ namespace Team09LogicU.pages
                 List<Requisition> lr_h = new List<Requisition>();//finally store stuffs without pending
                 List<Requisition> lr = new List<Requisition>();//to store the pending 
                 RequisitionDAO rdao = new RequisitionDAO();
-
-
                 string name = Session["loginID"].ToString();
-
-               
-               
                 /***************send history************************/
                 updateGV();
                 tb.Text = strPageNum;
             }
-            
+
         }
-
-
 
         protected void requisitionListGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -56,17 +49,13 @@ namespace Team09LogicU.pages
                 int req = Int32.Parse(e.CommandArgument.ToString());
 
                 RequisitionDAO rdao = new RequisitionDAO();
-
                 string name = Session["loginID"].ToString();
                 rdao.removeRequisition(req);
-
-
                 this.lr = rdao.getRequisitionByStaffID(name);
 
                 requisitionListGridView.DataSource = rdao.getReqByStaffIDandStatus(name, "pending");
                 requisitionListGridView.DataBind();
             }
-
         }
 
         protected void editReqDetailBtn_Click(object sender, EventArgs e)
@@ -76,7 +65,6 @@ namespace Team09LogicU.pages
             HttpContext.Current.Response.Redirect("Emp_MR_RequisitionDetail.aspx?" +
                 "reqID=" + c);
             return;
-
         }
         protected void requisitionListGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -97,10 +85,7 @@ namespace Team09LogicU.pages
 
         protected void updateGV()
         {
-
-           
             /**************send pending list*******************/
-            
             RequisitionDAO rdao = new RequisitionDAO();
             string name = Session["loginID"].ToString();
             lr = new List<Requisition>();//to store the pending 
@@ -121,7 +106,6 @@ namespace Team09LogicU.pages
             {
                 if ((fromDate.Text == "") || (toDate.Text == ""))
                 {
-                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Plz Enter correct date range!');</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Plz Enter correct date range')", true);
                     return;
                 }
@@ -129,7 +113,6 @@ namespace Team09LogicU.pages
                 DateTime to = Convert.ToDateTime(toDate.Text);
                 if (DateTime.Compare(from, to) > 0)
                 {
-                    //ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Alert', 'Start Date should be greater than end Date！');</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('Start Date should be greater than end Date')", true);
                     return;
                 }
@@ -146,63 +129,50 @@ namespace Team09LogicU.pages
                         }
                     }
                 }
-
             }
             requisitionListGridView.DataSource = lr;
             requisitionListGridView.DataBind();
             ShowRequisition(lr_h);
-
         }
         public void ShowRequisition(List<Requisition> lr_h)
         {
-
             requisitionHistoryGridView.DataSource = lr_h;
             requisitionHistoryGridView.DataBind();
         }
 
         protected void requisitionHistoryGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
-
             if (e.CommandName == "go")
             {
                 tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
 
                 try
                 {
-
-                    //tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
                     int num = Int32.Parse(tb.Text);
                     GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                     requisitionHistoryGridView_PageIndexChanging(null, ea);
                 }
                 catch
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
                 }
             }
         }
 
         protected void requisitionHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
-
-
             try
             {
-
                 tb = (TextBox)requisitionHistoryGridView.BottomPagerRow.FindControl("inPageNum");
                 requisitionHistoryGridView.PageIndex = e.NewPageIndex;
-
                 tb.Text = (requisitionHistoryGridView.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
-
                 updateGV();
-
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
-
         }
     }
 }
