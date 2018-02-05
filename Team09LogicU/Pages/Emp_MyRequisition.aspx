@@ -35,7 +35,7 @@
 
 												<asp:LinkButton ID="viewReqDetailBtn" runat="server" CssClass="btn btn-xs btn-warning" Text="edit" CommandName="editview" CommandArgument='<%# Eval("requisitionID") %>' OnClick="editReqDetailBtn_Click"></asp:LinkButton>
 
-												<asp:LinkButton ID="deleteReqBtn" runat="server" ForeColor="Red" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>' EnableViewState="False"><i class="fa fa-remove "></i></asp:LinkButton>
+												<asp:LinkButton ID="deleteReqBtn" runat="server" ForeColor="Red" Text="delete" CommandName="delete" CommandArgument='<%# Eval("requisitionID") %>' EnableViewState="True"><i class="fa fa-remove "></i></asp:LinkButton>
 
 
 											</ItemTemplate>
