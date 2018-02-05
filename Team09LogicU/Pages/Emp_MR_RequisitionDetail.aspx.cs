@@ -55,20 +55,23 @@ namespace Team09LogicU.Pages
                 {
                     Response.Redirect("Login.aspx");//it should alert() or redirect to an error page;
                 }
-                
 
+                reSubmit.Enabled = true;
                 //this.reqID = Int32.Parse(Request.QueryString["reqID"]);
                 RequisitionItemDAO ridao = new RequisitionItemDAO();
                 string status = rdao.getStatusByReqID(reqID);//get status
                 if (status ==null)//this requisition doesn't exist
                 {
                     Response.Redirect("Emp_MyRequisition.aspx");
+                }else if (status == "pending")
+                {
+                    reSubmit.Enabled = false;
                 }
                 this.status = status;
 
 
             initPendingDataGrid();
-
+           
 
     }
 
@@ -79,6 +82,7 @@ namespace Team09LogicU.Pages
             /*********************IF this is history page*************************************/
             if (this.status != "pending")
             {
+                
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     LinkButton a = (LinkButton)e.Row.FindControl("reqDetailEdit");
