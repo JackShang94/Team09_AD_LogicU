@@ -82,7 +82,7 @@ namespace Team09LogicU.pages
             NotifyButton.Enabled = false;
             /****************end***********************************/
             disburseBindGrid();
-            
+            disburseItemGridView.Visible = false;//
             disburseItemGridView.DataSource = null;
             disburseItemGridView.DataBind();
             disburseItemUpdatePanel.Update();
@@ -95,8 +95,8 @@ namespace Team09LogicU.pages
             string a = s.Text;
             int disburseID = Convert.ToInt32(a);
             ViewState["disburseID"] = Convert.ToInt32(a);
-            
 
+            disburseItemGridView.Visible = true;//
             disburseItemBindGrid(disburseID);
             disburseItemUpdatePanel.Update();
 
