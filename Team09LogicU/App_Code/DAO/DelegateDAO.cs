@@ -30,7 +30,8 @@ namespace Team09LogicU.App_Code.DAO
             }
             context.SaveChanges();
         }
-        public void addDelegate(string selectedStaff, DateTime startDate,DateTime endDate)
+
+        public void addDelegate(string selectedStaff, DateTime startDate, DateTime endDate)
         {
             Models.Delegate delegateItem = new Models.Delegate();
             delegateItem.staffID = selectedStaff;
@@ -42,11 +43,12 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
+        //auto check delegate status when page load
         public void updateDelegateStatus(List<Models.Delegate> delegateList, DateTime operationDate)
         {
             foreach (Models.Delegate item in delegateList)
             {
-                if (item.endDate < operationDate && item.status != "cancelled"&&item.status != "terminated" && item.status != "expired")//expired
+                if (item.endDate < operationDate && item.status != "cancelled" && item.status != "terminated" && item.status != "expired")//expired
                 {
                     item.status = "expired";
 
@@ -59,7 +61,7 @@ namespace Team09LogicU.App_Code.DAO
                 }
                 else
                 {
-                    if (item.startDate<= operationDate && item.endDate >= operationDate && item.status != "cancelled" && item.status != "terminated" && item.status != "expired")//between delegate days
+                    if (item.startDate <= operationDate && item.endDate >= operationDate && item.status != "cancelled" && item.status != "terminated" && item.status != "expired")//between delegate days
                     {
                         item.status = "On delegation";
 
@@ -74,10 +76,11 @@ namespace Team09LogicU.App_Code.DAO
             }
             context.SaveChanges();
         }
+
         //search for all delegates for this department(for viewing delegate history)
         public List<Models.Delegate> findDelegatesByDepartment(string departmentID)
         {
-            List<Models.Delegate> delegateList = context.Delegates.Where(x => x.DeptStaff.deptID == departmentID).OrderByDescending(x=>x.delegateID).ToList();
+            List<Models.Delegate> delegateList = context.Delegates.Where(x => x.DeptStaff.deptID == departmentID).OrderByDescending(x => x.delegateID).ToList();
             return delegateList;
         }
 
@@ -92,6 +95,5 @@ namespace Team09LogicU.App_Code.DAO
             }
             return d;
         }
-
     }
 }

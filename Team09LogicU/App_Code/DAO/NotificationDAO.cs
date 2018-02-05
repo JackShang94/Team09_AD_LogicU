@@ -53,7 +53,8 @@ namespace Team09LogicU.App_Code.DAO
         public List<StoreNotification> getNewStoreNotificationByID(string storeStaffID)
         {
             List<StoreNotification> list = new List<StoreNotification>();
-            list = context.StoreNotifications.OrderByDescending(x => x.date).Where(x => x.storeStaffID == storeStaffID && x.status == "NEW").ToList();
+            list = context.StoreNotifications.OrderByDescending(x => x.date).Where(x => 
+            x.storeStaffID == storeStaffID && x.status == "NEW").ToList();
             return list;
         }
 

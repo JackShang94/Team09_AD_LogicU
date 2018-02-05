@@ -52,6 +52,7 @@ namespace Team09LogicU.App_Code.DAO
                     }
                 }
             }
+
             ///add past1 month disbursement items
             List<Disbursement> month2List = getPast1MonthDisbursementListByDept(deptID, dateTime);
             foreach (Disbursement disBursement in month2List)
@@ -116,16 +117,18 @@ namespace Team09LogicU.App_Code.DAO
             DateTime startDate = new DateTime(dateTime.Year, dateTime.Month, 1);
             DateTime endDate = dateTime;
             List<Disbursement> dList = new List<Disbursement>();
-            dList = context.Disbursements.Where(x => x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed"&&x.deptID==deptID).ToList();
+            dList = context.Disbursements.Where(x => 
+            x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed" && x.deptID == deptID).ToList();
             return dList;
         }
 
-        public List<Disbursement> getPast1MonthDisbursementListByDept(string deptID,DateTime dateTime)
+        public List<Disbursement> getPast1MonthDisbursementListByDept(string deptID, DateTime dateTime)
         {
             DateTime startDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-1);
             DateTime endDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddDays(-1);
             List<Disbursement> dList = new List<Disbursement>();
-            dList = context.Disbursements.Where(x => x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed" && x.deptID == deptID).ToList();
+            dList = context.Disbursements.Where(x => 
+            x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed" && x.deptID == deptID).ToList();
             return dList;
         }
 
@@ -134,7 +137,8 @@ namespace Team09LogicU.App_Code.DAO
             DateTime startDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-2);
             DateTime endDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-1).AddDays(-1);
             List<Disbursement> dList = new List<Disbursement>();
-            dList = context.Disbursements.Where(x => x.disburseDate >= startDate && x.disburseDate< endDate && x.status == "Completed" && x.deptID == deptID).ToList();
+            dList = context.Disbursements.Where(x => 
+            x.disburseDate >= startDate && x.disburseDate < endDate && x.status == "Completed" && x.deptID == deptID).ToList();
             return dList;
         }
 

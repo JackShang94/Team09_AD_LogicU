@@ -22,6 +22,7 @@ namespace Team09LogicU.App_Code.DAO
             context.Outstandings.Add(outstanding);
             context.SaveChanges();
         }
+
         //find outstanding list by department 
         public List<Outstanding> findOutstanding_ByDepartment(string deptID)
         {

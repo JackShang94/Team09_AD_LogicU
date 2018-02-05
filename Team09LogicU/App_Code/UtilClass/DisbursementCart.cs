@@ -13,7 +13,6 @@ namespace Team09LogicU.App_Code.UtilClass
         private int expected;
         private int actual;
         
-
         public string Description
         {
             get

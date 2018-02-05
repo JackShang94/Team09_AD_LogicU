@@ -34,18 +34,15 @@ namespace Team09LogicU.AndroidServices
 
                 List<BreakdownByDepartment> breaklist = list[i].BreakdownByDepartmentList;
                 List<BreakdownByDepartmentData> breakDataList = new List<BreakdownByDepartmentData>();
-                for (int j = 0; j < breaklist.Count(); j++)
+                for (int j = 0; j < breaklist.Count(); j++)// initialize breakDatalist
                 {
                     breakDataList.Add(new BreakdownByDepartmentData());
                     breakDataList[j].deptID = breaklist[j].DeptID;
                     breakDataList[j].needed = breaklist[j].Needed;
                     breakDataList[j].actual = breaklist[j].Actual;
-
                 }
-
-                DataList[i] = RetrievalFormItemData.Make(list[i].ItemID,list[i].ItemDescription,list[i].Location,list[i].Needed,list[i].Actual, breakDataList);
+                DataList[i] = RetrievalFormItemData.Make(list[i].ItemID, list[i].ItemDescription, list[i].Location, list[i].Needed, list[i].Actual, breakDataList);
             }
-
             return DataList;
         }
 

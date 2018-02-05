@@ -25,19 +25,5 @@ namespace Team09LogicU.AndroidServices
         {
             throw new NotImplementedException();
         }
-
-
-
-
-        //public List<WCFDeptStaff> List()
-        //{
-        //    List<WCFDeptStaff> wcfDeptStaffList = new List<WCFDeptStaff>();
-        //    List<DeptStaff> dlist = DeptStaffDAO.;
-        //    foreach (DeptStaff d in dlist)
-        //    {
-        //        wcfDeptStaffList.Add(new WCFDeptStaffd.staffID, d.staffName, d.role, d.deptID, d.password, d.email, d.address));
-        //    }
-        //    return wcfDeptStaffList;
-        //}
     }
 }

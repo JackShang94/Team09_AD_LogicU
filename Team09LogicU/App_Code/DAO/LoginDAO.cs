@@ -22,6 +22,7 @@ namespace Team09LogicU.App_Code.DAO
             }
             return staff;
         }
+
         private StoreStaff getStoreStaffByUsername(string username)
         {
             List<StoreStaff> staffl = context.StoreStaffs.Where(x => x.email == username).ToList();
@@ -33,10 +34,11 @@ namespace Team09LogicU.App_Code.DAO
             }
             return staff;
         }
+
         public string[] getUser(string username)
         {
             if(getDeptStaffByUsername(username).staffID !="")
-            {
+            {//is a department staff
                 DeptStaff staff = getDeptStaffByUsername(username);
                 result[0] = staff.staffID;
                 result[1] = staff.role;
@@ -44,7 +46,7 @@ namespace Team09LogicU.App_Code.DAO
                 result[3] = staff.staffName;                      
             }
             else if(getStoreStaffByUsername(username).storeStaffID!="")
-            {
+            {//is a store staff
                 StoreStaff staff = getStoreStaffByUsername(username);
                 result[0] = staff.storeStaffID;
                 result[1] = staff.role;

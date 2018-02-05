@@ -7,7 +7,6 @@ using Team09LogicU.Models;
 
 namespace Team09LogicU.App_Code.DAO
 {
-
     public class PurchaseOrderDAO
     {
         SA45_Team09_LogicUEntities m = new DBEntities().getDBInstance();
@@ -39,7 +38,7 @@ namespace Team09LogicU.App_Code.DAO
             List<PurchaseOrder> list = m.PurchaseOrders.ToList<PurchaseOrder>();
 
             List<PurchaseOrder> finalList = new List<PurchaseOrder>();
-            for (int i = 0; i < list.Count(); i++)
+            for (int i = 0; i < list.Count(); i++)//compare datetime
             {
                 if (list[i].orderDate.Year > from.Year && list[i].orderDate.Year < to.Year)
                 {
@@ -86,10 +85,10 @@ namespace Team09LogicU.App_Code.DAO
         public List<PurchaseOrder> findPOByDateAndSupID(DateTime from, DateTime to, string supID)
         {
             List<PurchaseOrder> list = m.PurchaseOrders.
-                Where(x =>x.supplierID == supID)
+                Where(x => x.supplierID == supID)
                 .ToList<PurchaseOrder>();
             List<PurchaseOrder> finalList = new List<PurchaseOrder>();
-            for (int i = 0; i < list.Count(); i++)
+            for (int i = 0; i < list.Count(); i++)//compare datetime
             {
                 if (list[i].orderDate.Year > from.Year && list[i].orderDate.Year < to.Year)
                 {

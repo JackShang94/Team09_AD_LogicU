@@ -8,12 +8,14 @@ using Team09LogicU.App_Code.UtilClass;
 
 namespace Team09LogicU.App_Code.DAO
 {
+    //class used in PieChart
     public class PieChartData
     {
         public string catagory;
         public  int  qtyOnHand;
     }
 
+    //class used in Department rep chart
     public class DeptRepChartData
     {
         public string deptID;
@@ -21,6 +23,7 @@ namespace Team09LogicU.App_Code.DAO
         public string email;
     }
 
+    //class used in outstanding chart
     public class OutstandingChartData
     {
         public string itemID;
@@ -42,7 +45,7 @@ namespace Team09LogicU.App_Code.DAO
             {
                 foreach (OutstandingItem outitem in outstanding.OutstandingItems)
                 {
-                    IsNewItem = true;
+                    IsNewItem = true;//reset boolean
                     foreach (OutstandingChartData item in ocList)
                     {
                         if (outitem.itemID == item.itemID)//not new item
@@ -51,7 +54,7 @@ namespace Team09LogicU.App_Code.DAO
                             item.outstandingQty = item.outstandingQty + outitem.expectedQty;
                         }
                     }
-                    if (IsNewItem)
+                    if (IsNewItem)//is a new item
                     {
                         OutstandingChartData newItem = new OutstandingChartData();
                         newItem.itemID = outitem.itemID;
@@ -71,7 +74,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<PieChartData> plist = new List<PieChartData>();
             List<Category> clist = context.Categories.ToList();
-            foreach (Category item in clist)
+            foreach (Category item in clist)//set clist value
             {
                 int qtyOnhand = context.Items.Where(x => x.categoryID == item.categoryID).Select(x => x.qtyOnHand).Sum();
                 PieChartData pItem = new PieChartData();
@@ -86,7 +89,8 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<DeptRepChartData> dRepList = new List<DeptRepChartData>();
             List<Department> dList = context.Departments.ToList();
-            foreach (Department item in dList)
+
+            foreach (Department item in dList)//set dlist value
             {
                 DeptRepChartData dRepItem = new DeptRepChartData();
                 dRepItem.deptID = item.deptName;

@@ -16,6 +16,7 @@ namespace Team09LogicU.App_Code.DAO
         public decimal unitPrice;
         public decimal totalPrice;
     }
+
     public class SOADAO
     {
         SA45_Team09_LogicUEntities context = new DBEntities().getDBInstance();

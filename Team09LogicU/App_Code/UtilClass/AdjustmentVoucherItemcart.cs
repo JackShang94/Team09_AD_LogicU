@@ -39,9 +39,5 @@ namespace Team09LogicU.App_Code.UtilClass
         {
             get; set;
         }
-
-
-
-
     }
 }

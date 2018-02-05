@@ -53,15 +53,8 @@ namespace Team09LogicU.App_Code.DAO
             context.SaveChanges();
         }
 
-        public List<OutstandingCart> getPendingOutstandingCartByDeptID(string deptID,string status)
+        public List<OutstandingCart> getPendingOutstandingCartByDeptID(string deptID, string status)
         {
-            //int fromYear = from.Year;
-            //int toYear = to.Year;
-            //int fromMonth = from.Month;
-            //int toMonth = to.Month;
-            //int fromDay = from.Day;
-            //int toDay = to.Day;
-
             var a = (from o in context.Outstandings
                      where o.status == status && o.deptID == deptID
                      join oi in context.OutstandingItems on o.outstandingID equals oi.outstandingID
@@ -80,12 +73,7 @@ namespace Team09LogicU.App_Code.DAO
                 return loc;
             }
             loc = (List<OutstandingCart>)a.ToList();
-
             return loc;
-             
-                      
-                        
-
         }
     }
 }

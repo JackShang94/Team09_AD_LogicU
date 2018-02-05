@@ -27,7 +27,6 @@ namespace Team09LogicU.pages
                 if (logInRole == "head" || logInRole == "delegateHead")
                 {
                     /*Set the role and dept from login info*/
-
                     logInRole = deptStaffDAO.findStaffByID(logInStaffId).role;
                     logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
 
@@ -54,7 +53,6 @@ namespace Team09LogicU.pages
         public void DisplayCurrentRep(string logInDept)
         {
             /*Display current rep*/
-
             lblCurrentRep.Text = deptStaffDAO.findDeptRep(logInDept).staffName.ToString();
         }
 
@@ -62,7 +60,6 @@ namespace Team09LogicU.pages
         public void DisplayAvaliableEmp(string logInDept)
         {
             /*Display the avaliable employee in the department into dropdown list*/
-
             List<DeptStaff> staffList = deptStaffDAO.findOnlyEmployee(logInDept);
             List<string> avaliableName = new List<string>();
             foreach (DeptStaff s in staffList)

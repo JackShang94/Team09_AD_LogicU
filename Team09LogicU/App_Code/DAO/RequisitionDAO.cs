@@ -17,16 +17,12 @@ namespace Team09LogicU.App_Code.DAO
 
         public void addRequisition(string staffID, string deptID, Dictionary<string, int> dict)//by dept emp //
         {
-
             Requisition r = new Requisition();
-
             r.staffID = staffID;
             r.deptID = deptID;
             r.status = "pending";//can use a configuration class
             r.requisitionDate = DateTime.Now;
             r.approvedDate = null;//set as minvalue
-
-
 
             m.Requisitions.Add(r);
             m.SaveChanges();
@@ -59,9 +55,9 @@ namespace Team09LogicU.App_Code.DAO
             r.approvedDate = DateTime.Now;
             m.SaveChanges();
         }
+
         public string getStatusByReqID(int reqID)
         {
-
             var a = m.Requisitions.Where(x => x.requisitionID == reqID).SingleOrDefault();
             if (a != null)
             {
@@ -69,6 +65,7 @@ namespace Team09LogicU.App_Code.DAO
             }
             return null;
         }
+
         public string getStaffIDByReqID(int reqID)
         {
             var a = m.Requisitions.Where(x => x.requisitionID == reqID).SingleOrDefault();
@@ -78,18 +75,22 @@ namespace Team09LogicU.App_Code.DAO
             }
             return null;
         }
+
         public List<Requisition> getRequisitionByStatus(string status)//used by dept head
         {
             return m.Requisitions.Where(x => x.status == status).ToList<Requisition>();
         }
+
         public List<Requisition> getReqByStaffIDandStatus(string staffID, string status)
         {
             return m.Requisitions.Where(x => x.staffID == staffID && x.status == status).ToList<Requisition>();
         }
-        public List<Requisition> getRequisitionByStaffID(string staffID)//
+
+        public List<Requisition> getRequisitionByStaffID(string staffID)
         {
             return m.Requisitions.Where(x => x.staffID == staffID).OrderByDescending(x => x.requisitionDate).ToList<Requisition>();
         }
+
         public List<Requisition> getRequisitionByDeptID(string DeptID)//used by disbursement,outstanding
         {
             return m.Requisitions.Where(x => x.deptID == DeptID).ToList<Requisition>();
@@ -98,15 +99,20 @@ namespace Team09LogicU.App_Code.DAO
         public List<RequisitionByStaffCart> findRequisitionByDeptIdAndStatus(string deptID, string status)
         {
             List<RequisitionByStaffCart> list = m.Requisitions.
-                Where(x => x.status == status && x.deptID == deptID).OrderByDescending(x => x.requisitionDate).Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+                Where(x => x.status == status && x.deptID == deptID).OrderByDescending(x =>
+                x.requisitionDate).Select(x => new RequisitionByStaffCart {
+                    RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status
+                }).ToList<RequisitionByStaffCart>();
             return list;
-
         }
 
         public List<RequisitionByStaffCart> findRequisitionByDeptID(string DeptID)//used by dept head to view history
         {
             List<RequisitionByStaffCart> list = m.Requisitions.
-               Where(x => x.deptID == DeptID).OrderByDescending(x => x.requisitionDate).Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+               Where(x => x.deptID == DeptID).OrderByDescending(x => x.requisitionDate).Select(x => 
+               new RequisitionByStaffCart {
+                   RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status
+               }).ToList<RequisitionByStaffCart>();
             return list;
         }
 
@@ -118,7 +124,10 @@ namespace Team09LogicU.App_Code.DAO
         public List<RequisitionByStaffCart> findRequisitionByStaffID(string staffID)//
         {
             List<RequisitionByStaffCart> list = m.Requisitions.
-                Where(x => x.staffID == staffID).OrderByDescending(x => x.requisitionDate).Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+                Where(x => x.staffID == staffID).OrderByDescending(x => x.requisitionDate).Select(x => 
+                new RequisitionByStaffCart {
+                    RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status
+                }).ToList<RequisitionByStaffCart>();
             return list;
         }
 
@@ -126,10 +135,12 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<RequisitionByStaffCart> list = m.Requisitions.
                 Where(x => x.deptID == deptID).
-                Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+                Select(x => new RequisitionByStaffCart {
+                    RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status
+                }).ToList<RequisitionByStaffCart>();
 
             List<RequisitionByStaffCart> finalList = new List<RequisitionByStaffCart>();
-            for (int i = 0; i < list.Count(); i++)
+            for (int i = 0; i < list.Count(); i++)//compare datetime
             {
                 if (list[i].RequisitionDate.Year > from.Year && list[i].RequisitionDate.Year < to.Year)
                 {
@@ -170,7 +181,9 @@ namespace Team09LogicU.App_Code.DAO
         {
             List<RequisitionByStaffCart> list = m.Requisitions.
                 Where(x => x.staffID == staffID).
-                Select(x => new RequisitionByStaffCart { RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status }).ToList<RequisitionByStaffCart>();
+                Select(x => new RequisitionByStaffCart {
+                    RequisitionId = x.requisitionID, StaffName = x.DeptStaff.staffName, RequisitionDate = x.requisitionDate, Status = x.status
+                }).ToList<RequisitionByStaffCart>();
 
             List<RequisitionByStaffCart> finalList = new List<RequisitionByStaffCart>();
             for (int i = 0; i < list.Count(); i++)
@@ -249,7 +262,5 @@ namespace Team09LogicU.App_Code.DAO
             }
             return finalList;
         }
-
-
     }
 }

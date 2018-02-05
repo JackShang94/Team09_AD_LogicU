@@ -29,23 +29,9 @@ namespace Team09LogicU.AndroidServices
                 if (result[1] == "rep")//its department
                 {
                     deptID = deptStaffDAO.getDeptIDByStaffID(result[0]);
-
                 }
-                else if (result[1] == "clerk")//its store
-                {
-                    
-                }
-
                 info = result[0] + "&" + result[1] + "&" + deptID;//result[0] is loginID,result[1] is role
             }
-            else if (result[0] != "")//user not exists
-            {
-
-            }else//invalid password
-            {
-
-            }
-
             return info;
         }
     }

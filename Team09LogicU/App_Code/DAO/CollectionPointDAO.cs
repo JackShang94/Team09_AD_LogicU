@@ -18,7 +18,6 @@ namespace Team09LogicU.App_Code.DAO
         SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
 
         //show all collectionpoints
-        //
         public List<CollectionPoint> getAllCollectionPoint()
         {
             return context.CollectionPoints.ToList();
@@ -28,6 +27,7 @@ namespace Team09LogicU.App_Code.DAO
         {
             return context.CollectionPoints.Where(x => x.description == description).First();
         }
+
         public String getCollectionPointNameByID(string ID)
         {
             CollectionPoint c = new CollectionPoint();
@@ -39,6 +39,7 @@ namespace Team09LogicU.App_Code.DAO
             }
             return c.description;
         }
+
         public List<CollectionPointInformation> getCollectionPointInformation()
         {
             List<CollectionPointInformation> list = new List<CollectionPointInformation>();
@@ -47,11 +48,9 @@ namespace Team09LogicU.App_Code.DAO
                          join dp in context.Departments on ds.deptID equals dp.deptID
                          join cp in context.CollectionPoints on dp.collectionPointID equals cp.collectionPointID
                          select cp.description;
-            //string sql = "select * from IntegralInfo where convert(nvarchar,getdate(),23)='{0}' and status=1 and userinfoid='{1}'";
-            //sql = string.Format(sql, DateTime.Now.ToString("yyyy-MM-dd"), uid);
-            //var IntegralInfoObj = context.Database.SqlQuery<IntegralInfo>(sql).FirstOrDefault();
             return list;
         }
+
         public void updatecollection(string storestaffID,string description)
         {
             CollectionPoint col = context.CollectionPoints.Where(x => x.description == description).First();

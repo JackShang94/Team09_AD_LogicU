@@ -50,7 +50,7 @@ namespace Team09LogicU.pages
             List<RequisitionByStaffCart> list = new List<RequisitionByStaffCart>();
             list = reqDAO.findRequisitionByDeptID(deptID);
 
-            for (int i=list.Count-1; i>=0; i--)
+            for (int i = list.Count - 1; i >= 0; i--)
             {
                 RequisitionByStaffCart reqByStaffCart = new RequisitionByStaffCart();
                 reqByStaffCart = list[i];
@@ -77,24 +77,15 @@ namespace Team09LogicU.pages
             }
         }
 
-
-
-
         protected void GridView_ReqHistory_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            try
-            {
                 tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
                 GridView_ReqHistory.PageIndex = e.NewPageIndex;
                 tb.Text = (GridView_ReqHistory.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 BindGrid();
-            }
-            catch
-            {
-            }
         }
-        
+
 
         protected void GridView_ReqHistory_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -103,17 +94,9 @@ namespace Team09LogicU.pages
                 tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
 
             }
-
-            try
-            {
-
-                int num = Int32.Parse(tb.Text);
-                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-                GridView_ReqHistory_PageIndexChanging(null, ea);
-            }
-            catch
-            {
-            }
+            int num = Int32.Parse(tb.Text);
+            GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+            GridView_ReqHistory_PageIndexChanging(null, ea);
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -124,8 +107,6 @@ namespace Team09LogicU.pages
             List<RequisitionByStaffCart> list = new List<RequisitionByStaffCart>();
 
             string ReqStaffName = ddlStaff.Text;
-            
-
             string from = txtFrom.Text;
             string to = txtTo.Text;
 
@@ -134,11 +115,11 @@ namespace Team09LogicU.pages
                 ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>win.alert('Notice', 'Please input condition！');</script>");
             }
 
-                if (ReqStaffName == "---Select Name---" && (from != "" && to != ""))
+            if (ReqStaffName == "---Select Name---" && (from != "" && to != ""))
             {
                 DateTime dateFrom = Convert.ToDateTime(from);
                 DateTime dateTo = Convert.ToDateTime(to);
-                list = reqDAO.findRequisitionByDate(dateFrom,dateTo, deptID);
+                list = reqDAO.findRequisitionByDate(dateFrom, dateTo, deptID);
             }
             if ((from == "" || to == "") && ReqStaffName != "---Select Name---")
             {

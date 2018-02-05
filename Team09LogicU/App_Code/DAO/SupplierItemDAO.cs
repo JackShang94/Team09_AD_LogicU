@@ -17,7 +17,6 @@ namespace Team09LogicU.App_Code.DAO
             return qry.ToList<SupplierItem>();
         }
 
-
         public void updateSupplierItem(string itemID, List<string> supList, List<decimal> priceList)
         {
             List<SupplierItem> supItemList = m.SupplierItems.Where(x => x.itemID == itemID).ToList();
@@ -78,6 +77,7 @@ namespace Team09LogicU.App_Code.DAO
             decimal price = supItem.price;
             return price;
         }
+
         public SupplierItem findSupplierItemByItemIDAndSupplier(string itemID, string supplierID)
         {
             SupplierItem item = new SupplierItem();

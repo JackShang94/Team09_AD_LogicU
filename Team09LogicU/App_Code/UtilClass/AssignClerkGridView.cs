@@ -7,7 +7,6 @@ namespace Team09LogicU.App_Code.UtilClass
 {
     public class AssignClerkGridView
     {
-
         private string collectionPointName;
         private string deptID;
         private string status;

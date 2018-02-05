@@ -15,17 +15,20 @@ namespace Team09LogicU.App_Code.DAO
             "['Element', 'Quantity'],";
             foreach (MonthlyReorderItem item in monthlyItemList)
             {
-                ColumnChartdata = ColumnChartdata + "['"+item.Description+"',"+item.OrderQty+"],";
+                ColumnChartdata = ColumnChartdata + "['" + item.Description + "'," + item.OrderQty + "],";
             }
-          return ColumnChartdata = ColumnChartdata + "]";
+            return ColumnChartdata = ColumnChartdata + "]";
         }
+
         public string getGoogleTableChartData(List<MonthlyReorderItem> monthlyItemList)
         {
             string TableChartdata = "[" +
             "['Order Date', 'Item ID','Description','Order Quantity','Price','Total Amount'],";
             foreach (MonthlyReorderItem item in monthlyItemList)
             {
-                TableChartdata = TableChartdata + "['" + item.OrderDate + "','" + item.ItemID+"','" + item.Description+"',"+item.OrderQty+","+item.Price+","+ item.TotalAmount + "],";
+                TableChartdata = TableChartdata + "['" + 
+                    item.OrderDate + "','" + item.ItemID + "','" + item.Description + "'," + item.OrderQty + "," + item.Price + "," + item.TotalAmount 
+                    + "],";
             }
             return TableChartdata = TableChartdata + "]";
         }
