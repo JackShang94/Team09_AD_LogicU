@@ -4,6 +4,9 @@
     Manage Reorder
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <script src="../js/window.js"></script>
+    <script src="../js/jquery-1.7.1.min.js"></script>
+    <link href="../css/window.css" rel="stylesheet" />
      <div class="row">
             <div class="col-lg-10">
                 <asp:LinkButton ID="LinkButton_history" runat="server" text="Click here to view history" BorderStyle="None" Font-Overline="False" Font-Strikeout="False" Font-Underline="True" ForeColor="#666666" Font-Bold="False" OnClick="LinkButton_history_Click"></asp:LinkButton>

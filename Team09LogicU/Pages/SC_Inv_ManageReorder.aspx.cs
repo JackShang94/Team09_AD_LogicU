@@ -73,6 +73,14 @@ namespace Team09LogicU.Pages
             string supplierID = (row.FindControl("ddlSuppliers") as DropDownList).SelectedItem.Value;
             int orderQty = Int32.Parse((row.FindControl("txtOrderQty") as TextBox).Text);
 
+            if (orderQty < itemDAO.getReorderQtyByitemID(itemID) && orderQty!=0)
+            {
+                GridView_reorderList.EditIndex = -1;
+                BindGrid();
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please order more than reorder quantity!')", true);
+                return;
+            }
+
             List<ReorderItem> reorderList = new List<ReorderItem>();
             reorderList = (List<ReorderItem>)Session["reorderList"];
 
