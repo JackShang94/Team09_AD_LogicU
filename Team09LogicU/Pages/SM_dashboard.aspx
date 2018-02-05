@@ -118,7 +118,7 @@
                    };
 
                    // Instantiate and draw our chart, passing in some options.
-                   var chart = new google.visualization.LineChart(document.getElementById('chart1'));
+                   var chart = new google.visualization.BarChart(document.getElementById('chart1'));
                    chart.draw(data, options);
                    var Piechart = new google.visualization.PieChart(document.getElementById('piechart'));
                    Piechart.draw(piedata, optionpie);
