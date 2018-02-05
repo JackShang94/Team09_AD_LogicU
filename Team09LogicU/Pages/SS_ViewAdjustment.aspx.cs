@@ -48,6 +48,7 @@ namespace Team09LogicU.Pages
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 
@@ -64,6 +65,7 @@ namespace Team09LogicU.Pages
                 }
                 catch
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
                 }
             }
         }

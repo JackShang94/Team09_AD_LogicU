@@ -32,9 +32,6 @@ namespace Team09LogicU.Pages
                 supervisorID = (string)Session["loginID"];
 
                 AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvoucherID);
-
-                //List <AdjustmentVoucherItem> adjvi =  adjvidao.getAdjustmentVoucherItemListByADJVID(adjvoucherID);
-
                 string authorisedby = sDAO.getStoreStaffNameByID(adjv.authorisedBy);
                 string status = adjv.status;
                 DateTime adjvDate = adjv.adjDate;
@@ -82,6 +79,7 @@ namespace Team09LogicU.Pages
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 
@@ -98,6 +96,7 @@ namespace Team09LogicU.Pages
                 }
                 catch
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
                 }
             }
         }
@@ -126,13 +125,11 @@ namespace Team09LogicU.Pages
         {
             GridView_detailList.DataSource = iTable;
             GridView_detailList.DataBind();
-
         }
 
        
         protected void btn_Back_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("./SS_ViewAdjustment.aspx");
         }
 

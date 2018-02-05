@@ -247,9 +247,5 @@ namespace Team09LogicU.Pages
                 }
             }
         }
-
-
     }
-
-
 }
