@@ -79,11 +79,14 @@ namespace Team09LogicU.pages
 
         protected void GridView_ReqHistory_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            
+            
                 tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
                 GridView_ReqHistory.PageIndex = e.NewPageIndex;
                 tb.Text = (GridView_ReqHistory.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 BindGrid();
+            
         }
 
 
@@ -91,12 +94,18 @@ namespace Team09LogicU.pages
         {
             if (e.CommandName == "go")
             {
-                tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
+                try
+                {
+                    tb = (TextBox)GridView_ReqHistory.BottomPagerRow.FindControl("inPageNum");
+
+
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_ReqHistory_PageIndexChanging(null, ea);
+                }
+                catch { ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true); }
 
             }
-            int num = Int32.Parse(tb.Text);
-            GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-            GridView_ReqHistory_PageIndexChanging(null, ea);
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

@@ -24,21 +24,28 @@ namespace Team09LogicU.pages
 
         protected void GridView_PendingReqList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView_PendingReqList.PageIndex = e.NewPageIndex;
+           
+                GridView_PendingReqList.PageIndex = e.NewPageIndex;
 
-            TextBox tb = (TextBox)GridView_PendingReqList.BottomPagerRow.FindControl("inPageNum");
-            tb.Text = (GridView_PendingReqList.PageIndex + 1).ToString();
-            BindGrid();
+                TextBox tb = (TextBox)GridView_PendingReqList.BottomPagerRow.FindControl("inPageNum");
+                tb.Text = (GridView_PendingReqList.PageIndex + 1).ToString();
+                BindGrid();
+            
         }
 
         protected void GridView_PendingReqList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
             {
+                try
+                {
                 TextBox tb = (TextBox)GridView_PendingReqList.BottomPagerRow.FindControl("inPageNum");
                 int num = Int32.Parse(tb.Text);
                 GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                 GridView_PendingReqList_PageIndexChanging(null, ea);
+                }
+                catch { ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true); }
+
             }
         }
 

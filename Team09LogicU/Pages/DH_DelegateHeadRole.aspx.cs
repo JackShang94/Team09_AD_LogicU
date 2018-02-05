@@ -146,23 +146,27 @@ namespace Team09LogicU.pages
 
         protected void GridView_dHistory_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            
                 GridView_dHistory.PageIndex = e.NewPageIndex;
                 bindData(deptID);
                 TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");
                 tb.Text = (GridView_dHistory.PageIndex + 1).ToString();
-        }
+            }
 
         protected void GridView_dHistory_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
             { 
                 TextBox tb = (TextBox)GridView_dHistory.BottomPagerRow.FindControl("inPageNum");
-                if (tb.Text!="")
+
+                try
                 {
                     int num = Int32.Parse(tb.Text);
                     GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                     GridView_dHistory_PageIndexChanging(null, ea);
                 }
+                catch { ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true); }
+
             }
         }
     }

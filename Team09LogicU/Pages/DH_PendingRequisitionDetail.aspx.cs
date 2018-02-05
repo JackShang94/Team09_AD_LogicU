@@ -36,21 +36,28 @@ namespace Team09LogicU.Pages
 
         protected void GridView_detailList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView_detailList.PageIndex = e.NewPageIndex;
-            BindData();
+            
+                GridView_detailList.PageIndex = e.NewPageIndex;
+                BindData();
 
-            TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
-            tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+                TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
+                tb.Text = (GridView_detailList.PageIndex + 1).ToString();
+            
         }
 
         protected void GridView_detailList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "go")
             {
-                TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
-                int num = Int32.Parse(tb.Text);
-                GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
-                GridView_detailList_PageIndexChanging(null, ea);
+                try
+                {
+                    TextBox tb = (TextBox)GridView_detailList.BottomPagerRow.FindControl("inPageNum");
+                    int num = Int32.Parse(tb.Text);
+                    GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
+                    GridView_detailList_PageIndexChanging(null, ea);
+                }
+                catch { ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true); }
+
             }
         }
 
