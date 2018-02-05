@@ -159,17 +159,39 @@ namespace Team09LogicU.pages
             }
             if (CheckQty(lrfi))
             {
-                retrievalDAO.ConfirmRetrieval(lrfi, DateTime.Today);
+                if (CheckNeedQty(lrfi))
+                {
+                    retrievalDAO.ConfirmRetrieval(lrfi, DateTime.Today);
 
-                HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");
+                    HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");
+                }else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Actual quantity must be lower than Needed quantity!')", true);
+                }
+               
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Actual quantity must be lower than qty on hand!')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('Actual quantity must be lower than qty on hand!')", true);
             }
+            
 
         }
+        protected  bool CheckNeedQty(List<RetrievalFormItem> lrfi)
+        {
+            bool IsValiable = true;
+            foreach (RetrievalFormItem item in lrfi)
+            {
+               
+                if (item.Needed <item.Actual)
+                {
 
+                    IsValiable = false;
+                    break;
+                }
+            }
+            return IsValiable;
+        }
         protected bool CheckQty(List<RetrievalFormItem> lrfi )
         {
             bool IsValiable = true;
@@ -178,6 +200,7 @@ namespace Team09LogicU.pages
                 int qtyOnHand = context.Items.Where(x => x.itemID == item.ItemID).Select(x => x.qtyOnHand).ToList().First();
                 if (item.Actual>qtyOnHand)
                 {
+                    
                     IsValiable = false;
                     break;
                 }
@@ -185,7 +208,7 @@ namespace Team09LogicU.pages
             return IsValiable;
         }
         protected void breakdownGridView_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-        {//doens't be triggered???
+        {
             
         }
 
