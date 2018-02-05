@@ -70,11 +70,10 @@ namespace Team09LogicU.Pages
                 tb.Text = (GridView_itemList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 updateGV();
-
-
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 
@@ -88,15 +87,14 @@ namespace Team09LogicU.Pages
 
             try
             {
-
                 int num = Int32.Parse(tb.Text);
                 GridViewPageEventArgs ea = new GridViewPageEventArgs(num - 1);
                 GridView_itemList_PageIndexChanging(null, ea);              
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
-
         }
     }
 }

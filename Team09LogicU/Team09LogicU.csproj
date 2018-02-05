@@ -188,7 +188,6 @@
     <Content Include="Pages\SC_ViewPurchaseOrderHistory.aspx" />
     <Content Include="Pages\SC_ViewReorderList.aspx" />
     <Content Include="Pages\SC_ViewSupplier.aspx" />
-    <Content Include="Pages\SM_AddCatalog.aspx" />
     <Content Include="Pages\SM_AddItem.aspx" />
     <Content Include="Pages\SM_AddSupplier.aspx" />
     <Content Include="Pages\SM_ApproveAdjustment.aspx" />
@@ -854,13 +853,6 @@
     </Compile>
     <Compile Include="Pages\SC_ViewSupplier.aspx.designer.cs">
       <DependentUpon>SC_ViewSupplier.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SM_AddCatalog.aspx.cs">
-      <DependentUpon>SM_AddCatalog.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\SM_AddCatalog.aspx.designer.cs">
-      <DependentUpon>SM_AddCatalog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SM_AddItem.aspx.cs">
       <DependentUpon>SM_AddItem.aspx</DependentUpon>

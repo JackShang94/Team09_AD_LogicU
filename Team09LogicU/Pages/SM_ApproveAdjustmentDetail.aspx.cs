@@ -35,11 +35,6 @@ namespace Team09LogicU.Pages
                 string authorisedby = sDAO.getStoreStaffNameByID(adjv.authorisedBy);
                 string status = adjv.status;
                 DateTime adjvDate = adjv.adjDate;
-                //if (authorisedby == "")
-                //{
-                //    LabeltxtAutBy.Style.Value = " display:none;";
-                //    Label_Authorisedby.Style.Value = " display:none;";
-                //}
                 if (adjv.status != "PendingForManager")
                 {
                     TextBox_Remarks.Style.Value = " display:none;";
@@ -63,11 +58,10 @@ namespace Team09LogicU.Pages
                 tb.Text = (GridView_detailList.PageIndex + 1).ToString();
                 strPageNum = tb.Text;
                 updateGV();
-
-
             }
             catch
             {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
             }
         }
 
@@ -84,6 +78,7 @@ namespace Team09LogicU.Pages
                 }
                 catch
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Page Number')", true);
                 }
             }
         }
@@ -106,19 +101,15 @@ namespace Team09LogicU.Pages
                 iTable.Rows.Add(dr);
             }
             showItemInfo(iTable);
-
-
         }
 
         public void showItemInfo(DataTable iTable)
         {
             GridView_detailList.DataSource = iTable;
             GridView_detailList.DataBind();
-
         }
         protected void btn_Back_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("./SM_ApproveAdjustment.aspx");
         }
 
@@ -136,10 +127,6 @@ namespace Team09LogicU.Pages
             AdjustmentVoucher adjv = adjvdao.findAdjustmentVoucherByadjvId(adjvID);
             adjvdao.RejectAdjustmentVoucherStatus(adjv, managerID);
             Response.Redirect("./SM_ApproveAdjustment.aspx");
-        }
-
-         
-
+        }     
     }
-
 }

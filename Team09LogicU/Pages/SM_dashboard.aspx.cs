@@ -10,8 +10,7 @@ using Team09LogicU.Models;
 namespace Team09LogicU.Pages
 {
     public partial class SM_dashboard : System.Web.UI.Page
-    {
-       
+    {  
             DepartmentDAO dpd = new DepartmentDAO();
             DashBoardDAO dashBoardDAO = new DashBoardDAO();
             TrendAnalysisReportDAO reportDAO = new TrendAnalysisReportDAO();
@@ -33,11 +32,6 @@ namespace Team09LogicU.Pages
                 deptName = dept_dropList.SelectedItem.Text;
                 deptid = dpd.findDepartmentIdByName(deptName);
                 dataChart = getBarChartDataByDeptID(deptid);
-
-
-
-
-
             }
             string loginID = Session["loginID"].ToString();
             NotificationDAO nDAO = new NotificationDAO();

@@ -15,7 +15,6 @@ namespace Team09LogicU.Pages
         string logInRole;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             logInRole = (string)Session["loginRole"];
             if (logInRole == "manager")
             {
