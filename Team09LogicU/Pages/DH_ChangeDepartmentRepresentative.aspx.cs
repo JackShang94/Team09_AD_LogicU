@@ -80,12 +80,21 @@ namespace Team09LogicU.pages
         {
             //Update 
             string newRepName = ddlEmp.SelectedValue;
-            DeptStaff newRep = deptStaffDAO.findStaffByName(newRepName);
-            logInDept = newRep.deptID;
-            Department dept = deptDAO.findByDeptId(logInDept);
-            DeptStaff oldRep = deptStaffDAO.findDeptRep(logInDept);
-            deptStaffDAO.updateRepName(newRep,oldRep);
-            deptDAO.UpdateDeptRep(dept,newRep);
+            DeptStaff newRep = new DeptStaff();
+            if (newRepName != "---Select Name---")
+            {
+                newRep = deptStaffDAO.findStaffByName(newRepName);
+                logInDept = newRep.deptID;
+                Department dept = deptDAO.findByDeptId(logInDept);
+                DeptStaff oldRep = deptStaffDAO.findDeptRep(logInDept);
+                deptStaffDAO.updateRepName(newRep, oldRep);
+                deptDAO.UpdateDeptRep(dept, newRep);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Select Name First!')", true);
+                return;
+            }
 
             //send feedback email and notification to employee 
             SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
