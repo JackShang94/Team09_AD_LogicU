@@ -13,6 +13,7 @@ namespace Team09LogicU.pages
     public partial class SC_RO_RetrievalForms : System.Web.UI.Page
     {
         RetrievalDAO retrievalDAO = new RetrievalDAO();
+        SA45_Team09_LogicUEntities context = new SA45_Team09_LogicUEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -143,12 +144,12 @@ namespace Team09LogicU.pages
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            if (((List<RetrievalFormItem>)ViewState["lrfi"]).Count != 0)
-            {
-                // what to confirm???? what if the lrfi change after changing 
-                //here it should pop up the yes or no warning instead of an alert
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('change something')", true);
-            }
+            //if (((List<RetrievalFormItem>)ViewState["lrfi"]).Count != 0)
+            //{
+            //    // what to confirm???? what if the lrfi change after changing 
+            //    //here it should pop up the yes or no warning instead of an alert
+            //   // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('change something')", true);
+            //}
             
             List<RetrievalFormItem> lrfi = (List<RetrievalFormItem>)ViewState["lrfi"];
             if (lrfi.Count == 0)
@@ -156,13 +157,58 @@ namespace Team09LogicU.pages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Nothing to Confirm!')", true);
                 return;
             }
-            retrievalDAO.ConfirmRetrieval(lrfi, DateTime.Today);
+            if (CheckQty(lrfi))
+            {
+                if (CheckNeedQty(lrfi))
+                {
+                    retrievalDAO.ConfirmRetrieval(lrfi, DateTime.Today);
 
-            HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");
+                    HttpContext.Current.Response.Redirect("SC_RO_DisbursementList.aspx");
+                }else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage1", "alert('Actual quantity must be lower than Needed quantity!')", true);
+                }
+               
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage2", "alert('Actual quantity must be lower than qty on hand!')", true);
+            }
+            
+
         }
+        protected  bool CheckNeedQty(List<RetrievalFormItem> lrfi)
+        {
+            bool IsValiable = true;
+            foreach (RetrievalFormItem item in lrfi)
+            {
+               
+                if (item.Needed <item.Actual)
+                {
 
+                    IsValiable = false;
+                    break;
+                }
+            }
+            return IsValiable;
+        }
+        protected bool CheckQty(List<RetrievalFormItem> lrfi )
+        {
+            bool IsValiable = true;
+            foreach (RetrievalFormItem item in lrfi)
+            {
+                int qtyOnHand = context.Items.Where(x => x.itemID == item.ItemID).Select(x => x.qtyOnHand).ToList().First();
+                if (item.Actual>qtyOnHand)
+                {
+                    
+                    IsValiable = false;
+                    break;
+                }
+            }
+            return IsValiable;
+        }
         protected void breakdownGridView_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-        {//doens't be triggered???
+        {
             
         }
 

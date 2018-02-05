@@ -83,6 +83,8 @@ namespace Team09LogicU.Pages
                 {
                     LinkButton a = (LinkButton)e.Row.FindControl("reqDetailEdit");
                     LinkButton b = (LinkButton)e.Row.FindControl("reqDetailDelete");
+                    int column_count = requisitionItemListGridView.Columns.Count;
+                    requisitionItemListGridView.Columns[column_count - 1].Visible = false;
                     a.Visible = false;
                     b.Visible = false;
                 }

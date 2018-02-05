@@ -60,7 +60,15 @@ namespace Team09LogicU.App_Code.DAO
             return m.Items.Where(x => x.itemID.Contains(itemID) || x.categoryID.Contains(itemID)
                                                                  || x.description.Contains(itemID)).ToList();
         }
-        
+
+
+        public int getReorderQtyByitemID(string itemID)
+        {
+
+            Item i = m.Items.Where(x => x.itemID==itemID).First();
+            return i.reorderQty;
+        }
+
         public List<Item> getItemByDesc(string desc)
         {
             if (!String.IsNullOrWhiteSpace(desc))
