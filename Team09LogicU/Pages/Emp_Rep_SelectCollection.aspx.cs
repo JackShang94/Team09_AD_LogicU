@@ -82,16 +82,26 @@ namespace Team09LogicU.pages
         protected void btnUpdateCP_Click(object sender, EventArgs e)
         {
             string newCPName = ddlCP.SelectedValue;
-            CollectionPoint newCP = cDAO.getCollectionPointByDescription(newCPName);
+            
 
-            logInStaffId = (string)Session["loginID"];
-            logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
-            Department dept = deptDAO.findByDeptId(logInDept);
+            if (newCPName != "---Select Collection Point---")
+            {
+                CollectionPoint newCP = cDAO.getCollectionPointByDescription(newCPName);
+                logInStaffId = (string)Session["loginID"];
+                logInDept = deptStaffDAO.findStaffByID(logInStaffId).deptID;
+                Department dept = deptDAO.findByDeptId(logInDept);
 
-            deptDAO.UpdateCollectionPoint(dept,newCP);
+                deptDAO.UpdateCollectionPoint(dept, newCP);
 
-            DisplayCurrentCP(logInDept);
+                DisplayCurrentCP(logInDept);
+            }
 
+
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Select Collection Point!')", true);
+                return;
+            }
         }
     }
 }
