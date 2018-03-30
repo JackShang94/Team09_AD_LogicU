@@ -44,7 +44,6 @@ namespace Team09LogicU.pages
                     ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript", "<script>alert('Access Denied!', 'Access Denied!');{location.href='Emp_MyRequisition.aspx'}</script>");
                     //Response.Redirect("Emp_MyRequisition.aspx");
                     Label1.Visible = false;
-                    Label2.Visible = false;
                     Label3.Visible = false;
                     lblCurrentCP.Visible = false;
                     ddlCP.Visible = false;
