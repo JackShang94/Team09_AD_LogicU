@@ -33,21 +33,24 @@ namespace Team09LogicU.Pages
             string status = adjv.status;
             DateTime adjvDate = adjv.adjDate;
 
-            if (adjvdao.price(adjvoucherID) == 1)
-            {
-                button_SendtoManager.Style.Value = " display:block;";
-                TextBox_Remarks.Style.Value = " display:none;";
-                button_Reject.Style.Value = " display:none;";
-                button_Approve.Style.Value = " display:none;";
-            }
+          
             if (adjv.status != "pending")
             {
                 TextBox_Remarks.Style.Value = " display:none;";
                 button_Reject.Style.Value = " display:none;";
                 button_Approve.Style.Value = " display:none;";
-              
+
             }
-            
+            else {
+                if (adjvdao.price(adjvoucherID) == 1)
+                {
+                    button_SendtoManager.Style.Value = " display:block;";
+                    TextBox_Remarks.Style.Value = " display:none;";
+                    button_Reject.Style.Value = " display:none;";
+                    button_Approve.Style.Value = " display:none;";
+                }
+               
+            }
 
 
             Label_StoreStafID.Text = supervisorID;

@@ -3,7 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     
-     <div class="col-lg-10" style="margin-bottom: 20px">
+            <div class="row">
+                        <div class="col-lg-10">
+							<div class="card">
                             <asp:GridView ID="disbursementDetail" runat="server" CssClass="table bootstrap-table table-hover table-striped" HeaderStyle-CssClass=" content text-uppercase  " AutoGenerateColumns="False" EditRowStyle-CssClass="btn btn-warning btn-fill fa fa-edit" CellPadding="4" ForeColor="#333333" GridLines="None">
                                 <AlternatingRowStyle BackColor="White" />
                                 <Columns>
@@ -18,9 +20,8 @@
                                 </Columns>
                                 <HeaderStyle CssClass=" content text-uppercase"></HeaderStyle>
                             </asp:GridView>
-                                <br>
-                                <br>
-                                <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary btn-fill btn-wd " OnClick="btnBack_Click" />
-       </div>
+                               </div></div> </div>
+                                <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-default btn-wd " OnClick="btnBack_Click" />
+      
 
 </asp:Content>

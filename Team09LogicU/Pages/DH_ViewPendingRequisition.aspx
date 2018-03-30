@@ -22,7 +22,7 @@
                                                         <asp:BoundField DataField="staffName" HeaderText="Requested Staff" />
                                                         <asp:BoundField DataField="requisitionDate" HeaderText="Date Submitted" />
                                                         <asp:BoundField DataField="status" HeaderText="Status" />
-                                                        <asp:TemplateField HeaderText="Approve/ Reject" ShowHeader="False">
+                                                        <asp:TemplateField HeaderText="Action" ShowHeader="False">
                                                             <ItemTemplate>
                                                                 <asp:LinkButton ID="LinkButton_Select" runat="server" CausesValidation="False" CommandName="Select" Text="View" OnClick="LinkButton_View_Click" ControlStyle-CssClass=" text-center btn btn-xs btn-primary"  ></asp:LinkButton>
                                                             </ItemTemplate>
